@@ -202,9 +202,14 @@ VantComponent({
     onPreviewFile(event: WechatMiniprogram.TouchEvent) {
       const { index } = event.currentTarget.dataset;
 
-      wx.openDocument({
-        filePath: this.data.lists[index].url,
-        showMenu: true,
+      wx.downloadFile({
+        url: this.data.lists[index].url,
+        success({ tempFilePath }) {
+          wx.openDocument({
+            filePath: tempFilePath,
+            showMenu: true,
+          });
+        },
       });
     },
 

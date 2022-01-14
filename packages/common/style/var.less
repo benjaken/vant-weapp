@@ -11,8 +11,8 @@
 @gray-8: #323233;
 @red: #ee0a24;
 @blue: #1989fa;
-@orange: #ff976a;
-@orange-dark: #ed6a0c;
+@orange: #ff9a26;
+@orange-dark: #f96400;
 @orange-light: #fffbe8;
 @green: #07c160;
 
@@ -102,8 +102,8 @@
 @button-default-background-color: @white;
 @button-default-border-color: @border-color;
 @button-primary-color: @white;
-@button-primary-background-color: @green;
-@button-primary-border-color: @green;
+@button-primary-background-color: @orange;
+@button-primary-border-color: @orange;
 @button-info-color: @white;
 @button-info-background-color: @blue;
 @button-info-border-color: @blue;
@@ -111,8 +111,8 @@
 @button-danger-background-color: @red;
 @button-danger-border-color: @red;
 @button-warning-color: @white;
-@button-warning-background-color: @orange;
-@button-warning-border-color: @orange;
+@button-warning-background-color: @orange-dark;
+@button-warning-border-color: @orange-dark;
 @button-line-height: 20px;
 @button-border-width: 1px;
 @button-border-radius: @border-radius-sm;
@@ -136,14 +136,14 @@
 @calendar-day-height: 64px;
 @calendar-day-font-size: @font-size-lg;
 @calendar-range-edge-color: @white;
-@calendar-range-edge-background-color: @red;
-@calendar-range-middle-color: @red;
+@calendar-range-edge-background-color: @orange;
+@calendar-range-middle-color: @orange;
 @calendar-range-middle-background-opacity: 0.1;
 @calendar-selected-day-size: 54px;
 @calendar-selected-day-color: @white;
 @calendar-info-font-size: @font-size-xs;
 @calendar-info-line-height: 14px;
-@calendar-selected-day-background-color: @red;
+@calendar-selected-day-background-color: @orange;
 @calendar-day-disabled-color: @gray-5;
 @calendar-confirm-button-height: 36px;
 @calendar-confirm-button-margin: 7px 0;
@@ -158,7 +158,7 @@
 @card-title-line-height: 16px;
 @card-desc-color: @gray-7;
 @card-desc-line-height: 20px;
-@card-price-color: @red;
+@card-price-color: @orange;
 @card-origin-price-color: @gray-7;
 @card-origin-price-font-size: @font-size-xs;
 @card-price-font-size: @font-size-sm;
@@ -166,7 +166,7 @@
 @card-price-font-family: @price-integer-font-family;
 
 // Cell
-@cell-font-size: @font-size-md;
+@cell-font-size: @font-size-lg;
 @cell-line-height: 24px;
 @cell-vertical-padding: 10px;
 @cell-horizontal-padding: @padding-md;
@@ -203,7 +203,7 @@
 @checkbox-transition-duration: 0.2s;
 @checkbox-label-margin: 10px;
 @checkbox-label-color: @text-color;
-@checkbox-checked-icon-color: @blue;
+@checkbox-checked-icon-color: @orange;
 @checkbox-disabled-icon-color: @gray-5;
 @checkbox-disabled-label-color: @gray-5;
 @checkbox-disabled-background-color: @border-color;
@@ -243,7 +243,7 @@
 @dialog-has-title-message-padding-top: @padding-xs;
 
 // Field
-@field-label-color: @gray-7;
+@field-label-color: @gray-8;
 @field-input-text-color: @text-color;
 @field-input-error-text-color: @red;
 @field-input-disabled-text-color: @gray-5;
@@ -258,7 +258,7 @@
 @field-word-limit-color: @gray-7;
 @field-word-limit-font-size: @font-size-sm;
 @field-word-limit-line-height: 16px;
-@field-word-num-full-color: @red;
+@field-word-num-full-color: @orange;
 @field-disabled-text-color: @gray-5;
 
 // GoodsAction
@@ -293,7 +293,7 @@
 @info-font-size: 12px;
 @info-font-weight: 500;
 @info-border-width: 1px;
-@info-background-color: @red;
+@info-background-color: @orange;
 @info-dot-color: @red;
 @info-dot-size: 8px;
 @info-font-family: -apple-system-font, Helvetica Neue, Arial, sans-serif;
@@ -310,8 +310,8 @@
 @nav-bar-height: 46px;
 @nav-bar-background-color: @white;
 @nav-bar-arrow-size: 16px;
-@nav-bar-icon-color: @blue;
-@nav-bar-text-color: @blue;
+@nav-bar-icon-color: @orange;
+@nav-bar-text-color: @orange;
 @nav-bar-title-font-size: @font-size-lg;
 @nav-bar-title-text-color: @text-color;
 
@@ -330,17 +330,17 @@
 @notify-padding: 6px 15px;
 @notify-font-size: 14px;
 @notify-line-height: 20px;
-@notify-primary-background-color: @blue;
+@notify-primary-background-color: @orange;
 @notify-success-background-color: @green;
 @notify-danger-background-color: @red;
-@notify-warning-background-color: @orange;
+@notify-warning-background-color: @orange-dark;
 
 // Overlay
 @overlay-background-color: rgba(0, 0, 0, 0.7);
 
 // Panel
 @panel-background-color: @white;
-@panel-header-value-color: @red;
+@panel-header-value-color: @orange;
 @panel-footer-padding: @padding-xs @padding-md;
 
 // Picker
@@ -353,7 +353,7 @@
 @picker-cancel-action-color: @gray-6;
 @picker-option-font-size: @font-size-lg;
 @picker-option-text-color: @black;
-@picker-loading-icon-color: @blue;
+@picker-loading-icon-color: @orange;
 @picker-loading-mask-color: rgba(255, 255, 255, 0.9);
 @picker-option-disabled-opacity: 0.3;
 @picker-option-selected-text-color: @text-color;
@@ -370,10 +370,10 @@
 @progress-height: 4px;
 @progress-background-color: @gray-3;
 @progress-pivot-padding: 0 5px;
-@progress-color: @blue;
+@progress-color: @orange;
 @progress-pivot-font-size: @font-size-xs;
 @progress-pivot-line-height: 1.6;
-@progress-pivot-background-color: @blue;
+@progress-pivot-background-color: @orange;
 @progress-pivot-text-color: @white;
 
 // Radio
@@ -382,7 +382,7 @@
 @radio-transition-duration: 0.2s;
 @radio-label-margin: 10px;
 @radio-label-color: @text-color;
-@radio-checked-icon-color: @blue;
+@radio-checked-icon-color: @orange;
 @radio-disabled-icon-color: @gray-5;
 @radio-disabled-label-color: @gray-5;
 @radio-disabled-background-color: @border-color;
@@ -391,7 +391,7 @@
 @rate-horizontal-padding: 2px;
 @rate-icon-size: 20px;
 @rate-icon-void-color: @gray-5;
-@rate-icon-full-color: @red;
+@rate-icon-full-color: @orange;
 @rate-icon-disabled-color: @gray-5;
 @rate-icon-gutter: @padding-base;
 
@@ -404,7 +404,7 @@
 @switch-node-box-shadow: 0 3px 1px 0 rgba(0, 0, 0, 0.05),
   0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 3px 3px 0 rgba(0, 0, 0, 0.05);
 @switch-background-color: @white;
-@switch-on-background-color: @blue;
+@switch-on-background-color: @orange;
 @switch-transition-duration: 0.3s;
 @switch-disabled-opacity: 0.4;
 @switch-border: 1px solid rgba(0, 0, 0, 0.1);
@@ -451,11 +451,11 @@
 @sidebar-background-color: @background-color;
 @sidebar-selected-font-weight: @font-weight-bold;
 @sidebar-selected-text-color: @text-color;
-@sidebar-selected-border-color: @red;
+@sidebar-selected-border-color: @orange;
 @sidebar-selected-background-color: @white;
 
 // Slider
-@slider-active-background-color: @blue;
+@slider-active-background-color: @orange;
 @slider-inactive-background-color: @gray-3;
 @slider-disabled-opacity: @disabled-opacity;
 @slider-bar-height: 2px;
@@ -486,7 +486,7 @@
 @stepper-button-icon-color: @text-color;
 @stepper-button-disabled-color: @background-color;
 @stepper-button-disabled-icon-color: @gray-5;
-@stepper-button-round-theme-color: @red;
+@stepper-button-round-theme-color: @orange;
 @stepper-input-width: 32px;
 @stepper-input-height: 28px;
 @stepper-input-font-size: @font-size-md;
@@ -501,7 +501,7 @@
 @submit-bar-z-index: 100;
 @submit-bar-background-color: @white;
 @submit-bar-button-width: 110px;
-@submit-bar-price-color: @red;
+@submit-bar-price-color: @orange;
 @submit-bar-price-font-size: @font-size-sm;
 @submit-bar-currency-font-size: @font-size-sm;
 @submit-bar-text-color: @text-color;
@@ -524,7 +524,7 @@
 // TabbarItem
 @tabbar-item-font-size: @font-size-sm;
 @tabbar-item-text-color: @gray-7;
-@tabbar-item-active-color: @blue;
+@tabbar-item-active-color: @orange;
 @tabbar-item-line-height: 1;
 @tabbar-item-icon-size: 22px;
 @tabbar-item-margin-bottom: 4px;
@@ -536,7 +536,7 @@
 @tab-font-size: @font-size-md;
 
 // Tabs
-@tabs-default-color: @red;
+@tabs-default-color: @orange;
 @tabs-line-height: 44px;
 @tabs-card-height: 30px;
 @tabs-nav-background-color: @white;
@@ -544,10 +544,10 @@
 @tabs-bottom-bar-color: @tabs-default-color;
 
 // Tag
-@tag-padding: 0 @padding-base;
+@tag-padding: @padding-base @padding-xs;
 @tag-text-color: @white;
 @tag-font-size: @font-size-sm;
-@tag-border-radius: 2px;
+@tag-border-radius: @border-radius-md;
 @tag-line-height: 16px;
 @tag-medium-padding: 2px 6px;
 @tag-large-padding: @padding-base @padding-xs;
@@ -555,7 +555,7 @@
 @tag-large-font-size: @font-size-md;
 @tag-round-border-radius: @border-radius-max;
 @tag-danger-color: @red;
-@tag-primary-color: @blue;
+@tag-primary-color: @orange;
 @tag-success-color: @green;
 @tag-warning-color: @orange;
 @tag-default-color: @gray-6;
@@ -609,7 +609,7 @@
 @tree-select-content-background-color: @white;
 @tree-select-nav-item-padding: @padding-sm @padding-xs @padding-sm @padding-sm;
 @tree-select-item-height: 44px;
-@tree-select-item-active-color: @red;
+@tree-select-item-active-color: @orange;
 @tree-select-item-disabled-color: @gray-5;
 
 // Uploader
@@ -643,11 +643,11 @@
 @dropdown-menu-background-color: @white;
 @dropdown-menu-title-font-size: 15px;
 @dropdown-menu-title-text-color: @text-color;
-@dropdown-menu-title-active-text-color: @red;
+@dropdown-menu-title-active-text-color: @orange;
 @dropdown-menu-title-disabled-text-color: @gray-6;
 @dropdown-menu-title-padding: 0 @padding-xs;
 @dropdown-menu-title-line-height: 18px;
-@dropdown-menu-option-active-color: @red;
+@dropdown-menu-option-active-color: @orange;
 @dropdown-menu-box-shadow: 0 2px 12px fade(@gray-7, 12);
 
 // IndexAnchor

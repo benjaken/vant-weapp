@@ -300,6 +300,23 @@ export default {
         ],
       },
       {
+        title: '优房组件',
+        items: [
+          {
+            path: 'check-button',
+            title: 'CheckButton 复选按钮',
+          },
+          {
+            path: 'editor',
+            title: 'Editor 编辑器',
+          },
+          {
+            path: 'image-swiper',
+            title: 'ImageSwiper 图片轮播',
+          }
+        ]
+      },
+      {
         title: '废弃',
         items: [
           {

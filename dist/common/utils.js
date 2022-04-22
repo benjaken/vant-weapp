@@ -29,12 +29,6 @@ export function addUnit(value) {
     return isNumber(value) ? `${value}px` : value;
 }
 export function requestAnimationFrame(cb) {
-    const systemInfo = getSystemInfoSync();
-    if (systemInfo.platform === 'devtools') {
-        return setTimeout(() => {
-            cb();
-        }, 1000 / 30);
-    }
     return wx
         .createSelectorQuery()
         .selectViewport()

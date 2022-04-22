@@ -60,6 +60,7 @@ Page({
 | left-text | 左侧文案 | _string_ | `''` |
 | right-text | 右侧文案 | _string_ | `''` |
 | left-arrow | 是否显示左侧箭头 | _boolean_ | `false` |
+| show-home | 是否显示home按钮，开启后`left-text`失效 | _boolean_ | `false` |
 | fixed | 是否固定在顶部 | _boolean_ | `false` |
 | placeholder | 固定在顶部时是否开启占位 | _boolean_ | `false` |
 | border | 是否显示下边框 | _boolean_ | `true` |
@@ -81,6 +82,7 @@ Page({
 | ---------------- | ------------------ | ---- |
 | bind:click-left  | 点击左侧按钮时触发 | -    |
 | bind:click-right | 点击右侧按钮时触发 | -    |
+| bind:click-home | 点击home按钮时触发 | -    |
 
 ### 外部样式类
 

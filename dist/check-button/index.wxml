@@ -1,0 +1,16 @@
+<wxs src="../wxs/utils.wxs" module="utils" />
+<wxs src="./index.wxs" module="wxs" />
+
+<view class="custom-class {{ utils.bem('check-button') }}">
+  <view class="{{ utils.bem('check-button__content', {horizon, disabled})}}">
+    <view
+			class="{{ utils.bem('check-button__item', [{active: wxs.isActive(value, (needIndex ? index : item))}]) }}"
+			style="flex:0 0 {{100 / row - 1}}%; margin-right: {{wxs.between(index, row, horizon)}};"
+			wx:for="{{options}}"
+			wx:key="index"
+			block
+			data-item="{{needIndex ? index : item}}"
+			bindtap="selectItem"
+    >{{item}}</view>
+  </view>
+</view>

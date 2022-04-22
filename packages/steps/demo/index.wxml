@@ -35,4 +35,13 @@
   />
 </demo-block>
 
+<demo-block title="定制反向竖向步骤条">
+  <van-steps
+    steps="{{ cstuomSteps }}"
+    active="{{ 0 }}"
+    direction="vertical"
+    reverse
+  />
+</demo-block>
+
 <van-toast id="van-toast" />

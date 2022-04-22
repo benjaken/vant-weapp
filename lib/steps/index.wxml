@@ -12,8 +12,32 @@
     >
       <view class="van-step__title" style="{{ index === active ? 'color: ' + activeColor : '' }}">
         <view>{{ item.text }}</view>
-        <view class="desc-class">{{ item.desc }}</view>
+        <view wx:if="{{direction == 'horizontal'}}" class="desc-class">{{ item.desc }}</view>
+        <text wx:if="{{item.date && direction == 'vertical'}}" class="van-step__date">{{ item.date }}</text>
       </view>
+      <view
+        wx:if="{{item.desc && direction == 'vertical'}}"
+        class="van-step__desc"
+        style="max-height: {{!item.showMore ? '36px' : 'auto'}}"
+      >
+        <rich-text class="van-step__rich-text-{{index}}" style="word-break: break-all" nodes="{{item.desc}}" />
+      </view>
+      <van-uploader
+        wx:if="{{ item.file && item.hasMore && item.showMore && direction == 'vertical' }}"
+        class="van-step__upload"
+        file-list="{{ item.file }}"
+        deletable="{{ false }}"
+        show-upload="{{false}}"
+        image-fit="aspectFill"
+        max-count="30"
+      />
+      <view
+        class="van-step__more"
+        style="{{ 'color: ' + ((reverse ? index >= active : index < active) ? activeColor : inactiveColor) }}"
+        wx:if="{{ item.hasMore && direction == 'vertical' }}"
+        data-index="{{index}}"
+        catchtap="onToggle"
+      >{{item.showMore ? '收回' : '详情'}}</view>
       <view class="van-step__circle-container">
         <block wx:if="{{ index !== active }}">
           <van-icon
@@ -25,7 +49,7 @@
           <view
             wx:else
             class="van-step__circle"
-            style="{{ 'background-color: ' + (index < active ? activeColor : inactiveColor) }}"
+            style="{{ 'background-color: ' + ((reverse ? index >= active : index < active) ? activeColor : inactiveColor) }}"
           />
         </block>
 
@@ -33,7 +57,7 @@
       </view>
       <view
         wx:if="{{ index !== steps.length - 1 }}"
-        class="van-step__line" style="{{ 'background-color: ' + (index < active ? activeColor : inactiveColor) }}"
+        class="van-step__line" style="{{ 'background-color: ' + ((reverse ? index >= active : index < active) ? activeColor : inactiveColor) }}"
       />
     </view>
   </view>

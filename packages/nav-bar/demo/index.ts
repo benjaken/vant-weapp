@@ -9,5 +9,9 @@ VantComponent({
     onClickRight() {
       wx.showToast({ title: '点击按钮', icon: 'none' });
     },
+
+    onClickHome() {
+      wx.showToast({ title: '点击Home', icon: 'none' });
+    }
   },
 });

@@ -1,0 +1,19 @@
+/* eslint-disable */
+
+function getStartIndex(index, arr) {
+  var start = 0
+  if (index == 0) {
+    return 0
+  } else {
+    var slice = arr.slice(0, index)
+    slice.map(function(item) {
+      var images = item.images || []
+      start += images.length
+    })
+    return start
+  }
+}
+
+module.exports = {
+  getStartIndex: getStartIndex
+};

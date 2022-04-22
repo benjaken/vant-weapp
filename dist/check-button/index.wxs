@@ -1,0 +1,18 @@
+/* eslint-disable */
+
+function isActive (arr, value) {
+  return arr.indexOf(value) > -1;
+}
+
+function between (index, row, horizon) {
+  if ((index + 1) % row === 0 && !horizon) {
+    return 0;
+  } else {
+    return row / (row - 1) + '%';
+  }
+}
+
+module.exports = {
+  isActive: isActive,
+  between: between
+}

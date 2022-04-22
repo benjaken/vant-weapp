@@ -36,14 +36,6 @@ export function addUnit(value?: string | number): string | undefined {
 }
 
 export function requestAnimationFrame(cb: () => void) {
-  const systemInfo = getSystemInfoSync();
-
-  if (systemInfo.platform === 'devtools') {
-    return setTimeout(() => {
-      cb();
-    }, 1000 / 30);
-  }
-
   return wx
     .createSelectorQuery()
     .selectViewport()

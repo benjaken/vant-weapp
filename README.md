@@ -30,7 +30,7 @@ Vant 是一个**轻量、可靠的移动端组件库**，于 2017 年开源。
 
 扫描下方小程序二维码，体验组件库示例：
 
-<img src="https://img.yzcdn.cn/vant-weapp/qrcode-201808101114.jpg" width="200" height="200" style="margin-top: 10px;" >
+<img src="./oPV8S5XZWjw2eHd-d9sUVlhrxReQ.jpg" width="200" height="200" style="margin-top: 10px;" >
 
 ## 使用之前
 

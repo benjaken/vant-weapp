@@ -4,44 +4,37 @@
     "ignore": []
   },
   "setting": {
-    "urlCheck": false,
-    "es6": true,
-    "enhance": true,
-    "postcss": false,
-    "preloadBackgroundData": false,
-    "minified": true,
-    "newFeature": false,
-    "coverView": true,
-    "nodeModules": false,
-    "autoAudits": false,
-    "showShadowRootInWxmlPanel": true,
+    "urlCheck": true,
     "scopeDataCheck": false,
-    "uglifyFileName": false,
-    "checkInvalidKey": true,
-    "checkSiteMap": true,
-    "uploadWithSourceMap": true,
+    "coverView": true,
+    "es6": false,
+    "postcss": true,
     "compileHotReLoad": false,
     "lazyloadPlaceholderEnable": false,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "autoAudits": false,
+    "newFeature": false,
+    "uglifyFileName": false,
+    "uploadWithSourceMap": true,
+    "useIsolateContext": false,
+    "nodeModules": false,
+    "enhance": true,
     "useMultiFrameRuntime": true,
     "useApiHook": true,
-    "useApiHostProcess": false,
-    "babelSetting": {
-      "ignore": [],
-      "disablePlugins": [],
-      "outputPath": ""
-    },
-    "enableEngineNative": false,
-    "useIsolateContext": true,
-    "userConfirmedBundleSwitch": false,
+    "useApiHostProcess": true,
+    "showShadowRootInWxmlPanel": true,
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true,
-    "showES6CompileOption": false
+    "disableUseStrict": false,
+    "ignoreUploadUnusedFiles": true,
+    "minifyWXML": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.6.5",
-  "appid": "wx1c01b35002d3ba14",
-  "projectname": "vant-weapp",
+  "appid": "wxeeafd0a624c7d877",
+  "projectname": "example",
   "debugOptions": {
     "hidedInDevtools": []
   },
@@ -264,6 +257,18 @@
         },
         {
           "id": -1,
+          "name": "check-button",
+          "pathName": "pages/check-button/index",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "editor",
+          "pathName": "pages/editor/index",
+          "query": ""
+        },
+        {
+          "id": -1,
           "name": "goods-action",
           "pathName": "pages/goods-action/index",
           "query": ""
@@ -405,6 +410,11 @@
         {
           "name": "divider",
           "pathName": "pages/divider/index",
+          "scene": null
+        },
+        {
+          "name": "image-swiper",
+          "pathName": "pages/image-swiper/index",
           "scene": null
         }
       ]

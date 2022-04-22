@@ -18,6 +18,7 @@ VantComponent({
     rightText: String,
     customStyle: String,
     leftArrow: Boolean,
+    showHome: Boolean,
     border: {
       type: Boolean,
       value: true,
@@ -56,6 +57,10 @@ VantComponent({
 
     onClickRight() {
       this.$emit('click-right');
+    },
+
+    onClickHome() {
+      this.$emit('click-home');
     },
 
     setHeight() {

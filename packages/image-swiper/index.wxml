@@ -1,0 +1,48 @@
+<wxs src="../wxs/utils.wxs" module="utils" />
+<wxs src="./index.wxs" module="wxs" />
+
+<view class="van-image-swiper">
+	<swiper
+		class="van-image-swiper__content"
+		autoplay="{{autoplay}}"
+		interval="{{interval}}"
+		current="{{current}}"
+		circular="{{circular}}"
+		vertical="{{vertical}}"
+		bindchange="onSwipeChange"
+	>
+		<block>
+			<swiper-item
+				wx:for="{{ swipeImages }}"
+				wx:key="index"
+				data-url="{{ item }}"
+				bindtap="onImagePreview"
+			>
+				<view class="van-image-swiper__content-item">
+					<image class="van-image-swiper__image" mode="aspectFill" src="{{ item }}" />
+				</view>
+			</swiper-item>
+		</block>
+	</swiper>
+	<view
+		wx:if="{{ showIndicator }}"
+		class="{{ utils.bem('image-swiper__indicator', { vertical }) }}"
+		style="background:{{indicatorColor}};color:{{indicatorTextColor}}"
+	>
+		{{ current + 1 }}/{{ swipeImages.length }}
+	</view>
+	<view
+		wx:if="{{ showToggle }}"
+		class="{{ utils.bem('image-swiper__toggle', { vertical }) }}"
+		style="background:{{indicatorColor}};color:{{indicatorTextColor}}"
+	>
+		<block wx:for="{{ images }}" wx:key="index">
+			<view
+				wx:if="{{ item.images.length > 0 }}"
+				class="{{ utils.bem('image-swiper__toggle-btn', { active: active == item.name }) }}"
+				data-index="{{ wxs.getStartIndex(index, images) }}"
+				bindtap="toggleType"
+			>{{ item.label }}</view>
+		</block>
+	</view>
+</view>

@@ -1,0 +1,32 @@
+<demo-block title="基本用法">
+  <van-image-swiper
+    images="{{images}}"
+    show-toggle
+  />
+</demo-block>
+<demo-block title="自动播放">
+  <van-image-swiper
+    images="{{images}}"
+    autoplay
+    show-toggle
+    interval="3000"
+  />
+</demo-block>
+<demo-block title="衔接滑动">
+  <van-image-swiper
+    images="{{images}}"
+    circular
+    autoplay
+    show-toggle
+    interval="3000"
+  />
+</demo-block>
+<demo-block title="垂直模式">
+  <van-image-swiper
+    images="{{images}}"
+    vertical
+    autoplay
+    show-toggle
+    interval="3000"
+  />
+</demo-block>

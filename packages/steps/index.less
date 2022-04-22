@@ -157,5 +157,26 @@
       transform: translate3d(-50%, 0, 0);
       background-color: var(--step-line-color, @step-line-color);
     }
+
+    .van-step__title {
+      display: flex;
+      font-weight: bold;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12rpx;
+      .van-step__date {
+        color: var(--step-text-color, @step-text-color);
+      }
+    }
+
+    .van-step__desc {
+      overflow: hidden;
+      margin-bottom: 12rpx;
+    }
+  
+    .van-step__more {
+      text-align: right;
+      font-size: 28rpx;
+    }
   }
 }

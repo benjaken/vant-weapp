@@ -1,0 +1,27 @@
+<demo-block title="基本用法">
+  <van-editor
+    custom-class="demo-editor"
+    value="{{editor1}}"
+    data-key="editor1"
+    bind:change="onChange"
+    placeholder="请输入说明"
+    mode="editor"
+  />
+</demo-block>
+<demo-block title="textarea模式">
+  <van-editor
+    custom-class="demo-editor"
+    value="{{editor2}}"
+    mode="textarea"
+    data-key="editor2"
+    bind:change="onChange"
+  />
+</demo-block>
+<demo-block title="展示文本">
+  <van-editor
+    custom-class="demo-editor"
+    value="{{editor3}}"
+    showText="{{true}}"
+    mode="editor"
+  />
+</demo-block>

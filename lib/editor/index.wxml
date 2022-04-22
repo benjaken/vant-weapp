@@ -1,0 +1,58 @@
+<wxs src="../wxs/utils.wxs" module="utils" />
+
+<view class="custom-class {{ utils.bem('editor', { required, field }) }}">
+  <view wx:if="{{title}}" class="van-editor__title">{{title}}</view>
+  <view wx:if="{{mode == 'editor'}}">
+    <view class="van-editor__toolbar" wx:if="{{!showText}}" catchtouchend="format">
+      <em class="{{ utils.bem('editor__icon', ['zitijiacu', {active: formats.bold}]) }}" data-name="bold"></em>
+      <em class="{{ utils.bem('editor__icon', ['zitixieti', {active: formats.italic}]) }}" data-name="italic"></em>
+      <em class="{{ utils.bem('editor__icon', ['zitixiahuaxian', {active: formats.underline}]) }}" data-name="underline"></em>
+      <em class="{{ utils.bem('editor__icon', ['zitishanchuxian', {active: formats.strike}]) }}" data-name="strike"></em>
+      <em class="{{ utils.bem('editor__icon', ['zuoduiqi', {active: formats.align === 'left'}]) }}" data-name="align" data-value="left"></em>
+      <em class="{{ utils.bem('editor__icon', ['juzhongduiqi', {active: formats.align === 'center'}]) }}" data-name="align" data-value="center"></em>
+      <em class="{{ utils.bem('editor__icon', ['youduiqi', {active: formats.align === 'right'}]) }}" data-name="align" data-value="right"></em>
+      <em class="{{ utils.bem('editor__icon', ['zuoyouduiqi', {active: formats.align === 'justify'}]) }}" data-name="align" data-value="justify"></em>
+      <em class="{{ utils.bem('editor__icon', ['line-height', {active: formats.lineHeight}]) }}" data-name="lineHeight" data-value="2"></em>
+      <em class="{{ utils.bem('editor__icon', ['Character-Spacing', {active: formats.letterSpacing}]) }}" data-name="letterSpacing" data-value="2em"></em>
+      <em class="{{ utils.bem('editor__icon', ['722bianjiqi_duanqianju', {active: formats.marginTop}]) }}" data-name="marginTop" data-value="20px"></em>
+      <em class="{{ utils.bem('editor__icon', ['723bianjiqi_duanhouju', {active: formats.marginBottom}]) }}" data-name="marginBottom" data-value="20px"></em>
+      <em class="{{ utils.bem('editor__icon', ['clearedformat']) }}" bindtap="removeFormat"></em>
+      <em class="{{ utils.bem('editor__icon', ['date']) }}" bindtap="insertDate"></em>
+      <em class="{{ utils.bem('editor__icon', ['checklist', {active: formats.list === 'checked' || formats.list === 'unchecked'}]) }}" data-name="list" data-value="check"></em>
+      <em class="{{ utils.bem('editor__icon', ['youxupailie', {active: formats.list === 'ordered'}]) }}" data-name="list" data-value="ordered"></em>
+      <em class="{{ utils.bem('editor__icon', ['wuxupailie', {active: formats.list === 'bullet'}]) }}" data-name="list" data-value="bullet"></em>
+      <em class="{{ utils.bem('editor__icon', ['undo']) }}" bindtap="undo"></em>
+      <em class="{{ utils.bem('editor__icon', ['redo']) }}" bindtap="redo"></em>
+      <em class="{{ utils.bem('editor__icon', ['outdent']) }}" data-name="indent" data-value="-1"></em>
+      <em class="{{ utils.bem('editor__icon', ['indent']) }}" data-name="indent" data-value="+1"></em>
+      <em class="{{ utils.bem('editor__icon', ['fengexian']) }}" bindtap="insertDivider"></em>
+      <em class="{{ utils.bem('editor__icon', ['charutupian']) }}" bindtap="insertImage"></em>
+      <em class="{{ utils.bem('editor__icon', ['format-header-1', {active: formats.header === 1}]) }}" data-name="header" data-value="{{1}}"></em>
+      <em class="{{ utils.bem('editor__icon', ['format-header-2', {active: formats.header === 2}]) }}" data-name="header" data-value="{{2}}"></em>
+      <em class="{{ utils.bem('editor__icon', ['format-header-3', {active: formats.header === 3}]) }}" data-name="header" data-value="{{3}}"></em>
+      <em class="{{ utils.bem('editor__icon', ['shanchu']) }}" bindtap="clear"></em>
+      <em class="{{ utils.bem('editor__icon', ['direction-rtl', {active: formats.direction === 'rtl'}]) }}" data-name="direction" data-value="rtl"></em>
+    </view>
+    <view class="{{ utils.bem('editor__content', { background }) }}" wx:if="{{!showText}}">
+      <editor id="editor" class="van-editor__container" placeholder="{{placeholder}}" bindstatuschange="onStatusChange" bindready="onEditorReady" bindinput="onEditorInput"></editor>
+      <view class="van-editor__count">{{editorLength}}/{{maxlength}}</view>
+    </view>
+    <view class="{{ utils.bem('editor__content', { background }) }}" wx:else>
+      <view class="van-editor__textarea">
+        <rich-text nodes="{{value}}" />
+      </view>
+    </view>
+  </view>
+  <view wx:else>
+    <view class="{{ utils.bem('editor__content', { background }) }}" wx:if="{{!showText}}">
+      <textarea name="{{name}}" auto-height class="van-editor__textarea" value="{{value}}" maxlength="{{maxlength}}" placeholder="{{placeholder}}" placeholder-class="placeholder" bindinput="onInput" />
+      <view class="van-editor__count">{{value.length}}/{{maxlength}}</view>
+    </view>
+    <view class="{{ utils.bem('editor__content', { background }) }}" wx:else>
+      <view class="van-editor__textarea">
+        <text wx:if="{{value}}">{{value}}</text>
+        <text wx:else class="van-editor__placeholder">{{placeholder}}</text>
+      </view>
+    </view>
+  </view>
+</view>

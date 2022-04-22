@@ -9,15 +9,20 @@
 >
   <view class="van-nav-bar__content">
     <view class="van-nav-bar__left" bind:tap="onClickLeft">
-      <block wx:if="{{ leftArrow || leftText }}">
+      <block wx:if="{{ leftArrow || leftText || showHome }}">
         <van-icon
           wx:if="{{ leftArrow }}"
-          size="16px"
+          class="{{ utils.bem('nav-bar__arrow', { showHome }) }}"
           name="arrow-left"
-          custom-class="van-nav-bar__arrow"
+        />
+        <van-icon
+          wx:if="{{ showHome }}"
+          class="{{ utils.bem('nav-bar__home', { leftArrow }) }}"
+          name="wap-home-o"
+          catchtap="onClickHome"
         />
         <view
-          wx:if="{{ leftText }}"
+          wx:if="{{ leftText && !showHome }}"
           class="van-nav-bar__text"
           hover-class="van-nav-bar__text--hover"
           hover-stay-time="70"

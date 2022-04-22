@@ -7,6 +7,9 @@
     bind:click-right="onClickRight"
   />
 </demo-block>
+<demo-block title="展示home按钮">
+  <van-nav-bar title="标题" left-arrow show-home bind:click-left="onClickLeft" bind:click-home="onClickHome" />
+</demo-block>
 <demo-block title="高级用法">
   <van-nav-bar title="标题" left-text="返回" left-arrow>
     <van-icon name="search" slot="right" custom-class="icon" size="18" />

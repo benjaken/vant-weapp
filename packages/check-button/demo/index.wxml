@@ -1,0 +1,59 @@
+<demo-block title="基本用法">
+  <van-check-button
+    options="{{options}}"
+    value="{{checkbutton1}}"
+    data-key="checkbutton1"
+    custom-class="demo-check-button"
+    bind:change="onChange"
+  ></van-check-button>
+</demo-block>
+<demo-block title="禁用状态">
+  <van-check-button
+    options="{{options}}"
+    value="{{checkbutton2}}"
+    disabled="{{true}}"
+    data-key="checkbutton2"
+    custom-class="demo-check-button"
+    bind:change="onChange"
+  ></van-check-button>
+</demo-block>
+<demo-block title="多列用法">
+  <van-check-button
+    options="{{options}}"
+    value="{{checkbutton3}}"
+    row="4"
+    data-key="checkbutton3"
+    custom-class="demo-check-button"
+    bind:change="onChange"
+  ></van-check-button>
+</demo-block>
+<demo-block title="一行滑动模式">
+  <van-check-button
+    options="{{options}}"
+    value="{{checkbutton4}}"
+    horizon="{{true}}"
+    data-key="checkbutton4"
+    custom-class="demo-check-button"
+    bind:change="onChange"
+  ></van-check-button>
+</demo-block>
+<demo-block title="单选模式">
+  <van-check-button
+    options="{{options}}"
+    value="{{checkbutton5}}"
+    single="{{true}}"
+    data-key="checkbutton5"
+    custom-class="demo-check-button"
+    bind:change="onChange"
+  ></van-check-button>
+</demo-block>
+<demo-block title="返回序号">
+  <van-check-button
+    options="{{options}}"
+    value="{{checkbutton6}}"
+    needIndex="{{true}}"
+    data-key="checkbutton6"
+    custom-class="demo-check-button"
+    bind:change="onChange"
+  ></van-check-button>
+</demo-block>

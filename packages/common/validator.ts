@@ -30,7 +30,7 @@ export function isBoolean(value: unknown): value is boolean {
 
 const IMAGE_REGEXP = /\.(jpeg|jpg|gif|png|svg|webp|jfif|bmp|dpg)/i;
 const VIDEO_REGEXP =
-  /\.(mp3|wav|mp4|mpg|mpeg|dat|asf|avi|rm|rmvb|mov|wmv|flv|mkv)/i;
+  /\.(mp3|wav|mp4|mpg|mpeg|dat|asf|avi|rm|rmvb|mov|wmv|flv|mkv|m4a)/i;
 
 export function isImageUrl(url: string): boolean {
   return IMAGE_REGEXP.test(url);

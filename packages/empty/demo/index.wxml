@@ -1,5 +1,5 @@
 <demo-block title="基础用法" padding>
-    <van-empty description="描述文字" />
+    <van-empty description="描述文字" descriptionTip="描述补充说明" />
 </demo-block>
 
 <demo-block title="图片类型">

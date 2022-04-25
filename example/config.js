@@ -259,6 +259,10 @@ export default [
         path: '/image-swiper',
         title: 'ImageSwiper 图片轮播',
       },
+      {
+        path: '/list',
+        title: 'List 列表',
+      },
     ]
   }
 ];

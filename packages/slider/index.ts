@@ -37,11 +37,45 @@ VantComponent({
     },
     vertical: Boolean,
     barHeight: null,
+    showTip: {
+			type: Boolean,
+			value: false
+		},
+		prefix: {
+			type: String,
+			value: ''
+		},
+		unit: {
+			type: String,
+			value: ''
+		},
+		steps: {
+			type: Number,
+			value: 5
+		},
+		unlimited: {
+			type: Boolean,
+			value: false
+		}
   },
 
   created() {
     this.updateValue(this.data.value);
   },
+
+  mounted() {
+		const { steps, max, min, showTip } = this.properties
+		const step = (max - min) / steps
+		if (showTip) {
+      this.setData({
+        displaySteps: Array.from({
+          length: steps + 1
+        }).map((_item, index) =>
+          this.data.unlimited && index === steps ? '不限' : `${min + step * index}${this.data.unit || ''}`
+        )
+      })
+    }
+	},
 
   methods: {
     onTouchStart(event: WechatMiniprogram.TouchEvent) {

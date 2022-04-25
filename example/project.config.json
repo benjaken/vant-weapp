@@ -416,6 +416,11 @@
           "name": "image-swiper",
           "pathName": "pages/image-swiper/index",
           "scene": null
+        },
+        {
+          "name": "list",
+          "pathName": "pages/list/index",
+          "scene": null
         }
       ]
     }

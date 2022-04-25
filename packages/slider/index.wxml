@@ -2,67 +2,81 @@
 <wxs src="../wxs/style.wxs" module="style" />
 
 <view
-  class="custom-class {{ utils.bem('slider', { disabled, vertical }) }}"
+  class="custom-class {{ utils.bem('slider', { disabled, vertical, steps: showTip && displaySteps.length > 0 }) }}"
   style="{{ wrapperStyle }}"
   bind:tap="onClick"
 >
-  <view
-    class="{{ utils.bem('slider__bar') }}"
-    style="{{ barStyle }}; {{ style({ backgroundColor: activeColor }) }}"
-  >
+  <view class="{{ utils.bem('slider__tip') }}" style="{{ style({ color: activeColor }) }}" wx:if="{{showTip && range}}">
+		<text>已选</text>
+		<text>{{value[0]}}<text wx:if="{{unit}}">{{unit}}</text></text>
+		<text> - </text>
+		<text wx:if="{{unlimited && value[1] == max}}">不限</text>
+		<text wx:else>{{value[1]}}<text wx:if="{{unit}}">{{unit}}</text> </text>
+	</view>
+  <view class="{{ utils.bem('slider__content') }}">
     <view
-      wx:if="{{ range }}"
-      class="{{ utils.bem('slider__button-wrapper-left') }}"
-      data-index="{{ 0 }}"
-      bind:touchstart="onTouchStart"
-      catch:touchmove="onTouchMove"
-      bind:touchend="onTouchEnd"
-      bind:touchcancel="onTouchEnd"
+      class="{{ utils.bem('slider__bar') }}"
+      style="{{ barStyle }}; {{ style({ backgroundColor: activeColor }) }}"
     >
-      <slot
-        wx:if="{{ useButtonSlot }}"
-        name="left-button"
-      />
       <view
-        wx:else
-        class="{{ utils.bem('slider__button') }}"
-      />
-    </view>
-    <view
-      wx:if="{{ range }}"
-      class="{{ utils.bem('slider__button-wrapper-right') }}"
-      data-index="{{ 1 }}"
-      bind:touchstart="onTouchStart"
-      catch:touchmove="onTouchMove"
-      bind:touchend="onTouchEnd"
-      bind:touchcancel="onTouchEnd"
-    >
-      <slot
-        wx:if="{{ useButtonSlot }}"
-        name="right-button"
-      />
+        wx:if="{{ range }}"
+        class="{{ utils.bem('slider__button-wrapper-left') }}"
+        data-index="{{ 0 }}"
+        bind:touchstart="onTouchStart"
+        catch:touchmove="onTouchMove"
+        bind:touchend="onTouchEnd"
+        bind:touchcancel="onTouchEnd"
+      >
+        <slot
+          wx:if="{{ useButtonSlot }}"
+          name="left-button"
+        />
+        <view
+          wx:else
+          class="{{ utils.bem('slider__button') }}"
+        />
+      </view>
       <view
-        wx:else
-        class="{{ utils.bem('slider__button') }}"
-      />
-    </view>
+        wx:if="{{ range }}"
+        class="{{ utils.bem('slider__button-wrapper-right') }}"
+        data-index="{{ 1 }}"
+        bind:touchstart="onTouchStart"
+        catch:touchmove="onTouchMove"
+        bind:touchend="onTouchEnd"
+        bind:touchcancel="onTouchEnd"
+      >
+        <slot
+          wx:if="{{ useButtonSlot }}"
+          name="right-button"
+        />
+        <view
+          wx:else
+          class="{{ utils.bem('slider__button') }}"
+        />
+      </view>
 
-    <view
-      wx:if="{{ !range }}"
-      class="{{ utils.bem('slider__button-wrapper') }}"
-      bind:touchstart="onTouchStart"
-      catch:touchmove="onTouchMove"
-      bind:touchend="onTouchEnd"
-      bind:touchcancel="onTouchEnd"
-    >
-      <slot
-        wx:if="{{ useButtonSlot }}"
-        name="button"
-      />
       <view
-        wx:else
-        class="{{ utils.bem('slider__button') }}"
-      />
+        wx:if="{{ !range }}"
+        class="{{ utils.bem('slider__button-wrapper') }}"
+        bind:touchstart="onTouchStart"
+        catch:touchmove="onTouchMove"
+        bind:touchend="onTouchEnd"
+        bind:touchcancel="onTouchEnd"
+      >
+        <slot
+          wx:if="{{ useButtonSlot }}"
+          name="button"
+        />
+        <view
+          wx:else
+          class="{{ utils.bem('slider__button') }}"
+        />
+      </view>
+    </view>
+  </view>
+  <view class="{{ utils.bem('slider__steps') }}" wx:if="{{showTip && displaySteps.length > 0}}">
+    <view wx:for="{{displaySteps}}" wx:key="index" style="flex:0 0 {{100 / steps}}%">
+      <view class="{{ utils.bem('slider__steps-item') }}">{{item}}</view>
     </view>
   </view>
 </view>

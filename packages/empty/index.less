@@ -38,6 +38,17 @@
     }
   }
 
+  &__tip {
+    color: @empty-tip-color;
+    line-height: calc(@empty-description-line-height / 1.4);
+    font-size: calc(@empty-description-font-size / 1.4);
+    padding: 12px 20px;
+
+    &:empty {
+      display: none;
+    }
+  }
+
   &__description:not(:empty) + &__description {
     display: none;
   }

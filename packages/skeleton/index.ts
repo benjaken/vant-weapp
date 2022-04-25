@@ -1,48 +1,52 @@
 import { VantComponent } from '../common/component';
 
 VantComponent({
-  classes: ['avatar-class', 'title-class', 'row-class'],
   props: {
-    row: {
-      type: Number,
-      value: 0,
-      observer(value: number) {
-        this.setData({ rowArray: Array.from({ length: value }) });
-      },
-    },
-    title: Boolean,
-    avatar: Boolean,
-    loading: {
-      type: Boolean,
-      value: true,
-    },
-    animate: {
-      type: Boolean,
-      value: true,
-    },
-    avatarSize: {
-      type: String,
-      value: '32px',
-    },
-    avatarShape: {
-      type: String,
-      value: 'round',
-    },
-    titleWidth: {
-      type: String,
-      value: '40%',
-    },
-    rowWidth: {
-      type: null,
-      value: '100%',
-      observer(val) {
-        this.setData({ isArray: val instanceof Array });
-      },
-    },
+    data: {
+			type: Object,
+			value: {}
+		},
+		isDev: {
+			type: Boolean,
+			value: false
+		},
+		selector: {
+			type: String,
+			value: 'skeleton'
+		},
+		bgcolor: {
+			type: String,
+			value: '#f2f2f2'
+		},
+		loading: {
+			type: String,
+			value: 'shine'
+		}
   },
-
   data: {
-    isArray: false,
-    rowArray: [],
-  },
+		isShowByDev: false,
+		devData: null,
+		skeletonWidth: 375,
+		skeletonHeight: 667,
+		selectorTypes: ['bg', 'rect', 'circle']
+	},
+  created() {
+		// 默认的首屏宽高，防止内容闪现
+		const { windowHeight } = wx.getSystemInfoSync()
+		this.setData({
+			skeletonHeight: windowHeight
+		})
+	},
+  methods: {
+		handleToggleShow({ detail }) {
+			this.setData({
+				isShowByDev: detail
+			})
+		},
+		handleUpdateData({ detail }) {
+			this.setData({
+				devData: detail
+			})
+		}
+	}
 });

@@ -1,0 +1,7 @@
+{
+	"component": true,
+  "usingComponents": {
+    "van-divider": "../divider/index",
+    "van-loading": "../loading/index"
+  }
+}

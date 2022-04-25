@@ -1,0 +1,13 @@
+<demo-block>
+  <van-list
+    class="demo-van-list"
+    loading="{{loading}}"
+		finished="{{finished}}"
+    refresherEnabled="{{true}}"
+    bind:scrolltolower="onReachBottom"
+    bind:refresh="onRefresh"
+    customStyle="height:{{windowHeight}}px"
+  >
+    <van-cell wx:for="{{list}}" wx:key="index" title="{{index + 1}}" />
+  </van-list>
+</demo-block>

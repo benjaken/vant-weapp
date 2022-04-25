@@ -16,6 +16,10 @@
     {{ description }}
   </view>
 
+  <view class="van-empty__tip">
+    {{ descriptionTip }}
+  </view>
+
   <view class="van-empty__bottom">
     <slot></slot>
   </view>

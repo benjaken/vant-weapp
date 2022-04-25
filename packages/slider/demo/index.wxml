@@ -64,6 +64,18 @@
   </van-slider>
 </demo-block>
 
+<demo-block title="定制化slider">
+  <van-slider
+    value="{{ range }}"
+    custom-class="custom-slider"
+    show-tip
+    range
+    step="10"
+    unit="%"
+    bind:change="onCustomRangeChange"
+  />
+</demo-block>
+
 <demo-block title="垂直方向">
   <view style="height: 150px; padding-left: 30px;">
     <van-slider

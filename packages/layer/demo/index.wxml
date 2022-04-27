@@ -1,0 +1,20 @@
+<demo-block title="文字提示" padding>
+  <van-button type="primary" data-key="1" bind:tap="showLayer">按钮</van-button>
+  <van-layer show="{{layer1}}" title="关于 Vant" content="Vant 是一套轻量、可靠的移动端 Vue 组件库，提供了丰富的基础组件和业务组件，帮助开发者快速搭建移动应用。" />
+</demo-block>
+<demo-block title="带有按钮" padding>
+  <van-button type="primary" data-key="2" bind:tap="showLayer">按钮</van-button>
+  <van-layer show="{{layer2}}" title="关于 Vant" show-button="{{false}}" use-button-slot content="Vant 是一套轻量、可靠的移动端 Vue 组件库，提供了丰富的基础组件和业务组件，帮助开发者快速搭建移动应用。">
+    <van-button type="primary" slot="button" block round data-key="2" bind:tap="closeLayer">关闭</van-button>
+  </van-layer>
+</demo-block>
+<demo-block title="按钮方向" padding>
+  <van-button type="primary" data-key="3" bind:tap="showLayer">按钮</van-button>
+  <van-layer show="{{layer3}}" close-position="right" content="Vant 是一套轻量、可靠的移动端 Vue 组件库，提供了丰富的基础组件和业务组件，帮助开发者快速搭建移动应用。" />
+</demo-block>
+<demo-block title="自定义内容" padding>
+  <van-button type="primary" data-key="4" bind:tap="showLayer">按钮</van-button>
+  <van-layer custom-class="custom-layer" show="{{layer4}}">
+    <image class="image" mode="widthFix" src="https://jytfenz.ufwl.net/img/applet/activity.png" />
+  </van-layer>
+</demo-block>

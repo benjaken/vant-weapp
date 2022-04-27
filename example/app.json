@@ -56,7 +56,8 @@
     "pages/check-button/index",
     "pages/editor/index",
     "pages/image-swiper/index",
-    "pages/list/index"
+    "pages/list/index",
+    "pages/layer/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#f8f8f8",
@@ -122,7 +123,8 @@
     "van-check-button-demo": "./dist/check-button/demo/index",
     "van-editor-demo": "./dist/editor/demo/index",
     "van-image-swiper-demo": "./dist/image-swiper/demo/index",
-    "van-list-demo": "./dist/list/demo/index"
+    "van-list-demo": "./dist/list/demo/index",
+    "van-layer-demo": "./dist/layer/demo/index"
   },
   "sitemapLocation": "sitemap.json"
 }

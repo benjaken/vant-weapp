@@ -421,6 +421,11 @@
           "name": "list",
           "pathName": "pages/list/index",
           "scene": null
+        },
+        {
+          "name": "layer",
+          "pathName": "pages/layer/index",
+          "scene": null
         }
       ]
     }

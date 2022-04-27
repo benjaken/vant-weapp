@@ -260,6 +260,10 @@ export default [
         title: 'ImageSwiper 图片轮播',
       },
       {
+        path: '/layer',
+        title: 'Layer 活动弹窗',
+      },
+      {
         path: '/list',
         title: 'List 列表',
       },

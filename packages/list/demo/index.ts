@@ -1,15 +1,16 @@
 import { VantComponent } from '../../common/component';
+import { getSystemInfoSync } from '../../common/utils';
 
 VantComponent({
   data: {
     loading: false,
     finished: false,
     list: [] as number[],
-    windowHeight: 0
+    windowHeight: 1000
   },
   mounted() {
     this.renderList()
-    const { windowHeight } = wx.getSystemInfoSync()
+    const { windowHeight } = getSystemInfoSync()
     this.setData({ windowHeight })
   },
   methods: {

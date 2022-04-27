@@ -1,1 +1,4 @@
 /* pages/list/index.wxss */
+page {
+  padding: 0;
+}

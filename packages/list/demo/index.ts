@@ -30,7 +30,7 @@ VantComponent({
             loading: false,
             list: (refresh ? [] : list).concat(Array.from({ length: 20 }, (_, i) => i + 1))
           })
-          this.selectComponent('.demo-van-list').stopRefresh()
+          this.selectComponent('#demo-van-list').stopRefresh()
         }, 1000)
       }
     },

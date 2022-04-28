@@ -1,0 +1,26 @@
+<demo-block title="基本用法" padding>
+  <van-person-card
+    avatar="{{avatar}}"
+    name="{{name}}"
+    starLevel="{{starLevel}}"
+    organName="{{organName}}"
+    branchName="{{branchName}}"
+    dealMessage="{{dealMessage}}"
+    tags="{{tags}}"
+    dealCount="{{dealCount}}"
+    commentPoint="{{commentPoint}}"
+    practiceYear="{{practiceYear}}"
+    coordinate="{{coordinate}}"
+    distanceString="{{distanceString}}"
+    use-button-slot
+    use-more-slot
+    bind:click="onClick"
+    bind:click-chat="onClickChat"
+  >
+    <van-button slot="more" type="primary" size="mini" round>委托TA</van-button>
+    <view class="buttons" slot="button">
+      <van-button class="button" slot="button" type="primary" size="small" round block>电话沟通</van-button>
+      <van-button class="button" slot="button" type="primary" size="small" round block>在线沟通</van-button>
+    </view>
+  </van-person-card>
+</demo-block>

@@ -1,0 +1,67 @@
+<wxs src="../wxs/utils.wxs" module="utils" />
+
+<view class="{{ utils.bem('person-card', { border }) }}" bindtap="onClick">
+  <view class="van-person-card__content">
+    <view class="van-person-card__info">
+      <view class="van-person-card__user">
+        <image
+          wx:if="{{avatar}}"
+          class="van-person-card__user-avatar"
+          mode="aspectFill"
+          src="{{avatar}}"
+        />
+        <view>
+          <view>
+            <text wx:if="{{name}}" class="van-person-card__user-name">{{name}}</text>
+            <van-rate readonly size="32rpx" value="{{starLevel}}" count="{{starLevel}}" />
+          </view>
+          <view class="van-person-card__user-address">
+            <text>{{organName}}{{branchName ? ' - ' + branchName : ''}}</text>
+            <text wx:if="address">{{address}}</text>
+            <view
+              class="van-person-card__user-location"
+              wx:if="{{distanceString}}"
+              data-item="{{item}}"
+              catchtap="showLocation"
+            >
+              <van-icon custom-class="van-person-card__user-location-icon" name="location-o" />
+              <text>({{distanceString}})</text>
+            </view>
+          </view>
+          <van-tag
+            class="van-person-card__user-tag"
+            wx:for="{{tags || []}}"
+            wx:key="index"
+            wx:for-item="tag"
+            type="primary"
+            plain
+          >{{tag}}</van-tag>
+          <view class="van-person-card__user-deal-message" wx:if="{{dealMessage}}">{{dealMessage}}</view>
+        </view>
+      </view>
+      <view class="van-person-card__deal">
+        <view v-if="{{dealCount}}" class="van-person-card__deal-item">
+          <view class="van-person-card__deal-number">{{dealCount || 0}}</view>
+          <view class="van-person-card__deal-unit">历史成交</view>
+        </view>
+        <view v-if="{{commentPoint}}" class="van-person-card__deal-item">
+          <view class="van-person-card__deal-number">{{commentPoint || '暂无'}}</view>
+          <view class="van-person-card__deal-unit">用户评价</view>
+        </view>
+        <view v-if="{{practiceYear}}" class="van-person-card__deal-item">
+          <view class="van-person-card__deal-number">{{practiceYear || 0}}年</view>
+          <view class="van-person-card__deal-unit">从业年限</view>
+        </view>
+      </view>
+    </view>
+    <view class="van-person-card__more" wx:if="{{showChat || useMoreSlot}}">
+      <view wx:if="{{showChat}}" class="van-person-card__more-button" catchtap="onClickChat">
+        <van-icon custom-class="van-person-card__more-chat" name="chat" />
+      </view>
+      <slot name="more" />
+    </view>
+  </view>
+  <view wx:if="{{useButtonSlot}}" class="van-person-card__buttons">
+    <slot name="button" />
+  </view>
+</view>

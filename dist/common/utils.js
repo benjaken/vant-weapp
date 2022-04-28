@@ -63,7 +63,17 @@ export function getAllRect(context, selector) {
             .in(context)
             .selectAll(selector)
             .boundingClientRect()
-            .exec((rect = []) => resolve(rect[0]));
+            .exec((rect = []) => {
+            resolve(rect[0]);
+        });
+    });
+}
+export function getScrollOffset() {
+    return new Promise(resolve => {
+        wx.createSelectorQuery()
+            .selectViewport()
+            .scrollOffset(resolve)
+            .exec();
     });
 }
 export function groupSetData(context, cb) {

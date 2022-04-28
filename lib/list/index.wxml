@@ -1,0 +1,28 @@
+<wxs src="../wxs/utils.wxs" module="utils" />
+
+<scroll-view
+	class="custom-class {{ utils.bem('list') }}"
+	style="{{customStyle}}"
+	scroll-y="{{scrollY}}"
+	height="{{height}}"
+	scroll-with-animation
+	enable-back-to-top
+	refresher-enabled="{{refresherEnabled}}"
+	refresher-default-style="{{refresherDefaultStyle}}"
+	refresher-background="{{refresherBackground}}"
+	refresher-triggered="{{refresherTriggered}}"
+	bindscroll="onScroll"
+	bindscrolltolower="onReachBottom"
+	bindrefresherrefresh="onRefresh"
+>
+	<slot></slot>
+	<view class="van-list__load-more" wx:if="{{loading && !refresherTriggered}}">
+		<van-loading size="24rpx">{{loadMoreText}}</van-loading>
+	</view>
+	<van-divider
+    wx:if="{{finished && !hideEnd}}"
+    custom-class="van-list__end"
+    contentPosition="center"
+  >{{finishedText}}</van-divider>
+	<slot name="bottom"></slot>
+</scroll-view>

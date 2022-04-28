@@ -1,5 +1,6 @@
 <demo-block>
   <van-list
+    id="demo-van-list"
     custom-style="max-height:{{windowHeight}}px"
     loading="{{loading}}"
 		finished="{{finished}}"

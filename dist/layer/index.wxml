@@ -1,0 +1,33 @@
+<wxs src="../wxs/utils.wxs" module="utils" />
+
+<van-overlay z-index="201" show="{{show}}">
+	<view class="custom-class van-layer">
+		<view wx:if="{{title}}" class="van-layer__title">
+			<text>{{title}}</text>
+			<image class="van-layer__title--person" mode="aspectFill" src="https://jytfenz.ufwl.net/img/wechat/layerPerson.png" />
+		</view>
+		<view class="{{ utils.bem('layer__content', { title, content }) }}">
+			<view>{{content}}</view>
+			<slot></slot>
+			<view wx:if="{{useButtonSlot}}" class="van-layer__content--button">
+				<slot name="button"></slot>
+			</view>
+		</view>
+		<van-icon
+			wx:if="{{closePosition == 'right' && showButton}}"
+			color="#fff"
+			size="64rpx"
+			custom-class="van-layer__right-btn"
+			bind:click="closeOverlay"
+			name="close"
+		/>
+		<van-icon
+			wx:if="{{closePosition == 'bottom' && showButton}}"
+			color="#fff"
+			size="64rpx"
+			custom-class="van-layer__bottom-btn"
+			bind:click="closeOverlay"
+			name="close"
+		/>
+	</view>
+</van-overlay>

@@ -426,6 +426,11 @@
           "name": "layer",
           "pathName": "pages/layer/index",
           "scene": null
+        },
+        {
+          "name": "person-card",
+          "pathName": "pages/person-card/index",
+          "scene": null
         }
       ]
     }

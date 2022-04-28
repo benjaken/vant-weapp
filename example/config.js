@@ -267,6 +267,10 @@ export default [
         path: '/list',
         title: 'List 列表',
       },
+      {
+        path: '/person-card',
+        title: 'PersonCard 人员卡片',
+      },
     ]
   }
 ];

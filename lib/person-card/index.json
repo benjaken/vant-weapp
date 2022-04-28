@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-tag": "../tag/index",
+    "van-rate": "../rate/index",
+    "van-icon": "../icon/index"
+  }
+}

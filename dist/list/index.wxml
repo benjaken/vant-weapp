@@ -7,10 +7,13 @@
 	height="{{height}}"
 	scroll-with-animation
 	enable-back-to-top
+	scroll-anchoring
 	refresher-enabled="{{refresherEnabled}}"
 	refresher-default-style="{{refresherDefaultStyle}}"
 	refresher-background="{{refresherBackground}}"
 	refresher-triggered="{{refresherTriggered}}"
+	enhanced="{{enhanced}}"
+	bounces="{{bounces}}"
 	bindscroll="onScroll"
 	bindscrolltolower="onReachBottom"
 	bindrefresherrefresh="onRefresh"

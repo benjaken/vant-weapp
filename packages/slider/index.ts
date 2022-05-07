@@ -36,7 +36,10 @@ VantComponent({
       },
     },
     vertical: Boolean,
-    barHeight: null,
+    barHeight: {
+      type: Number,
+      value: 2,
+    },
     showTip: {
 			type: Boolean,
 			value: false
@@ -191,11 +194,12 @@ VantComponent({
 
       const { vertical } = this.data;
       const mainAxis = vertical ? 'height' : 'width';
+      const height = this.data.barHeight + (this.properties.showTip ? 43 : 0)
 
       this.setData({
         wrapperStyle: `
           background: ${this.data.inactiveColor || ''};
-          ${vertical ? 'width' : 'height'}: ${addUnit(this.data.barHeight) || ''};
+          ${vertical ? 'width' : 'height'}: ${addUnit(vertical ? this.data.barHeight : height) || ''};
         `,
         barStyle: `
           ${mainAxis}: ${this.calcMainAxis()};

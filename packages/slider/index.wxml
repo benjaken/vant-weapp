@@ -75,8 +75,8 @@
     </view>
   </view>
   <view class="{{ utils.bem('slider__steps') }}" wx:if="{{showTip && displaySteps.length > 0}}">
-    <view wx:for="{{displaySteps}}" wx:key="index" style="flex:0 0 {{100 / steps}}%">
-      <view class="{{ utils.bem('slider__steps-item') }}">{{item}}</view>
+    <view class="{{ utils.bem('slider__steps-item') }}" wx:for="{{displaySteps}}" wx:key="index" style="flex:0 0 {{100 / steps}}%">
+      <view class="{{ utils.bem('slider__steps-text') }}">{{item}}</view>
     </view>
   </view>
 </view>

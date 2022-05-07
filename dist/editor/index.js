@@ -37,7 +37,7 @@ VantComponent({
         },
         background: {
             type: Boolean,
-            value: false
+            value: true
         },
         value: {
             type: String,

@@ -67,7 +67,7 @@
 <demo-block title="定制化slider">
   <van-slider
     value="{{ range }}"
-    custom-class="custom-slider"
+    custom-class="slider"
     show-tip
     range
     step="10"

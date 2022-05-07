@@ -1,0 +1,11 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-cell-group": "../../cell-group/index",
+    "van-cell": "../../cell/index",
+    "van-field": "../../field/index",
+    "van-toast": "../../toast/index",
+    "van-number-keyboard": "../../number-keyboard/index",
+    "demo-block": "../../../example/components/demo-block/index"
+  }
+}

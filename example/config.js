@@ -268,6 +268,10 @@ export default [
         title: 'List 列表',
       },
       {
+        path: '/number-keyboard',
+        title: 'NumberKeyboard 数字键盘',
+      },
+      {
         path: '/person-card',
         title: 'PersonCard 人员卡片',
       },

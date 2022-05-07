@@ -3,10 +3,6 @@
 .van-slider {
   height: var(--slider-bar-height, @slider-bar-height);
 
-  &--steps {
-    padding-bottom: 50rpx;
-  }
-
   &__bar {
     position: relative;
     width: 100%;
@@ -119,9 +115,17 @@
 		display: flex;
 		justify-content: space-between;
 
-    &-item {
+    &-text {
       transform: translateX(-50%);
       text-align: center;
+    }
+
+    &-item:first-child .van-slider__steps-text {
+      transform: translateX(-40%);
+    }
+
+    &-item:last-child .van-slider__steps-text {
+      transform: translateX(-60%);
     }
 	}
 }

@@ -10,6 +10,7 @@ VantComponent({
     keyboard5: false,
     keyboard6: false,
     keyboard7: false,
+    keyboard8: false,
     value: ''
   },
   methods: {
@@ -28,6 +29,12 @@ VantComponent({
       Toast({
         context: this,
         message: `删除`,
+      });
+    },
+    onComplete({ detail }) {
+      Toast({
+        context: this,
+        message: `输入: ${detail}`,
       });
     },
     onValueInput({ detail }) {

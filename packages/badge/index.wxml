@@ -1,0 +1,13 @@
+<wxs src="../wxs/utils.wxs" module="utils" />
+<wxs src="./index.wxs" module="isMax" />
+
+<view class="custom-class {{ utils.bem('badge') }}">
+  <view
+    class="{{ utils.bem('badge__wrapper', [position, { dot }]) }}"
+    style="background-color:{{color}}"
+  >
+    <slot wx:if="{{useContentSlot}}" name="content"></slot>
+    <text wx:else>{{isMax(content, max) && max ? (max + '+') : content}}</text>
+  </view>
+  <slot />
+</view>

@@ -1,0 +1,65 @@
+<demo-block title="基本用法" padding>
+  <van-badge content="5">
+    <view class="child" />
+  </van-badge>
+  <van-badge custom-class="demo-badge" content="10">
+    <view class="child" />
+  </van-badge>
+  <van-badge custom-class="demo-badge" content="Hot">
+    <view class="child" />
+  </van-badge>
+  <van-badge custom-class="demo-badge" dot>
+    <view class="child" />
+  </van-badge>
+</demo-block>
+
+<demo-block title="最大值" padding>
+  <van-badge content="10" max="9">
+    <view class="child" />
+  </van-badge>
+  <van-badge custom-class="demo-badge" content="30" max="20">
+    <view class="child" />
+  </van-badge>
+  <van-badge custom-class="demo-badge" content="100" max="99">
+    <view class="child" />
+  </van-badge>
+</demo-block>
+
+<demo-block title="自定义颜色" padding>
+  <van-badge content="5" color="#1989fa">
+    <view class="child" />
+  </van-badge>
+  <van-badge custom-class="demo-badge" content="10" color="#1989fa">
+    <view class="child" />
+  </van-badge>
+  <van-badge custom-class="demo-badge" dot color="#1989fa">
+    <view class="child" />
+  </van-badge>
+</demo-block>
+
+<demo-block title="自定义徽标内容" padding>
+  <van-badge use-content-slot>
+    <view class="child" />
+    <van-icon slot="content" name="success" size="10px" />
+  </van-badge>
+  <van-badge custom-class="demo-badge" use-content-slot>
+    <view class="child" />
+    <van-icon slot="content" name="cross" size="10px" />
+  </van-badge>
+  <van-badge custom-class="demo-badge" use-content-slot>
+    <view class="child" />
+    <van-icon slot="content" name="down" size="10px" />
+  </van-badge>
+</demo-block>
+
+<demo-block title="自定义徽标位置" padding>
+  <van-badge content="10" position="top-left">
+    <view class="child" />
+  </van-badge>
+  <van-badge custom-class="demo-badge" content="10" position="bottom-left">
+    <view class="child" />
+  </van-badge>
+  <van-badge custom-class="demo-badge" content="10" position="bottom-right">
+    <view class="child" />
+  </van-badge>
+</demo-block>

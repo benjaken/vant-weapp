@@ -4,6 +4,7 @@ VantComponent({
   props: {
     show: Boolean,
     title: String,
+    value: String,
     theme: {
       type: String,
       value: 'default'
@@ -20,6 +21,9 @@ VantComponent({
     deleteButtonText: String,
     extraKey: null,
     randomKeyOrder: Boolean,
+    password: Boolean,
+    passwordInfo: String,
+    passwordErrorInfo: String,
     round: {
       type: Boolean,
       value: true,
@@ -63,7 +67,10 @@ VantComponent({
     } else {
       keys = [...origin, (extraKey.length === 1 ? extraKey[0] : 'collapse'), '0']
       if (showDeleteKey) keys.push('delete')
-      this.setData({ keys })
+      this.setData({
+        keys,
+        value: this.properties.value
+      })
     }
   },
   methods: {
@@ -71,6 +78,13 @@ VantComponent({
       this.setData({
         show: false
       })
+      this.triggerEvent('close')
+    },
+    onKeyboardShow() {
+      this.triggerEvent('show')
+    },
+    onKeyboardHide() {
+      this.triggerEvent('hide')
     },
     onClickKey({ currentTarget: { dataset } }) {
       const { maxlength } = this.properties
@@ -95,5 +109,9 @@ VantComponent({
         this.triggerEvent('input', value)
       }
     },
+    onPasswordComplete({ detail }) {
+      console.log(detail)
+      this.triggerEvent('complete', detail)
+    }
   }
 });

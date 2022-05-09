@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-password-input": "../../password-input/index",
+    "van-number-keyboard": "../../number-keyboard/index",
+    "van-toast": "../../toast/index",
+    "demo-block": "../../../example/components/demo-block/index"
+  }
+}

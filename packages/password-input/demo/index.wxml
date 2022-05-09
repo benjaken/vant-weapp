@@ -1,0 +1,29 @@
+<demo-block padding title="基础用法">
+  <van-password-input value="{{value}}" focused="{{keyboard}}" bind:complete="onComplete" bind:focus="showKeyboard" />
+</demo-block>
+
+<demo-block padding title="自定义长度">
+  <van-password-input value="{{value}}" focused="{{keyboard}}" length="4" bind:complete="onComplete" bind:focus="showKeyboard" />
+</demo-block>
+
+<demo-block padding title="格子间距">
+  <van-password-input value="{{value}}" focused="{{keyboard}}" gutter="10" bind:complete="onComplete" bind:focus="showKeyboard" />
+</demo-block>
+
+<demo-block padding title="明文展示">
+  <van-password-input value="{{value}}" focused="{{keyboard}}" mask="{{false}}" bind:complete="onComplete" bind:focus="showKeyboard" />
+</demo-block>
+
+<demo-block padding title="提示信息">
+  <van-password-input value="{{value}}" focused="{{keyboard}}" info="密码为 6 位数字" error-info="{{errorInfo}}" bind:complete="onComplete" bind:focus="showKeyboard" />
+</demo-block>
+
+<van-number-keyboard
+  value="{{value}}"
+  show="{{keyboard}}"
+  maxlength="6"
+  bind:input="onInput"
+  bind:close="closeKeyboard"
+/>
+
+<van-toast id="van-toast" />

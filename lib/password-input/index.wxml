@@ -1,0 +1,23 @@
+<wxs src="../wxs/utils.wxs" module="utils" />
+<wxs src="./index.wxs" module="splitString" />
+
+<view class="custom-class {{ utils.bem('password-input') }}">
+  <view class="van-password-input__security">
+    <view
+      class="van-password-input__item"
+      style="{{index != 0 ? ('margin-left:' + gutter + 'px') : ''}}"
+      wx:for="{{length}}"
+      wx:key="index"
+      bindtouchstart="onFocus"
+    >
+      <block wx:if="{{splitString(value)[index]}}">
+        <view wx:if="{{mask}}" class="van-password-input__item-dot" />
+        <text wx:else>{{ splitString(value)[index] }}</text>
+      </block>
+      <view wx:if="{{focused && index == value.length}}" class="van-password-input__item-cursor" />
+    </view>
+  </view>
+  <view wx:if="{{errorInfo || info}}" class="{{ utils.bem('password-input__info', { error: errorInfo })}}">
+    {{ errorInfo || info }}
+  </view>
+</view>

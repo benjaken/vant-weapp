@@ -167,8 +167,8 @@
           "name": "number-keyboard",
           "pathName": "pages/number-keyboard/index",
           "query": "",
-          "scene": null,
-          "launchMode": "default"
+          "launchMode": "default",
+          "scene": null
         },
         {
           "id": -1,
@@ -394,6 +394,20 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "password-input",
+          "pathName": "pages/password-input/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "badge",
+          "pathName": "pages/badge/index",
+          "query": "",
+          "scene": null,
+          "launchMode": "default"
         }
       ]
     }

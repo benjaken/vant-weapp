@@ -1,0 +1,5 @@
+function isMax(num, max) {
+  return parseFloat(num) > max
+}
+
+module.exports = isMax;

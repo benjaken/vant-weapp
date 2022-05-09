@@ -3,40 +3,70 @@
 <van-popup
   show="{{show}}"
   position="bottom"
+  custom-style="background-color:#f2f3f5"
   overlay-style="background-color:transparent"
   z-index="{{ zIndex }}"
   round="{{ round }}"
   safe-area-inset-bottom="{{ safeAreaInsetBottom }}"
   close-on-click-overlay="{{ hideOnClickOutside }}"
   bind:close="onClickOverlay"
+  bind:after-enter="onKeyboardShow"
+  bind:after-leave="onKeyboardHide"
 >
   <view class="custom-class {{ utils.bem('number-keyboard') }}">
     <view class="van-number-keyboard__header" wx:if="{{ title || (closeButtonText && theme === 'default') }}">
       <text wx:if="{{ title }}">{{ title }}</text>
       <text class="van-number-keyboard__header-button" wx:if="{{ closeButtonText }}" data-key="collapse" bindtap="onClickKey">{{ closeButtonText }}</text>
     </view>
+    <van-password-input
+      wx:if="{{password}}"
+      custom-class="van-number-keyboard__input"
+      value="{{value}}"
+      length="{{maxlength}}"
+      gutter="6"
+      info="{{passwordInfo}}"
+      error-info="{{passwordErrorInfo}}"
+      focused="{{show}}"
+      bind:complete="onPasswordComplete"
+    />
     <view class="van-number-keyboard__body">
       <view class="van-number-keyboard__keys">
         <view wx:for="{{keys}}" wx:key="index" class="{{ utils.bem('number-keyboard__keys-wrapper', { wider: index == 9 && keys.length == 11 }) }}">
-          <view class="{{ utils.bem('number-keyboard__button') }}" data-key="{{item}}" bindtap="onClickKey">
+          <view
+            class="{{ utils.bem('number-keyboard__button') }}"
+            hover-class="van-number-keyboard__button--hover"
+            hover-stay-time="70"
+            data-key="{{item}}"
+            bindtap="onClickKey"
+          >
             <block wx:if="{{item == 'delete'}}">
               <text wx:if="{{deleteButtonText}}" class="van-number-keyboard__button-text">{{deleteButtonText}}</text>
               <van-icon wx:else name="delete-keys" />
             </block>
             <van-icon wx:elif="{{item == 'collapse'}}" name="collapse" />
-            <text wx:else class="van-number-keyboard__button-text">{{item}}</text>
+            <text wx:else>{{item}}</text>
           </view>
         </view>
       </view>
       <view class="van-number-keyboard__sidebar" wx:if="{{ theme == 'custom' }}">
         <view class="van-number-keyboard__keys-wrapper" wx:if="{{showDeleteKey}}">
-          <view class="{{ utils.bem('number-keyboard__button', { large: true }) }}" data-key="delete" bindtap="onClickKey">
+          <view
+            class="{{ utils.bem('number-keyboard__button', { large: true }) }}"
+            hover-class="van-number-keyboard__button--hover"
+            hover-stay-time="70"
+            data-key="delete"
+            bindtap="onClickKey"
+          >
             <text wx:if="{{deleteButtonText}}" class="van-number-keyboard__button-text">{{deleteButtonText}}</text>
             <van-icon wx:else name="delete-keys" />
           </view>
         </view>
         <view class="van-number-keyboard__keys-wrapper">
-          <view class="{{ utils.bem('number-keyboard__button', { large: true, orange: true }) }}" data-key="collapse" bindtap="onClickKey">
+          <view
+            class="{{ utils.bem('number-keyboard__button', { large: true, orange: true }) }}"
+            data-key="collapse"
+            bindtap="onClickKey"
+          >
             <text class="van-number-keyboard__button-text">{{ closeButtonText }}</text>
           </view>
         </view>

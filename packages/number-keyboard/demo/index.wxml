@@ -5,7 +5,8 @@
   <van-cell title="弹出带标题的键盘" is-link data-id="keyboard4" bind:click="showKeyboard" />
   <van-cell title="弹出配置多个按键的键盘" is-link data-id="keyboard5" bind:click="showKeyboard" />
   <van-cell title="弹出配置随机数字的键盘" is-link data-id="keyboard6" bind:click="showKeyboard" />
-  <van-field label="与输入框绑定" placeholder="点此输入（最长长度为6）" value="{{value}}" readonly clickable data-id="keyboard7" bindtap="showKeyboard" />
+  <van-cell title="弹出带有密码输入框的键盘" is-link data-id="keyboard7" bind:click="showKeyboard" />
+  <van-field label="与输入框绑定" placeholder="点此输入（最长长度为6）" value="{{value}}" readonly clickable data-id="keyboard8" bindtap="showKeyboard" />
 </van-cell-group>
 
 <van-number-keyboard
@@ -58,6 +59,16 @@
 
 <van-number-keyboard
   show="{{keyboard7}}"
+  maxlength="6"
+  password
+  password-info="密码为6位数字"
+  password-error-info=""
+  title="请输入密码"
+  bind:complete="onComplete"
+/>
+
+<van-number-keyboard
+  show="{{keyboard8}}"
   maxlength="6"
   bind:input="onValueInput"
 />

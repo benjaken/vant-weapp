@@ -53,13 +53,15 @@
     "pages/calendar/index",
     "pages/share-sheet/index",
     "pages/config-provider/index",
+    "pages/badge/index",
     "pages/check-button/index",
     "pages/editor/index",
     "pages/image-swiper/index",
     "pages/list/index",
     "pages/layer/index",
     "pages/person-card/index",
-    "pages/number-keyboard/index"
+    "pages/number-keyboard/index",
+    "pages/password-input/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#f8f8f8",
@@ -122,13 +124,15 @@
     "van-calendar-demo": "./dist/calendar/demo/index",
     "van-share-sheet-demo": "./dist/share-sheet/demo/index",
     "van-config-provider-demo": "./dist/config-provider/demo/index",
+    "van-badge-demo": "./dist/badge/demo/index",
     "van-check-button-demo": "./dist/check-button/demo/index",
     "van-editor-demo": "./dist/editor/demo/index",
     "van-image-swiper-demo": "./dist/image-swiper/demo/index",
     "van-list-demo": "./dist/list/demo/index",
     "van-layer-demo": "./dist/layer/demo/index",
     "van-person-card-demo": "./dist/person-card/demo/index",
-    "van-number-keyboard-demo": "./dist/number-keyboard/demo/index"
+    "van-number-keyboard-demo": "./dist/number-keyboard/demo/index",
+    "van-password-input-demo": "./dist/password-input/demo/index"
   },
   "sitemapLocation": "sitemap.json"
 }

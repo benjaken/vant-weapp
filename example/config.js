@@ -248,6 +248,10 @@ export default [
     icon: 'ellipsis',
     list: [
       {
+        path: '/badge',
+        title: 'Badge 徽标',
+      },
+      {
         path: '/check-button',
         title: 'CheckButton 复选按钮',
       },
@@ -270,6 +274,10 @@ export default [
       {
         path: '/number-keyboard',
         title: 'NumberKeyboard 数字键盘',
+      },
+      {
+        path: '/password-input',
+        title: 'PasswordInput 密码输入框',
       },
       {
         path: '/person-card',

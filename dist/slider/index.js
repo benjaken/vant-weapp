@@ -168,7 +168,7 @@ VantComponent({
             this.value = value;
             const { vertical } = this.data;
             const mainAxis = vertical ? 'height' : 'width';
-            const height = this.data.barHeight + (this.properties.showTip ? 43 : 0);
+            const height = this.data.barHeight + (this.properties.showTip ? 73 : 0);
             this.setData({
                 wrapperStyle: `
           background: ${this.data.inactiveColor || ''};

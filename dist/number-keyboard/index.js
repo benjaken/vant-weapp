@@ -25,7 +25,7 @@ VantComponent({
         passwordErrorInfo: String,
         round: {
             type: Boolean,
-            value: true,
+            value: false,
         },
         showDeleteKey: {
             type: Boolean,

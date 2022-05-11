@@ -61,7 +61,8 @@
     "pages/layer/index",
     "pages/person-card/index",
     "pages/number-keyboard/index",
-    "pages/password-input/index"
+    "pages/password-input/index",
+    "pages/comment-card/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#f8f8f8",
@@ -132,7 +133,8 @@
     "van-layer-demo": "./dist/layer/demo/index",
     "van-person-card-demo": "./dist/person-card/demo/index",
     "van-number-keyboard-demo": "./dist/number-keyboard/demo/index",
-    "van-password-input-demo": "./dist/password-input/demo/index"
+    "van-password-input-demo": "./dist/password-input/demo/index",
+    "van-comment-card-demo": "./dist/comment-card/demo/index"
   },
   "sitemapLocation": "sitemap.json"
 }

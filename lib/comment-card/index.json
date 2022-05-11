@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-rate": "../rate/index",
+    "van-uploader": "../uploader/index",
+    "van-icon": "../icon/index"
+  }
+}

@@ -1,0 +1,34 @@
+<wxs src="../wxs/utils.wxs" module="utils" />
+
+<view class="{{ utils.bem('comment-card') }}">
+  <view class="van-comment-card__header">
+    <view class="van-comment-card__user">
+      <image class="van-comment-card__user-avatar" src="{{ avatar }}" mode="aspectFill" />
+      <view class="van-comment-card_user-info">
+        <view class="van-comment-card__user-name">{{ name }}</view>
+        <view class="van-comment-card__user-time">{{ time }}</view>
+      </view>
+    </view>
+    <van-rate value="{{ point }}" size="28rpx" color="#F56C6C"></van-rate>
+  </view>
+  <view class="van-comment-card__content">
+    <rich-text nodes="{{content}}"></rich-text>
+  </view>
+  <van-uploader
+    file-list="{{ fileList }}"
+    disabled
+    show-upload="{{false}}"
+    deletable="{{false}}"
+    max-count="{{maxCount}}"
+  />
+  <view class="van-comment-card__footer">
+    <view class="van-comment-card__action" bindtap="onClickLike">
+      <van-icon name="{{like ? 'like' : 'like-o'}}" color="{{like ? '#F56C6C' : ''}}"></van-icon>
+      <text class="van-comment-card__action-text">{{likeCount || 0}}</text>
+    </view>
+    <view class="van-comment-card__action" bindtap="onClickComment">
+      <van-icon name="comment-o"></van-icon>
+      <text class="van-comment-card__action-text">{{likeCount || 0}}</text>
+    </view>
+  </view>
+</view>

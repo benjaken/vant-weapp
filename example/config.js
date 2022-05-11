@@ -256,6 +256,10 @@ export default [
         title: 'CheckButton 复选按钮',
       },
       {
+        path: '/comment-card',
+        title: 'CommentCard 评论卡片',
+      },
+      {
         path: '/editor',
         title: 'Editor 编辑器',
       },

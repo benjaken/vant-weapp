@@ -1,0 +1,15 @@
+<demo-block title="基本用法">
+  <van-comment-card
+    avatar="{{avatar}}"
+    name="{{name}}"
+    time="{{time}}"
+    point="{{point}}"
+    content="{{content}}"
+    file-list="{{fileList}}"
+    like="{{like}}"
+    like-count="{{likeCount}}"
+    comment-count="{{commentCount}}"
+    bind:click-like="onClickLike"
+    bind:click-comment="onClickComment"
+  />
+</demo-block>

@@ -1,1 +1,1 @@
-@import '../common/index.wxss';.van-skeleton__render-button{background-color:#ff9a26;border-radius:999px;bottom:5px;box-shadow:2px 2px 6px rgba(134,151,197,.17);color:#fff;font-size:24rpx;height:45px;line-height:45px;position:fixed;right:5px;text-align:center;width:45px;z-index:9999}
+@import '../common/index.wxss';.van-skeleton__render-button{background-color:#f96401;border-radius:999px;bottom:5px;box-shadow:2px 2px 6px rgba(134,151,197,.17);color:#fff;font-size:24rpx;height:45px;line-height:45px;position:fixed;right:5px;text-align:center;width:45px;z-index:9999}

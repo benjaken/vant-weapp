@@ -406,6 +406,13 @@
           "name": "badge",
           "pathName": "pages/badge/index",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "comment-card",
+          "pathName": "pages/comment-card/index",
+          "query": "",
           "scene": null,
           "launchMode": "default"
         }

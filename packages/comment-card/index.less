@@ -1,0 +1,61 @@
+@import '../common/style/var.less';
+
+.van-comment-card {
+	position: relative;
+	padding: @padding-sm @padding-md;
+	background-color: @white;
+	border-radius: @border-radius-md;
+	font-size: 28rpx;
+	color: @gray-6;
+
+	&__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 20rpx;
+	}
+
+	&__user {
+		display: flex;
+		align-items: center;
+
+		&-avatar {
+			width: 80rpx;
+			height: 80rpx;
+			flex: 0 0 80rpx;
+			border-radius: @border-radius-max;
+			margin-right: 20rpx;
+		}
+
+		&-name {
+			font-size: 32rpx;
+			font-weight: bold;
+			color: @black;
+			margin: 0 12rpx 4rpx 0;
+		}
+
+		&-time {
+			font-size: 24rpx;
+		}
+	}
+
+	&__content {
+		font-size: 28rpx;
+		min-height: 80rpx;
+		margin-bottom: 20rpx;
+	}
+
+	&__footer {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+	}
+
+	&__action {
+		margin-left: 20rpx;
+
+		&-text {
+			margin-left: 12rpx;
+		}
+	}
+}

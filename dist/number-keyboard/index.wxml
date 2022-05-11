@@ -4,7 +4,7 @@
   show="{{show}}"
   position="bottom"
   custom-style="background-color:#f2f3f5"
-  overlay-style="background-color:transparent"
+  overlay-style="background-color:{{password ? 'rgba(0,0,0,.7)' : 'transparent'}}"
   z-index="{{ zIndex }}"
   round="{{ round }}"
   safe-area-inset-bottom="{{ safeAreaInsetBottom }}"

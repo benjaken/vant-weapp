@@ -6,7 +6,10 @@
   user-select: none;
   height: var(--nav-bar-height, @nav-bar-height);
   line-height: var(--nav-bar-height, @nav-bar-height);
-  background-color: var(--nav-bar-background-color, @nav-bar-background-color);
+  background-color: var(
+    --nav-bar-background-color-light,
+    @nav-bar-background-color-light
+  );
 
   &__content {
     position: relative;
@@ -18,7 +21,7 @@
     vertical-align: middle;
     margin: 0 calc(-1 * var(--padding-md, @padding-md));
     padding: 0 var(--padding-md, @padding-md);
-    color: var(--nav-bar-text-color, @nav-bar-text-color);
+    color: var(--nav-bar-text-color-light, @nav-bar-text-color-light);
 
     &--hover {
       background-color: @active-color;
@@ -28,7 +31,10 @@
   &__arrow {
     vertical-align: middle;
     font-size: var(--nav-bar-arrow-size, @nav-bar-arrow-size) !important;
-    color: var(--nav-bar-icon-color, @nav-bar-icon-color) !important;
+    color: var(
+      --nav-bar-icon-color-light,
+      @nav-bar-icon-color-light
+    ) !important;
 
     + .van-nav-bar__text {
       margin-left: -20px;
@@ -44,7 +50,7 @@
       line-height: 32px;
       text-align: center;
       box-sizing: border-box;
-      background: @white;
+      background: var(--nav-bar-background-color-light, @nav-bar-background-color-light);
       font-size: 18px !important;
       font-weight: bold;
     }
@@ -52,13 +58,13 @@
 
   &__home {
     width: 32px;
-		height: 32px;
-		border: 1px solid @border-color;
-		border-radius: 16px;
-		line-height: 32px;
-		text-align: center;
-		box-sizing: border-box;
-		background: @white;
+    height: 32px;
+    border: 1px solid @border-color;
+    border-radius: 16px;
+    line-height: 32px;
+    text-align: center;
+    box-sizing: border-box;
+    background: var(--nav-bar-background-color-light, @nav-bar-background-color-light);
     font-size: 18px;
     font-weight: bold;
 
@@ -78,7 +84,10 @@
   &__title {
     max-width: 60%;
     margin: 0 auto;
-    color: var(--nav-bar-title-text-color, @nav-bar-title-text-color);
+    color: var(
+      --nav-bar-title-text-color-light,
+      @nav-bar-title-text-color-light
+    );
     font-weight: var(--font-weight-bold, @font-weight-bold);
     font-size: var(--nav-bar-title-font-size, @nav-bar-title-font-size);
   }
@@ -99,5 +108,44 @@
 
   &__right {
     right: var(--padding-md, @padding-md);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-nav-bar {
+    background-color: var(
+      --nav-bar-background-color-dark,
+      @nav-bar-background-color-dark
+    );
+
+    &__text {
+      color: var(--nav-bar-text-color-dark, @nav-bar-text-color-dark);
+      &--hover {
+        background-color: @dark-active-color;
+      }
+    }
+
+    &__arrow {
+      color: var(
+        --nav-bar-icon-color-dark,
+        @nav-bar-icon-color-dark
+      ) !important;
+      &--showHome {
+        border-color: @dark-border-color;
+        background: var(--nav-bar-background-color-dark, @nav-bar-background-color-dark);
+      }
+    }
+
+    &__home {
+      border-color: @dark-border-color;
+      background: var(--nav-bar-background-color-dark, @nav-bar-background-color-dark);
+    }
+
+    &__title {
+      color: var(
+        --nav-bar-title-text-color-dark,
+        @nav-bar-title-text-color-dark
+      );
+    }
   }
 }

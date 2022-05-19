@@ -22,12 +22,25 @@
 
 // Component Colors
 @text-color: @gray-8;
+@text-color-2: @gray-6;
+@text-color-3: @gray-5;
 @active-color: @gray-2;
 @active-opacity: 0.7;
 @disabled-opacity: 0.5;
 @background-color: @gray-1;
-@background-color-light: #fafafa;
+@background-color-2: #ffffff;
+@background-color-3: #ffffff;
 @text-link-color: #576b95;
+
+// Dark Mode Colors
+@dark-text-color: #f5f5f5;
+@dark-text-color-2: #707070;
+@dark-text-color-3: #4d4d4d;
+@dark-border-color: #3a3a3c;
+@dark-active-color: #3a3a3c;
+@dark-background-color: #000;
+@dark-background-color-2: #1c1c1e;
+@dark-background-color-3: #37363b;
 
 // Padding
 @padding-base: 4px;
@@ -69,23 +82,31 @@
 @action-sheet-max-height: 90%;
 @action-sheet-header-height: 48px;
 @action-sheet-header-font-size: @font-size-lg;
-@action-sheet-description-color: @gray-6;
+@action-sheet-description-color-light: @text-color-2;
+@action-sheet-description-color-dark: @dark-text-color-2;
 @action-sheet-description-font-size: @font-size-md;
 @action-sheet-description-line-height: 20px;
-@action-sheet-item-background: @white;
+@action-sheet-item-background-light: @background-color-2;
+@action-sheet-item-background-dark: @dark-background-color-2;
 @action-sheet-item-font-size: @font-size-lg;
 @action-sheet-item-line-height: 22px;
-@action-sheet-item-text-color: @text-color;
-@action-sheet-item-disabled-text-color: @gray-5;
-@action-sheet-subname-color: @gray-6;
+@action-sheet-item-text-color-light: @text-color;
+@action-sheet-item-text-color-dark: @dark-text-color;
+@action-sheet-item-disabled-text-color-light: @text-color-3;
+@action-sheet-item-disabled-text-color-dark: @dark-text-color-3;
+@action-sheet-subname-color-light: @text-color-2;
+@action-sheet-subname-color-dark: @dark-text-color-2;
 @action-sheet-subname-font-size: @font-size-sm;
 @action-sheet-subname-line-height: 20px;
 @action-sheet-close-icon-size: 22px;
-@action-sheet-close-icon-color: @gray-5;
+@action-sheet-close-icon-color-light: @text-color-3;
+@action-sheet-close-icon-color-dark: @dark-text-color-3;
 @action-sheet-close-icon-padding: 0 @padding-md;
-@action-sheet-cancel-text-color: @gray-7;
+@action-sheet-cancel-text-color-light: @text-color-2;
+@action-sheet-cancel-text-color-dark: @dark-text-color-2;
 @action-sheet-cancel-padding-top: @padding-xs;
-@action-sheet-cancel-padding-color: @background-color;
+@action-sheet-cancel-padding-color-light: @background-color;
+@action-sheet-cancel-padding-color-dark: @dark-background-color;
 
 // Button
 @button-mini-height: 22px;
@@ -96,11 +117,14 @@
 @button-small-min-width: 60px;
 @button-normal-font-size: @font-size-md;
 @button-large-height: 50px;
-@button-default-color: @text-color;
+@button-default-color-light: @text-color;
+@button-default-color-dark: @dark-text-color;
 @button-default-height: 44px;
 @button-default-font-size: @font-size-lg;
-@button-default-background-color: @white;
-@button-default-border-color: @border-color;
+@button-default-background-color-light: @background-color-2;
+@button-default-background-color-dark: @dark-background-color-2;
+@button-default-border-color-light: @border-color;
+@button-default-border-color-dark: @dark-border-color;
 @button-primary-color: @white;
 @button-primary-background-color: @orange;
 @button-primary-border-color: @orange;
@@ -115,14 +139,16 @@
 @button-warning-border-color: @orange-light;
 @button-line-height: 20px;
 @button-border-width: 1px;
-@button-border-radius: @border-radius-sm;
+@button-border-radius: @border-radius-md;
 @button-round-border-radius: @border-radius-max;
-@button-plain-background-color: @white;
+@button-plain-background-color-light: @white;
+@button-plain-background-color-dark: transparent;
 @button-disabled-opacity: @disabled-opacity;
 
 // Calendar
 @calendar-height: 100%;
-@calendar-background-color: @white;
+@calendar-background-color-light: @background-color-2;
+@calendar-background-color-dark: @dark-background-color-2;
 @calendar-popup-height: 80%;
 @calendar-header-box-shadow: 0 2px 10px rgba(125, 126, 128, 0.16);
 @calendar-header-title-height: 44px;
@@ -131,7 +157,8 @@
 @calendar-weekdays-height: 30px;
 @calendar-weekdays-font-size: @font-size-sm;
 @calendar-month-title-font-size: @font-size-md;
-@calendar-month-mark-color: fade(@gray-2, 80%);
+@calendar-month-mark-color-light: rgba(242, 243, 245, .8);
+@calendar-month-mark-color-dark: rgba(100, 101, 102, .2);
 @calendar-month-mark-font-size: 160px;
 @calendar-day-height: 64px;
 @calendar-day-font-size: @font-size-lg;
@@ -144,7 +171,8 @@
 @calendar-info-font-size: @font-size-xs;
 @calendar-info-line-height: 14px;
 @calendar-selected-day-background-color: @orange;
-@calendar-day-disabled-color: @gray-5;
+@calendar-day-disabled-color-light: @text-color-3;
+@calendar-day-disabled-color-dark: @dark-text-color-3;
 @calendar-confirm-button-height: 36px;
 @calendar-confirm-button-margin: 7px 0;
 @calendar-confirm-button-line-height: 34px;
@@ -152,14 +180,18 @@
 // Card
 @card-padding: @padding-xs @padding-md;
 @card-font-size: @font-size-sm;
-@card-text-color: @text-color;
-@card-background-color: @background-color-light;
+@card-text-color-light: @text-color;
+@card-text-color-dark: @dark-text-color;
+@card-background-color-light: @background-color-2;
+@card-background-color-dark: @dark-background-color-2;
 @card-thumb-size: 88px;
 @card-title-line-height: 16px;
-@card-desc-color: @gray-7;
+@card-desc-color-light: @text-color-2;
+@card-desc-color-dark: @dark-text-color-2;
 @card-desc-line-height: 20px;
 @card-price-color: @orange;
-@card-origin-price-color: @gray-7;
+@card-origin-price-color-light: @text-color-2;
+@card-origin-price-color-dark: @dark-text-color-2;
 @card-origin-price-font-size: @font-size-xs;
 @card-price-font-size: @font-size-sm;
 @card-price-integer-font-size: @font-size-lg;
@@ -170,26 +202,33 @@
 @cell-line-height: 24px;
 @cell-vertical-padding: 10px;
 @cell-horizontal-padding: @padding-md;
-@cell-text-color: @text-color;
-@cell-background-color: @white;
-@cell-border-color: @border-color;
-@cell-active-color: @active-color;
+@cell-text-color-light: @text-color;
+@cell-text-color-dark: @dark-text-color;
+@cell-background-color-light: @background-color-2;
+@cell-background-color-dark: @dark-background-color-2;
+@cell-border-color-light: @border-color;
+@cell-border-color-dark: @dark-border-color;
+@cell-active-color-light: @active-color;
+@cell-active-color-dark: @dark-active-color;
 @cell-required-color: @red;
-@cell-label-color: @gray-6;
+@cell-label-color-light: @text-color-2;
+@cell-label-color-dark: @dark-text-color-2;
 @cell-label-font-size: @font-size-sm;
 @cell-label-line-height: 18px;
 @cell-label-margin-top: 3px;
-@cell-value-color: @gray-6;
+@cell-value-color-light: @text-color-2;
+@cell-value-color-dark: @dark-text-color-2;
 @cell-icon-size: 16px;
-@cell-right-icon-color: @gray-6;
+@cell-right-icon-color-light: @text-color-2;
+@cell-right-icon-color-dark: @dark-text-color-2;
 @cell-large-vertical-padding: @padding-sm;
 @cell-large-title-font-size: @font-size-lg;
 @cell-large-value-font-size: @font-size-lg;
 @cell-large-label-font-size: @font-size-md;
 
 // CellGroup
-@cell-group-background-color: @white;
-@cell-group-title-color: @gray-6;
+@cell-group-title-color-light: @text-color-2;
+@cell-group-title-color-dark: @dark-text-color-2;
 @cell-group-title-padding: @padding-md @padding-md @padding-xs;
 @cell-group-title-font-size: @font-size-md;
 @cell-group-title-line-height: 16px;
@@ -199,29 +238,39 @@
 
 // Checkbox
 @checkbox-size: 20px;
-@checkbox-border-color: @gray-5;
+@checkbox-border-color-light: @text-color-3;
+@checkbox-border-color-dark: @dark-text-color-3;
 @checkbox-transition-duration: 0.2s;
 @checkbox-label-margin: 10px;
-@checkbox-label-color: @text-color;
+@checkbox-label-color-light: @text-color;
+@checkbox-label-color-dark: @dark-text-color;
 @checkbox-checked-icon-color: @orange;
-@checkbox-disabled-icon-color: @gray-5;
-@checkbox-disabled-label-color: @gray-5;
-@checkbox-disabled-background-color: @border-color;
+@checkbox-disabled-icon-color-light: @text-color-3;
+@checkbox-disabled-icon-color-dark: @dark-text-color-3;
+@checkbox-disabled-label-color-light: @text-color-3;
+@checkbox-disabled-label-color-dark: @dark-text-color-3;
+@checkbox-disabled-background-color-light: @border-color;
+@checkbox-disabled-background-color-dark: @dark-border-color;
 
 // Circle
-@circle-text-color: @text-color;
+@circle-text-color-light: @text-color;
+@circle-text-color-dark: @dark-text-color;
 
 // Collapse
 @collapse-item-transition-duration: 0.3s;
 @collapse-item-content-padding: 15px;
 @collapse-item-content-font-size: 13px;
 @collapse-item-content-line-height: 1.5;
-@collapse-item-content-text-color: @gray-6;
-@collapse-item-content-background-color: @white;
-@collapse-item-title-disabled-color: @gray-5;
+@collapse-item-content-text-color-light: @text-color-2;
+@collapse-item-content-text-color-dark: @dark-text-color-2;
+@collapse-item-content-background-color-light: @background-color-2;
+@collapse-item-content-background-color-dark: @dark-background-color-2;
+@collapse-item-title-disabled-color-light: @text-color-2;
+@collapse-item-title-disabled-color-dark: @dark-text-color-2;
 
 // CountDown
-@count-down-text-color: @text-color;
+@count-down-text-color-light: @text-color;
+@count-down-text-color-dark: @dark-text-color;
 @count-down-font-size: @font-size-md;
 @count-down-line-height: 20px;
 
@@ -230,7 +279,8 @@
 @dialog-small-screen-width: 90%;
 @dialog-font-size: @font-size-lg;
 @dialog-border-radius: 16px;
-@dialog-background-color: @white;
+@dialog-background-color-light: @background-color-2;
+@dialog-background-color-dark: @dark-background-color-2;
 @dialog-header-font-weight: @font-weight-bold;
 @dialog-header-line-height: 24px;
 @dialog-header-padding-top: @padding-lg;
@@ -239,37 +289,51 @@
 @dialog-message-font-size: @font-size-md;
 @dialog-message-line-height: 20px;
 @dialog-message-max-height: 60vh;
-@dialog-has-title-message-text-color: @gray-7;
+@dialog-has-title-message-text-color-light: @text-color-2;
+@dialog-has-title-message-text-color-dark: @dark-text-color-2;
 @dialog-has-title-message-padding-top: @padding-xs;
+@dialog-round-button-color-light: @text-color-2;
+@dialog-round-button-color-dark: @dark-text-color-2;
 
 // Field
-@field-label-color: @gray-8;
-@field-input-text-color: @text-color;
+@field-label-color-light: @text-color-2;
+@field-label-color-dark: @dark-text-color-2;
+@field-input-text-color-light: @text-color;
+@field-input-text-color-dark: @dark-text-color;
 @field-input-error-text-color: @red;
-@field-input-disabled-text-color: @gray-5;
-@field-placeholder-text-color: @gray-5;
+@field-input-disabled-text-color-light: @text-color-2;
+@field-input-disabled-text-color-dark: @dark-text-color-2;
+@field-placeholder-text-color-light: @text-color-2;
+@field-placeholder-text-color-dark: @dark-text-color-2;
 @field-icon-size: 16px;
 @field-clear-icon-size: 16px;
-@field-clear-icon-color: @gray-5;
-@field-icon-container-color: @gray-6;
+@field-clear-icon-color-light: @text-color-3;
+@field-clear-icon-color-dark: @dark-text-color-3;
+@field-icon-container-color-light: @text-color-2;
+@field-icon-container-color-dark: @dark-text-color-2;
 @field-error-message-color: @red;
 @field-error-message-text-font-size: @font-size-sm;
 @field-text-area-min-height: 18px;
-@field-word-limit-color: @gray-7;
+@field-word-limit-color-light: @text-color-2;
+@field-word-limit-color-dark: @dark-text-color-2;
 @field-word-limit-font-size: @font-size-sm;
 @field-word-limit-line-height: 16px;
 @field-word-num-full-color: @orange;
-@field-disabled-text-color: @gray-5;
+@field-disabled-text-color-light: @text-color-2;
+@field-disabled-text-color-dark: @dark-text-color-2;
 
 // GoodsAction
-@goods-action-background-color: @white;
+@goods-action-background-color-light: @background-color-2;
+@goods-action-background-color-dark: @dark-background-color-2;
 @goods-action-height: 50px;
 @goods-action-icon-width: 48px;
 @goods-action-icon-height: @goods-action-height;
-@goods-action-icon-color: @text-color;
+@goods-action-icon-color-light: @text-color;
+@goods-action-icon-color-dark: @dark-text-color;
 @goods-action-icon-size: 18px;
 @goods-action-icon-font-size: @font-size-xs;
-@goods-action-icon-text-color: @gray-7;
+@goods-action-icon-text-color-light: @text-color-2;
+@goods-action-icon-text-color-dark: @dark-text-color-2;
 @goods-action-button-height: 40px;
 @goods-action-button-line-height: @button-line-height;
 @goods-action-button-border-radius: @border-radius-max;
@@ -278,42 +342,53 @@
 @goods-action-button-plain-color: @white;
 
 // Image
-@image-placeholder-text-color: @gray-6;
+@image-placeholder-text-color-light: @text-color-2;
+@image-placeholder-text-color-dark: @dark-text-color-2;
 @image-placeholder-font-size: @font-size-md;
-@image-placeholder-background-color: @background-color;
+@image-placeholder-background-color-light: @background-color;
+@image-placeholder-background-color-dark: @dark-background-color;
 @image-loading-icon-size: 32px;
-@image-loading-icon-color: @gray-4;
+@image-loading-icon-color-light: @text-color-2;
+@image-loading-icon-color-dark: @dark-text-color-2;
 @image-error-icon-size: 32px;
-@image-error-icon-color: @gray-4;
+@image-error-icon-color-light: @text-color-2;
+@image-error-icon-color-dark: @dark-text-color-2;
 
 // Info
 @info-size: 16px;
-@info-color: @white;
+@info-color-light: @text-color;
+@info-color-dark: @dark-text-color;
 @info-padding: 0 3px;
 @info-font-size: 12px;
 @info-font-weight: 500;
 @info-border-width: 1px;
 @info-background-color: @orange;
-@info-dot-color: @red;
+@info-dot-color: @orange;
 @info-dot-size: 8px;
 @info-font-family: -apple-system-font, Helvetica Neue, Arial, sans-serif;
 
 // Loading
-@loading-text-color: @gray-6;
+@loading-text-color-light: @text-color-2;
+@loading-text-color-dark: @dark-text-color-2;
 @loading-text-font-size: @font-size-md;
 @loading-text-line-height: 20px;
-@loading-spinner-color: @gray-5;
+@loading-spinner-color-light: @text-color-3;
+@loading-spinner-color-dark: @dark-text-color-3;
 @loading-spinner-size: 30px;
 @loading-spinner-animation-duration: 0.8s;
 
 // NavBar
 @nav-bar-height: 46px;
-@nav-bar-background-color: @white;
+@nav-bar-background-color-light: @background-color-2;
+@nav-bar-background-color-dark: @dark-background-color-2;
 @nav-bar-arrow-size: 16px;
-@nav-bar-icon-color: @text-color;
-@nav-bar-text-color: @text-color;
+@nav-bar-icon-color-light: @text-color;
+@nav-bar-icon-color-dark: @dark-text-color;
+@nav-bar-text-color-light: @text-color;
+@nav-bar-text-color-dark: @dark-text-color;
 @nav-bar-title-font-size: @font-size-lg;
-@nav-bar-title-text-color: @text-color;
+@nav-bar-title-text-color-light: @text-color;
+@nav-bar-title-text-color-dark: @dark-text-color;
 
 // NoticeBar
 @notice-bar-height: 40px;
@@ -339,60 +414,81 @@
 @overlay-background-color: rgba(0, 0, 0, 0.7);
 
 // Panel
-@panel-background-color: @white;
+@panel-background-color-light: @background-color-2;
+@panel-background-color-dark: @dark-background-color-2;
 @panel-header-value-color: @orange;
 @panel-footer-padding: @padding-xs @padding-md;
 
 // Picker
-@picker-background-color: @white;
+@picker-background-color-light: @background-color-2;
+@picker-background-color-dark: @dark-background-color-2;
 @picker-toolbar-height: 44px;
 @picker-title-font-size: @font-size-lg;
 @picker-action-padding: 0 @padding-md;
 @picker-action-font-size: @font-size-md;
 @picker-confirm-action-color: @text-link-color;
-@picker-cancel-action-color: @gray-6;
+@picker-cancel-action-color-light: @text-color-2;
+@picker-cancel-action-color-dark: @dark-text-color-2;
 @picker-option-font-size: @font-size-lg;
-@picker-option-text-color: @black;
+@picker-option-text-color-light: @text-color;
+@picker-option-text-color-dark: @dark-text-color;
+@picker-title-color-light: @text-color;
+@picker-title-color-dark: @dark-text-color;
 @picker-loading-icon-color: @orange;
-@picker-loading-mask-color: rgba(255, 255, 255, 0.9);
+@picker-loading-mask-color-light: rgba(255, 255, 255, 0.9);
+@picker-loading-mask-color-dark: rgba(0, 0, 0, .6);
 @picker-option-disabled-opacity: 0.3;
-@picker-option-selected-text-color: @text-color;
+@picker-option-selected-text-color-light: @text-color;
+@picker-option-selected-text-color-dark: @dark-text-color;
+@picker-mask-color-light: linear-gradient(180deg, rgba(255, 255, 255, .9), rgba(255, 255, 255, .4)), linear-gradient(0deg, rgba(255, 255, 255, .9), rgba(255, 255, 255, .4));
+@picker-mask-color-dark: linear-gradient(180deg, rgba(0, 0, 0, .6), rgba(0, 0, 0, .1)), linear-gradient(0deg, rgba(0, 0, 0, .6), rgba(0, 0, 0, .1));
 
 // Popup
-@popup-background-color: @white;
+@popup-background-color-light: @background-color-2;
+@popup-background-color-dark: @dark-background-color-2;
 @popup-round-border-radius: 16px;
 @popup-close-icon-size: 18px;
-@popup-close-icon-color: @gray-6;
+@popup-close-icon-color-light: @text-color-2;
+@popup-close-icon-color-dark: @dark-text-color-2;
 @popup-close-icon-margin: 16px;
 @popup-close-icon-z-index: 1;
 
 // Progress
 @progress-height: 4px;
-@progress-background-color: @gray-3;
+@progress-background-color-light: @gray-3;
+@progress-background-color-dark: @gray-7;
 @progress-pivot-padding: 0 5px;
 @progress-color: @orange;
 @progress-pivot-font-size: @font-size-xs;
 @progress-pivot-line-height: 1.6;
 @progress-pivot-background-color: @orange;
-@progress-pivot-text-color: @white;
+@progress-pivot-text-color-light: @text-color;
+@progress-pivot-text-color-dark: @dark-text-color;
 
 // Radio
 @radio-size: 20px;
-@radio-border-color: @gray-5;
+@radio-border-color-light: @text-color-3;
+@radio-border-color-dark: @dark-text-color-3;
 @radio-transition-duration: 0.2s;
 @radio-label-margin: 10px;
-@radio-label-color: @text-color;
+@radio-label-color-light: @text-color;
+@radio-label-color-dark: @dark-text-color;
 @radio-checked-icon-color: @orange;
-@radio-disabled-icon-color: @gray-5;
-@radio-disabled-label-color: @gray-5;
-@radio-disabled-background-color: @border-color;
+@radio-disabled-icon-color-light: @text-color-3;
+@radio-disabled-icon-color-dark: @dark-text-color-3;
+@radio-disabled-label-color-light: @text-color-3;
+@radio-disabled-label-color-dark: @dark-text-color-3;
+@radio-disabled-background-color-light: @border-color;
+@radio-disabled-background-color-dark: @dark-border-color;
 
 // Rate
 @rate-horizontal-padding: 2px;
 @rate-icon-size: 20px;
-@rate-icon-void-color: @gray-5;
+@rate-icon-void-color-light: @text-color-3;
+@rate-icon-void-color-dark: @dark-text-color-3;
 @rate-icon-full-color: @orange;
-@rate-icon-disabled-color: @gray-5;
+@rate-icon-disabled-color-light: @text-color-3;
+@rate-icon-disabled-color-dark: @dark-text-color-3;
 @rate-icon-gutter: @padding-base;
 
 // Switch
@@ -403,7 +499,8 @@
 @switch-node-background-color: @white;
 @switch-node-box-shadow: 0 3px 1px 0 rgba(0, 0, 0, 0.05),
   0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 3px 3px 0 rgba(0, 0, 0, 0.05);
-@switch-background-color: @white;
+@switch-background-color-light: rgba(120, 120, 128, .16);
+@switch-background-color-dark: rgba(120, 120, 128, .32);
 @switch-on-background-color: @orange;
 @switch-transition-duration: 0.3s;
 @switch-disabled-opacity: 0.4;
@@ -411,31 +508,40 @@
 
 // ShareSheet
 @share-sheet-header-padding: @padding-sm @padding-md @padding-base;
-@share-sheet-title-color: @text-color;
+@share-sheet-title-color-light: @text-color;
+@share-sheet-title-color-dark: @dark-text-color;
 @share-sheet-title-font-size: @font-size-md;
 @share-sheet-title-line-height: @line-height-md;
-@share-sheet-description-color: @gray-6;
+@share-sheet-description-color-light: @text-color-2;
+@share-sheet-description-color-dark: @dark-text-color-2;
 @share-sheet-description-font-size: @font-size-sm;
 @share-sheet-description-line-height: 16px;
 @share-sheet-icon-size: 48px;
-@share-sheet-option-name-color: @gray-7;
+@share-sheet-option-name-color-light: @text-color-2;
+@share-sheet-option-name-color-dark: @dark-text-color-2;
 @share-sheet-option-name-font-size: @font-size-sm;
-@share-sheet-option-description-color: @gray-5;
+@share-sheet-option-description-color-light: @text-color-3;
+@share-sheet-option-description-color-dark: @dark-text-color-3;
 @share-sheet-option-description-font-size: @font-size-sm;
 @share-sheet-cancel-button-font-size: @font-size-lg;
 @share-sheet-cancel-button-height: 48px;
-@share-sheet-cancel-button-background: @white;
+@share-sheet-cancel-button-background-light: @background-color-2;
+@share-sheet-cancel-button-background-dark: @dark-background-color-2;
 
 // Search
-@search-background-color: @gray-1;
+@search-background-color-light: @gray-1;
+@search-background-color-dark: @gray-8;
 @search-padding: 10px @padding-sm;
 @search-input-height: 34px;
 @search-label-padding: 0 5px;
-@search-label-color: @text-color;
+@search-label-color-light: @text-color;
+@search-label-color-dark: @dark-text-color;
 @search-label-font-size: @font-size-md;
-@search-left-icon-color: @gray-6;
+@search-left-icon-color-light: @text-color-2;
+@search-left-icon-color-dark: @dark-text-color-2;
 @search-action-padding: 0 @padding-xs;
-@search-action-text-color: @text-color;
+@search-action-text-color-light: @text-color;
+@search-action-text-color-dark: @dark-text-color;
 @search-action-font-size: @font-size-md;
 
 // Sidebar
@@ -444,19 +550,26 @@
 // SidebarItem
 @sidebar-font-size: @font-size-md;
 @sidebar-line-height: 20px;
-@sidebar-text-color: @text-color;
-@sidebar-disabled-text-color: @gray-5;
+@sidebar-text-color-light: @text-color;
+@sidebar-text-color-dark: @dark-text-color;
+@sidebar-disabled-text-color-light: @text-color-2;
+@sidebar-disabled-text-color-dark: @dark-text-color-2;
 @sidebar-padding: 20px @padding-sm 20px @padding-xs;
-@sidebar-active-color: @active-color;
-@sidebar-background-color: @background-color;
+@sidebar-active-color-light: @active-color;
+@sidebar-active-color-dark: @dark-active-color;
+@sidebar-background-color-light: @background-color;
+@sidebar-background-color-dark: @dark-background-color;
 @sidebar-selected-font-weight: @font-weight-bold;
-@sidebar-selected-text-color: @text-color;
+@sidebar-selected-text-color-light: @text-color;
+@sidebar-selected-text-color-dark: @dark-text-color;
 @sidebar-selected-border-color: @orange;
-@sidebar-selected-background-color: @white;
+@sidebar-selected-background-color-light: @background-color-3;
+@sidebar-selected-background-color-dark: @dark-background-color-3;
 
 // Slider
 @slider-active-background-color: @orange;
-@slider-inactive-background-color: @gray-3;
+@slider-inactive-background-color-light: @gray-3;
+@slider-inactive-background-color-dark: @dark-background-color-3;
 @slider-disabled-opacity: @disabled-opacity;
 @slider-bar-height: 2px;
 @slider-button-width: 24px;
@@ -466,45 +579,60 @@
 @slider-button-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 
 // Step
-@step-text-color: @gray-6;
-@step-process-text-color: @text-color;
+@step-text-color-light: @text-color-2;
+@step-text-color-dark: @dark-text-color-2;
+@step-process-text-color-light: @text-color;
+@step-process-text-color-dark: @dark-text-color;
 @step-font-size: @font-size-md;
-@step-line-color: @border-color;
+@step-line-color-light: @border-color;
+@step-line-color-dark: @dark-border-color;
 @step-finish-line-color: @green;
-@step-finish-text-color: @text-color;
+@step-finish-text-color-light: @text-color;
+@step-finish-text-color-dark: @dark-text-color;
 @step-icon-size: 12px;
 @step-circle-size: 5px;
-@step-circle-color: @gray-6;
+@step-circle-color-light: @text-color-2;
+@step-circle-color-dark: @dark-text-color-2;
 @step-horizontal-title-font-size: @font-size-sm;
 
 // Steps
-@steps-background-color: @white;
+@steps-background-color-light: @background-color-2;
+@steps-background-color-dark: @dark-background-color-2;
 
 // Stepper
 @stepper-active-color: #e8e8e8;
-@stepper-background-color: @active-color;
-@stepper-button-icon-color: @text-color;
-@stepper-button-disabled-color: @background-color;
-@stepper-button-disabled-icon-color: @gray-5;
+@stepper-background-color-light: @active-color;
+@stepper-background-color-dark: @dark-active-color;
+@stepper-button-icon-color-light: @text-color;
+@stepper-button-icon-color-dark: @dark-text-color;
+@stepper-button-disabled-color-light: @background-color;
+@stepper-button-disabled-color-dark: @dark-background-color;
+@stepper-button-disabled-icon-color-light: @text-color-3;
+@stepper-button-disabled-icon-color-dark: @dark-text-color-3;
 @stepper-button-round-theme-color: @orange;
 @stepper-input-width: 32px;
 @stepper-input-height: 28px;
 @stepper-input-font-size: @font-size-md;
 @stepper-input-line-height: normal;
-@stepper-input-text-color: @text-color;
-@stepper-input-disabled-text-color: @gray-5;
-@stepper-input-disabled-background-color: @active-color;
+@stepper-input-text-color-light: @text-color;
+@stepper-input-text-color-dark: @dark-text-color;
+@stepper-input-disabled-text-color-light: @text-color-3;
+@stepper-input-disabled-text-color-dark: @dark-text-color-3;
+@stepper-input-disabled-background-color-light: @active-color;
+@stepper-input-disabled-background-color-dark: @dark-active-color;
 @stepper-border-radius: @border-radius-md;
 
 // SubmitBar
 @submit-bar-height: 50px;
 @submit-bar-z-index: 100;
-@submit-bar-background-color: @white;
+@submit-bar-background-color-light: @background-color-2;
+@submit-bar-background-color-dark: @dark-background-color-2;
 @submit-bar-button-width: 110px;
 @submit-bar-price-color: @orange;
 @submit-bar-price-font-size: @font-size-sm;
 @submit-bar-currency-font-size: @font-size-sm;
-@submit-bar-text-color: @text-color;
+@submit-bar-text-color-light: @text-color;
+@submit-bar-text-color-dark: @dark-text-color;
 @submit-bar-text-font-size: 14px;
 @submit-bar-tip-padding: 10px;
 @submit-bar-tip-font-size: 12px;
@@ -519,27 +647,33 @@
 
 // Tabbar
 @tabbar-height: 50px;
-@tabbar-background-color: @white;
+@tabbar-background-color-light: @background-color-2;
+@tabbar-background-color-dark: @dark-background-color-2;
 
 // TabbarItem
 @tabbar-item-font-size: @font-size-sm;
-@tabbar-item-text-color: @gray-7;
+@tabbar-item-text-color-light: @text-color-2;
+@tabbar-item-text-color-dark: @dark-text-color-2;
 @tabbar-item-active-color: @orange;
 @tabbar-item-line-height: 1;
 @tabbar-item-icon-size: 22px;
 @tabbar-item-margin-bottom: 4px;
 
 // Tab
-@tab-text-color: @gray-7;
-@tab-active-text-color: @text-color;
-@tab-disabled-text-color: @gray-5;
+@tab-text-color-light: @text-color-2;
+@tab-text-color-dark: @dark-text-color-2;
+@tab-active-text-color-light: @text-color;
+@tab-active-text-color-dark: @dark-text-color;
+@tab-disabled-text-color-light: @text-color-3;
+@tab-disabled-text-color-dark: @dark-text-color-3;
 @tab-font-size: @font-size-md;
 
 // Tabs
 @tabs-default-color: @orange;
 @tabs-line-height: 44px;
 @tabs-card-height: 30px;
-@tabs-nav-background-color: @white;
+@tabs-nav-background-color-light: @background-color-2;
+@tabs-nav-background-color-dark: @dark-background-color-2;
 @tabs-bottom-bar-height: 3px;
 @tabs-bottom-bar-color: @tabs-default-color;
 
@@ -558,8 +692,10 @@
 @tag-primary-color: @orange;
 @tag-success-color: @green;
 @tag-warning-color: @orange;
-@tag-default-color: @gray-6;
-@tag-plain-background-color: @white;
+@tag-default-color-light: @text-color-2;
+@tag-default-color-dark: @dark-text-color-2;
+@tag-plain-background-color-light: @background-color-2;
+@tag-plain-background-color-dark: @dark-background-color-2;
 
 // Toast
 @toast-max-width: 70%;
@@ -577,18 +713,23 @@
 
 // GridItem
 @grid-item-content-padding: @padding-md @padding-xs;
-@grid-item-content-background-color: @white;
-@grid-item-content-active-color: @active-color;
+@grid-item-content-background-color-light: @background-color-2;
+@grid-item-content-background-color-dark: @dark-background-color-2;
+@grid-item-content-active-color-light: @active-color;
+@grid-item-content-active-color-dark: @dark-active-color;
 @grid-item-icon-size: 26px;
-@grid-item-text-color: @gray-7;
+@grid-item-text-color-light: @text-color-2;
+@grid-item-text-color-dark: @dark-text-color-2;
 @grid-item-text-font-size: @font-size-sm;
 
 // Divider
 @divider-margin: @padding-md 0;
-@divider-text-color: @gray-6;
+@divider-text-color-light: @text-color-2;
+@divider-text-color-dark: @dark-text-color-2;
 @divider-font-size: @font-size-md;
 @divider-line-height: 24px;
-@divider-border-color: @border-color;
+@divider-border-color-light: @border-color;
+@divider-border-color-dark: @dark-border-color;
 @divider-content-padding: @padding-md;
 @divider-content-left-width: 10%;
 @divider-content-right-width: 10%;
@@ -598,39 +739,50 @@
 @empty-image-size: 160px;
 @empty-description-margin-top: @padding-md;
 @empty-description-padding: 0 60px;
-@empty-description-color: @gray-8;
-@empty-tip-color: @gray-6;
+@empty-description-color-light: @text-color;
+@empty-description-color-dark: @dark-text-color;
+@empty-tip-color-light: @text-color-2;
+@empty-tip-color-dark: @dark-text-color-2;
 @empty-description-font-size: 18px;
 @empty-description-line-height: 20px;
 @empty-bottom-margin-top: 24px;
 
 // TreeSelect
 @tree-select-font-size: @font-size-md;
-@tree-select-nav-background-color: @background-color;
-@tree-select-content-background-color: @white;
+@tree-select-nav-background-color-light: @background-color;
+@tree-select-nav-background-color-dark: @dark-background-color;
+@tree-select-content-background-color-light: @background-color-2;
+@tree-select-content-background-color-dark: @dark-background-color-2;
 @tree-select-nav-item-padding: @padding-sm @padding-xs @padding-sm @padding-sm;
 @tree-select-item-height: 44px;
 @tree-select-item-active-color: @orange;
-@tree-select-item-disabled-color: @gray-5;
+@tree-select-item-disabled-color-light: @text-color-3;
+@tree-select-item-disabled-color-dark: @dark-text-color-3;
 
 // Uploader
 @uploader-size: 80px;
 @uploader-icon-size: 24px;
 @uploader-icon-color: @gray-4;
-@uploader-text-color: @gray-6;
+@uploader-text-color-light: @text-color-2;
+@uploader-text-color-dark: @dark-text-color-2;
 @uploader-text-font-size: @font-size-sm;
-@uploader-upload-background-color: @gray-1;
-@uploader-upload-active-color: @active-color;
+@uploader-upload-background-color-light: @gray-2;
+@uploader-upload-background-color-dark: @gray-8;
+@uploader-upload-active-color-light: @active-color;
+@uploader-upload-active-color-dark: @dark-active-color;
 @uploader-delete-color: @white;
 @uploader-delete-icon-size: 14px;
 @uploader-delete-background-color: rgba(0, 0, 0, 0.7);
-@uploader-file-background-color: @background-color;
+@uploader-file-background-color-light: @background-color;
+@uploader-file-background-color-dark: @dark-background-color;
 @uploader-file-icon-size: 20px;
-@uploader-file-icon-color: @gray-7;
+@uploader-file-icon-color-light: @text-color-2;
+@uploader-file-icon-color-dark: @dark-text-color-2;
 @uploader-file-name-padding: 0 @padding-base;
 @uploader-file-name-margin-top: @padding-xs;
 @uploader-file-name-font-size: @font-size-sm;
-@uploader-file-name-text-color: @gray-7;
+@uploader-file-name-text-color-light: @text-color-2;
+@uploader-file-name-text-color-dark: @dark-text-color-2;
 @uploader-mask-background-color: fade(@gray-8, 88%);
 @uploader-mask-icon-size: 22px;
 @uploader-mask-message-font-size: @font-size-sm;
@@ -641,25 +793,30 @@
 
 // DropdownMenu
 @dropdown-menu-height: 50px;
-@dropdown-menu-background-color: @white;
+@dropdown-menu-background-color-light: @background-color-2;
+@dropdown-menu-background-color-dark: @dark-background-color-2;
 @dropdown-menu-title-font-size: 15px;
-@dropdown-menu-title-text-color: @text-color;
+@dropdown-menu-title-text-color-light: @text-color;
+@dropdown-menu-title-text-color-dark: @dark-text-color;
 @dropdown-menu-title-active-text-color: @orange;
-@dropdown-menu-title-disabled-text-color: @gray-6;
+@dropdown-menu-title-disabled-text-color-light: @text-color-2;
+@dropdown-menu-title-disabled-text-color-dark: @dark-text-color-2;
 @dropdown-menu-title-padding: 0 @padding-xs;
 @dropdown-menu-title-line-height: 18px;
 @dropdown-menu-option-active-color: @orange;
-@dropdown-menu-box-shadow: 0 2px 12px fade(@gray-7, 12);
+@dropdown-menu-box-shadow: 0 2px 12px fade(@text-color-2, 12);
 
 // IndexAnchor
 @index-anchor-padding: 0 @padding-md;
-@index-anchor-text-color: @text-color;
+@index-anchor-text-color-light: @text-color;
+@index-anchor-text-color-dark: @dark-text-color;
 @index-anchor-font-weight: 500;
 @index-anchor-font-size: @font-size-md;
 @index-anchor-line-height: 32px;
 @index-anchor-background-color: transparent;
-@index-anchor-active-background-color: @white;
-@index-anchor-active-text-color: @green;
+@index-anchor-active-background-color-light: @background-color-2;
+@index-anchor-active-background-color-dark: @dark-background-color-2;
+@index-anchor-active-text-color: @orange;
 
 // IndexBar
 @index-bar-index-font-size: @font-size-xs;
@@ -672,3 +829,109 @@
 @skeleton-row-margin-top: @padding-sm;
 @skeleton-avatar-background-color: @gray-2;
 @skeleton-animation-duration: 1.2s;
+
+// Badge
+@badge-width: 16px;
+@badge-font-size: @font-size-sm;
+@badge-font-weight: @font-weight-bold;
+@badge-background-color: @orange;
+@badge-text-color-light: @text-color;
+@badge-text-color-dark: @dark-text-color;
+@badge-border-radius: @border-radius-max;
+@badge-padding: 0 3px;
+@badge-dot-size: 8px;
+
+// CheckButton
+@check-button-height: 30px;
+@check-button-font-size: @font-size-md;
+@check-button-color-light: @text-color;
+@check-button-color-dark: @dark-text-color;
+@check-button-background-light: @background-color-2;
+@check-button-background-dark: @dark-background-color-2;
+@check-button-active-background: @orange;
+@check-button-active-color: @white;
+@check-button-disabled-background-light: @gray-3;
+@check-button-disabled-background-dark: @gray-8;
+@check-button-width: 80px;
+@check-button-margin-right: 2%;
+@check-button-horizon-margin-right: 16px;
+@check-button-margin-bottom: 10px;
+
+// CommentCard
+@comment-card-padding: @padding-sm @padding-md;
+@comment-card-background-light: @background-color-2;
+@comment-card-background-dark: @dark-background-color-2;
+@comment-card-border-radius: @border-radius-md;
+@comment-card-font-size: @font-size-md;
+@comment-card-color-light: @text-color-2;
+@comment-card-color-dark: @dark-text-color-2;
+@comment-card-name-color-light: @text-color;
+@comment-card-name-color-dark: @dark-text-color;
+@comment-card-avatar-size: 40px;
+@comment-card-avatar-border-raidus: @border-radius-max;
+@comment-card-content-min-height: 40px;
+
+// Editor
+@editor-font-size: @font-size-lg;
+@editor-line-height: 1.5;
+@editor-color-light: @text-color;
+@editor-color-dark: @dark-text-color;
+@editor-placeholder-color: @gray-5;
+@editor-background-color-light: @background-color;
+@editor-background-color-dark: @dark-background-color;
+@editor-border-color-light: @border-color;
+@editor-border-color-dark: @dark-border-color;
+@editor-icon-active-color: @orange;
+@editor-field-padding: @padding-sm @padding-md;
+
+// List
+@list-end-padding: @padding-md 0;
+@list-end-color-light: @text-color;
+@list-end-color-dark: @dark-text-color;
+@list-end-font-size: @font-size-sm;
+
+// NumberKeyboard
+@number-keyboard-background-light: @gray-2;
+@number-keyboard-background-dark: @gray-8;
+@number-keyboard-header-font-size: @font-size-md;
+@number-keyboard-header-color-light: @text-color-2;
+@number-keyboard-header-color-dark: @dark-text-color-2;
+@number-keyboard-header-height: 32px;
+@number-keyboard-button-color-light: @text-color;
+@number-keyboard-button-color-dark: @dark-text-color;
+@number-keyboard-button-background-light: @background-color-2;
+@number-keyboard-button-background-dark: @dark-background-color-2;
+@number-keyboard-button-font-size: 28px;
+@number-keyboard-button-text-font-size: @font-size-lg;
+@number-keyboard-button-height: 48px;
+@number-keyboard-button-border-radius: @border-radius-lg;
+
+// PasswordInput
+@password-input-height: 50px;
+@password-input-font-size: 20px;
+@password-input-color-light: @text-color;
+@password-input-color-dark: @dark-text-color;
+@password-input-background-color-light: @background-color-2;
+@password-input-background-color-dark: @dark-background-color-2;
+@password-input-border-color-light: @border-color;
+@password-input-border-color-dark: @dark-border-color;
+@password-input-cursor-color-light: @gray-8;
+@password-input-cursor-color-dark: @gray-2;
+@password-input-info-font-size: @font-size-md;
+@password-input-info-color-light: @gray-5;
+@password-input-info-color-dark: @gray-2;
+@password-input-info-error-color: @red;
+
+// PersonCard
+@person-card-padding: @padding-sm @padding-md;
+@person-card-color-light: @text-color-2;
+@person-card-color-dark: @dark-text-color-2;
+@person-card-background-light: @background-color-2;
+@person-card-background-dark: @dark-background-color-2;
+@person-card-border-radius: @border-radius-md;
+@person-card-font-size: @font-size-sm;
+@person-card-name-color-light: @text-color;
+@person-card-name-color-dark: @dark-text-color;
+@person-card-avatar-size: 60px;
+@person-card-avatar-border-raidus: @border-radius-max;
+@person-card-location-color: @text-link-color;

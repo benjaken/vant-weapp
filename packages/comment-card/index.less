@@ -2,11 +2,11 @@
 
 .van-comment-card {
 	position: relative;
-	padding: @padding-sm @padding-md;
-	background-color: @white;
-	border-radius: @border-radius-md;
-	font-size: 28rpx;
-	color: @gray-6;
+	padding: var(--comment-card-padding, @comment-card-padding);
+	background-color: var(--comment-card-background-light, @comment-card-background-light);
+	border-radius: var(--comment-card-border-radius, @comment-card-border-radius);
+	font-size: var(--comment-card-font-size, @comment-card-font-size);
+	color: var(--comment-card-color-light, @comment-card-color-light);
 
 	&__header {
 		display: flex;
@@ -20,28 +20,28 @@
 		align-items: center;
 
 		&-avatar {
-			width: 80rpx;
-			height: 80rpx;
-			flex: 0 0 80rpx;
-			border-radius: @border-radius-max;
+			width: var(--comment-card-avatar-size, @comment-card-avatar-size);
+			height: var(--comment-card-avatar-size, @comment-card-avatar-size);
+			flex: 0 0 var(--comment-card-avatar-size, @comment-card-avatar-size);
+			border-radius: var(--comment-card-avatar-border-raidus, @comment-card-avatar-border-raidus);
 			margin-right: 20rpx;
 		}
 
 		&-name {
 			font-size: 32rpx;
 			font-weight: bold;
-			color: @black;
 			margin: 0 12rpx 4rpx 0;
+			color: var(--comment-card-name-color-light, @comment-card-name-color-light);
 		}
 
 		&-time {
-			font-size: 24rpx;
+			font-size: var(--comment-card-font-size, @comment-card-font-size);
 		}
 	}
 
 	&__content {
-		font-size: 28rpx;
-		min-height: 80rpx;
+		font-size: var(--comment-card-font-size, @comment-card-font-size);
+		min-height: var(--comment-card-content-min-height, @comment-card-content-min-height);
 		margin-bottom: 20rpx;
 	}
 
@@ -56,6 +56,19 @@
 
 		&-text {
 			margin-left: 12rpx;
+		}
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	.van-comment-card {
+		background-color: var(--comment-card-background-dark, @comment-card-background-dark);
+		color: var(--comment-card-color-dark, @comment-card-color-dark);
+
+		&__user {
+			&-name {
+				color: var(--comment-card-name-color-dark, @comment-card-name-color-dark);
+			}
 		}
 	}
 }

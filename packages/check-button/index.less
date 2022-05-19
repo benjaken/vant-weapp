@@ -2,54 +2,101 @@
 
 .van-check-button {
   width: 100%;
-	flex: 1;
-	display: flex;
-	overflow: auto;
-	-webkit-overflow-scrolling: touch;
-	box-sizing: border-box;
-	margin-bottom: -20rpx;
+  flex: 1;
+  display: flex;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
 
   &__content {
     width: 100%;
-		display: flex;
-		flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 
     &--disabled {
       .van-check-button__item {
         cursor: none;
         &--active {
-          background: @gray-5 !important;
+          background: var(
+            --check-button-disabled-background-light,
+            @check-button-disabled-background-light
+          ) !important;
         }
       }
     }
 
     &--horizon {
-			justify-content: flex-start;
-			flex-wrap: nowrap;
+      justify-content: flex-start;
+      flex-wrap: nowrap;
 
       .van-check-button__item {
-        width: 160rpx !important;
-        flex: 0 0 160rpx !important;
-        margin-right: 12rpx;
+        width: var(--check-button-width, @check-button-width) !important;
+        flex: 0 0 var(--check-button-width, @check-button-width) !important;
+        margin-right: var(
+          --check-button-horizon-margin-right,
+          @check-button-horizon-margin-right
+        );
       }
-		}
+    }
   }
 
   &__item {
-    margin-bottom: 20rpx;
-    border-radius: 30rpx;
-    height: 60rpx;
-    line-height: 60rpx;
-    font-size: 28rpx;
+    margin-bottom: var(
+      --check-button-margin-bottom,
+      @check-button-margin-bottom
+    );
+    border-radius: calc(var(--check-button-height, @check-button-height) / 2);
+    height: var(--check-button-height, @check-button-height);
+    line-height: var(--check-button-height, @check-button-height);
+    font-size: var(--check-button-font-size, @check-button-font-size);
     text-align: center;
-    background: @gray-3;
-    color: @gray-6;
+    background: var(
+      --check-button-background-light,
+      @check-button-background-light
+    );
+    color: var(--check-button-color-light, @check-button-color-light);
     transition: all 0.3s ease;
-    margin-right: 2%;
+    margin-right: var(
+      --check-button-margin-right,
+      @check-button-margin-right
+    );
 
     &--active {
-      background: var(--button-primary-background-color, @orange);
-      color: @white;
+      background: var(
+        --check-button-active-background,
+        @check-button-active-background
+      );
+      color: var(--check-button-active-color, @check-button-active-color);
+    }
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .van-check-button {
+    &__content {
+      &--disabled {
+        .van-check-button__item {
+          &--active {
+            background: var(
+              --check-button-disabled-background-dark,
+              @check-button-disabled-background-dark
+            ) !important;
+          }
+        }
+      }
+    }
+    &__item {
+      background: var(
+        --check-button-background-dark,
+        @check-button-background-dark
+      );
+      color: var(--check-button-color-dark, @check-button-color-dark);
+      &--active {
+        background: var(
+          --check-button-active-background,
+          @check-button-active-background
+        );
+        color: var(--check-button-active-color, @check-button-active-color);
+      }
     }
   }
 }

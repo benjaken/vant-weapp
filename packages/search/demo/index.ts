@@ -5,6 +5,11 @@ VantComponent({
     value: '',
   },
 
+  created() {
+    const { theme } = wx.getSystemInfoSync();
+    this.setData({ theme })
+  },
+
   methods: {
     onChange(e) {
       this.setData({

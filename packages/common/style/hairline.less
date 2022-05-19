@@ -39,3 +39,14 @@
     border-width: 1px;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  .van-hairline--top::after,
+  .van-hairline--left::after,
+  .van-hairline--right::after,
+  .van-hairline--bottom::after,
+  .van-hairline--top-bottom::after,
+  .van-hairline--surround::after {
+    border-color: @dark-border-color;
+  }
+}

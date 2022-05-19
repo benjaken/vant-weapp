@@ -17,13 +17,21 @@
       --cell-group-title-line-height,
       @cell-group-title-line-height
     );
-    color: var(--cell-group-title-color, @cell-group-title-color);
+    color: var(--cell-group-title-color-light, @cell-group-title-color-light);
 
     &--inset {
       padding: var(
         --cell-group-inset-title-padding,
         @cell-group-inset-title-padding
       );
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-cell-group {
+    &__title {
+      color: var(--cell-group-title-color-dark, @cell-group-title-color-dark);
     }
   }
 }

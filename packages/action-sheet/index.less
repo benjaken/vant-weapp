@@ -5,10 +5,12 @@
     --action-sheet-max-height,
     @action-sheet-max-height
   ) !important;
-  color: var(--action-sheet-item-text-color, @action-sheet-item-text-color);
 
   &__item,
   &__cancel {
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 0;
     padding: 14px @padding-md;
     text-align: center;
     font-size: var(--action-sheet-item-font-size, @action-sheet-item-font-size);
@@ -16,9 +18,13 @@
       --action-sheet-item-line-height,
       @action-sheet-item-line-height
     );
+    color: var(
+      --action-sheet-item-text-color-light,
+      @action-sheet-item-text-color-light
+    );
     background-color: var(
-      --action-sheet-item-background,
-      @action-sheet-item-background
+      --action-sheet-item-background-light,
+      @action-sheet-item-background-light
     );
 
     &--hover {
@@ -33,8 +39,8 @@
 
   &__cancel {
     color: var(
-      --action-sheet-cancel-text-color,
-      @action-sheet-cancel-text-color
+      --action-sheet-cancel-text-color-light,
+      @action-sheet-cancel-text-color-light
     );
   }
 
@@ -45,22 +51,22 @@
       @action-sheet-cancel-padding-top
     );
     background-color: var(
-      --action-sheet-cancel-padding-color,
-      @action-sheet-cancel-padding-color
+      --action-sheet-cancel-padding-color-light,
+      @action-sheet-cancel-padding-color-light
     );
   }
 
   &__item--disabled {
     color: var(
-      --action-sheet-item-disabled-text-color,
-      @action-sheet-item-disabled-text-color
+      --action-sheet-item-disabled-text-color-light,
+      @action-sheet-item-disabled-text-color-light
     );
   }
 
   &__item--disabled&__item--hover {
     background-color: var(
-      --action-sheet-item-background,
-      @action-sheet-item-background
+      --action-sheet-item-background-light,
+      @action-sheet-item-background-light
     );
   }
 
@@ -70,7 +76,10 @@
       --action-sheet-subname-font-size,
       @action-sheet-subname-font-size
     );
-    color: var(--action-sheet-subname-color, @action-sheet-subname-color);
+    color: var(
+      --action-sheet-subname-color-light,
+      @action-sheet-subname-color-light
+    );
     line-height: var(
       --action-sheet-subname-line-height,
       @action-sheet-subname-line-height
@@ -91,8 +100,8 @@
     text-align: center;
     padding: 20px var(--padding-md, @padding-md);
     color: var(
-      --action-sheet-description-color,
-      @action-sheet-description-color
+      --action-sheet-description-color-light,
+      @action-sheet-description-color-light
     );
     font-size: var(
       --action-sheet-description-font-size,
@@ -117,10 +126,80 @@
       --action-sheet-close-icon-size,
       @action-sheet-close-icon-size
     ) !important;
-    color: var(--action-sheet-close-icon-color, @action-sheet-close-icon-color);
+    color: var(
+      --action-sheet-close-icon-color-light,
+      @action-sheet-close-icon-color-light
+    );
   }
 
   &__loading {
     display: flex !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-action-sheet {
+    &__description {
+      color: var(
+        --action-sheet-description-color-dark,
+        @action-sheet-description-color-dark
+      );
+    }
+    &__item,
+    &__cancel {
+      color: var(
+        --action-sheet-item-text-color-dark,
+        @action-sheet-item-text-color-dark
+      );
+      background-color: var(
+        --action-sheet-item-background-dark,
+        @action-sheet-item-background-dark
+      );
+      &--hover {
+        background-color: @dark-active-color;
+      }
+    }
+    &__cancel {
+      color: var(
+        --action-sheet-cancel-text-color-dark,
+        @action-sheet-cancel-text-color-dark
+      );
+    }
+    &__gap {
+      background-color: var(
+        --action-sheet-cancel-padding-color-dark,
+        @action-sheet-cancel-padding-color-dark
+      );
+    }
+    &__item--disabled {
+      color: var(
+        --action-sheet-item-disabled-text-color-dark,
+        @action-sheet-item-disabled-text-color-dark
+      );
+    }
+    &__item--disabled&__item--hover {
+      background-color: var(
+        --action-sheet-item-background-dark,
+        @action-sheet-item-background-dark
+      );
+    }
+    &__subname {
+      color: var(
+        --action-sheet-subname-color-dark,
+        @action-sheet-subname-color-dark
+      );
+    }
+    &__description {
+      color: var(
+        --action-sheet-description-color-dark,
+        @action-sheet-description-color-dark
+      );
+    }
+    &__close {
+      color: var(
+        --action-sheet-close-icon-color-dark,
+        @action-sheet-close-icon-color-dark
+      );
+    }
   }
 }

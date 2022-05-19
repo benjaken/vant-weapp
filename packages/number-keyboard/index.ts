@@ -1,3 +1,4 @@
+import { getSystemInfoSync } from '../common/utils';
 import { VantComponent } from '../common/component';
 
 VantComponent({
@@ -43,7 +44,12 @@ VantComponent({
   },
   data: {
     keys: [] as string[],
-    value: ''
+    value: '',
+    currentTheme: 'light'
+  },
+  created() {
+    const { theme: currentTheme } = getSystemInfoSync()
+    this.setData({ currentTheme })
   },
   mounted() {
     const { theme, showDeleteKey, randomKeyOrder } = this.properties

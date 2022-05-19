@@ -1,115 +1,149 @@
 @import '../common/style/var.less';
 
 .van-person-card {
-	position: relative;
-	padding: @padding-sm @padding-md;
-	background-color: @white;
-	border-radius: @border-radius-md;
-	font-size: 24rpx;
-	color: @gray-6;
-	box-shadow: 2px 2px 6px rgba(134, 151, 197, 0.17);;
+  position: relative;
+  padding: var(--person-card-padding, @person-card-padding);
+  background-color: var(
+    --person-card-background-light,
+    @person-card-background-light
+  );
+  border-radius: var(--person-card-border-radius, @person-card-border-radius);
+  font-size: var(--person-card-font-size, @person-card-font-size);
+  color: var(--person-card-color-light, @person-card-color-light);
+  box-shadow: 2px 2px 6px rgba(134, 151, 197, 0.17);
 
-	&:not(:last-child) {
-		margin-bottom: 20rpx;
-	}
+  &:not(:last-child) {
+    margin-bottom: 20rpx;
+  }
 
-	&__content {
-		width: 100%;
+  &__content {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-	}
+  }
 
-	&__user {
-		display: flex;
-		align-items: center;
-		margin-bottom: 20rpx;
+  &__user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20rpx;
 
-		&-avatar {
-			width: 120rpx;
-			height: 120rpx;
-			flex: 0 0 120rpx;
-			border-radius: @border-radius-max;
-			margin-right: 12rpx;
-		}
+    &-avatar {
+      width: var(--person-card-avatar-size, @person-card-avatar-size);
+      height: var(--person-card-avatar-size, @person-card-avatar-size);
+      flex: 0 0 var(--person-card-avatar-size, @person-card-avatar-size);
+      border-radius: var(
+        --person-card-avatar-border-raidus,
+        @person-card-avatar-border-raidus
+      );
+      margin-right: 12rpx;
+    }
 
-		&-name {
-			font-size: 32rpx;
-			font-weight: bold;
-			color: @black;
-			margin: 0 12rpx 4rpx 0;
-		}
+    &-name {
+      font-size: 32rpx;
+      font-weight: bold;
+      color: var(--person-card-name-color-light, @person-card-name-color-light);
+      margin: 0 12rpx 4rpx 0;
+    }
 
-		&-address {
-			color: @black;
+    &-address {
+      color: var(--person-card-name-color-light, @person-card-name-color-light);
       margin-bottom: 12rpx;
-		}
+    }
 
-		&-tag {
-			line-height: 2;
-			margin-bottom: 12rpx;
+    &-tag {
+      line-height: 2;
+      margin-bottom: 12rpx;
 
       &:not(:last-child) {
         margin-right: 12rpx;
       }
-		}
+    }
 
     &-location {
       display: inline-block;
-      color: @blue;
+      color: var(--person-card-location-color, @person-card-location-color);
 
       &-icon {
-        color: @blue;
+        color: var(--person-card-location-color, @person-card-location-color);
       }
     }
-	}
+  }
 
-	&__deal {
-		position: relative;
-		display: flex;
-		align-items: center;
+  &__deal {
+    position: relative;
+    display: flex;
+    align-items: center;
 
-	  &-item {
-			width: 120rpx;
-			flex: 0 0 120rpx;
-			text-align: center;
+    &-item {
+      width: 120rpx;
+      flex: 0 0 120rpx;
+      text-align: center;
 
-			&:not(:last-child) {
-				margin-right: 40rpx;
-			}
-		}
+      &:not(:last-child) {
+        margin-right: 40rpx;
+      }
+    }
 
     &-number {
       font-size: 40rpx;
       font-weight: bold;
-      color: @black;
+      color: var(--person-card-name-color-light, @person-card-name-color-light);
       margin-bottom: 4rpx;
     }
-	}
+  }
 
-	&__more {
-		position: relative;
-		flex: auto;
-		margin-left: 12rpx;
+  &__more {
+    position: relative;
+    flex: auto;
+    margin-left: 12rpx;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 
-		&-button {
+    &-button {
       display: inline-block;
 
-			&:not(:last-child) {
-				margin-bottom: 40rpx;
-			}
-		}
+      &:not(:last-child) {
+        margin-bottom: 40rpx;
+      }
+    }
 
     &-chat {
       font-size: 40rpx !important;
-      color: @orange
+      color: @orange;
     }
-	}
+  }
 
-	&__buttons {
+  &__buttons {
     padding-top: @padding-sm;
-	}
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-person-card {
+    background-color: var(
+      --person-card-background-dark,
+      @person-card-background-dark
+    );
+    color: var(--person-card-color-dark, @person-card-color-dark);
+    &__user {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20rpx;
+
+      &-name {
+        color: var(--person-card-name-color-dark, @person-card-name-color-dark);
+      }
+
+      &-address {
+        color: var(--person-card-name-color-dark, @person-card-name-color-dark);
+      }
+    }
+    &__deal {
+      &-number {
+        color: var(--person-card-name-color-dark, @person-card-name-color-dark);
+      }
+    }
+  }
 }

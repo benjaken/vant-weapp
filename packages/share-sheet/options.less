@@ -11,7 +11,7 @@
     -webkit-overflow-scrolling: touch;
 
     &--border::before {
-      .hairline-top(@cell-border-color, @padding-md);
+      .hairline-top(@border-color, @padding-md);
     }
 
     &::-webkit-scrollbar {
@@ -51,13 +51,30 @@
   &__name {
     margin-top: @padding-xs;
     padding: 0 @padding-base;
-    color: @share-sheet-option-name-color;
+    color: @share-sheet-option-name-color-light;
     font-size: @share-sheet-option-name-font-size;
   }
 
   &__option-description {
     padding: 0 @padding-base;
-    color: @share-sheet-option-description-color;
+    color: @share-sheet-option-description-color-light;
     font-size: @share-sheet-option-description-font-size;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-share-sheet {
+    &__options {
+      &--border::before {
+        .hairline-top(@dark-border-color, @padding-md);
+      }
+    }
+    &__name {
+      color: @share-sheet-option-name-color-dark;
+    }
+
+    &__option-description {
+      color: @share-sheet-option-description-color-dark;
+    }
   }
 }

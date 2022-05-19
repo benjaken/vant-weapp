@@ -1,0 +1,9 @@
+<view class="title">1.0.2</view>
+<view class="content">- 增加暗黑模式</view>
+<view class="title">1.0.1</view>
+<view class="content">- 增加Badge、CommentCard、NumberKeyboard、PasswordInput、PersonCard等组件</view>
+<view class="title">1.0.0</view>
+<view class="content">
+  <view>- 从主分支1.10.2版本开发</view>
+  <view>- 增加CheckButton、Editor、ImageSwiper、Layer、List等组件</view>
+</view>

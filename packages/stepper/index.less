@@ -12,10 +12,10 @@
     vertical-align: middle;
     border: 0;
     background-color: var(
-      --stepper-background-color,
-      @stepper-background-color
+      --stepper-background-color-light,
+      @stepper-background-color-light
     );
-    color: var(--stepper-button-icon-color, @stepper-button-icon-color);
+    color: var(--stepper-button-icon-color-light, @stepper-button-icon-color-light);
     width: var(--stepper-input-height, @stepper-input-height);
     height: var(--stepper-input-height, @stepper-input-height);
     padding: var(--padding-base, @padding-base);
@@ -48,19 +48,19 @@
 
     &--disabled {
       color: var(
-        --stepper-button-disabled-icon-color,
-        @stepper-button-disabled-icon-color
+        --stepper-button-disabled-icon-color-light,
+        @stepper-button-disabled-icon-color-light
       );
       background-color: var(
-        --stepper-button-disabled-color,
-        @stepper-button-disabled-color
+        --stepper-button-disabled-color-light,
+        @stepper-button-disabled-color-light
       );
     }
 
     &--disabled&--hover {
       background-color: var(
-        --stepper-button-disabled-color,
-        @stepper-button-disabled-color
+        --stepper-button-disabled-color-light,
+        @stepper-button-disabled-color-light
       );
     }
   }
@@ -142,23 +142,73 @@
     border-radius: 0;
     -webkit-appearance: none;
     font-size: var(--stepper-input-font-size, @stepper-input-font-size);
-    color: var(--stepper-input-text-color, @stepper-input-text-color);
+    color: var(--stepper-input-text-color-light, @stepper-input-text-color-light);
     background-color: var(
-      --stepper-background-color,
-      @stepper-background-color
+      --stepper-background-color-light,
+      @stepper-background-color-light
     );
     width: var(--stepper-input-width, @stepper-input-width);
     height: var(--stepper-input-height, @stepper-input-height);
 
     &--disabled {
       color: var(
-        --stepper-input-disabled-text-color,
-        @stepper-input-disabled-text-color
+        --stepper-input-disabled-text-color-light,
+        @stepper-input-disabled-text-color-light
       );
       background-color: var(
-        --stepper-input-disabled-background-color,
-        @stepper-input-disabled-background-color
+        --stepper-input-disabled-background-color-light,
+        @stepper-input-disabled-background-color-light
       );
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-stepper {
+    &__minus,
+    &__plus {
+      color: var(--stepper-button-icon-color-dark, @stepper-button-icon-color-dark);
+      background-color: var(
+        --stepper-background-color-dark,
+        @stepper-background-color-dark
+      );
+
+      &--disabled {
+        color: var(
+          --stepper-button-disabled-icon-color-dark,
+          @stepper-button-disabled-icon-color-dark
+        );
+        background-color: var(
+          --stepper-button-disabled-color-dark,
+          @stepper-button-disabled-color-dark
+        );
+      }
+
+      &--disabled&--hover {
+        background-color: var(
+          --stepper-button-disabled-color-dark,
+          @stepper-button-disabled-color-dark
+        );
+      }
+    }
+
+    &__input {
+      color: var(--stepper-input-text-color-dark, @stepper-input-text-color-dark);
+      background-color: var(
+        --stepper-background-color-dark,
+        @stepper-background-color-dark
+      );
+
+      &--disabled {
+        color: var(
+          --stepper-input-disabled-text-color-dark,
+          @stepper-input-disabled-text-color-dark
+        );
+        background-color: var(
+          --stepper-input-disabled-background-color-dark,
+          @stepper-input-disabled-background-color-dark
+        );
+      }
     }
   }
 }

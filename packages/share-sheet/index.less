@@ -1,5 +1,4 @@
 @import '../common/style/var';
-@import '../common/style/mixins/hairline.less';
 
 .van-share-sheet {
   &__header {
@@ -9,7 +8,7 @@
 
   &__title {
     margin-top: @padding-xs;
-    color: @share-sheet-title-color;
+    color: @share-sheet-title-color-light;
     font-weight: normal;
     font-size: @share-sheet-title-font-size;
     line-height: @share-sheet-title-line-height;
@@ -26,7 +25,7 @@
   &__description {
     display: block;
     margin-top: @padding-xs;
-    color: @share-sheet-description-color;
+    color: @share-sheet-description-color-light;
     font-size: @share-sheet-description-font-size;
     line-height: @share-sheet-description-line-height;
 
@@ -48,7 +47,7 @@
     font-size: @share-sheet-cancel-button-font-size;
     line-height: @share-sheet-cancel-button-height;
     text-align: center;
-    background: @share-sheet-cancel-button-background;
+    background: @share-sheet-cancel-button-background-light;
     border: none;
 
     &::before {
@@ -64,6 +63,29 @@
 
     &:active {
       background-color: @active-color;
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-share-sheet {
+    &__title {
+      color: @share-sheet-title-color-dark;
+    }
+
+    &__description {
+      color: @share-sheet-description-color-dark;
+    }
+
+    &__cancel {
+      background: @share-sheet-cancel-button-background-dark;
+      &::before {
+        background-color: @dark-background-color;
+      }
+
+      &:active {
+        background-color: @dark-active-color;
+      }
     }
   }
 }

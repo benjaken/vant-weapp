@@ -29,8 +29,8 @@
 
   &__scroll {
     background-color: var(
-      --tabs-nav-background-color,
-      @tabs-nav-background-color
+      --tabs-nav-background-color-light,
+      @tabs-nav-background-color-light
     );
 
     &--line {
@@ -80,7 +80,10 @@
         }
 
         &--disabled {
-          color: var(--tab-disabled-text-color, @tab-disabled-text-color);
+          color: var(
+            --tab-disabled-text-color-light,
+            @tab-disabled-text-color-light
+          );
         }
       }
     }
@@ -132,17 +135,17 @@
   padding: 0 5px;
   text-align: center;
   cursor: pointer;
-  color: var(--tab-text-color, @tab-text-color);
+  color: var(--tab-text-color-light, @tab-text-color-light);
   font-size: var(--tab-font-size, @tab-font-size);
   line-height: var(--tabs-line-height, @tabs-line-height);
 
   &--active {
     font-weight: var(--font-weight-bold, @font-weight-bold);
-    color: var(--tab-active-text-color, @tab-active-text-color);
+    color: var(--tab-active-text-color-light, @tab-active-text-color-light);
   }
 
   &--disabled {
-    color: var(--tab-disabled-text-color, @tab-disabled-text-color);
+    color: var(--tab-disabled-text-color-light, @tab-disabled-text-color-light);
   }
 
   &__title {
@@ -151,6 +154,26 @@
       top: -1px !important;
       display: inline-block;
       transform: translateX(0) !important;
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-tabs__scroll {
+    background-color: var(
+      --tabs-nav-background-color-dark,
+      @tabs-nav-background-color-dark
+    );
+  }
+  .van-tab {
+    color: var(--tab-text-color-dark, @tab-text-color-dark);
+
+    &--active {
+      color: var(--tab-active-text-color-dark, @tab-active-text-color-dark);
+    }
+
+    &--disabled {
+      color: var(--tab-disabled-text-color-dark, @tab-disabled-text-color-dark);
     }
   }
 }

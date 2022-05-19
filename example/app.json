@@ -62,14 +62,14 @@
     "pages/person-card/index",
     "pages/number-keyboard/index",
     "pages/password-input/index",
-    "pages/comment-card/index"
+    "pages/comment-card/index",
+    "pages/changelog/index"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#f8f8f8",
-    "navigationBarTitleText": "Vant Weapp",
-    "navigationBarTextStyle": "black",
-    "backgroundTextStyle": "dark",
-    "backgroundColor": "#f8f8f8"
+    "navigationBarBackgroundColor": "@navBgColor",
+    "navigationBarTitleText": "Youfang Weapp",
+    "navigationBarTextStyle": "@navTxtStyle",
+    "backgroundColor": "@navBgColor"
   },
   "usingComponents": {
     "demo-block": "./components/demo-block/index",
@@ -136,5 +136,7 @@
     "van-password-input-demo": "./dist/password-input/demo/index",
     "van-comment-card-demo": "./dist/comment-card/demo/index"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "darkmode": true,
+  "themeLocation":"theme.json"
 }

@@ -3,7 +3,7 @@
 .van-picker-column {
   overflow: hidden;
   text-align: center;
-  color: var(--picker-option-text-color, @picker-option-text-color);
+  color: var(--picker-option-text-color-light, @picker-option-text-color-light);
   font-size: var(--picker-option-font-size, @picker-option-font-size);
 
   &__item {
@@ -12,8 +12,8 @@
     &--selected {
       font-weight: var(--font-weight-bold, @font-weight-bold);
       color: var(
-        --picker-option-selected-text-color,
-        @picker-option-selected-text-color
+        --picker-option-selected-text-color-light,
+        @picker-option-selected-text-color-light
       );
     }
 
@@ -22,6 +22,20 @@
         --picker-option-disabled-opacity,
         @picker-option-disabled-opacity
       );
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-picker-column {
+    color: var(--picker-option-text-color-dark, @picker-option-text-color-dark);
+    &__item {
+      &--selected {
+        color: var(
+          --picker-option-selected-text-color-dark,
+          @picker-option-selected-text-color-dark
+        );
+      }
     }
   }
 }

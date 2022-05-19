@@ -1,33 +1,12 @@
 import { VantComponent } from '../../common/component';
 import Toast from '../../toast/toast';
-
-const db = wx.cloud?.database();
+import { areaList } from './area'
 
 VantComponent({
   data: {
-    areaList: {},
-    loading: true,
-    value: 330302,
-  },
-
-  mounted() {
-    db?.collection('region')
-      .limit(1)
-      .get()
-      .then((res) => {
-        if (res.data && res.data.length > 0) {
-          this.setData({
-            loading: false,
-            areaList: res.data[0],
-          });
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-        this.setData({
-          loading: false,
-        });
-      });
+    areaList,
+    loading: false,
+    value: 440304,
   },
 
   methods: {

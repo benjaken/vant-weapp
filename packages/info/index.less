@@ -14,7 +14,7 @@
   height: var(--info-size, @info-size);
   min-width: var(--info-size, @info-size);
   padding: var(--info-padding, @info-padding);
-  color: var(--info-color, @info-color);
+  color: var(--info-color-light, @info-color-light);
   font-weight: var(--info-font-weight, @info-font-weight);
   font-size: var(--info-font-size, @info-font-size);
   font-family: var(--info-font-family, @info-font-family);
@@ -28,5 +28,11 @@
     width: var(--info-dot-size, @info-dot-size);
     height: var(--info-dot-size, @info-dot-size);
     background-color: var(--info-dot-color, @info-dot-color);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-info {
+    color: var(--info-color-dark, @info-color-dark);
   }
 }

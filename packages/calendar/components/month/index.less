@@ -5,8 +5,8 @@
   flex-direction: column;
   height: 100%;
   background-color: var(
-    --calendar-background-color,
-    @calendar-background-color
+    --calendar-background-color-light,
+    @calendar-background-color-light
   );
 
   &__month-title {
@@ -37,7 +37,7 @@
     z-index: 0;
     transform: translate(-50%, -50%);
     pointer-events: none;
-    color: var(--calendar-month-mark-color, @calendar-month-mark-color);
+    color: var(--calendar-month-mark-color-light, @calendar-month-mark-color-light);
     font-size: var(
       --calendar-month-mark-font-size,
       @calendar-month-mark-font-size
@@ -103,7 +103,7 @@
 
     &--disabled {
       cursor: default;
-      color: var(--calendar-day-disabled-color, @calendar-day-disabled-color);
+      color: var(--calendar-day-disabled-color-light, @calendar-day-disabled-color-light);
     }
   }
 
@@ -137,5 +137,22 @@
       @calendar-selected-day-background-color
     );
     border-radius: @border-radius-md;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-calendar {
+    background-color: var(
+      --calendar-background-color-dark,
+      @calendar-background-color-dark
+    );
+
+    &__month-mark {
+      color: var(--calendar-month-mark-color-dark, @calendar-month-mark-color-dark);
+    }
+
+    &__day--disabled {
+      color: var(--calendar-day-disabled-color-dark, @calendar-day-disabled-color-dark);
+    }
   }
 }

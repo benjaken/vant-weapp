@@ -1,6 +1,6 @@
 import { VantComponent } from '../common/component';
 import { button } from '../mixins/button';
-import { GRAY, RED } from '../common/color';
+import { RED } from '../common/color';
 import { toPromise } from '../common/utils';
 import type { Action } from './dialog';
 
@@ -50,7 +50,7 @@ VantComponent({
     },
     cancelButtonColor: {
       type: String,
-      value: GRAY,
+      value: '',
     },
     showConfirmButton: {
       type: Boolean,

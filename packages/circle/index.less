@@ -11,6 +11,14 @@
     left: 0;
     width: 100%;
     transform: translateY(-50%);
-    color: var(--circle-text-color, @circle-text-color);
+    color: var(--circle-text-color-light, @circle-text-color-light);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-circle {
+    &__text {
+      color: var(--circle-text-color-dark, @circle-text-color-dark);
+    }
   }
 }

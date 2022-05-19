@@ -16,7 +16,7 @@
   &__icon {
     display: block;
     height: 1em;
-    color: var(--rate-icon-void-color, @rate-icon-void-color);
+    color: var(--rate-icon-void-color-light, @rate-icon-void-color-light);
     font-size: var(--rate-icon-size, @rate-icon-size);
 
     &--half {
@@ -33,7 +33,24 @@
     }
 
     &--disabled {
-      color: var(--rate-icon-disabled-color, @rate-icon-disabled-color);
+      color: var(--rate-icon-disabled-color-light, @rate-icon-disabled-color-light);
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-rate {
+    &__icon {
+      color: var(--rate-icon-void-color-dark, @rate-icon-void-color-dark);
+      &--half {
+        color: var(--rate-icon-full-color, @rate-icon-full-color);
+      }
+      &--full {
+        color: var(--rate-icon-full-color, @rate-icon-full-color);
+      }
+      &--disabled {
+        color: var(--rate-icon-disabled-color-dark, @rate-icon-disabled-color-dark);
+      }
     }
   }
 }

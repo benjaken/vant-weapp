@@ -31,7 +31,7 @@ VantComponent({
         },
         indicatorColor: {
             type: String,
-            value: 'rgba(0, 0, 0, 0.2)'
+            value: 'rgba(0, 0, 0, 0.5)'
         },
         indicatorTextColor: {
             type: String,

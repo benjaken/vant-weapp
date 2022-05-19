@@ -6,11 +6,20 @@
 
   &__load-more,
   &__end {
-    padding: @padding-sm @padding-md;
+    padding: var(--list-end-padding, @list-end-padding);
     text-align: center;
-    background: @white;
-    font-size: 24rpx !important;
-    color: @gray-6;
+    background: transparent;
+    font-size: var(--list-end-font-size, @list-end-font-size) !important;
+    color: var(--list-end-color-light, @list-end-color-light);
     margin: 0 !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-list {
+    &__load-more,
+    &__end {
+      color: var(--list-end-color-dark, @list-end-color-dark);
+    }
   }
 }

@@ -16,8 +16,8 @@
     height: 100%;
     padding: var(--grid-item-content-padding, @grid-item-content-padding);
     background-color: var(
-      --grid-item-content-background-color,
-      @grid-item-content-background-color
+      --grid-item-content-background-color-light,
+      @grid-item-content-background-color-light
     );
 
     &::after {
@@ -69,8 +69,8 @@
 
     &--clickable:active {
       background-color: var(
-        --grid-item-content-active-color,
-        @grid-item-content-active-color
+        --grid-item-content-active-color-light,
+        @grid-item-content-active-color-light
       );
     }
   }
@@ -84,11 +84,25 @@
 
   &__text {
     word-wrap: break-word;
-    color: var(--grid-item-text-color, @grid-item-text-color);
+    color: var(--grid-item-text-color-light, @grid-item-text-color-light);
     font-size: var(--grid-item-text-font-size, @grid-item-text-font-size);
   }
 
   &__icon + &__text {
     margin-top: 8px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-grid-item {
+    &__content {
+      background-color: var(
+        --grid-item-content-background-color-dark,
+        @grid-item-content-background-color-dark
+      );
+    }
+    &__text {
+      color: var(--grid-item-text-color-dark, @grid-item-text-color-dark);
+    }
   }
 }

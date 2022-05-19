@@ -10,8 +10,11 @@
     var(--cell-horizontal-padding, @cell-horizontal-padding);
   font-size: var(--cell-font-size, @cell-font-size);
   line-height: var(--cell-line-height, @cell-line-height);
-  color: var(--cell-text-color, @cell-text-color);
-  background-color: var(--cell-background-color, @cell-background-color);
+  color: var(--cell-text-color-light, @cell-text-color-light);
+  background-color: var(
+    --cell-background-color-light,
+    @cell-background-color-light
+  );
 
   &::after {
     .hairline-bottom(@border-color, @padding-md, @padding-md);
@@ -22,21 +25,24 @@
   }
 
   &-group {
-    background-color: var(--cell-background-color, @cell-background-color);
+    background-color: var(
+      --cell-background-color-light,
+      @cell-background-color-light
+    );
   }
 
   &__label {
     margin-top: var(--cell-label-margin-top, @cell-label-margin-top);
     font-size: var(--cell-label-font-size, @cell-label-font-size);
     line-height: var(--cell-label-line-height, @cell-label-line-height);
-    color: var(--cell-label-color, @cell-label-color);
+    color: var(--cell-label-color-light, @cell-label-color-light);
   }
 
   &__value {
     overflow: hidden;
     text-align: right;
     vertical-align: middle;
-    color: var(--cell-value-color, @cell-value-color);
+    color: var(--cell-value-color-light, @cell-value-color-light);
   }
 
   &__title,
@@ -62,7 +68,7 @@
 
   &__right-icon-wrap {
     margin-left: var(--padding-base, @padding-base);
-    color: var(--cell-right-icon-color, @cell-right-icon-color);
+    color: var(--cell-right-icon-color-light, @cell-right-icon-color-light);
   }
 
   &__left-icon {
@@ -74,8 +80,8 @@
     line-height: var(--cell-line-height, @cell-line-height);
   }
 
-  &--clickable&--hover {
-    background-color: var(--cell-active-color, @cell-active-color);
+  &--hover {
+    background-color: var(--cell-active-color-light, @cell-active-color-light);
   }
 
   &--required {
@@ -114,6 +120,43 @@
 
     .van-cell__label {
       font-size: var(--cell-large-label-font-size, @cell-large-label-font-size);
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-cell {
+    color: var(--cell-text-color-dark, @cell-text-color-dark);
+    background-color: var(
+      --cell-background-color-dark,
+      @cell-background-color-dark
+    );
+
+    &::after {
+      .hairline-bottom(@dark-border-color, @padding-md, @padding-md);
+    }
+
+    &-group {
+      background-color: var(
+        --cell-background-color-dark,
+        @cell-background-color-dark
+      );
+    }
+
+    &__label {
+      color: var(--cell-label-color-dark, @cell-label-color-dark);
+    }
+
+    &__value {
+      color: var(--cell-value-color-dark, @cell-value-color-dark);
+    }
+
+    &__right-icon-wrap {
+      color: var(--cell-right-icon-color-dark, @cell-right-icon-color-dark);
+    }
+
+    &--hover {
+      background-color: var(--cell-active-color-dark, @cell-active-color-dark);
     }
   }
 }

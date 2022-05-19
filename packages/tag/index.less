@@ -11,10 +11,10 @@
   border-radius: var(--tag-border-radius, @tag-border-radius);
 
   &--default {
-    background-color: var(--tag-default-color, @tag-default-color);
+    background-color: var(--tag-default-color-light, @tag-default-color-light);
 
     &.van-tag--plain {
-      color: var(--tag-default-color, @tag-default-color);
+      color: var(--tag-default-color-light, @tag-default-color-light);
     }
   }
 
@@ -52,8 +52,8 @@
 
   &--plain {
     background-color: var(
-      --tag-plain-background-color,
-      @tag-plain-background-color
+      --tag-plain-background-color-light,
+      @tag-plain-background-color-light
     );
 
     &::before {
@@ -105,5 +105,24 @@
   &__close {
     min-width: 1em;
     margin-left: 2px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-tag {
+    &--default {
+      background-color: var(--tag-default-color-dark, @tag-default-color-dark);
+
+      &.van-tag--plain {
+        color: var(--tag-default-color-dark, @tag-default-color-dark);
+      }
+    }
+
+    &--plain {
+      background-color: var(
+        --tag-plain-background-color-dark,
+        @tag-plain-background-color-dark
+      );
+    }
   }
 }

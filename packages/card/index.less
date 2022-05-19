@@ -5,8 +5,8 @@
   box-sizing: border-box;
   padding: var(--card-padding, @card-padding);
   font-size: var(--card-font-size, @card-font-size);
-  color: var(--card-text-color, @card-text-color);
-  background-color: var(--card-background-color, @card-background-color);
+  color: var(--card-text-color-light, @card-text-color-light);
+  background-color: var(--card-background-color-light, @card-background-color-light);
 
   &__header {
     display: flex;
@@ -61,7 +61,7 @@
 
   &__desc {
     line-height: var(--card-desc-line-height, @card-desc-line-height);
-    color: var(--card-desc-color, @card-desc-color);
+    color: var(--card-desc-color-light, @card-desc-color-light);
   }
 
   &__bottom {
@@ -92,7 +92,7 @@
     margin-left: 5px;
     text-decoration: line-through;
     font-size: var(--card-origin-price-font-size, @card-origin-price-font-size);
-    color: var(--card-origin-price-color, @card-origin-price-color);
+    color: var(--card-origin-price-color-light, @card-origin-price-color-light);
   }
 
   &__num {
@@ -109,5 +109,18 @@
     flex: none;
     width: 100%;
     text-align: right;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-card {
+    color: var(--card-text-color-dark, @card-text-color-dark);
+    background-color: var(--card-background-color-dark, @card-background-color-dark);
+  }
+  &__desc {
+    color: var(--card-desc-color-dark, @card-desc-color-dark);
+  }
+  &__origin-price {
+    color: var(--card-origin-price-color-dark, @card-origin-price-color-dark);
   }
 }

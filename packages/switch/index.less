@@ -6,7 +6,10 @@
   box-sizing: content-box;
   width: var(--switch-width, @switch-width);
   height: var(--switch-height, @switch-height);
-  background-color: var(--switch-background-color, @switch-background-color);
+  background-color: var(
+    --switch-background-color-light,
+    @switch-background-color-light
+  );
   border: var(--switch-border, @switch-border);
   border-radius: var(--switch-node-size, @switch-node-size);
   transition: background-color
@@ -55,5 +58,20 @@
 
   &--disabled {
     opacity: var(--switch-disabled-opacity, @switch-disabled-opacity);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-switch {
+    background-color: var(
+      --switch-background-color-dark,
+      @switch-background-color-dark
+    );
+    &--on {
+      background-color: var(
+        --switch-on-background-color,
+        @switch-on-background-color
+      );
+    }
   }
 }

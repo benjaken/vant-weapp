@@ -10,6 +10,12 @@ VantComponent({
     value5: 4,
     value6: 3,
     value8: 2,
+    theme: 'light',
+  },
+
+  created() {
+    const { theme } = wx.getSystemInfoSync();
+    this.setData({ theme })
   },
 
   methods: {

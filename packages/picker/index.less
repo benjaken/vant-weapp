@@ -5,7 +5,11 @@
   overflow: hidden;
   -webkit-text-size-adjust: 100%; /* avoid iOS text size adjust */
   user-select: none;
-  background-color: var(--picker-background-color, @picker-background-color);
+  color: var(--picker-option-text-color-light, @picker-option-text-color-light);
+  background-color: var(
+    --picker-background-color-light,
+    @picker-background-color-light
+  );
 
   &__toolbar {
     display: flex;
@@ -29,7 +33,10 @@
   }
 
   &__cancel {
-    color: var(--picker-cancel-action-color, @picker-cancel-action-color);
+    color: var(
+      --picker-cancel-action-color-light,
+      @picker-cancel-action-color-light
+    );
   }
 
   &__title {
@@ -37,6 +44,7 @@
     text-align: center;
     font-weight: var(--font-weight-bold, @font-weight-bold);
     font-size: var(--picker-option-font-size, @picker-option-font-size);
+    color: var(--picker-title-color-light, @picker-title-color-light);
   }
 
   &__columns {
@@ -60,8 +68,8 @@
     align-items: center;
     justify-content: center;
     background-color: var(
-      --picker-loading-mask-color,
-      @picker-loading-mask-color
+      --picker-loading-mask-color-light,
+      @picker-loading-mask-color-light
     );
   }
 
@@ -72,12 +80,7 @@
     z-index: 2;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(
-        180deg,
-        hsla(0, 0%, 100%, 0.9),
-        hsla(0, 0%, 100%, 0.4)
-      ),
-      linear-gradient(0deg, hsla(0, 0%, 100%, 0.9), hsla(0, 0%, 100%, 0.4));
+    background-image: @picker-mask-color-light;
     background-repeat: no-repeat;
     background-position: top, bottom;
     backface-visibility: hidden;
@@ -92,5 +95,35 @@
     z-index: 1;
     transform: translateY(-50%);
     pointer-events: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-picker {
+    background-color: var(
+      --picker-background-color-dark,
+      @picker-background-color-dark
+    );
+    &__cancel {
+      color: var(
+        --picker-cancel-action-color-dark,
+        @picker-cancel-action-color-dark
+      );
+    }
+
+    &__title {
+      color: var(--picker-title-color-dark, @picker-title-color-dark);
+    }
+
+    &__loading {
+      background-color: var(
+        --picker-loading-mask-color-dark,
+        @picker-loading-mask-color-dark
+      );
+    }
+
+    &__mask {
+      background-image: @picker-mask-color-dark;
+    }
   }
 }

@@ -21,7 +21,7 @@
     size="{{ 25 }}"
     color="#ffd21e"
     void-icon="star"
-    void-color="#eee"
+    void-color="{{theme == 'dark' ? '#333' : '#eee'}}"
   />
 </demo-block>
 
@@ -31,7 +31,7 @@
     model:value="{{ value4 }}"
     allow-half
     void-icon="star"
-    void-color="#eee"
+    void-color="{{theme == 'dark' ? '#333' : '#eee'}}"
   />
 </demo-block>
 

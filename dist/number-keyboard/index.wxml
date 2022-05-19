@@ -3,7 +3,7 @@
 <van-popup
   show="{{show}}"
   position="bottom"
-  custom-style="background-color:#f2f3f5"
+  custom-style="background-color:{{currentTheme == 'dark' ? '#323233' : '#f2f3f5'}}"
   overlay-style="background-color:{{password ? 'rgba(0,0,0,.7)' : 'transparent'}}"
   z-index="{{ zIndex }}"
   round="{{ round }}"

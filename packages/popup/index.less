@@ -8,7 +8,7 @@
   transition-timing-function: ease;
   animation: ease both;
   -webkit-overflow-scrolling: touch;
-  background-color: var(--popup-background-color, @popup-background-color);
+  background-color: var(--popup-background-color-light, @popup-background-color-light);
 
   &--center {
     top: 50%;
@@ -109,7 +109,7 @@
   &__close-icon {
     position: absolute;
     z-index: var(--popup-close-icon-z-index, @popup-close-icon-z-index);
-    color: var(--popup-close-icon-color, @popup-close-icon-color);
+    color: var(--popup-close-icon-color-light, @popup-close-icon-color-light);
     font-size: var(--popup-close-icon-size, @popup-close-icon-size);
 
     &--top-left {
@@ -198,4 +198,13 @@
 .van-right-enter,
 .van-right-leave-to {
   transform: translate3d(100%, -50%, 0);
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-popup {
+    background-color: var(--popup-background-color-dark, @popup-background-color-dark);
+    &__close-icon {
+      color: var(--popup-close-icon-color-dark, @popup-close-icon-color-dark);
+    }
+  }
 }

@@ -24,7 +24,7 @@
     color: transparent;
     text-align: center;
     transition-property: color, border-color, background-color;
-    border: 1px solid var(--radio-border-color, @radio-border-color);
+    border: 1px solid var(--radio-border-color-light, @radio-border-color-light);
     font-size: var(--radio-size, @radio-size);
     transition-duration: var(
       --radio-transition-duration,
@@ -46,24 +46,24 @@
 
     &--disabled {
       background-color: var(
-        --radio-disabled-background-color,
-        @radio-disabled-background-color
+        --radio-disabled-background-color-light,
+        @radio-disabled-background-color-light
       );
       border-color: var(
-        --radio-disabled-icon-color,
-        @radio-disabled-icon-color
+        --radio-disabled-icon-color-light,
+        @radio-disabled-icon-color-light
       );
     }
 
     &--disabled&--checked {
-      color: var(--radio-disabled-icon-color, @radio-disabled-icon-color);
+      color: var(--radio-disabled-icon-color-light, @radio-disabled-icon-color-light);
     }
   }
 
   &__label {
     word-wrap: break-word;
     padding-left: var(--radio-label-margin, @radio-label-margin);
-    color: var(--radio-label-color, @radio-label-color);
+    color: var(--radio-label-color-light, @radio-label-color-light);
     line-height: var(--radio-size, @radio-size);
 
     &--left {
@@ -72,11 +72,42 @@
     }
 
     &--disabled {
-      color: var(--radio-disabled-label-color, @radio-disabled-label-color);
+      color: var(--radio-disabled-label-color-light, @radio-disabled-label-color-light);
     }
 
     &:empty {
       margin: 0;
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-radio {
+    &__icon {
+      border-color: var(--radio-border-color-dark, @radio-border-color-dark);
+
+      &--disabled {
+        color: var(--radio-disabled-icon-color-dark, @radio-disabled-icon-color-dark);
+        background-color: var(
+          --radio-disabled-background-color-dark,
+          @radio-disabled-background-color-dark
+        );
+        border-color: var(
+          --radio-disabled-background-color-dark,
+          @radio-disabled-background-color-dark
+        );
+      }
+
+      &--disabled&--checked {
+        color: var(--radio-disabled-icon-color-dark, @radio-disabled-icon-color-dark);
+      }
+    }
+
+    &__label {
+      color: var(--radio-label-color-dark, @radio-label-color-dark);
+      &--disabled {
+        color: var(--radio-disabled-label-color-dark, @radio-disabled-label-color-dark);
+      }
     }
   }
 }

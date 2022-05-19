@@ -5,7 +5,14 @@ VantComponent({
     container: () => {},
     scrollTop: 0,
     offsetTop: 0,
+    theme: 'light',
   },
+
+  created() {
+    const { theme } = wx.getSystemInfoSync();
+    this.setData({ theme })
+  },
+
 
   mounted() {
     this.setData({

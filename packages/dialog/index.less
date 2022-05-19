@@ -6,7 +6,10 @@
   width: var(--dialog-width, @dialog-width);
   font-size: var(--dialog-font-size, @dialog-font-size);
   border-radius: var(--dialog-border-radius, @dialog-border-radius);
-  background-color: var(--dialog-background-color, @dialog-background-color);
+  background-color: var(
+    --dialog-background-color-light,
+    @dialog-background-color-light
+  );
 
   @media (max-width: 321px) {
     width: var(--dialog-small-screen-width, @dialog-small-screen-width);
@@ -45,14 +48,17 @@
         @dialog-has-title-message-padding-top
       );
       color: var(
-        --dialog-has-title-message-text-color,
-        @dialog-has-title-message-text-color
+        --dialog-has-title-message-text-color-light,
+        @dialog-has-title-message-text-color-light
       );
     }
 
     &--round-button {
       padding-bottom: @padding-md;
-      color: @text-color;
+      color: var(
+        --dialog-round-button-color-light,
+        @dialog-round-button-color-light
+      );
     }
 
     &--left {
@@ -90,5 +96,28 @@
   &-bounce-leave-active {
     transform: translate3d(-50%, -50%, 0) scale(0.9);
     opacity: 0;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-dialog {
+    background-color: var(
+      --dialog-background-color-dark,
+      @dialog-background-color-dark
+    );
+    &__message {
+      &--hasTitle {
+        color: var(
+          --dialog-has-title-message-text-color-dark,
+          @dialog-has-title-message-text-color-dark
+        );
+      }
+      &--round-button {
+        color: var(
+          --dialog-round-button-color-dark,
+          @dialog-round-button-color-dark
+        );
+      }
+    }
   }
 }

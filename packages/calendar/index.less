@@ -5,8 +5,8 @@
   flex-direction: column;
   height: var(--calendar-height, @calendar-height);
   background-color: var(
-    --calendar-background-color,
-    @calendar-background-color
+    --calendar-background-color-light,
+    @calendar-background-color-light
   );
 
   &__close-icon {
@@ -61,5 +61,15 @@
       --calendar-confirm-button-line-height,
       @calendar-confirm-button-line-height
     ) !important;
+  }
+}
+
+
+@media (prefers-color-scheme: dark) {
+  .van-calendar {
+    background-color: var(
+      --calendar-background-color-dark,
+      @calendar-background-color-dark
+    );
   }
 }

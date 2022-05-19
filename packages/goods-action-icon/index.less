@@ -11,8 +11,8 @@
     @goods-action-icon-font-size
   ) !important;
   color: var(
-    --goods-action-icon-text-color,
-    @goods-action-icon-text-color
+    --goods-action-icon-text-color-light,
+    @goods-action-icon-text-color-light
   ) !important;
   min-width: var(--goods-action-icon-width, @goods-action-icon-width);
   height: var(--goods-action-icon-height, @goods-action-icon-height) !important;
@@ -20,7 +20,16 @@
   &__icon {
     display: flex;
     margin: 0 auto 5px;
-    color: var(--goods-action-icon-color, @goods-action-icon-color);
+    color: var(--goods-action-icon-color-light, @goods-action-icon-color-light);
     font-size: var(--goods-action-icon-size, @goods-action-icon-size);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-goods-action-icon {
+    color: var(--goods-action-icon-text-color-dark, @goods-action-icon-text-color-dark);
+    &__icon {
+      color: var(--goods-action-icon-color-dark, @goods-action-icon-color-dark);
+    }
   }
 }

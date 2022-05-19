@@ -30,16 +30,22 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: var(--image-placeholder-text-color, @image-placeholder-text-color);
+    color: var(
+      --image-placeholder-text-color-light,
+      @image-placeholder-text-color-light
+    );
     font-size: var(--image-placeholder-font-size, @image-placeholder-font-size);
     background-color: var(
-      --image-placeholder-background-color,
-      @image-placeholder-background-color
+      --image-placeholder-background-color-light,
+      @image-placeholder-background-color-light
     );
   }
 
   &__loading-icon {
-    color: var(--image-loading-icon-color, @image-loading-icon-color);
+    color: var(
+      --image-loading-icon-color-light,
+      @image-loading-icon-color-light
+    );
     font-size: var(
       --image-loading-icon-size,
       @image-loading-icon-size
@@ -47,7 +53,33 @@
   }
 
   &__error-icon {
-    color: var(--image-error-icon-color, @image-error-icon-color);
+    color: var(--image-error-icon-color-light, @image-error-icon-color-light);
     font-size: var(--image-error-icon-size, @image-error-icon-size) !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-image {
+    &__error,
+    &__loading {
+      color: var(
+        --image-placeholder-text-color-dark,
+        @image-placeholder-text-color-dark
+      );
+      background-color: var(
+        --image-placeholder-background-color-dark,
+        @image-placeholder-background-color-dark
+      );
+    }
+    &__loading-icon {
+      color: var(
+        --image-loading-icon-color-dark,
+        @image-loading-icon-color-dark
+      );
+    }
+
+    &__error-icon {
+      color: var(--image-error-icon-color-dark, @image-error-icon-color-dark);
+    }
   }
 }

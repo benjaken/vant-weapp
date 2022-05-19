@@ -28,14 +28,14 @@
     height: var(--uploader-size, @uploader-size);
     margin: 0 @padding-xs @padding-xs 0;
     background-color: var(
-      --uploader-upload-background-color,
-      @uploader-upload-background-color
+      --uploader-upload-background-color-light,
+      @uploader-upload-background-color-light
     );
 
     &:active {
       background-color: var(
-        --uploader-upload-active-color,
-        @uploader-upload-active-color
+        --uploader-upload-active-color-light,
+        @uploader-upload-active-color-light
       );
     }
 
@@ -46,7 +46,7 @@
 
     &-text {
       margin-top: var(--padding-xs, @padding-xs);
-      color: var(--uploader-text-color, @uploader-text-color);
+      color: var(--uploader-text-color-light, @uploader-text-color-light);
       font-size: var(--uploader-text-font-size, @uploader-text-font-size);
     }
 
@@ -108,12 +108,12 @@
     width: var(--uploader-size, @uploader-size);
     height: var(--uploader-size, @uploader-size);
     background-color: var(
-      --uploader-file-background-color,
-      @uploader-file-background-color
+      --uploader-file-background-color-light,
+      @uploader-file-background-color-light;
     );
 
     &-icon {
-      color: var(--uploader-file-icon-color, @uploader-file-icon-color);
+      color: var(--uploader-file-icon-color-light, @uploader-file-icon-color-light);
       font-size: var(--uploader-file-icon-size, @uploader-file-icon-size);
     }
 
@@ -127,8 +127,8 @@
       );
       padding: var(--uploader-file-name-padding, @uploader-file-name-padding);
       color: var(
-        --uploader-file-name-text-color,
-        @uploader-file-name-text-color
+        --uploader-file-name-text-color-light,
+        @uploader-file-name-text-color-light
       );
       font-size: var(
         --uploader-file-name-font-size,
@@ -178,5 +178,47 @@
       --uploader-loading-icon-color,
       @uploader-loading-icon-color
     ) !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-uploader {
+    &__upload {
+      background-color: var(
+        --uploader-upload-background-color-dark,
+        @uploader-upload-background-color-dark
+      );
+      &:active {
+        background-color: var(
+          --uploader-upload-active-color-dark,
+          @uploader-upload-active-color-dark
+        );
+      }
+
+      &-text {
+        color: var(--uploader-text-color-dark, @uploader-text-color-dark);
+      }
+    }
+
+    &__file {
+      background-color: var(
+        --uploader-file-background-color-dark,
+        @uploader-file-background-color-dark
+      );
+
+      &-icon {
+        color: var(
+          --uploader-file-icon-color-dark,
+          @uploader-file-icon-color-dark
+        );
+      }
+
+      &-name {
+        color: var(
+          --uploader-file-name-text-color-dark,
+          @uploader-file-name-text-color-dark
+        );
+      }
+    }
   }
 }

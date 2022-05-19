@@ -15,7 +15,7 @@
 </demo-block>
 
 <demo-block title="指定容器">
-  <view id="container" style="height: 150px; background-color: #fff;">
+  <view id="container" style="height: 150px; background-color: {{theme == 'dark' ? '#000' : '#fff' }}">
     <van-sticky container="{{ container }}">
       <van-button type="warning" custom-style="margin-left: 215px;">
         指定容器
@@ -29,7 +29,7 @@
     bind:scroll="onScroll"
     scroll-y
     id="scroller"
-    style="height: 200px; background-color: #fff;"
+    style="height: 200px; background-color: {{theme == 'dark' ? '#000' : '#fff' }}"
   >
     <view style="height: 400px; padding-top: 50px;">
       <van-sticky scroll-top="{{ scrollTop }}" offset-top="{{ offsetTop }}">

@@ -9,8 +9,8 @@
   padding: var(--sidebar-padding, @sidebar-padding);
   font-size: var(--sidebar-font-size, @sidebar-font-size);
   line-height: var(--sidebar-line-height, @sidebar-line-height);
-  color: var(--sidebar-text-color, @sidebar-text-color);
-  background-color: var(--sidebar-background-color, @sidebar-background-color);
+  color: var(--sidebar-text-color-light, @sidebar-text-color-light);
+  background-color: var(--sidebar-background-color-light, @sidebar-background-color-light);
 
   &__text {
     position: relative;
@@ -19,7 +19,7 @@
   }
 
   &--hover:not(&--disabled) {
-    background-color: var(--sidebar-active-color, @sidebar-active-color);
+    background-color: var(--sidebar-active-color-light, @sidebar-active-color-light);
   }
 
   &::after {
@@ -27,7 +27,7 @@
   }
 
   &--selected {
-    color: var(--sidebar-selected-text-color, @sidebar-selected-text-color);
+    color: var(--sidebar-selected-text-color-light, @sidebar-selected-text-color-light);
     font-weight: var(
       --sidebar-selected-font-weight,
       @sidebar-selected-font-weight
@@ -45,12 +45,43 @@
   &--selected,
   &--selected&--hover {
     background-color: var(
-      --sidebar-selected-background-color,
-      @sidebar-selected-background-color
+      --sidebar-selected-background-color-light,
+      @sidebar-selected-background-color-light
     );
   }
 
   &--disabled {
-    color: var(--sidebar-disabled-text-color, @sidebar-disabled-text-color);
+    color: var(--sidebar-disabled-text-color-light, @sidebar-disabled-text-color-light);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-sidebar-item {
+    color: var(--sidebar-text-color-dark, @sidebar-text-color-dark);
+    background-color: var(--sidebar-background-color-dark, @sidebar-background-color-dark);
+
+    &--hover:not(&--disabled) {
+      background-color: var(--sidebar-active-color-dark, @sidebar-active-color-dark);
+    }
+
+    &--selected {
+      color: var(--sidebar-selected-text-color-dark, @sidebar-selected-text-color-dark);
+
+      &::after {
+        border-right-width: 1px;
+      }
+    }
+
+    &--selected,
+    &--selected&--hover {
+      background-color: var(
+        --sidebar-selected-background-color-dark,
+        @sidebar-selected-background-color-dark
+      );
+    }
+
+    &--disabled {
+      color: var(--sidebar-disabled-text-color-dark, @sidebar-disabled-text-color-dark);
+    }
   }
 }

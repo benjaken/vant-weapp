@@ -9,8 +9,8 @@
   &__nav {
     flex: 1;
     background-color: var(
-      --tree-select-nav-background-color,
-      @tree-select-nav-background-color
+      --tree-select-nav-background-color-light,
+      @tree-select-nav-background-color-light
     );
 
     &__inner {
@@ -24,8 +24,8 @@
   &__content {
     flex: 2;
     background-color: var(
-      --tree-select-content-background-color,
-      @tree-select-content-background-color
+      --tree-select-content-background-color-light,
+      @tree-select-content-background-color-light
     );
   }
 
@@ -44,8 +44,8 @@
 
     &--disabled {
       color: var(
-        --tree-select-item-disabled-color,
-        @tree-select-item-disabled-color
+        --tree-select-item-disabled-color-light,
+        @tree-select-item-disabled-color-light
       );
     }
   }
@@ -55,5 +55,32 @@
     top: 50%;
     transform: translateY(-50%);
     right: var(--padding-md, @padding-md);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-tree-select {
+    &__nav {
+      background-color: var(
+        --tree-select-nav-background-color-dark,
+        @tree-select-nav-background-color-dark
+      );
+    }
+
+    &__content {
+      background-color: var(
+        --tree-select-content-background-color-dark,
+        @tree-select-content-background-color-dark
+      );
+    }
+
+    &__item {
+      &--disabled {
+        color: var(
+          --tree-select-item-disabled-color-dark,
+          @tree-select-item-disabled-color-dark
+        );
+      }
+    }
   }
 }

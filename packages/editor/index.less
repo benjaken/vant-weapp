@@ -4,14 +4,14 @@
 .van-editor {
 	position: relative;
 	box-sizing: border-box;
-	font-size: 16px;
-	color: @gray-8;
-	background-color: @white;
-	line-height: 28px;
-	border: 1px solid @border-color;
+	font-size: var(--editor-font-size, @editor-font-size);
+	color: var(--editor-color-light, @editor-color-light);
+	background-color: var(--editor-background-color-light, @editor-background-color-light);
+	line-height: var(--editor-line-height, @editor-line-height);
+	border: 1px solid var(--editor-border-color-light, @editor-border-color-light);
 
 	&--field {
-		padding: @padding-sm @padding-md;
+		padding: var(--editor-field-padding, @editor-field-padding);
 		&::after {
 			position: absolute;
 			box-sizing: border-box;
@@ -21,12 +21,12 @@
 			right: 16px;
 			bottom: 0;
 			left: 16px;
-			border-bottom: 1px solid @border-color;
+			border-bottom: 1px solid var(--editor-border-color-light, @editor-border-color-light);
 			transform: scaleY(0.5);
 		}
 
 		.van-editor__content {
-			color: @gray-6;
+			color: var(--editor-color-light, @editor-color-light);
 		}
 	}
 
@@ -42,11 +42,11 @@
 		position: relative;
 		width: 100%;
 		box-sizing: border-box;
-		color: @gray-8;
+		color: var(--editor-color-light, @editor-color-light);
 		height: 250px;
 		padding: 12px;
-		font-size: 14px;
-		border-top: 1px solid @border-color;
+		font-size: var(--editor-font-size, @editor-font-size);
+		border-top: 1px solid var(--editor-border-color-light, @editor-border-color-light);
 
 		&--background {
 			background-color: @gray-1;
@@ -56,7 +56,7 @@
 	}
 
 	&__placeholder {
-		color: @gray-5;
+		color: var(--editor-placeholder-color, @editor-placeholder-color);
 		font-size: 14px;
 	}
 
@@ -70,7 +70,7 @@
 
 	&__count {
 		font-size: 12px;
-		color: @gray-5;
+		color: var(--editor-placeholder-color, @editor-placeholder-color);
 		text-align: right;
 	}
 
@@ -87,7 +87,7 @@
 		display: flex;
 		align-items: center;
 		flex-wrap: wrap;
-		background: @white;
+		background: var(--editor-background-color-light, @editor-background-color-light);
 	}
 
 	&__icon {
@@ -96,7 +96,52 @@
 		text-align: center;
 
 		&--active {
-			color: @orange;
+			color: var(--editor-icon-active-color, @editor-icon-active-color);
+		}
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	.van-editor {
+		color: var(--editor-color-dark, @editor-color-dark);
+		background-color: var(--editor-background-color-dark, @editor-background-color-dark);
+		border-color: var(--editor-border-color-dark, @editor-border-color-dark);
+
+		&--field {
+			&::after {
+				border-color: var(--editor-border-color-dark, @editor-border-color-dark);
+			}
+
+			.van-editor__content {
+				color: var(--editor-color-dark, @editor-color-dark);
+			}
+		}
+
+		&__content {
+			color: var(--editor-color-dark, @editor-color-dark);
+			background-color: var(--editor-background-color-dark, @editor-background-color-dark);
+		}
+
+		&__placeholder {
+			color: var(--editor-placeholder-color, @editor-placeholder-color);
+		}
+
+		&__textarea {
+			color: var(--editor-color-dark, @editor-color-dark);
+			background-color: var(--editor-background-color-dark, @editor-background-color-dark);
+		}
+
+		&__count {
+			color: var(--editor-placeholder-color, @editor-placeholder-color);
+		}
+
+		&__container {
+			color: var(--editor-color-dark, @editor-color-dark);
+			background-color: var(--editor-background-color-dark, @editor-background-color-dark);
+		}
+
+		&__toolbar {
+			background: var(--editor-background-color-dark, @editor-background-color-dark);
 		}
 	}
 }

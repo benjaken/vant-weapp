@@ -2,7 +2,7 @@
 
 .van-index-anchor {
   padding: var(--index-anchor-padding, @index-anchor-padding);
-  color: var(--index-anchor-text-color, @index-anchor-text-color);
+  color: var(--index-anchor-text-color-light, @index-anchor-text-color-light);
   font-weight: var(--index-anchor-font-weight, @index-anchor-font-weight);
   font-size: var(--index-anchor-font-size, @index-anchor-font-size);
   line-height: var(--index-anchor-line-height, @index-anchor-line-height);
@@ -19,8 +19,21 @@
       @index-anchor-active-text-color
     );
     background-color: var(
-      --index-anchor-active-background-color,
-      @index-anchor-active-background-color
+      --index-anchor-active-background-color-light,
+      @index-anchor-active-background-color-light
     );
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-index-anchor {
+    color: var(--index-anchor-text-color-dark, @index-anchor-text-color-dark);
+
+    &--active {
+      background-color: var(
+        --index-anchor-active-background-color-dark,
+        @index-anchor-active-background-color-dark
+      );
+    }
   }
 }

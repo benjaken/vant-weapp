@@ -4,10 +4,13 @@
   --cell-icon-size: var(--field-icon-size, @field-icon-size);
 
   &__label {
-    color: var(--field-label-color, @field-label-color);
+    color: var(--field-label-color-light, @field-label-color-light);
 
     &--disabled {
-      color: var(--field-disabled-text-color, @field-disabled-text-color);
+      color: var(
+        --field-disabled-text-color-light,
+        @field-disabled-text-color-light
+      );
     }
   }
 
@@ -36,10 +39,10 @@
     padding: 0;
     line-height: inherit;
     text-align: left;
-    background-color: transparent;
+    background-color-light: transparent;
     border: 0;
     resize: none;
-    color: var(--field-input-text-color, @field-input-text-color);
+    color: var(--field-input-text-color-light, @field-input-text-color-light);
     height: var(--cell-line-height, @cell-line-height);
     min-height: var(--cell-line-height, @cell-line-height);
 
@@ -60,11 +63,11 @@
     }
 
     &--disabled {
-      background-color: transparent;
+      background-color-light: transparent;
       opacity: 1;
       color: var(
-        --field-input-disabled-text-color,
-        @field-input-disabled-text-color
+        --field-input-disabled-text-color-light,
+        @field-input-disabled-text-color-light
       );
     }
 
@@ -89,7 +92,10 @@
     right: 0;
     left: 0;
     pointer-events: none;
-    color: var(--field-placeholder-text-color, @field-placeholder-text-color);
+    color: var(
+      --field-placeholder-text-color-light,
+      @field-placeholder-text-color-light
+    );
 
     &--error {
       color: var(--field-error-message-color, @field-error-message-color);
@@ -118,12 +124,15 @@
 
   &__clear-root {
     font-size: var(--field-clear-icon-size, @field-clear-icon-size);
-    color: var(--field-clear-icon-color, @field-clear-icon-color);
+    color: var(--field-clear-icon-color-light, @field-clear-icon-color-light);
   }
 
   &__icon-container {
     font-size: var(--field-icon-size, @field-icon-size);
-    color: var(--field-icon-container-color, @field-icon-container-color);
+    color: var(
+      --field-icon-container-color-light,
+      @field-icon-container-color-light
+    );
 
     &:empty {
       display: none;
@@ -158,7 +167,7 @@
   &__word-limit {
     text-align: right;
     margin-top: var(--padding-base, @padding-base);
-    color: var(--field-word-limit-color, @field-word-limit-color);
+    color: var(--field-word-limit-color-light, @field-word-limit-color-light);
     font-size: var(--field-word-limit-font-size, @field-word-limit-font-size);
     line-height: var(
       --field-word-limit-line-height,
@@ -171,6 +180,54 @@
 
     &--full {
       color: var(--field-word-num-full-color, @field-word-num-full-color);
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-field {
+    &__label {
+      color: var(--field-label-color-dark, @field-label-color-dark);
+
+      &--disabled {
+        color: var(
+          --field-disabled-text-color-dark,
+          @field-disabled-text-color-dark
+        );
+      }
+    }
+
+    &__control {
+      color: var(--field-input-text-color-dark, @field-input-text-color-dark);
+
+      &--disabled {
+        color: var(
+          --field-input-disabled-text-color-dark,
+          @field-input-disabled-text-color-dark
+        );
+      }
+    }
+
+    &__placeholder {
+      color: var(
+        --field-placeholder-text-color-dark,
+        @field-placeholder-text-color-dark
+      );
+    }
+
+    &__clear-root {
+      color: var(--field-clear-icon-color-dark, @field-clear-icon-color-dark);
+    }
+
+    &__icon-container {
+      color: var(
+        --field-icon-container-color-dark,
+        @field-icon-container-color-dark
+      );
+    }
+
+    &__word-limit {
+      color: var(--field-word-limit-color-dark, @field-word-limit-color-dark);
     }
   }
 }

@@ -8,8 +8,8 @@
   user-select: none;
   z-index: var(--submit-bar-z-index, @submit-bar-z-index);
   background-color: var(
-    --submit-bar-background-color,
-    @submit-bar-background-color
+    --submit-bar-background-color-light,
+    @submit-bar-background-color-light
   );
 
   &__tip {
@@ -45,8 +45,8 @@
     height: var(--submit-bar-height, @submit-bar-height);
     font-size: var(--submit-bar-text-font-size, @submit-bar-text-font-size);
     background-color: var(
-      --submit-bar-background-color,
-      @submit-bar-background-color
+      --submit-bar-background-color-light,
+      @submit-bar-background-color-light
     );
   }
 
@@ -58,7 +58,7 @@
   &__text {
     flex: 1;
     text-align: right;
-    color: var(--submit-bar-text-color, @submit-bar-text-color);
+    color: var(--submit-bar-text-color-light, @submit-bar-text-color-light);
     padding-right: var(--padding-sm, @padding-sm);
     font-weight: var(--font-weight-bold, @font-weight-bold);
   }
@@ -97,5 +97,23 @@
       --submit-bar-button-height,
       @submit-bar-button-height
     ) !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-submit-bar {
+    background-color: var(
+      --submit-bar-background-color-dark,
+      @submit-bar-background-color-dark
+    );
+    &__bar {
+      background-color: var(
+        --submit-bar-background-color-dark,
+        @submit-bar-background-color-dark
+      );
+    }
+    &__text {
+      color: var(--submit-bar-text-color-dark, @submit-bar-text-color-dark);
+    }
   }
 }

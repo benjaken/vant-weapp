@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  color: var(--tabbar-item-text-color, @tabbar-item-text-color);
+  color: var(--tabbar-item-text-color-light, @tabbar-item-text-color-light);
   font-size: var(--tabbar-item-font-size, @tabbar-item-font-size);
   line-height: var(--tabbar-item-line-height, @tabbar-item-line-height);
 
@@ -31,5 +31,11 @@
 
   &__info {
     margin-top: 2px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-tabbar-item {
+    color: var(--tabbar-item-text-color-dark, @tabbar-item-text-color-dark);
   }
 }

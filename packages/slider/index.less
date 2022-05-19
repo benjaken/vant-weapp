@@ -53,8 +53,8 @@
     position: relative;
     border-radius: @border-radius-max;
     background-color: var(
-      --slider-inactive-background-color,
-      @slider-inactive-background-color
+      --slider-inactive-background-color-light,
+      @slider-inactive-background-color-light
     );
 
     // use pseudo element to expand click area
@@ -103,17 +103,17 @@
   }
 
   &__tip {
-		text-align: center;
-		font-size: 40rpx;
-		font-weight: bold;
+    text-align: center;
+    font-size: 40rpx;
+    font-weight: bold;
     padding-bottom: 30rpx;
-	}
+  }
 
   &__steps {
-		font-size: 24rpx;
-		color: @gray-6;
-		display: flex;
-		justify-content: space-between;
+    font-size: 24rpx;
+    color: @gray-6;
+    display: flex;
+    justify-content: space-between;
     padding-top: 30rpx;
 
     &-text {
@@ -128,5 +128,16 @@
     &-item:last-child .van-slider__steps-text {
       transform: translateX(-60%);
     }
-	}
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-slider {
+    &__content {
+      background-color: var(
+        --slider-inactive-background-color-dark,
+        @slider-inactive-background-color-dark
+      );
+    }
+  }
 }

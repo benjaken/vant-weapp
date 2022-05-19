@@ -46,13 +46,13 @@
   }
 
   &--default {
-    color: var(--button-default-color, @button-default-color);
+    color: var(--button-default-color-light, @button-default-color-light);
     background: var(
-      --button-default-background-color,
-      @button-default-background-color
+      --button-default-background-color-light,
+      @button-default-background-color-light
     );
     border: var(--button-border-width, @button-border-width) solid
-      var(--button-default-border-color, @button-default-border-color);
+      var(--button-default-border-color, @button-default-border-color-light);
   }
 
   &--primary {
@@ -97,8 +97,8 @@
 
   &--plain {
     background: var(
-      --button-plain-background-color,
-      @button-plain-background-color
+      --button-plain-background-color-light,
+      @button-plain-background-color-light
     );
 
     &.van-button--primary {
@@ -213,5 +213,22 @@
     &.van-button--square::after {
       border-radius: 0;
     }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-button--default {
+    color: var(--button-default-color-dark, @button-default-color-dark);
+    background: var(
+      --button-default-background-color-dark,
+      @button-default-background-color-dark
+    );
+    border-color: var(--button-default-border-color-dark, @button-default-border-color-dark);
+  }
+  .van-button--plain {
+    background: var(
+      --button-plain-background-color-dark,
+      @button-plain-background-color-dark
+    );
   }
 }

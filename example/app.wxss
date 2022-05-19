@@ -23,3 +23,10 @@ page {
   display: block;
   margin-bottom: 15px;
 }
+
+@media (prefers-color-scheme: dark) {
+  page {
+    background: #202124;
+    color: #fff;
+  }
+}

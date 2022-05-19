@@ -1,5 +1,5 @@
 import { VantComponent } from '../common/component';
-import { GREEN, GRAY_DARK } from '../common/color';
+import { ORANGE, GRAY_DARK } from '../common/color';
 
 VantComponent({
   classes: ['desc-class'],
@@ -14,7 +14,7 @@ VantComponent({
     },
     activeColor: {
       type: String,
-      value: GREEN,
+      value: ORANGE,
     },
     inactiveColor: {
       type: String,

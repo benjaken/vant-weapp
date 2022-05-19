@@ -29,7 +29,7 @@
   &__description {
     margin-top: @empty-description-margin-top;
     padding: @empty-description-padding;
-    color: @empty-description-color;
+    color: @empty-description-color-light;
     font-size: @empty-description-font-size;
     line-height: @empty-description-line-height;
 
@@ -39,7 +39,7 @@
   }
 
   &__tip {
-    color: @empty-tip-color;
+    color: @empty-tip-color-light;
     line-height: calc(@empty-description-line-height / 1.4);
     font-size: calc(@empty-description-font-size / 1.4);
     padding: 12px 20px;
@@ -55,5 +55,18 @@
 
   &__bottom {
     margin-top: @empty-bottom-margin-top;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-empty {
+
+    &__description {
+      color: @empty-description-color-dark;
+    }
+
+    &__tip {
+      color: @empty-tip-color-dark;
+    }
   }
 }

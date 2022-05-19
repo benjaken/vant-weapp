@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "demo-home-nav": "../demo-home-nav/index"
+    "demo-home-nav": "../demo-home-nav/index",
+    "van-icon": "../../dist/icon/index"
   }
 }

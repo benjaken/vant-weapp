@@ -413,6 +413,20 @@
           "name": "comment-card",
           "pathName": "pages/comment-card/index",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "slider",
+          "pathName": "pages/slider/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/changelog/index",
+          "query": "",
           "scene": null,
           "launchMode": "default"
         }

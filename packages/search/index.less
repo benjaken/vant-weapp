@@ -11,7 +11,10 @@
     flex: 1;
     padding-left: var(--padding-sm, @padding-sm);
     border-radius: @border-radius-sm;
-    background-color: var(--search-background-color, @search-background-color);
+    background-color: var(
+      --search-background-color-light,
+      @search-background-color-light
+    );
 
     &--round {
       border-radius: @border-radius-max;
@@ -22,14 +25,14 @@
     padding: var(--search-label-padding, @search-label-padding);
     font-size: var(--search-label-font-size, @search-label-font-size);
     line-height: var(--search-input-height, @search-input-height);
-    color: var(--search-label-color, @search-label-color);
+    color: var(--search-label-color-light, @search-label-color-light);
   }
 
   &__field {
     flex: 1;
 
     &__left-icon {
-      color: var(--search-left-icon-color, @search-left-icon-color);
+      color: var(--search-left-icon-color-light, @search-left-icon-color-light);
     }
   }
 
@@ -41,10 +44,45 @@
     padding: var(--search-action-padding, @search-action-padding);
     font-size: var(--search-action-font-size, @search-action-font-size);
     line-height: var(--search-input-height, @search-input-height);
-    color: var(--search-action-text-color, @search-action-text-color);
+    color: var(
+      --search-action-text-color-light,
+      @search-action-text-color-light
+    );
 
     &--hover {
       background-color: @active-color;
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-search {
+    &__content {
+      background-color: var(
+        --search-background-color-dark,
+        @search-background-color-dark
+      );
+    }
+
+    &__label {
+      color: var(--search-label-color-dark, @search-label-color-dark);
+    }
+
+    &__field {
+      &__left-icon {
+        color: var(--search-left-icon-color-dark, @search-left-icon-color-dark);
+      }
+    }
+
+    &__action {
+      color: var(
+        --search-action-text-color-dark,
+        @search-action-text-color-dark
+      );
+
+      &--hover {
+        background-color: @dark-active-color;
+      }
     }
   }
 }

@@ -45,6 +45,7 @@
       value="{{ username2 }}"
       label="用户名"
       placeholder="请输入用户名"
+      tip-message="用户名为英文字母、数字或下划线组成"
       error
     />
     <van-field

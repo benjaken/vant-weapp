@@ -29,6 +29,7 @@ VantComponent({
     arrowDirection: String,
     showWordLimit: Boolean,
     errorMessageAlign: String,
+    tipMessage: String,
     readonly: {
       type: Boolean,
       observer: 'setShowClear',

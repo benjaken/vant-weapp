@@ -9,6 +9,10 @@ VantComponent({
             type: Array,
             value: [],
         },
+        round: {
+            type: Boolean,
+            value: false,
+        },
         single: {
             type: Boolean,
             value: false,

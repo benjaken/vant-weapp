@@ -3,7 +3,6 @@
 
 .van-cell {
   position: relative;
-  display: flex;
   box-sizing: border-box;
   width: 100%;
   padding: var(--cell-vertical-padding, @cell-vertical-padding)
@@ -15,6 +14,11 @@
     --cell-background-color-light,
     @cell-background-color-light
   );
+
+  &__wrapper {
+    position: relative;
+    display: flex;
+  }
 
   &::after {
     .hairline-bottom(@border-color, @padding-md, @padding-md);
@@ -134,6 +138,10 @@
 
     &::after {
       .hairline-bottom(@dark-border-color, @padding-md, @padding-md);
+    }
+
+    &--borderless::after {
+      display: none;
     }
 
     &-group {

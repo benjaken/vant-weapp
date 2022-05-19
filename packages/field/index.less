@@ -39,7 +39,7 @@
     padding: 0;
     line-height: inherit;
     text-align: left;
-    background-color-light: transparent;
+    background-color: transparent;
     border: 0;
     resize: none;
     color: var(--field-input-text-color-light, @field-input-text-color-light);
@@ -63,7 +63,7 @@
     }
 
     &--disabled {
-      background-color-light: transparent;
+      background-color: transparent;
       opacity: 1;
       color: var(
         --field-input-disabled-text-color-light,
@@ -200,6 +200,10 @@
     &__control {
       color: var(--field-input-text-color-dark, @field-input-text-color-dark);
 
+      &--error {
+        color: var(--field-input-error-text-color, @field-input-error-text-color);
+      }
+
       &--disabled {
         color: var(
           --field-input-disabled-text-color-dark,
@@ -213,6 +217,10 @@
         --field-placeholder-text-color-dark,
         @field-placeholder-text-color-dark
       );
+
+      &--error {
+        color: var(--field-error-message-color, @field-error-message-color);
+      }
     }
 
     &__clear-root {

@@ -45,7 +45,7 @@
       --check-button-margin-bottom,
       @check-button-margin-bottom
     );
-    border-radius: calc(var(--check-button-height, @check-button-height) / 2);
+    border-radius: var(--check-button-border-radius, @check-button-border-radius);
     height: var(--check-button-height, @check-button-height);
     line-height: var(--check-button-height, @check-button-height);
     font-size: var(--check-button-font-size, @check-button-font-size);
@@ -60,6 +60,10 @@
       --check-button-margin-right,
       @check-button-margin-right
     );
+
+    &--round {
+      border-radius: calc(var(--check-button-height, @check-button-height) / 2);
+    }
 
     &--active {
       background: var(

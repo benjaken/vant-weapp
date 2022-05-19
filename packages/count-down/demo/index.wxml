@@ -1,15 +1,15 @@
-<demo-block title="基础用法">
+<demo-block title="基础用法" padding>
   <van-count-down time="{{ time }}" />
 </demo-block>
 
-<demo-block title="自定义格式">
+<demo-block title="自定义格式" padding>
   <van-count-down
     time="{{ time }}"
     format="DD 天 HH 时 mm 分 ss 秒"
   />
 </demo-block>
 
-<demo-block title="毫秒级渲染">
+<demo-block title="毫秒级渲染" padding>
   <van-count-down
     millisecond
     time="{{ time }}"
@@ -17,7 +17,7 @@
   />
 </demo-block>
 
-<demo-block title="自定义样式">
+<demo-block title="自定义样式" padding>
   <van-count-down
     use-slot
     time="{{ time }}"
@@ -29,7 +29,7 @@
   </van-count-down>
 </demo-block>
 
-<demo-block title="手动控制">
+<demo-block title="手动控制" padding>
   <van-count-down
     class="control-count-down"
     millisecond

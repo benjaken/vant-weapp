@@ -37,37 +37,43 @@
 </demo-block>
 
 <demo-block title="展示图标">
-  <van-cell
-    title="单元格"
-    value="内容"
-    icon="location-o"
-    border="{{ false }}"
-  />
+  <van-cell-group>
+    <van-cell
+      title="单元格"
+      value="内容"
+      icon="location-o"
+      border="{{ false }}"
+    />
+  </van-cell-group>
 </demo-block>
 
 <demo-block title="展示箭头">
-  <van-cell title="单元格" is-link />
-  <van-cell
-    title="单元格"
-    value="内容"
-    is-link
-  />
-  <van-cell
-    title="单元格"
-    is-link
-    arrow-direction="down"
-    value="内容"
-    border="{{ false }}"
-  />
+  <van-cell-group>
+    <van-cell title="单元格" is-link />
+    <van-cell
+      title="单元格"
+      value="内容"
+      is-link
+    />
+    <van-cell
+      title="单元格"
+      is-link
+      arrow-direction="down"
+      value="内容"
+      border="{{ false }}"
+    />
+  </van-cell-group>
 </demo-block>
 
 <demo-block title="页面跳转">
-  <van-cell title="单元格" is-link url="/pages/dashboard/index" />
-  <van-cell title="单元格" is-link url="/pages/dashboard/index" link-type="redirectTo" />
+  <van-cell-group>
+    <van-cell title="单元格" is-link url="/pages/dashboard/index" />
+    <van-cell title="单元格" is-link url="/pages/dashboard/index" link-type="redirectTo" />
+  </van-cell-group>
 </demo-block>
 
 <demo-block title="分组标题">
-  <van-cell-group title="分组 1">
+  <van-cell-group title="分组 1" tip="分组 1备注">
     <van-cell title="单元格" value="内容" />
   </van-cell-group>
   <van-cell-group title="分组 2">
@@ -88,10 +94,12 @@
 </demo-block>
 
 <demo-block title="垂直居中">
-  <van-cell
-    center
-    title="单元格"
-    value="内容"
-    label="描述信息"
-  />
+  <van-cell-group>
+    <van-cell
+      center
+      title="单元格"
+      value="内容"
+      label="描述信息"
+    />
+  </van-cell-group>
 </demo-block>

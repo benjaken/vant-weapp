@@ -26,12 +26,33 @@
       );
     }
   }
+
+
+  &__tip {
+    padding: var(--cell-group-tip-padding, @cell-group-tip-padding);
+    font-size: var(--cell-group-tip-font-size, @cell-group-tip-font-size);
+    line-height: var(
+      --cell-group-tip-line-height,
+      @cell-group-tip-line-height
+    );
+    color: var(--cell-group-tip-color-light, @cell-group-tip-color-light);
+
+    &--inset {
+      padding: var(
+        --cell-group-inset-tip-padding,
+        @cell-group-inset-tip-padding
+      );
+    }
+  }
 }
 
 @media (prefers-color-scheme: dark) {
   .van-cell-group {
     &__title {
       color: var(--cell-group-title-color-dark, @cell-group-title-color-dark);
+    }
+    &__tip {
+      color: var(--cell-group-tip-color-dark, @cell-group-tip-color-dark);
     }
   }
 }

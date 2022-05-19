@@ -141,8 +141,7 @@
 @button-border-width: 1px;
 @button-border-radius: @border-radius-md;
 @button-round-border-radius: @border-radius-max;
-@button-plain-background-color-light: @white;
-@button-plain-background-color-dark: transparent;
+@button-plain-background-color: transparent;
 @button-disabled-opacity: @disabled-opacity;
 
 // Calendar
@@ -232,9 +231,15 @@
 @cell-group-title-padding: @padding-md @padding-md @padding-xs;
 @cell-group-title-font-size: @font-size-md;
 @cell-group-title-line-height: 16px;
+@cell-group-tip-color-light: @text-color-2;
+@cell-group-tip-color-dark: @dark-text-color-2;
+@cell-group-tip-padding: @padding-xs @padding-md;
+@cell-group-tip-font-size: @font-size-sm;
+@cell-group-tip-line-height: 14px;
 @cell-group-inset-padding: 0 @padding-md;
 @cell-group-inset-border-radius: @border-radius-lg;
 @cell-group-inset-title-padding: @padding-md @padding-md @padding-xs @padding-xl;
+@cell-group-inset-tip-padding: @padding-xs @padding-md @padding-xs @padding-xl;
 
 // Checkbox
 @checkbox-size: 20px;
@@ -319,8 +324,8 @@
 @field-word-limit-font-size: @font-size-sm;
 @field-word-limit-line-height: 16px;
 @field-word-num-full-color: @orange;
-@field-disabled-text-color-light: @text-color-2;
-@field-disabled-text-color-dark: @dark-text-color-2;
+@field-disabled-text-color-light: @text-color-3;
+@field-disabled-text-color-dark: @dark-text-color-3;
 
 // GoodsAction
 @goods-action-background-color-light: @background-color-2;
@@ -356,8 +361,7 @@
 
 // Info
 @info-size: 16px;
-@info-color-light: @text-color;
-@info-color-dark: @dark-text-color;
+@info-color: @white;
 @info-padding: 0 3px;
 @info-font-size: 12px;
 @info-font-weight: 500;
@@ -835,14 +839,14 @@
 @badge-font-size: @font-size-sm;
 @badge-font-weight: @font-weight-bold;
 @badge-background-color: @orange;
-@badge-text-color-light: @text-color;
-@badge-text-color-dark: @dark-text-color;
+@badge-text-color: @white;
 @badge-border-radius: @border-radius-max;
 @badge-padding: 0 3px;
 @badge-dot-size: 8px;
 
 // CheckButton
 @check-button-height: 30px;
+@check-button-border-radius: @border-radius-md;
 @check-button-font-size: @font-size-md;
 @check-button-color-light: @text-color;
 @check-button-color-dark: @dark-text-color;

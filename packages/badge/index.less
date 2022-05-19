@@ -9,13 +9,13 @@
     box-sizing: border-box;
     min-width: var(--badge-width, @badge-width);
     padding: var(--badge-padding, @badge-padding);
-    color: var(--badge-text-color-light, @badge-text-color-light);
+    color: var(--badge-text-color, @badge-text-color);
     font-weight: var(--badge-font-weight, @badge-font-weight);
     font-size: var(--badge-font-size, @badge-font-size);
     line-height: 1.2;
     text-align: center;
     background: var(--badge-background-color, @badge-background-color);
-    border: 1px solid var(--badge-text-color-light, @badge-text-color-light);
+    border: 1px solid var(--badge-text-color, @badge-text-color);
     border-radius: var(--badge-border-radius, @badge-border-radius);
 		position: absolute;
     transform-origin: 100%;
@@ -49,15 +49,6 @@
 			border-radius: var(--badge-border-radius, @badge-border-radius);
 			border: none;
 			padding: 0;
-		}
-	}
-}
-
-@media (prefers-color-scheme: dark) {
-	.van-badge {
-		&__wrapper {
-			color: var(--badge-text-color-dark, @badge-text-color-dark);
-			border-color: var(--badge-text-color-dark, @badge-text-color-dark);
 		}
 	}
 }

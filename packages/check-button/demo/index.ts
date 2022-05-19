@@ -6,8 +6,9 @@ VantComponent({
     checkbutton2: ['苹果', '梨'],
     checkbutton3: ['苹果', '梨'],
     checkbutton4: ['苹果', '梨'],
-    checkbutton5: ['苹果'],
-    checkbutton6: [0, 1],
+    checkbutton5: ['苹果', '梨'],
+    checkbutton6: ['苹果'],
+    checkbutton7: [0, 1],
     options: ['苹果', '梨', '葡萄', '芒果', '火龙果']
   },
 

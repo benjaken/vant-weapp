@@ -49,17 +49,17 @@ VantComponent({
   },
   methods: {
 		onScroll({ detail }) {
-			this.triggerEvent('scroll', detail)
+			this.$emit('scroll', detail)
 		},
 		onReachBottom({ detail }) {
       if (this.properties.loading || this.properties.finished) return
-			this.triggerEvent('scrolltolower', detail)
+			this.$emit('scrolltolower', detail)
 		},
 		onRefresh() {
 			this.setData({
 				refresherTriggered: true
 			})
-			this.triggerEvent('refresh')
+			this.$emit('refresh')
 		},
 		stopRefresh() {
 			this.setData({

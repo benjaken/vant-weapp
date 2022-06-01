@@ -84,13 +84,13 @@ VantComponent({
       this.setData({
         show: false
       })
-      this.triggerEvent('close')
+      this.$emit('close')
     },
     onKeyboardShow() {
-      this.triggerEvent('show')
+      this.$emit('show')
     },
     onKeyboardHide() {
-      this.triggerEvent('hide')
+      this.$emit('hide')
     },
     onClickKey({ currentTarget: { dataset } }) {
       const { maxlength } = this.properties
@@ -106,18 +106,18 @@ VantComponent({
           value = value.slice(0, value.length - 1)
         }
         this.setData({ value })
-        this.triggerEvent('input', value)
-        this.triggerEvent('delete')
+        this.$emit('input', value)
+        this.$emit('delete')
       } else {
         if (value.length >= maxlength) return
         value += key
         this.setData({ value })
-        this.triggerEvent('input', value)
+        this.$emit('input', value)
       }
     },
     onPasswordComplete({ detail }) {
       console.log(detail)
-      this.triggerEvent('complete', detail)
+      this.$emit('complete', detail)
     }
   }
 });

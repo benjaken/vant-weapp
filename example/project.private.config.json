@@ -427,6 +427,13 @@
           "name": "",
           "pathName": "pages/changelog/index",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "cascader",
+          "pathName": "pages/cascader/index",
+          "query": "",
           "scene": null,
           "launchMode": "default"
         }

@@ -11,7 +11,7 @@ VantComponent({
             value: val.slice(0, this.properties.length),
           })
         } else if (val.length === this.properties.length) {
-          this.triggerEvent('complete', val);
+          this.$emit('complete', val);
         }
       }
     },
@@ -33,7 +33,7 @@ VantComponent({
   },
   methods: {
     onFocus() {
-      this.triggerEvent('focus')
+      this.$emit('focus')
     }
   }
 });

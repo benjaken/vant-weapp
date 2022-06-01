@@ -1,0 +1,57 @@
+<wxs src="../wxs/utils.wxs" module="utils" />
+
+<van-popup
+  show="{{show}}"
+  position="bottom"
+  round
+  safe-area-inset-bottom
+  close-on-click-overla="{{closeable}}"
+  bind:close="onClickOverlay"
+>
+  <view class="van-cascader">
+    <view class="van-cascader__header" wx:if="{{showHeader}}">
+      <view class="van-cascader__title">{{title}}</view>
+      <van-icon wx:if="{{closeable}}" name="{{closeIcon}}" bind:click="onClickOverlay" />
+    </view>
+    <van-tabs
+      wx:if="{{show}}"
+      active="{{active}}"
+      custom-class="van-cascader__tabs"
+      animated
+      shrink
+      swipeable="{{swipeable}}"
+      color="{{activeColor}}"
+      bind:change="onTabChange"
+    >
+      <van-tab
+        wx:for="{{tabs}}"
+        wx:key="index"
+        title="{{item.selected ? item.selected[fieldNames.text] : placeholder}}"
+      >
+        <view class="van-cascader__options">
+          <view
+            wx:for="{{item.options || []}}"
+            wx:for-index="key"
+            wx:for-item="option"
+            class="{{utils.bem('cascader__option', { selected: item.selected && option[fieldNames.value] === item.selected[fieldNames.value], disabled: option.disabled })}}"
+            data-option="{{option}}"
+            style="color:{{option.color || (item.selected && option[fieldNames.value] === item.selected[fieldNames.value] ? activeColor : undefined)}}"
+            data-index="{{index}}"
+            bindtap="onSelect"
+          >
+            <text>{{option[fieldNames.text]}}</text>
+            <van-icon
+              wx:if="{{item.selected && option[fieldNames.value] === item.selected[fieldNames.value]}}"
+              name="success"
+              color="{{activeColor}}"
+              custom-class="van-cascader__selected-icon"
+            />
+          </view>
+          <view wx:if="{{loading}}" class="van-cascader__options-loading">
+            <van-loading custom-class="demo-loading" size="24px" vertical>加载中...</van-loading>
+          </view>
+        </view>
+      </van-tab>
+    </van-tabs>
+  </view>
+</van-popup>

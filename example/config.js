@@ -252,6 +252,10 @@ export default [
         title: 'Badge 徽标',
       },
       {
+        path: '/cascader',
+        title: 'Cascader 级联选择',
+      },
+      {
         path: '/check-button',
         title: 'CheckButton 复选按钮',
       },

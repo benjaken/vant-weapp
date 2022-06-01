@@ -57,7 +57,7 @@ VantComponent({
 	methods: {
 		onInput({ detail: { value } }) {
 			this.setData({ value })
-			this.triggerEvent('change', value)
+			this.$emit('change', value)
 		},
 		onEditorReady() {
 			wx.createSelectorQuery()
@@ -91,7 +91,7 @@ VantComponent({
 				value,
 				editorLength: text.length
 			})
-			this.triggerEvent('change', value)
+			this.$emit('change', value)
 		},
 		format({ target: dataset }) {
 			const item = dataset.dataset

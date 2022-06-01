@@ -24,6 +24,7 @@ VantComponent({
   props: {
     sticky: Boolean,
     border: Boolean,
+    shrink: Boolean,
     swipeable: Boolean,
     titleActiveColor: String,
     titleInactiveColor: String,
@@ -220,6 +221,7 @@ VantComponent({
       }
 
       const { currentIndex, ellipsis, skipTransition } = this.data;
+      const { shrink } = this.properties;
 
       Promise.all([
         getAllRect(this, '.van-tab'),
@@ -236,7 +238,7 @@ VantComponent({
           .reduce((prev, curr) => prev + curr.width, 0);
 
         lineOffsetLeft +=
-          (rect.width - lineRect.width) / 2 + (ellipsis ? 0 : 8);
+          (rect.width - lineRect.width) / 2 + (ellipsis ? 0 : 8) + (shrink ? 8 : 0);
 
         this.setData({ lineOffsetLeft });
         this.swiping = true;

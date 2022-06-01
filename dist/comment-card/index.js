@@ -18,10 +18,10 @@ VantComponent({
     },
     methods: {
         onClickLike() {
-            this.triggerEvent('click-like');
+            this.$emit('click-like');
         },
         onClickComment() {
-            this.triggerEvent('click-comment');
+            this.$emit('click-comment');
         },
     }
 });

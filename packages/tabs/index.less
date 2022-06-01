@@ -86,6 +86,14 @@
           );
         }
       }
+
+      &--shrink {
+        display: inline-flex;
+      }
+    }
+
+    &--shrink {
+      padding: 0 @padding-xs;
     }
   }
 
@@ -155,6 +163,11 @@
       display: inline-block;
       transform: translateX(0) !important;
     }
+  }
+
+  &--shrink {
+    flex: none;
+    padding: 0 @padding-xs;
   }
 }
 

@@ -63,7 +63,8 @@
     "pages/number-keyboard/index",
     "pages/password-input/index",
     "pages/comment-card/index",
-    "pages/changelog/index"
+    "pages/changelog/index",
+    "pages/cascader/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "@navBgColor",
@@ -134,7 +135,8 @@
     "van-person-card-demo": "./dist/person-card/demo/index",
     "van-number-keyboard-demo": "./dist/number-keyboard/demo/index",
     "van-password-input-demo": "./dist/password-input/demo/index",
-    "van-comment-card-demo": "./dist/comment-card/demo/index"
+    "van-comment-card-demo": "./dist/comment-card/demo/index",
+    "van-cascader-demo": "./dist/cascader/demo/index"
   },
   "sitemapLocation": "sitemap.json",
   "darkmode": true,

@@ -1,0 +1,90 @@
+<demo-block title="基础用法">
+  <van-cell-group inset>
+    <van-field
+      label="地区"
+      value="{{area1}}"
+      placeholder="请选择所在地区"
+      is-link
+      readonly
+      data-id="cascader1"
+      bindtap="showCascader"
+    />
+  </van-cell-group>
+</demo-block>
+
+<demo-block title="自定义颜色">
+  <van-cell-group inset>
+    <van-field
+      label="地区"
+      value="{{area2}}"
+      placeholder="请选择所在地区"
+      is-link
+      readonly
+      data-id="cascader2"
+      bindtap="showCascader"
+    />
+  </van-cell-group>
+</demo-block>
+
+<demo-block title="异步加载选项">
+  <van-cell-group inset>
+    <van-field
+      label="地区"
+      value="{{area3}}"
+      placeholder="请选择所在地区"
+      is-link
+      readonly
+      data-id="cascader3"
+      bindtap="showCascader"
+    />
+  </van-cell-group>
+</demo-block>
+
+<demo-block title="自定义字段名">
+  <van-cell-group inset>
+    <van-field
+      label="地区"
+      value="{{area4}}"
+      placeholder="请选择所在地区"
+      is-link
+      readonly
+      data-id="cascader4"
+      bindtap="showCascader"
+    />
+  </van-cell-group>
+</demo-block>
+
+<van-cascader
+  show="{{cascader1}}"
+  title="请选择所在地区"
+  options="{{options}}"
+  data-id="area1"
+  bind:finish="onFinish"
+/>
+
+<van-cascader
+  show="{{cascader2}}"
+  title="请选择所在地区"
+  options="{{options}}"
+  active-color="#ee0a24"
+  data-id="area2"
+  bind:finish="onFinish"
+/>
+
+<van-cascader
+  show="{{cascader3}}"
+  title="请选择所在地区"
+  options="{{asyncOptions}}"
+  data-id="area3"
+  loading="{{loading}}"
+  bind:change="onChange"
+  bind:finish="onFinish"
+/>
+
+<van-cascader
+  show="{{cascader4}}"
+  title="请选择所在地区"
+  options="{{customOptions}}"
+  field-names="{{fieldNames}}"
+  bind:finish="onFinish1"
+/>

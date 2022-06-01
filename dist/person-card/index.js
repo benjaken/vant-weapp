@@ -35,10 +35,10 @@ VantComponent({
             });
         },
         onClick() {
-            this.triggerEvent('click');
+            this.$emit('click');
         },
         onClickChat() {
-            this.triggerEvent('click-chat');
+            this.$emit('click-chat');
         },
     }
 });

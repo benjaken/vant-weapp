@@ -30,13 +30,13 @@ VantComponent({
 		 */
 		toggleBtnTap() {
 			if (this.data.isShow) {
-				this.triggerEvent('toggleShow', false)
+				this.$emit('toggleShow', false)
 				return
 			}
 			this.calcData().then(data => {
 				this.print(data)
-				this.triggerEvent('updateData', data)
-				this.triggerEvent('toggleShow', true)
+				this.$emit('updateData', data)
+				this.$emit('toggleShow', true)
 			})
 		},
 		print(data: { container: string; lists: { type: any; elements: any }[] }) {

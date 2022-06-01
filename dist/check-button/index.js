@@ -50,7 +50,7 @@ VantComponent({
                     value.push(item);
                 }
                 this.setData({ value });
-                this.triggerEvent('change', value);
+                this.$emit('change', value);
             }
         },
     }

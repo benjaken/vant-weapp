@@ -21,11 +21,16 @@
 @gradient-orange: linear-gradient(to right, #FEC03D, #FF8B26);
 
 // Component Colors
+@primary-color: @orange;
+@success-color: @green;
+@info-color: @blue;
+@danger-color: @red;
+@warning-color: @orange-light;
 @text-color: @gray-8;
 @text-color-2: @gray-6;
 @text-color-3: @gray-5;
 @active-color: @gray-2;
-@active-opacity: 0.7;
+@active-opacity: 0.6;
 @disabled-opacity: 0.5;
 @background-color: @gray-1;
 @background-color-2: #ffffff;
@@ -85,11 +90,11 @@
 @action-sheet-description-color-light: @text-color-2;
 @action-sheet-description-color-dark: @dark-text-color-2;
 @action-sheet-description-font-size: @font-size-md;
-@action-sheet-description-line-height: 20px;
+@action-sheet-description-line-height: @line-height-md;
 @action-sheet-item-background-light: @background-color-2;
 @action-sheet-item-background-dark: @dark-background-color-2;
 @action-sheet-item-font-size: @font-size-lg;
-@action-sheet-item-line-height: 22px;
+@action-sheet-item-line-height: @line-height-lg;
 @action-sheet-item-text-color-light: @text-color;
 @action-sheet-item-text-color-dark: @dark-text-color;
 @action-sheet-item-disabled-text-color-light: @text-color-3;
@@ -97,7 +102,7 @@
 @action-sheet-subname-color-light: @text-color-2;
 @action-sheet-subname-color-dark: @dark-text-color-2;
 @action-sheet-subname-font-size: @font-size-sm;
-@action-sheet-subname-line-height: 20px;
+@action-sheet-subname-line-height: @line-height-sm;
 @action-sheet-close-icon-size: 22px;
 @action-sheet-close-icon-color-light: @text-color-3;
 @action-sheet-close-icon-color-dark: @dark-text-color-3;
@@ -109,7 +114,7 @@
 @action-sheet-cancel-padding-color-dark: @dark-background-color;
 
 // Button
-@button-mini-height: 22px;
+@button-mini-height: 24px;
 @button-mini-min-width: 50px;
 @button-mini-font-size: @font-size-xs;
 @button-small-height: 30px;
@@ -117,28 +122,28 @@
 @button-small-min-width: 60px;
 @button-normal-font-size: @font-size-md;
 @button-large-height: 50px;
+@button-default-height: 44px;
+@button-line-height: @line-height-md;
+@button-default-font-size: @font-size-lg;
 @button-default-color-light: @text-color;
 @button-default-color-dark: @dark-text-color;
-@button-default-height: 44px;
-@button-default-font-size: @font-size-lg;
 @button-default-background-color-light: @background-color-2;
 @button-default-background-color-dark: @dark-background-color-2;
 @button-default-border-color-light: @border-color;
 @button-default-border-color-dark: @dark-border-color;
 @button-primary-color: @white;
-@button-primary-background-color: @orange;
-@button-primary-border-color: @orange;
+@button-primary-background-color: @primary-color;
+@button-primary-border-color: @primary-color;
 @button-info-color: @white;
-@button-info-background-color: @blue;
-@button-info-border-color: @blue;
+@button-info-background-color: @info-color;
+@button-info-border-color: @info-color;
 @button-danger-color: @white;
-@button-danger-background-color: @red;
-@button-danger-border-color: @red;
+@button-danger-background-color: @danger-color;
+@button-danger-border-color: @danger-color;
 @button-warning-color: @white;
-@button-warning-background-color: @orange-light;
-@button-warning-border-color: @orange-light;
-@button-line-height: 20px;
-@button-border-width: 1px;
+@button-warning-background-color: @warning-color;
+@button-warning-border-color: @warning-color;
+@button-border-width: @border-width-base;
 @button-border-radius: @border-radius-md;
 @button-round-border-radius: @border-radius-max;
 @button-plain-background-color: transparent;
@@ -161,15 +166,16 @@
 @calendar-month-mark-font-size: 160px;
 @calendar-day-height: 64px;
 @calendar-day-font-size: @font-size-lg;
+@calendar-day-margin-bottom: 4px;
 @calendar-range-edge-color: @white;
-@calendar-range-edge-background-color: @orange;
-@calendar-range-middle-color: @orange;
+@calendar-range-edge-background-color: @primary-color;
+@calendar-range-middle-color: @primary-color;
 @calendar-range-middle-background-opacity: 0.1;
 @calendar-selected-day-size: 54px;
 @calendar-selected-day-color: @white;
 @calendar-info-font-size: @font-size-xs;
-@calendar-info-line-height: 14px;
-@calendar-selected-day-background-color: @orange;
+@calendar-info-line-height: @line-height-xs;
+@calendar-selected-day-background-color: @primary-color;
 @calendar-day-disabled-color-light: @text-color-3;
 @calendar-day-disabled-color-dark: @dark-text-color-3;
 @calendar-confirm-button-height: 36px;
@@ -184,13 +190,16 @@
 @card-background-color-light: @background-color-2;
 @card-background-color-dark: @dark-background-color-2;
 @card-thumb-size: 88px;
+@card-thumb-border-radius: @border-radius-lg;
 @card-title-line-height: 16px;
 @card-desc-color-light: @text-color-2;
 @card-desc-color-dark: @dark-text-color-2;
-@card-desc-line-height: 20px;
-@card-price-color: @orange;
+@card-desc-line-height: @line-height-md;
+@card-price-color: @primary-color;
 @card-origin-price-color-light: @text-color-2;
 @card-origin-price-color-dark: @dark-text-color-2;
+@card-num-color-light: @text-color-2;
+@card-num-color-dark: @dark-text-color-2;
 @card-origin-price-font-size: @font-size-xs;
 @card-price-font-size: @font-size-sm;
 @card-price-integer-font-size: @font-size-lg;
@@ -209,12 +218,12 @@
 @cell-border-color-dark: @dark-border-color;
 @cell-active-color-light: @active-color;
 @cell-active-color-dark: @dark-active-color;
-@cell-required-color: @red;
+@cell-required-color: @danger-color;
 @cell-label-color-light: @text-color-2;
 @cell-label-color-dark: @dark-text-color-2;
 @cell-label-font-size: @font-size-sm;
-@cell-label-line-height: 18px;
-@cell-label-margin-top: 3px;
+@cell-label-line-height: @line-height-sm;
+@cell-label-margin-top: @padding-base;
 @cell-value-color-light: @text-color-2;
 @cell-value-color-dark: @dark-text-color-2;
 @cell-icon-size: 16px;
@@ -245,11 +254,11 @@
 @checkbox-size: 20px;
 @checkbox-border-color-light: @text-color-3;
 @checkbox-border-color-dark: @dark-text-color-3;
-@checkbox-transition-duration: 0.2s;
-@checkbox-label-margin: 10px;
+@checkbox-transition-duration: @animation-duration-fast;
+@checkbox-label-margin: @padding-xs;
 @checkbox-label-color-light: @text-color;
 @checkbox-label-color-dark: @dark-text-color;
-@checkbox-checked-icon-color: @orange;
+@checkbox-checked-icon-color: @primary-color;
 @checkbox-disabled-icon-color-light: @text-color-3;
 @checkbox-disabled-icon-color-dark: @dark-text-color-3;
 @checkbox-disabled-label-color-light: @text-color-3;
@@ -260,24 +269,27 @@
 // Circle
 @circle-text-color-light: @text-color;
 @circle-text-color-dark: @dark-text-color;
+@circle-text-font-weight: @font-weight-bold;
+@circle-text-font-size: @font-size-md;
+@circle-text-line-height: @line-height-md;
 
 // Collapse
-@collapse-item-transition-duration: 0.3s;
-@collapse-item-content-padding: 15px;
-@collapse-item-content-font-size: 13px;
+@collapse-item-transition-duration: @animation-duration-base;
+@collapse-item-content-padding: @padding-sm @padding-md;
+@collapse-item-content-font-size: @font-size-md;
 @collapse-item-content-line-height: 1.5;
 @collapse-item-content-text-color-light: @text-color-2;
 @collapse-item-content-text-color-dark: @dark-text-color-2;
 @collapse-item-content-background-color-light: @background-color-2;
 @collapse-item-content-background-color-dark: @dark-background-color-2;
-@collapse-item-title-disabled-color-light: @text-color-2;
-@collapse-item-title-disabled-color-dark: @dark-text-color-2;
+@collapse-item-title-disabled-color-light: @text-color-3;
+@collapse-item-title-disabled-color-dark: @dark-text-color-3;
 
 // CountDown
 @count-down-text-color-light: @text-color;
 @count-down-text-color-dark: @dark-text-color;
 @count-down-font-size: @font-size-md;
-@count-down-line-height: 20px;
+@count-down-line-height: @line-height-md;
 
 // Dialog
 @dialog-width: 320px;
@@ -288,11 +300,11 @@
 @dialog-background-color-dark: @dark-background-color-2;
 @dialog-header-font-weight: @font-weight-bold;
 @dialog-header-line-height: 24px;
-@dialog-header-padding-top: @padding-lg;
+@dialog-header-padding-top: 26px;
 @dialog-header-isolated-padding: @padding-lg 0;
 @dialog-message-padding: @padding-lg;
 @dialog-message-font-size: @font-size-md;
-@dialog-message-line-height: 20px;
+@dialog-message-line-height: @line-height-md;
 @dialog-message-max-height: 60vh;
 @dialog-has-title-message-text-color-light: @text-color-2;
 @dialog-has-title-message-text-color-dark: @dark-text-color-2;
@@ -305,25 +317,25 @@
 @field-label-color-dark: @dark-text-color-2;
 @field-input-text-color-light: @text-color;
 @field-input-text-color-dark: @dark-text-color;
-@field-input-error-text-color: @red;
-@field-input-disabled-text-color-light: @text-color-2;
-@field-input-disabled-text-color-dark: @dark-text-color-2;
-@field-placeholder-text-color-light: @text-color-2;
-@field-placeholder-text-color-dark: @dark-text-color-2;
+@field-input-error-text-color: @danger-color;
+@field-input-disabled-text-color-light: @text-color-3;
+@field-input-disabled-text-color-dark: @dark-text-color-3;
+@field-placeholder-text-color-light: @text-color-3;
+@field-placeholder-text-color-dark: @dark-text-color-3;
 @field-icon-size: 16px;
 @field-clear-icon-size: 16px;
 @field-clear-icon-color-light: @text-color-3;
 @field-clear-icon-color-dark: @dark-text-color-3;
 @field-icon-container-color-light: @text-color-2;
 @field-icon-container-color-dark: @dark-text-color-2;
-@field-error-message-color: @red;
+@field-error-message-color: @danger-color;
 @field-error-message-text-font-size: @font-size-sm;
-@field-text-area-min-height: 18px;
+@field-text-area-min-height: 60px;
 @field-word-limit-color-light: @text-color-2;
 @field-word-limit-color-dark: @dark-text-color-2;
 @field-word-limit-font-size: @font-size-sm;
 @field-word-limit-line-height: 16px;
-@field-word-num-full-color: @orange;
+@field-word-num-full-color: @primary-color;
 @field-disabled-text-color-light: @text-color-3;
 @field-disabled-text-color-dark: @dark-text-color-3;
 
@@ -353,21 +365,21 @@
 @image-placeholder-background-color-light: @background-color;
 @image-placeholder-background-color-dark: @dark-background-color;
 @image-loading-icon-size: 32px;
-@image-loading-icon-color-light: @text-color-2;
-@image-loading-icon-color-dark: @dark-text-color-2;
+@image-loading-icon-color-light: @text-color-3;
+@image-loading-icon-color-dark: @dark-text-color-3;
 @image-error-icon-size: 32px;
-@image-error-icon-color-light: @text-color-2;
-@image-error-icon-color-dark: @dark-text-color-2;
+@image-error-icon-color-light: @text-color-3;
+@image-error-icon-color-dark: @dark-text-color-3;
 
 // Info
 @info-size: 16px;
-@info-color: @white;
+@info-font-color: @white;
 @info-padding: 0 3px;
 @info-font-size: 12px;
 @info-font-weight: 500;
 @info-border-width: 1px;
-@info-background-color: @orange;
-@info-dot-color: @orange;
+@info-background-color: @primary-color;
+@info-dot-color: @primary-color;
 @info-dot-size: 8px;
 @info-font-family: -apple-system-font, Helvetica Neue, Arial, sans-serif;
 
@@ -399,28 +411,29 @@
 @notice-bar-padding: 0 @padding-md;
 @notice-bar-wrapable-padding: @padding-xs @padding-md;
 @notice-bar-font-size: @font-size-md;
-@notice-bar-text-color: @orange;
+@notice-bar-text-color: @primary-color;
 @notice-bar-line-height: 24px;
 @notice-bar-background-color: @orange-lighter;
 @notice-bar-icon-size: 16px;
 @notice-bar-icon-min-width: 22px;
 
 // Notify
-@notify-padding: 6px 15px;
-@notify-font-size: 14px;
-@notify-line-height: 20px;
-@notify-primary-background-color: @orange;
-@notify-success-background-color: @green;
-@notify-danger-background-color: @red;
-@notify-warning-background-color: @orange;
+@notify-padding: @padding-xs @padding-md;
+@notify-font-size: @font-size-md;
+@notify-line-height: @line-height-md;
+@notify-primary-background-color: @primary-color;
+@notify-success-background-color: @success-color;
+@notify-danger-background-color: @danger-color;
+@notify-warning-background-color: @primary-color;
 
 // Overlay
+@overlay-z-index: 1;
 @overlay-background-color: rgba(0, 0, 0, 0.7);
 
 // Panel
 @panel-background-color-light: @background-color-2;
 @panel-background-color-dark: @dark-background-color-2;
-@panel-header-value-color: @orange;
+@panel-header-value-color: @primary-color;
 @panel-footer-padding: @padding-xs @padding-md;
 
 // Picker
@@ -428,17 +441,19 @@
 @picker-background-color-dark: @dark-background-color-2;
 @picker-toolbar-height: 44px;
 @picker-title-font-size: @font-size-lg;
+@picker-title-line-height: @line-height-md;
 @picker-action-padding: 0 @padding-md;
 @picker-action-font-size: @font-size-md;
 @picker-confirm-action-color: @text-link-color;
 @picker-cancel-action-color-light: @text-color-2;
 @picker-cancel-action-color-dark: @dark-text-color-2;
+@picker-option-padding: 0 @padding-md;
 @picker-option-font-size: @font-size-lg;
 @picker-option-text-color-light: @text-color;
 @picker-option-text-color-dark: @dark-text-color;
 @picker-title-color-light: @text-color;
 @picker-title-color-dark: @dark-text-color;
-@picker-loading-icon-color: @orange;
+@picker-loading-icon-color: @primary-color;
 @picker-loading-mask-color-light: rgba(255, 255, 255, 0.9);
 @picker-loading-mask-color-dark: rgba(0, 0, 0, .6);
 @picker-option-disabled-opacity: 0.3;
@@ -451,7 +466,7 @@
 @popup-background-color-light: @background-color-2;
 @popup-background-color-dark: @dark-background-color-2;
 @popup-round-border-radius: 16px;
-@popup-close-icon-size: 18px;
+@popup-close-icon-size: 22px;
 @popup-close-icon-color-light: @text-color-2;
 @popup-close-icon-color-dark: @dark-text-color-2;
 @popup-close-icon-margin: 16px;
@@ -462,22 +477,21 @@
 @progress-background-color-light: @gray-3;
 @progress-background-color-dark: @gray-7;
 @progress-pivot-padding: 0 5px;
-@progress-color: @orange;
+@progress-color: @primary-color;
 @progress-pivot-font-size: @font-size-xs;
 @progress-pivot-line-height: 1.6;
-@progress-pivot-background-color: @orange;
-@progress-pivot-text-color-light: @text-color;
-@progress-pivot-text-color-dark: @dark-text-color;
+@progress-pivot-background-color: @primary-color;
+@progress-pivot-text-color: @white;
 
 // Radio
 @radio-size: 20px;
 @radio-border-color-light: @text-color-3;
 @radio-border-color-dark: @dark-text-color-3;
-@radio-transition-duration: 0.2s;
-@radio-label-margin: 10px;
+@radio-transition-duration: @animation-duration-fast;
+@radio-label-margin: @padding-xs;
 @radio-label-color-light: @text-color;
 @radio-label-color-dark: @dark-text-color;
-@radio-checked-icon-color: @orange;
+@radio-checked-icon-color: @primary-color;
 @radio-disabled-icon-color-light: @text-color-3;
 @radio-disabled-icon-color-dark: @dark-text-color-3;
 @radio-disabled-label-color-light: @text-color-3;
@@ -490,7 +504,7 @@
 @rate-icon-size: 20px;
 @rate-icon-void-color-light: @text-color-3;
 @rate-icon-void-color-dark: @dark-text-color-3;
-@rate-icon-full-color: @orange;
+@rate-icon-full-color: @primary-color;
 @rate-icon-disabled-color-light: @text-color-3;
 @rate-icon-disabled-color-dark: @dark-text-color-3;
 @rate-icon-gutter: @padding-base;
@@ -505,9 +519,9 @@
   0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 3px 3px 0 rgba(0, 0, 0, 0.05);
 @switch-background-color-light: rgba(120, 120, 128, .16);
 @switch-background-color-dark: rgba(120, 120, 128, .32);
-@switch-on-background-color: @orange;
-@switch-transition-duration: 0.3s;
-@switch-disabled-opacity: 0.4;
+@switch-on-background-color: @primary-color;
+@switch-transition-duration: @animation-duration-base;
+@switch-disabled-opacity: @disabled-opacity;
 @switch-border: 1px solid rgba(0, 0, 0, 0.1);
 
 // ShareSheet
@@ -533,9 +547,11 @@
 @share-sheet-cancel-button-background-dark: @dark-background-color-2;
 
 // Search
-@search-background-color-light: @gray-1;
-@search-background-color-dark: @gray-8;
 @search-padding: 10px @padding-sm;
+@search-background-color-light: @background-color-2;
+@search-background-color-dark: @background-color-2;
+@search-conntent-background-color-light: @gray-1;
+@search-conntent-background-color-dark: @gray-8;
 @search-input-height: 34px;
 @search-label-padding: 0 5px;
 @search-label-color-light: @text-color;
@@ -553,7 +569,7 @@
 
 // SidebarItem
 @sidebar-font-size: @font-size-md;
-@sidebar-line-height: 20px;
+@sidebar-line-height: @line-height-md;
 @sidebar-text-color-light: @text-color;
 @sidebar-text-color-dark: @dark-text-color;
 @sidebar-disabled-text-color-light: @text-color-2;
@@ -566,12 +582,12 @@
 @sidebar-selected-font-weight: @font-weight-bold;
 @sidebar-selected-text-color-light: @text-color;
 @sidebar-selected-text-color-dark: @dark-text-color;
-@sidebar-selected-border-color: @orange;
-@sidebar-selected-background-color-light: @background-color-3;
-@sidebar-selected-background-color-dark: @dark-background-color-3;
+@sidebar-selected-border-color: @primary-color;
+@sidebar-selected-background-color-light: @background-color-2;
+@sidebar-selected-background-color-dark: @dark-background-color-2;
 
 // Slider
-@slider-active-background-color: @orange;
+@slider-active-background-color: @primary-color;
 @slider-inactive-background-color-light: @gray-3;
 @slider-inactive-background-color-dark: @dark-background-color-3;
 @slider-disabled-opacity: @disabled-opacity;
@@ -590,7 +606,7 @@
 @step-font-size: @font-size-md;
 @step-line-color-light: @border-color;
 @step-line-color-dark: @dark-border-color;
-@step-finish-line-color: @green;
+@step-finish-line-color: @primary-color;
 @step-finish-text-color-light: @text-color;
 @step-finish-text-color-dark: @dark-text-color;
 @step-icon-size: 12px;
@@ -613,7 +629,7 @@
 @stepper-button-disabled-color-dark: @dark-background-color;
 @stepper-button-disabled-icon-color-light: @text-color-3;
 @stepper-button-disabled-icon-color-dark: @dark-text-color-3;
-@stepper-button-round-theme-color: @orange;
+@stepper-button-round-theme-color: @primary-color;
 @stepper-input-width: 32px;
 @stepper-input-height: 28px;
 @stepper-input-font-size: @font-size-md;
@@ -632,17 +648,17 @@
 @submit-bar-background-color-light: @background-color-2;
 @submit-bar-background-color-dark: @dark-background-color-2;
 @submit-bar-button-width: 110px;
-@submit-bar-price-color: @orange;
+@submit-bar-price-color: @primary-color;
 @submit-bar-price-font-size: @font-size-sm;
 @submit-bar-currency-font-size: @font-size-sm;
 @submit-bar-text-color-light: @text-color;
 @submit-bar-text-color-dark: @dark-text-color;
-@submit-bar-text-font-size: 14px;
-@submit-bar-tip-padding: 10px;
-@submit-bar-tip-font-size: 12px;
+@submit-bar-text-font-size: @font-size-md;
+@submit-bar-tip-padding: @padding-xs @padding-sm;
+@submit-bar-tip-font-size: @font-size-sm;
 @submit-bar-tip-line-height: 1.5;
-@submit-bar-tip-color: #f56723;
-@submit-bar-tip-background-color: #fff7cc;
+@submit-bar-tip-color: @primary-color;
+@submit-bar-tip-background-color: @orange-lighter;
 @submit-bar-tip-icon-size: 12px;
 @submit-bar-button-height: 40px;
 @submit-bar-padding: 0 @padding-md;
@@ -658,7 +674,7 @@
 @tabbar-item-font-size: @font-size-sm;
 @tabbar-item-text-color-light: @text-color-2;
 @tabbar-item-text-color-dark: @dark-text-color-2;
-@tabbar-item-active-color: @orange;
+@tabbar-item-active-color: @primary-color;
 @tabbar-item-line-height: 1;
 @tabbar-item-icon-size: 22px;
 @tabbar-item-margin-bottom: 4px;
@@ -673,7 +689,7 @@
 @tab-font-size: @font-size-md;
 
 // Tabs
-@tabs-default-color: @orange;
+@tabs-default-color: @primary-color;
 @tabs-line-height: 44px;
 @tabs-card-height: 30px;
 @tabs-nav-background-color-light: @background-color-2;
@@ -692,10 +708,10 @@
 @tag-large-border-radius: @border-radius-md;
 @tag-large-font-size: @font-size-md;
 @tag-round-border-radius: @border-radius-max;
-@tag-danger-color: @red;
-@tag-primary-color: @orange;
-@tag-success-color: @green;
-@tag-warning-color: @orange;
+@tag-danger-color: @danger-color;
+@tag-primary-color: @primary-color;
+@tag-success-color: @success-color;
+@tag-warning-color: @primary-color;
 @tag-default-color-light: @text-color-2;
 @tag-default-color-dark: @dark-text-color-2;
 @tag-plain-background-color-light: @background-color-2;
@@ -703,9 +719,9 @@
 
 // Toast
 @toast-max-width: 70%;
-@toast-font-size: 14px;
+@toast-font-size: @font-size-md;
 @toast-text-color: @white;
-@toast-line-height: 20px;
+@toast-line-height: @line-height-md;
 @toast-border-radius: @border-radius-lg;
 @toast-background-color: fade(@black, 70%);
 @toast-icon-size: 36px;
@@ -721,7 +737,7 @@
 @grid-item-content-background-color-dark: @dark-background-color-2;
 @grid-item-content-active-color-light: @active-color;
 @grid-item-content-active-color-dark: @dark-active-color;
-@grid-item-icon-size: 26px;
+@grid-item-icon-size: 28px;
 @grid-item-text-color-light: @text-color-2;
 @grid-item-text-color-dark: @dark-text-color-2;
 @grid-item-text-font-size: @font-size-sm;
@@ -743,12 +759,12 @@
 @empty-image-size: 160px;
 @empty-description-margin-top: @padding-md;
 @empty-description-padding: 0 60px;
-@empty-description-color-light: @text-color;
-@empty-description-color-dark: @dark-text-color;
-@empty-tip-color-light: @text-color-2;
-@empty-tip-color-dark: @dark-text-color-2;
+@empty-description-color-light: @text-color-2;
+@empty-description-color-dark: @dark-text-color-2;
+@empty-tip-color-light: @text-color-3;
+@empty-tip-color-dark: @dark-text-color-3;
 @empty-description-font-size: 18px;
-@empty-description-line-height: 20px;
+@empty-description-line-height: @line-height-md;
 @empty-bottom-margin-top: 24px;
 
 // TreeSelect
@@ -757,11 +773,12 @@
 @tree-select-nav-background-color-dark: @dark-background-color;
 @tree-select-content-background-color-light: @background-color-2;
 @tree-select-content-background-color-dark: @dark-background-color-2;
-@tree-select-nav-item-padding: @padding-sm @padding-xs @padding-sm @padding-sm;
-@tree-select-item-height: 44px;
-@tree-select-item-active-color: @orange;
+@tree-select-nav-item-padding: 14px @padding-sm;
+@tree-select-item-height: 48px;
+@tree-select-item-active-color: @primary-color;
 @tree-select-item-disabled-color-light: @text-color-3;
 @tree-select-item-disabled-color-dark: @dark-text-color-3;
+@tree-select-item-font-size: @font-size-md;
 
 // Uploader
 @uploader-size: 80px;
@@ -770,6 +787,7 @@
 @uploader-text-color-light: @text-color-2;
 @uploader-text-color-dark: @dark-text-color-2;
 @uploader-text-font-size: @font-size-sm;
+@uploader-upload-border-radius: @border-radius-md;
 @uploader-upload-background-color-light: @gray-2;
 @uploader-upload-background-color-dark: @gray-8;
 @uploader-upload-active-color-light: @active-color;
@@ -790,41 +808,42 @@
 @uploader-mask-background-color: fade(@gray-8, 88%);
 @uploader-mask-icon-size: 22px;
 @uploader-mask-message-font-size: @font-size-sm;
-@uploader-mask-message-line-height: 14px;
+@uploader-mask-message-line-height: @line-height-xs;
 @uploader-loading-icon-size: 22px;
 @uploader-loading-icon-color: @white;
 @uploader-disabled-opacity: @disabled-opacity;
 
 // DropdownMenu
-@dropdown-menu-height: 50px;
+@dropdown-menu-height: 48px;
 @dropdown-menu-background-color-light: @background-color-2;
 @dropdown-menu-background-color-dark: @dark-background-color-2;
+@dropdown-menu-box-shadow-light: 0 2px 12px fade(@text-color-2, 12);
+@dropdown-menu-box-shadow-dark: 0 2px 12px fade(@dark-text-color-2, 12);
 @dropdown-menu-title-font-size: 15px;
 @dropdown-menu-title-text-color-light: @text-color;
 @dropdown-menu-title-text-color-dark: @dark-text-color;
-@dropdown-menu-title-active-text-color: @orange;
+@dropdown-menu-title-active-text-color: @primary-color;
 @dropdown-menu-title-disabled-text-color-light: @text-color-2;
 @dropdown-menu-title-disabled-text-color-dark: @dark-text-color-2;
 @dropdown-menu-title-padding: 0 @padding-xs;
-@dropdown-menu-title-line-height: 18px;
-@dropdown-menu-option-active-color: @orange;
-@dropdown-menu-box-shadow: 0 2px 12px fade(@text-color-2, 12);
+@dropdown-menu-title-line-height: @line-height-lg;
+@dropdown-menu-option-active-color: @primary-color;
 
 // IndexAnchor
 @index-anchor-padding: 0 @padding-md;
 @index-anchor-text-color-light: @text-color;
 @index-anchor-text-color-dark: @dark-text-color;
-@index-anchor-font-weight: 500;
+@index-anchor-font-weight: @font-weight-bold;
 @index-anchor-font-size: @font-size-md;
 @index-anchor-line-height: 32px;
 @index-anchor-background-color: transparent;
 @index-anchor-active-background-color-light: @background-color-2;
 @index-anchor-active-background-color-dark: @dark-background-color-2;
-@index-anchor-active-text-color: @orange;
+@index-anchor-active-text-color: @primary-color;
 
 // IndexBar
 @index-bar-index-font-size: @font-size-xs;
-@index-bar-index-line-height: 14px;
+@index-bar-index-line-height: @line-height-xs;
 
 // skeleton
 @skeleton-padding: 0 @padding-md;
@@ -838,7 +857,7 @@
 @badge-width: 16px;
 @badge-font-size: @font-size-sm;
 @badge-font-weight: @font-weight-bold;
-@badge-background-color: @orange;
+@badge-background-color: @primary-color;
 @badge-text-color: @white;
 @badge-border-radius: @border-radius-max;
 @badge-padding: 0 3px;
@@ -852,7 +871,7 @@
 @check-button-color-dark: @dark-text-color;
 @check-button-background-light: @background-color-2;
 @check-button-background-dark: @dark-background-color-2;
-@check-button-active-background: @orange;
+@check-button-active-background: @primary-color;
 @check-button-active-color: @white;
 @check-button-disabled-background-light: @gray-3;
 @check-button-disabled-background-dark: @gray-8;
@@ -885,7 +904,7 @@
 @editor-background-color-dark: @dark-background-color;
 @editor-border-color-light: @border-color;
 @editor-border-color-dark: @dark-border-color;
-@editor-icon-active-color: @orange;
+@editor-icon-active-color: @primary-color;
 @editor-field-padding: @padding-sm @padding-md;
 
 // List
@@ -924,7 +943,7 @@
 @password-input-info-font-size: @font-size-md;
 @password-input-info-color-light: @gray-5;
 @password-input-info-color-dark: @gray-2;
-@password-input-info-error-color: @red;
+@password-input-info-error-color: @danger-color;
 
 // PersonCard
 @person-card-padding: @padding-sm @padding-md;
@@ -944,12 +963,13 @@
 @cascader-header-height: 48px;
 @cascader-header-padding: 0 @padding-md;
 @cascader-title-font-size: @font-size-lg;
-@cascader-title-line-height: 20px;
+@cascader-title-line-height: @line-height-md;
 @cascader-close-icon-size: 22px;
-@cascader-close-icon-color: @gray-5;
+@cascader-close-icon-color-light: @text-color-3;
+@cascader-close-icon-color-dark: @dark-text-color-3;
 @cascader-selected-icon-size: 18px;
 @cascader-tabs-height: 48px;
-@cascader-active-color: @orange;
+@cascader-active-color: @primary-color;
 @cascader-options-height: 384px;
 @cascader-option-disabled-color-light: @text-color-3;
 @cascader-option-disabled-color-dark: @dark-text-color-3;

@@ -7,9 +7,7 @@ VantComponent({
       'cover',
       'fill',
       'none',
-      'scale-down',
-      'widthFix',
-      'heightFix',
+      'scale-down'
     ],
     src: 'https://img.yzcdn.cn/vant/cat.jpeg',
   },

@@ -18,6 +18,10 @@
   &__wrapper {
     position: relative;
     display: flex;
+
+    &--center {
+      align-items: center;
+    }
   }
 
   &::after {
@@ -98,10 +102,6 @@
       font-size: var(--cell-font-size, @cell-font-size);
       color: var(--cell-required-color, @cell-required-color);
     }
-  }
-
-  &--center {
-    align-items: center;
   }
 
   &--large {

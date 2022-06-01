@@ -2386,10 +2386,9 @@
     eslint-plugin-import "^2.24.0"
     eslint-plugin-vue "^7.18.0"
 
-"@vant/icons@^1.7.1":
+"@vant/icons@git+http://10.2.1.61:18080/frontend/vant-icon.git":
   version "1.8.0"
-  resolved "https://registry.npmmirror.com/@vant/icons/-/icons-1.8.0.tgz#36b13f2e628b533f6523a93a168cf02f07056674"
-  integrity sha512-sKfEUo2/CkQFuERxvkuF6mGQZDKu3IQdj5rV9Fm0weJXtchDSSQ+zt8qPCNUEhh9Y8shy5PzxbvAfOOkCwlCXg==
+  resolved "git+http://10.2.1.61:18080/frontend/vant-icon.git#a2a39f615aec100222e4905240aafd69c4263ab8"
 
 "@vant/markdown-vetur@^2.2.0":
   version "2.2.0"
@@ -9245,6 +9244,11 @@ moo-color@^1.0.2:
   integrity sha512-5iXz5n9LWQzx/C2WesGFfpE6RLamzdHwsn3KpfzShwbfIqs7stnoEpaNErf/7+3mbxwZ4s8Foq7I0tPxw7BWHg==
   dependencies:
     color-name "^1.1.4"
+
+mp-html@^2.3.0:
+  version "2.3.1"
+  resolved "https://registry.npmmirror.com/mp-html/-/mp-html-2.3.1.tgz#d6d97b2339a93c2235625e5375078174bf33c5ba"
+  integrity sha512-ltHmJVxmgvlcW9tmNUjkgn/491Q6xHBL484yvlVNWmKscGgNfXycvdmM981PaDnrDDSA59YPFDo1736B6S1zRg==
 
 ms@2.0.0:
   version "2.0.0"

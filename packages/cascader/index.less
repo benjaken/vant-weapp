@@ -16,7 +16,10 @@
   }
 
   &__close-icon {
-    color: var(--cascader-close-icon-color, @cascader-close-icon-color);
+    color: var(
+      --cascader-close-icon-color-light,
+      @cascader-close-icon-color-light
+    );
     font-size: var(--cascader-close-icon-size, @cascader-close-icon-size);
   }
 
@@ -98,6 +101,12 @@
 
 @media (prefers-color-scheme: dark) {
   .van-cascader {
+    &__close-icon {
+      color: var(
+        --cascader-close-icon-color-dark,
+        @cascader-close-icon-color-dark
+      );
+    }
     &__tab {
       color: var(--cascader-tab-color, @cascader-tab-color-dark);
 

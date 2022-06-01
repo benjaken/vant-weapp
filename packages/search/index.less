@@ -5,6 +5,10 @@
   align-items: center;
   box-sizing: border-box;
   padding: var(--search-padding, @search-padding);
+  background-color: var(
+    --search-background-color-light,
+    @search-background-color-light
+  );
 
   &__content {
     display: flex;
@@ -12,8 +16,8 @@
     padding-left: var(--padding-sm, @padding-sm);
     border-radius: @border-radius-sm;
     background-color: var(
-      --search-background-color-light,
-      @search-background-color-light
+      --search-conntent-background-color-light,
+      @search-conntent-background-color-light
     );
 
     &--round {

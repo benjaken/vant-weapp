@@ -2,7 +2,7 @@
 
 .van-dropdown-menu {
   display: flex;
-  box-shadow: var(--dropdown-menu-box-shadow, @dropdown-menu-box-shadow);
+  box-shadow: var(--dropdown-menu-box-shadow-light, @dropdown-menu-box-shadow-light);
   user-select: none;
   height: var(--dropdown-menu-height, @dropdown-menu-height);
   background-color: var(
@@ -83,6 +83,7 @@
 
 @media (prefers-color-scheme: dark) {
   .van-dropdown-menu {
+    box-shadow: var(--dropdown-menu-box-shadow-dark, @dropdown-menu-box-shadow-dark);
     background-color: var(
       --dropdown-menu-background-color-dark,
       @dropdown-menu-background-color-dark

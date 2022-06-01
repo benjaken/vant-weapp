@@ -22,6 +22,7 @@
     flex: none;
     width: var(--card-thumb-size, @card-thumb-size);
     height: var(--card-thumb-size, @card-thumb-size);
+    border-radius: var(--card-thumb-border-radius, @card-thumb-border-radius);
     margin-right: var(--padding-xs, @padding-xs);
 
     &:empty {
@@ -97,6 +98,7 @@
 
   &__num {
     float: right;
+    color: var(--card-num-color-light, @card-num-color-light)
   }
 
   &__tag {
@@ -122,5 +124,8 @@
   }
   &__origin-price {
     color: var(--card-origin-price-color-dark, @card-origin-price-color-dark);
+  }
+  &__num {
+    color: var(--card-num-color-dark, @card-num-color-dark);
   }
 }

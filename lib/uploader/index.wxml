@@ -76,7 +76,8 @@
         bindtap="startUpload"
       >
         <van-icon name="{{ uploadIcon }}" class="van-uploader__upload-icon" />
-        <text wx:if="{{ uploadText }}" class="van-uploader__upload-text">{{ uploadText }}</text>
+        <text wx:if="{{ uploadText && uploadTextPosition == 'center' }}" class="van-uploader__upload-text">{{ uploadText }}</text>
+        <view wx:if="{{ uploadText && uploadTextPosition == 'bottom' }}" class="van-uploader__upload-text van-uploader__upload-text--bottom">{{ uploadText }}</view>
       </view>
     </block>
   </view>

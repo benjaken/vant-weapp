@@ -1,3 +1,9 @@
+<view class="title">1.0.3</view>
+<view class="content">
+  <view>- 增加Cascader组件</view>
+  <view>- 修正部分组件样式显示错误</view>
+  <view>- 更新主分支到1.10.3版本</view>
+</view>
 <view class="title">1.0.2</view>
 <view class="content">- 增加暗黑模式</view>
 <view class="title">1.0.1</view>

@@ -23,6 +23,10 @@ VantComponent({
       type: String,
       value: 'image',
     },
+    uploadTextPosition: {
+      type: String,
+      value: 'center',
+    },
     fileList: {
       type: Array,
       value: [],
@@ -54,7 +58,7 @@ VantComponent({
     },
     imageFit: {
       type: String,
-      value: 'scaleToFill',
+      value: 'aspectFill',
     },
     uploadIcon: {
       type: String,

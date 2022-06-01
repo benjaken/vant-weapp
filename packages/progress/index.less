@@ -23,7 +23,7 @@
     word-break: keep-all;
     border-radius: 1em;
     transform: translate(0, -50%);
-    color: var(--progress-pivot-text-color-light, @progress-pivot-text-color-light);
+    color: var(--progress-pivot-text-color, @progress-pivot-text-color);
     padding: var(--progress-pivot-padding, @progress-pivot-padding);
     font-size: var(--progress-pivot-font-size, @progress-pivot-font-size);
     line-height: var(--progress-pivot-line-height, @progress-pivot-line-height);
@@ -37,9 +37,5 @@
 @media (prefers-color-scheme: dark) {
   .van-progress {
     background: var(--progress-background-color-dark, @progress-background-color-dark);
-
-    &__pivot {
-      color: var(--progress-pivot-text-color-dark, @progress-pivot-text-color-dark);
-    }
   }
 }

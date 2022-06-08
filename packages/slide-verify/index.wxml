@@ -1,0 +1,30 @@
+<wxs src="../wxs/utils.wxs" module="utils" />
+<wxs src="./index.wxs" module="handler" />
+
+<view class="custom-class {{ utils.bem('slide-verify') }}">
+  <movable-area class="van-slide-verify__area" style="height:{{size}}px">
+    <movable-view
+      class="van-slide-verify__dragger"
+      style="{{ success ? 'color:' + activeColor + ';border-color:' + activeColor : ''}};width:{{size}}px;height:{{size}}px"
+      x="{{x}}"
+      inertia="{{inertia}}"
+      disabled="{{disabled || success}}"
+      direction="horizontal"
+      data-size="{{size}}"
+      data-max="{{width - size}}"
+      bindtouchstart="{{(disabled || success) ? null : handler.touchstart}}"
+      bindtouchmove="{{(disabled || success) ? null : handler.touchmove}}"
+      bindtouchend="{{(disabled || success) ? null : handler.touchend}}"
+    >
+      <van-icon name="{{success ? 'checked' : 'wap-nav'}}" />
+    </movable-view>
+    <view class="{{ utils.bem('slide-verify__background', { zero: x == 0 })}}" style="height:{{size}}px;background:{{activeColor}}">
+      <text wx:if="{{success}}">{{successText}}</text>
+    </view>
+    <view class="van-slide-verify__placeholder">
+      <text>{{placeholder}}</text>
+      <view class="van-slide-verify__shine"></view>
+    </view>
+    <view wx:if="{{target > 0 && !bottom}}" class="van-slide-verify__dotted-box" style="width:{{size}}px;height:{{size}}px;left:{{target}}px;border-color:{{activeColor}}"></view>
+  </movable-area>
+</view>

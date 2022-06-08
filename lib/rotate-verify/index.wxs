@@ -1,0 +1,40 @@
+/* eslint-disable */
+var startX = 0;
+function start(event, ins) {
+  var touch = event.touches[0] || event.changedTouches[0];
+  startX = touch.pageX;
+  var target = event.currentTarget.dataset.target;
+  var max = event.currentTarget.dataset.max;
+  ins.callMethod('onDragStart', {
+    isDrag: true,
+  });
+  ins.selectComponent('.van-rotate-verify__img').setStyle({
+    transform: 'rotate(' + (-target / max * 360) + 'deg)',
+  });
+}
+function move(event, ins) {
+  var touch = event.touches[0] || event.changedTouches[0];
+  var pageX = touch.pageX;
+  var width = pageX - startX;
+  var target = event.currentTarget.dataset.target;
+  var max = event.currentTarget.dataset.max;
+  var current = width >= max ? max : width
+  var rotate = (current - target) / max * 360;
+  ins.selectComponent('.van-rotate-verify__img').setStyle({
+    transform: 'rotate(' + rotate + 'deg)',
+  });
+}
+function end(event, ins) {
+  var max = event.currentTarget.dataset.max;
+  var touch = event.touches[0] || event.changedTouches[0];
+  ins.callMethod('onDragEnd', {
+    x: touch.pageX - startX >= max ? max : touch.pageX - startX,
+    isDrag: false,
+  });
+}
+
+module.exports = {
+  touchstart: start,
+  touchmove: move,
+  touchend: end
+};

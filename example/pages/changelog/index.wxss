@@ -3,6 +3,13 @@
   color: #323233;
   padding: 20rpx 32rpx;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.title .date {
+  font-size: 28rpx;
+  font-weight: normal;
 }
 .content {
   font-size: 28rpx;

@@ -284,12 +284,24 @@ export default [
         title: 'NumberKeyboard 数字键盘',
       },
       {
+        path: '/pagination',
+        title: 'Pagination 分页',
+      },
+      {
         path: '/password-input',
         title: 'PasswordInput 密码输入框',
       },
       {
         path: '/person-card',
         title: 'PersonCard 人员卡片',
+      },
+      {
+        path: '/rotate-verify',
+        title: 'RotateVerify 旋转验证码',
+      },
+      {
+        path: '/slide-verify',
+        title: 'SlideVerify 滑动验证码',
       },
     ]
   }

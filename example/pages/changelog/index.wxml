@@ -1,14 +1,33 @@
-<view class="title">1.0.3</view>
+<view class="title">
+  <text>1.0.4</text>
+  <text class="date">2022-06-08</text>
+</view>
+<view class="content">
+  <view>- 增加SlideVerify、RotateVerify、Pagination组件</view>
+</view>
+<view class="title">
+  <text>1.0.3</text>
+  <text class="date">2022-06-06</text>
+</view>
 <view class="content">
   <view>- 增加Cascader组件</view>
   <view>- 修正部分组件样式显示错误</view>
   <view>- 更新主分支到1.10.3版本</view>
 </view>
-<view class="title">1.0.2</view>
+<view class="title">
+  <text>1.0.2</text>
+  <text class="date">2022-06-01</text>
+</view>
 <view class="content">- 增加暗黑模式</view>
-<view class="title">1.0.1</view>
+<view class="title">
+  <text>1.0.1</text>
+  <text class="date">2022-05-20</text>
+</view>
 <view class="content">- 增加Badge、CommentCard、NumberKeyboard、PasswordInput、PersonCard等组件</view>
-<view class="title">1.0.0</view>
+<view class="title">
+  <text>1.0.0</text>
+  <text class="date">2022-05-12</text>
+</view>
 <view class="content">
   <view>- 从主分支1.10.2版本开发</view>
   <view>- 增加CheckButton、Editor、ImageSwiper、Layer、List等组件</view>

@@ -1,0 +1,46 @@
+<demo-block title="基础用法" padding>
+  <van-button block data-id="verify1" bind:click="openVerify">点击按钮进行验证</van-button>
+</demo-block>
+
+<demo-block title="可关闭" padding>
+  <van-button block data-id="verify2" bind:click="openVerify">点击按钮进行验证</van-button>
+</demo-block>
+
+<demo-block title="自定义颜色" padding>
+  <van-button block data-id="verify3" bind:click="openVerify">点击按钮进行验证</van-button>
+</demo-block>
+
+<van-rotate-verify
+  show="{{verify1}}"
+  img="https://img01.yzcdn.cn/vant/leaf.jpg"
+  data-id="verify1"
+  bind:success="onSuccess"
+  bind:error="onError"
+>
+  <view class="demo-title">安全验证</view>
+</van-rotate-verify>
+
+<van-rotate-verify
+  show="{{verify2}}"
+  img="https://img01.yzcdn.cn/vant/leaf.jpg"
+  data-id="verify2"
+  closeable
+  close-on-click-overlay
+  bind:success="onSuccess"
+  bind:error="onError"
+>
+  <view class="demo-title">安全验证</view>
+</van-rotate-verify>
+
+<van-rotate-verify
+  show="{{verify3}}"
+  active-color="#1989fa"
+  img="https://img01.yzcdn.cn/vant/leaf.jpg"
+  data-id="verify3"
+  bind:success="onSuccess"
+  bind:error="onError"
+>
+  <view class="demo-title">安全验证</view>
+</van-rotate-verify>
+
+<van-toast id="van-toast" />

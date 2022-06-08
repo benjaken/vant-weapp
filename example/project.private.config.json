@@ -434,6 +434,27 @@
           "name": "cascader",
           "pathName": "pages/cascader/index",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pagination",
+          "pathName": "pages/pagination/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "slide-verify",
+          "pathName": "pages/slide-verify/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "rotate-verify",
+          "pathName": "pages/rotate-verify/index",
+          "query": "",
           "scene": null,
           "launchMode": "default"
         }

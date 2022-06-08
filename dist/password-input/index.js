@@ -29,7 +29,11 @@ VantComponent({
             type: Boolean,
             value: true,
         },
-        focused: Boolean
+        focused: Boolean,
+        theme: {
+            type: String,
+            value: 'square'
+        },
     },
     methods: {
         onFocus() {

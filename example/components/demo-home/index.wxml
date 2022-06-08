@@ -4,7 +4,7 @@
   </view>
   <view class="demo-home__desc">
     <view>基于Vant客制化的小程序 UI 组件库</view>
-    <view class="demo-home__version">主分支版本：1.10.3 客制化版本：1.0.3</view>
+    <view class="demo-home__version">主分支版本：1.10.3 客制化版本：1.0.4</view>
   </view>
   <view class="demo-home-nav__block" data-url="/pages/changelog/index" bind:tap="onClick">
     <text>更新日志</text>

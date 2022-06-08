@@ -2,6 +2,8 @@
   "component": true,
   "usingComponents": {
     "van-slider": "../../slider/index",
+    "van-button": "../../button/index",
+    "van-popup": "../../popup/index",
     "demo-block": "../../../example/components/demo-block/index"
   }
 }

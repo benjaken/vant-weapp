@@ -1,0 +1,1 @@
+@import '../common/index.wxss';.van-pagination{align-items:center;display:flex;justify-content:space-around;position:relative;-webkit-user-select:none;user-select:none}.van-pagination--show{justify-content:space-between}.van-pagination__icon{text-align:center;width:60px}

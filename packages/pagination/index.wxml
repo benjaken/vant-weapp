@@ -1,0 +1,19 @@
+<wxs src="../wxs/utils.wxs" module="utils" />
+<view wx:if="{{!hideOnSinglePage || total != 1}}" class="custom-class {{ utils.bem('pagination', { show: showPage }) }}">
+  <view wx:if="{{theme == 'simple'}}" class="van-pagination__icon">
+    <van-icon name="arrow-left" color="{{value == 1 || disabled ? inactiveColor : activeColor}}" bind:click="prev" />
+  </view>
+  <van-button wx:else size="small" disabled="{{value == 1 || disabled}}" color="{{activeColor}}" bind:click="prev">
+    {{prevText}}
+  </van-button>
+  <view class="van-pagination__pages" wx:if="{{showPage}}">
+    <text style="color:{{activeColor}}">{{value}}</text>
+    {{delimiter}} {{total}}
+  </view>
+  <view wx:if="{{theme == 'simple'}}" class="van-pagination__icon">
+    <van-icon name="arrow" color="{{value == total || disabled ? inactiveColor : activeColor}}" bind:click="next" />
+  </view>
+  <van-button wx:else size="small" disabled="{{value == total || disabled}}" color="{{activeColor}}" bind:click="next">
+    {{nextText}}
+  </van-button>
+</view>

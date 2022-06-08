@@ -6,6 +6,21 @@
   />
 </demo-block>
 
+<demo-block title="test">
+  <van-button bind:click="openPopup">test</van-button>
+</demo-block>
+
+<van-popup
+  custom-class="demo-popup"
+  show="{{showVerify}}"
+>
+  <van-slider
+    value="50"
+    custom-class="slider"
+    bind:change="onChange"
+  />
+</van-popup>
+
 <demo-block title="双滑块">
   <van-slider
     range

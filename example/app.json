@@ -64,7 +64,10 @@
     "pages/password-input/index",
     "pages/comment-card/index",
     "pages/changelog/index",
-    "pages/cascader/index"
+    "pages/cascader/index",
+    "pages/pagination/index",
+    "pages/slide-verify/index",
+    "pages/rotate-verify/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "@navBgColor",
@@ -136,7 +139,10 @@
     "van-number-keyboard-demo": "./dist/number-keyboard/demo/index",
     "van-password-input-demo": "./dist/password-input/demo/index",
     "van-comment-card-demo": "./dist/comment-card/demo/index",
-    "van-cascader-demo": "./dist/cascader/demo/index"
+    "van-cascader-demo": "./dist/cascader/demo/index",
+    "van-pagination-demo": "./dist/pagination/demo/index",
+    "van-slide-verify-demo": "./dist/slide-verify/demo/index",
+    "van-rotate-verify-demo": "./dist/rotate-verify/demo/index"
   },
   "sitemapLocation": "sitemap.json",
   "darkmode": true,

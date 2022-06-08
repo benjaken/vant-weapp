@@ -1,0 +1,32 @@
+/* eslint-disable */
+var startX = 0;
+function start(event) {
+  var touch = event.touches[0] || event.changedTouches[0];
+  startX = touch.pageX;
+  console.log(startX)
+}
+function move(event, ins) {
+  var touch = event.touches[0] || event.changedTouches[0];
+  var pageX = touch.pageX;
+  var width = pageX - startX;
+  var max = event.currentTarget.dataset.max;
+  if (ins.selectComponent('.van-slide-verify__background').hasClass('van-slide-verify__background--zero')) {
+    ins.selectComponent('.van-slide-verify__background').removeClass('van-slide-verify__background--zero')
+  }
+  ins.selectComponent('.van-slide-verify__background').setStyle({
+    width: (width >= max ? max : width + 2) + 'px',
+  });
+}
+function end(event, ins) {
+  var max = event.currentTarget.dataset.max;
+  var touch = event.touches[0] || event.changedTouches[0];
+  ins.callMethod('onDragEnd', {
+    x: (touch.pageX - startX) >= max ? max : touch.pageX - startX,
+  });
+}
+
+module.exports = {
+  touchstart: start,
+  touchmove: move,
+  touchend: end,
+};

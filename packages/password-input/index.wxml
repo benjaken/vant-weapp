@@ -4,7 +4,7 @@
 <view class="custom-class {{ utils.bem('password-input') }}">
   <view class="van-password-input__security">
     <view
-      class="van-password-input__item"
+      class="{{ utils.bem('password-input__item', [ theme, { gutter: gutter > 0, focused: focused && index == value.length } ]) }}"
       style="{{index != 0 ? ('margin-left:' + gutter + 'px') : ''}}"
       wx:for="{{length}}"
       wx:key="index"

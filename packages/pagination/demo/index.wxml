@@ -1,0 +1,17 @@
+<demo-block padding title="基础用法">
+  <van-pagination value="{{value}}" total="10" bind:change="onChange" />
+</demo-block>
+
+<demo-block padding title="自定义颜色">
+  <van-pagination active-color="#1989fa" value="{{value}}" total="10" bind:change="onChange" />
+</demo-block>
+
+<demo-block padding title="小型分页">
+  <van-pagination theme="simple" value="{{value}}" total="10" bind:change="onChange" />
+</demo-block>
+
+<demo-block padding title="不显示页码">
+  <van-pagination show-page="{{false}}" value="{{value}}" total="10" bind:change="onChange" />
+</demo-block>
+
+<van-toast id="van-toast" />

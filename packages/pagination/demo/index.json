@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-pagination": "../../pagination/index",
+    "van-toast": "../../toast/index",
+    "demo-block": "../../../example/components/demo-block/index"
+  }
+}

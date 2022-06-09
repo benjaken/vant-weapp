@@ -91,8 +91,15 @@ VantComponent({
             });
             this.calcuateWidth();
         },
+        beforeEnter() {
+            this.setData({
+                x: 0,
+                success: false,
+                loading: true
+            });
+        },
         afterEnter() {
-            this.reset();
+            this.calcuateWidth();
         },
         onClose() {
             this.setData({

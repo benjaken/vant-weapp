@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-slide-captcha": "../../slide-captcha/index",
+    "van-button": "../../button/index",
+    "van-toast": "../../toast/index",
+    "demo-block": "../../../example/components/demo-block/index"
+  }
+}

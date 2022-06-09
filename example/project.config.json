@@ -8,6 +8,7 @@
     "scopeDataCheck": false,
     "coverView": true,
     "es6": true,
+    "es7": true,
     "postcss": true,
     "compileHotReLoad": false,
     "lazyloadPlaceholderEnable": false,

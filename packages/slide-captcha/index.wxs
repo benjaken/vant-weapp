@@ -1,0 +1,39 @@
+/* eslint-disable */
+var startX = 0;
+function start(event, ins) {
+  var touch = event.touches[0] || event.changedTouches[0];
+  startX = touch.pageX;
+  var target = event.currentTarget.dataset.target;
+  var left = event.currentTarget.dataset.left;
+  ins.callMethod('onDragStart', {
+    isDrag: true,
+  });
+  ins.selectComponent('.van-slide-captcha__origin').setStyle({
+    left: left - target + 'px',
+  });
+}
+function move(event, ins) {
+  var touch = event.touches[0] || event.changedTouches[0];
+  var pageX = touch.pageX;
+  var width = pageX - startX;
+  var target = event.currentTarget.dataset.target;
+  var left = event.currentTarget.dataset.left;
+  var max = event.currentTarget.dataset.max;
+  ins.selectComponent('.van-slide-captcha__origin').setStyle({
+    left: (left - target + (width >= max ? max : width)) + 'px',
+  });
+}
+function end(event, ins) {
+  var max = event.currentTarget.dataset.max;
+  var touch = event.touches[0] || event.changedTouches[0];
+  ins.callMethod('onDragEnd', {
+    x: (touch.pageX - startX) >= max ? max : touch.pageX - startX,
+    isDrag: false,
+  });
+}
+
+module.exports = {
+  touchstart: start,
+  touchmove: move,
+  touchend: end,
+};

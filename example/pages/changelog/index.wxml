@@ -3,7 +3,7 @@
   <text class="date">2022-06-08</text>
 </view>
 <view class="content">
-  <view>- 增加SlideVerify、RotateVerify、Pagination组件</view>
+  <view>- 增加SlideVerify、RotateVerify、Pagination、SlideCaptcha组件</view>
 </view>
 <view class="title">
   <text>1.0.3</text>

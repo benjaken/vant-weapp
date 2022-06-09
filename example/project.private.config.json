@@ -455,6 +455,13 @@
           "name": "rotate-verify",
           "pathName": "pages/rotate-verify/index",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "slide-captcha",
+          "pathName": "pages/slide-captcha/index",
+          "query": "",
           "scene": null,
           "launchMode": "default"
         }

@@ -300,6 +300,10 @@ export default [
         title: 'RotateVerify 旋转验证码',
       },
       {
+        path: '/slide-captcha',
+        title: 'SlideCaptcha 滑块拼图验证',
+      },
+      {
         path: '/slide-verify',
         title: 'SlideVerify 滑动验证码',
       },

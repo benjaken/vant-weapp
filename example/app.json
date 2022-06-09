@@ -67,7 +67,8 @@
     "pages/cascader/index",
     "pages/pagination/index",
     "pages/slide-verify/index",
-    "pages/rotate-verify/index"
+    "pages/rotate-verify/index",
+    "pages/slide-captcha/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "@navBgColor",
@@ -142,7 +143,8 @@
     "van-cascader-demo": "./dist/cascader/demo/index",
     "van-pagination-demo": "./dist/pagination/demo/index",
     "van-slide-verify-demo": "./dist/slide-verify/demo/index",
-    "van-rotate-verify-demo": "./dist/rotate-verify/demo/index"
+    "van-rotate-verify-demo": "./dist/rotate-verify/demo/index",
+    "van-slide-captcha-demo": "./dist/slide-captcha/demo/index"
   },
   "sitemapLocation": "sitemap.json",
   "darkmode": true,

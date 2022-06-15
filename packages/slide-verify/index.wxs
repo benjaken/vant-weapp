@@ -10,19 +10,23 @@ function move(event, ins) {
   var pageX = touch.pageX;
   var width = pageX - startX;
   var max = event.currentTarget.dataset.max;
-  if (ins.selectComponent('.van-slide-verify__background').hasClass('van-slide-verify__background--zero')) {
-    ins.selectComponent('.van-slide-verify__background').removeClass('van-slide-verify__background--zero')
+  if (width > 0) {
+    if (ins.selectComponent('.van-slide-verify__background').hasClass('van-slide-verify__background--zero')) {
+      ins.selectComponent('.van-slide-verify__background').removeClass('van-slide-verify__background--zero')
+    }
+    ins.selectComponent('.van-slide-verify__background').setStyle({
+      width: (width >= max ? max : width + 2) + 'px',
+    });
   }
-  ins.selectComponent('.van-slide-verify__background').setStyle({
-    width: (width >= max ? max : width + 2) + 'px',
-  });
 }
 function end(event, ins) {
   var max = event.currentTarget.dataset.max;
   var touch = event.touches[0] || event.changedTouches[0];
-  ins.callMethod('onDragEnd', {
-    x: (touch.pageX - startX) >= max ? max : touch.pageX - startX,
-  });
+  if (touch.pageX - startX > 0) {
+    ins.callMethod('onDragEnd', {
+      x: (touch.pageX - startX) >= max ? max : touch.pageX - startX,
+    });
+  }
 }
 
 module.exports = {

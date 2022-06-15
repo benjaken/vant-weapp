@@ -1,0 +1,31 @@
+<demo-block title="基础用法" padding>
+  <van-table
+    data="{{ data }}"
+    columns="{{ columns }}"
+  />
+</demo-block>
+
+<demo-block title="延迟加载" padding>
+  <van-table
+    data="{{ asyncData }}"
+    columns="{{ columns }}"
+    loading="{{ loading }}"
+  />
+</demo-block>
+
+<demo-block title="斑马纹" padding>
+  <van-table
+    data="{{ data }}"
+    columns="{{ columns }}"
+    zebra
+  />
+</demo-block>
+
+<demo-block title="表头固定" padding>
+  <van-table
+    data="{{ data }}"
+    columns="{{ columns }}"
+    fixed
+    height="{{150}}"
+  />
+</demo-block>

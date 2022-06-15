@@ -20,17 +20,21 @@ function move(event, ins) {
   var max = event.currentTarget.dataset.max;
   var current = width >= max ? max : width
   var rotate = (current - target) / max * 360;
-  ins.selectComponent('.van-rotate-verify__img').setStyle({
-    transform: 'rotate(' + rotate + 'deg)',
-  });
+  if (width > 0) {
+    ins.selectComponent('.van-rotate-verify__img').setStyle({
+      transform: 'rotate(' + rotate + 'deg)',
+    });
+  }
 }
 function end(event, ins) {
   var max = event.currentTarget.dataset.max;
   var touch = event.touches[0] || event.changedTouches[0];
-  ins.callMethod('onDragEnd', {
-    x: touch.pageX - startX >= max ? max : touch.pageX - startX,
-    isDrag: false,
-  });
+  if (touch.pageX - startX > 0) {
+    ins.callMethod('onDragEnd', {
+      x: touch.pageX - startX >= max ? max : touch.pageX - startX,
+      isDrag: false,
+    });
+  }
 }
 
 module.exports = {

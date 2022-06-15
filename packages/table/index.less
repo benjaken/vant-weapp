@@ -1,0 +1,136 @@
+@import '../common/style/var.less';
+
+.van-table {
+  position: relative;
+  border: 1px solid var(--table-border-color-light, @table-border-color-light);
+
+  &__header {
+    width: 100%;
+    display: table;
+
+    &-item {
+      display: table-cell;
+      text-align: center;
+      padding: var(--table-header-padding, @table-header-padding);
+      font-size: var(--table-header-font-size, @table-header-font-size);
+      font-weight: @font-weight-bold;
+      line-height: var(--table-header-line-height, @table-header-line-height);
+      color: var(--table-header-color-light, @table-header-color-light);
+      background-color: var(
+        --table-header-background-color-light,
+        @table-header-background-color-light
+      );
+      border-right: 1px solid var(--table-border-color-light, @table-border-color-light);
+      border-bottom: 1px solid var(--table-border-color-light, @table-border-color-light);
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 80px;
+
+    &--zebra {
+      .van-table__row:nth-child(2n) .van-table__cell {
+        background-color: var(
+          --table-cell-background-zebra-light,
+          @table-cell-background-zebra-light
+        );
+      }
+    }
+
+    &--fixed {
+      overflow-y: auto;
+    }
+  }
+
+  &__loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: var(--table-loading-mask-color-light, @table-loading-mask-color-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__row {
+    display: table;
+    width: 100%;
+    border-bottom: 1px solid var(--table-border-color-light, @table-border-color-light);
+  
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__cell {
+    display: table-cell;
+    text-align: center;
+    padding: var(--table-cell-padding, @table-cell-padding);
+    font-size: var(--table-cell-font-size, @table-cell-font-size);
+    line-height: var(--table-cell-line-height, @table-cell-line-height);
+    color: var(--table-cell-color-light, @table-cell-color-light);
+    background-color: var(
+      --table-cell-background-color-light,
+      @table-cell-background-color-light
+    );
+    border-right: 1px solid var(--table-border-color-light, @table-border-color-light);
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .van-table {
+    border-color: var(--table-border-color-dark, @table-border-color-dark);
+
+    &__header {
+      &-item {
+        color: var(--table-header-color-dark, @table-header-color-dark);
+        background-color: var(
+          --table-header-background-color-dark,
+          @table-header-background-color-dark
+        );
+        border-color: var(--table-border-color-dark, @table-border-color-dark);
+      }
+    }
+
+    &__wrapper {
+      &--zebra {
+        .van-table__row:nth-child(2n) .van-table__cell {
+          background-color: var(
+            --table-cell-background-zebra-dark,
+            @table-cell-background-zebra-dark
+          );
+        }
+      }
+    }
+
+    &__row {
+      border-color: var(--table-border-color-dark, @table-border-color-dark);
+    }
+
+    &__loading {
+      background-color: var(--table-loading-mask-color-dark, @table-loading-mask-color-dark);
+    }
+
+    &__cell {
+      color: var(--table-cell-color-dark, @table-cell-color-dark);
+      background-color: var(
+        --table-cell-background-color-dark,
+        @table-cell-background-color-dark
+      );
+      border-color: var(--table-border-color-dark, @table-border-color-dark);
+    }
+  }
+}

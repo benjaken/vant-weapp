@@ -1,7 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "van-slider": "../../slider/index",
+    "van-table": "../../table/index",
     "demo-block": "../../../example/components/demo-block/index"
   }
 }

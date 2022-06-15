@@ -1,0 +1,18 @@
+<wxs src="../wxs/utils.wxs" module="utils" />
+<view class="{{ utils.bem('table') }} custom-class" bind:tap="onClick">
+  <view class="van-table__header">
+    <view wx:for="{{columns}}" wx:key="index" class="van-table__header-item" style="width: {{100 / columns.length}}%" data-field="{{item.field}}">
+      <view class="van-table__text">{{item.title}}</view>
+    </view>
+  </view>
+  <view class="{{ utils.bem('table__wrapper', { zebra, fixed } ) }}" style="{{fixed ? 'max-height:' + height + 'px' : ''}}">
+    <view wx:for="{{data}}" wx:key="index" class="{{ utils.bem('table__row' ) }}">
+      <view wx:for="{{columns}}" wx:key="index" wx:for-item="column" class="van-table__cell" style="width: {{100 / columns.length}}%">
+        <view class="van-table__text">{{item[column.field]}}</view>
+      </view>
+    </view>
+    <view wx:if="{{loading}}" class="van-table__loading">
+      <van-loading color="#F96401" />
+    </view>
+  </view>
+</view>

@@ -19,17 +19,21 @@ function move(event, ins) {
   var target = event.currentTarget.dataset.target;
   var left = event.currentTarget.dataset.left;
   var max = event.currentTarget.dataset.max;
-  ins.selectComponent('.van-slide-captcha__origin').setStyle({
-    left: (left - target + (width >= max ? max : width)) + 'px',
-  });
+  if (width > 0) {
+    ins.selectComponent('.van-slide-captcha__origin').setStyle({
+      left: (left - target + (width >= max ? max : width)) + 'px',
+    });
+  }
 }
 function end(event, ins) {
   var max = event.currentTarget.dataset.max;
   var touch = event.touches[0] || event.changedTouches[0];
-  ins.callMethod('onDragEnd', {
-    x: (touch.pageX - startX) >= max ? max : touch.pageX - startX,
-    isDrag: false,
-  });
+  if (touch.pageX - startX > 0) {
+    ins.callMethod('onDragEnd', {
+      x: (touch.pageX - startX) >= max ? max : touch.pageX - startX,
+      isDrag: false,
+    });
+  }
 }
 
 module.exports = {

@@ -68,7 +68,8 @@
     "pages/pagination/index",
     "pages/slide-verify/index",
     "pages/rotate-verify/index",
-    "pages/slide-captcha/index"
+    "pages/slide-captcha/index",
+    "pages/table/index",
   ],
   "window": {
     "navigationBarBackgroundColor": "@navBgColor",
@@ -144,7 +145,8 @@
     "van-pagination-demo": "./dist/pagination/demo/index",
     "van-slide-verify-demo": "./dist/slide-verify/demo/index",
     "van-rotate-verify-demo": "./dist/rotate-verify/demo/index",
-    "van-slide-captcha-demo": "./dist/slide-captcha/demo/index"
+    "van-slide-captcha-demo": "./dist/slide-captcha/demo/index",
+    "van-table-demo": "./dist/table/demo/index",
   },
   "sitemapLocation": "sitemap.json",
   "darkmode": true,

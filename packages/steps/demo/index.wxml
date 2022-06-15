@@ -37,7 +37,7 @@
 
 <demo-block title="定制反向竖向步骤条">
   <van-steps
-    steps="{{ cstuomSteps }}"
+    steps="{{ customSteps }}"
     active="{{ 0 }}"
     direction="vertical"
     reverse

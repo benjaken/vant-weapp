@@ -92,6 +92,20 @@
       }
     }
 
+    &--piece {
+      .van-tab {
+        line-height: calc(
+          var(--tabs-piece-height, @tabs-piece-height) - 2 * @border-width-base
+        );
+
+        &.van-tab--active {
+          color: @white;
+          border-radius: @border-radius-max;
+          background-color: var(--tabs-default-color, @tabs-default-color);
+        }
+      }
+    }
+
     &--shrink {
       padding: 0 @padding-xs;
     }
@@ -131,6 +145,12 @@
   &--card {
     .van-tabs__wrap {
       height: var(--tabs-card-height, @tabs-card-height);
+    }
+  }
+
+  &--piece {
+    .van-tabs__wrap {
+      height: var(--tabs-piece-height, @tabs-piece-height);
     }
   }
 }

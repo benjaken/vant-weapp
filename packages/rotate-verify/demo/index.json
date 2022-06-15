@@ -3,7 +3,6 @@
   "usingComponents": {
     "van-rotate-verify": "../../rotate-verify/index",
     "van-button": "../../button/index",
-    "van-popup": "../../popup/index",
     "van-toast": "../../toast/index",
     "demo-block": "../../../example/components/demo-block/index"
   }

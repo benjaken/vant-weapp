@@ -68,6 +68,17 @@
       </view>
     </van-tab>
   </van-tabs>
+  <van-tabs type="piece" tab-class="special-tab">
+    <van-tab
+      wx:for="{{ tabs3 }}"
+      wx:key="index"
+      title="{{ '标签 ' + item }}"
+    >
+      <view class="content-2">
+        {{ '内容' + item }}
+      </view>
+    </van-tab>
+  </van-tabs>
 </demo-block>
 
 <demo-block title="点击事件">

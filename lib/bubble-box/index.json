@@ -1,7 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "van-loading": "../loading/index",
     "van-toast": "../toast/index"
   }
 }

@@ -52,7 +52,7 @@ VantComponent({
 		formats: {} as WechatMiniprogram.EditorContext,
 		isIOS: false,
 		editorLength: 0,
-		editorCtx: {} as WechatMiniprogram.IAnyObject
+		editorCtx: null as unknown as WechatMiniprogram.IAnyObject
 	},
 	methods: {
 		onInput({ detail: { value } }) {
@@ -129,6 +129,6 @@ VantComponent({
 				src: file.path,
 				width: '100%'
 			})
-		}
-	}
+		},
+	},
 })

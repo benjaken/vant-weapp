@@ -60,7 +60,7 @@ VantComponent({
         formats: {},
         isIOS: false,
         editorLength: 0,
-        editorCtx: {}
+        editorCtx: null
     },
     methods: {
         onInput({ detail: { value } }) {
@@ -141,6 +141,6 @@ VantComponent({
                     width: '100%'
                 });
             });
-        }
-    }
+        },
+    },
 });

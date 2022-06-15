@@ -8,6 +8,7 @@
 	scroll-with-animation
 	enable-back-to-top
 	scroll-anchoring
+	scroll-top="{{scrollTop}}"
 	refresher-enabled="{{refresherEnabled}}"
 	refresher-default-style="{{refresherDefaultStyle}}"
 	refresher-background="{{refresherBackground}}"
@@ -15,15 +16,24 @@
 	enhanced="{{enhanced}}"
 	bounces="{{bounces}}"
 	bindscroll="onScroll"
+	bindscrolltoupper="onReachTop"
 	bindscrolltolower="onReachBottom"
 	bindrefresherrefresh="onRefresh"
 >
+	<van-divider
+    wx:if="{{finished && !hideEnd && reverse}}"
+    custom-class="van-list__end"
+    contentPosition="center"
+  >{{finishedText}}</van-divider>
+	<view class="van-list__load-more" wx:if="{{loading && !refresherTriggered && reverse}}">
+		<van-loading size="24rpx">{{loadMoreText}}</van-loading>
+	</view>
 	<slot></slot>
-	<view class="van-list__load-more" wx:if="{{loading && !refresherTriggered}}">
+	<view class="van-list__load-more" wx:if="{{loading && !refresherTriggered && !reverse}}">
 		<van-loading size="24rpx">{{loadMoreText}}</van-loading>
 	</view>
 	<van-divider
-    wx:if="{{finished && !hideEnd}}"
+    wx:if="{{finished && !hideEnd && !reverse}}"
     custom-class="van-list__end"
     contentPosition="center"
   >{{finishedText}}</van-divider>

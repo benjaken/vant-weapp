@@ -30,14 +30,6 @@ VantComponent({
     },
     inactiveIcon: String,
   },
-  mounted() {
-    const steps = this.properties.steps || []
-    steps.forEach(item => {
-      item.hasMore = (item.file && item.file.length > 0)
-      item.showMore = false
-    })
-    this.setData({ steps })
-  },
   methods: {
     onClick(event: WechatMiniprogram.TouchEvent) {
       const { index } = event.currentTarget.dataset;
@@ -45,9 +37,9 @@ VantComponent({
     },
 		onToggle({ currentTarget: { dataset } }) {
 			const { steps } = this.data
-			const { showMore } = steps[dataset.index]
+			const { showMore = false } = steps[dataset.index]
 			steps[dataset.index].showMore = !showMore
 			this.setData({ steps })
 		}
-  },
+  }
 });

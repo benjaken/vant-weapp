@@ -1,4 +1,5 @@
 <wxs src="../wxs/utils.wxs" module="utils" />
+<wxs src="./index.wxs" module="handler" />
 
 <view class="custom-class {{ utils.bem('steps', [direction]) }}">
   <view class="van-step__wrapper">
@@ -20,10 +21,10 @@
         class="van-step__desc"
         style="max-height: {{!item.showMore ? '36px' : 'auto'}}"
       >
-        <rich-text class="van-step__rich-text-{{index}}" style="word-break: break-all" nodes="{{item.desc}}" />
+        <van-html content="{{item.desc}}" />
       </view>
       <van-uploader
-        wx:if="{{ item.file && item.hasMore && item.showMore && direction == 'vertical' }}"
+        wx:if="{{ item.file && handler.hasMore(item.file) && item.showMore && direction == 'vertical' }}"
         class="van-step__upload"
         file-list="{{ item.file }}"
         deletable="{{ false }}"
@@ -34,7 +35,7 @@
       <view
         class="van-step__more"
         style="{{ 'color: ' + ((reverse ? index >= active : index < active) ? activeColor : inactiveColor) }}"
-        wx:if="{{ item.hasMore && direction == 'vertical' }}"
+        wx:if="{{ handler.hasMore(item.file) && direction == 'vertical' }}"
         data-index="{{index}}"
         catchtap="onToggle"
       >{{item.showMore ? '收回' : '详情'}}</view>

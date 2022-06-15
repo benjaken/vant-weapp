@@ -30,13 +30,13 @@ VantComponent({
       inactiveIcon: icons.outline[index],
       activeIcon: icons.basic[index],
     })),
-    cstuomSteps: steps.map((item) => ({
-      ...item,
-      date: '2021-09-06 14:43:58',
-      file: [{
-        url: 'https://img.yzcdn.cn/vant/sand.jpg'
-      }],
-    }))
+    customSteps: steps.map((item) => ({
+          ...item,
+          date: '2021-09-06 14:43:58',
+          file: [{
+            url: 'https://img.yzcdn.cn/vant/sand.jpg'
+          }],
+        }))
   },
 
   methods: {

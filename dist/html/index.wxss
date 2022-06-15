@@ -1,0 +1,1 @@
+@import '../common/index.wxss';._root{-webkit-overflow-scrolling:touch;overflow-x:auto;overflow-y:hidden;padding:1px 0}._select{-webkit-user-select:text;user-select:text}

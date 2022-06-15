@@ -40,27 +40,23 @@ VantComponent({
     }
   },
   data: {
-    current: 0,
     active: '',
-    swipeImages: [] as string[]
-  },
-  mounted() {
-    const { images } = this.properties
-    const swipeImages: any = []
-    images.forEach(i => swipeImages.push(...i.images))
-    this.setData({
-      swipeImages,
-      active: images[0].name
-    })
+    current: 0
   },
   methods: {
     toggleType({ currentTarget: { dataset } }) {
       const current = dataset.index || 0
       this.setData({ current })
     },
+    getImages() {
+      const { images } = this.properties
+      const swipeImages: any = []
+      images.forEach(i => swipeImages.push(...i.images))
+      return swipeImages
+    },
     onSwipeChange({ detail: { current } }) {
       const { images } = this.properties
-      const { swipeImages } = this.data
+      const swipeImages = this.getImages()
       const image = swipeImages[current]
       const target = images.find(item => item.images.includes(image))
       this.setData({
@@ -69,7 +65,7 @@ VantComponent({
       })
     },
     onImagePreview({ currentTarget: { dataset } }) {
-      const { swipeImages } = this.data
+      const swipeImages = this.getImages()
       const current = dataset.url || swipeImages[0]
       wx.previewImage({
         current,

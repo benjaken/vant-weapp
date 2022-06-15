@@ -16,6 +16,7 @@ export declare type VantComponentOptions<Data extends WechatMiniprogram.Componen
         mixin: string;
     };
     methods?: Methods;
+    observers?: Record<string, (...args: any[]) => void>;
     beforeCreate?: () => void;
     created?: () => void;
     mounted?: () => void;

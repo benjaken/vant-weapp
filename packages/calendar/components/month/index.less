@@ -23,6 +23,17 @@
     );
   }
 
+  &__weekdays {
+    display: flex;
+  }
+
+  &__weekday {
+    flex: 1;
+    text-align: center;
+    font-size: var(--calendar-weekdays-font-size, @calendar-weekdays-font-size);
+    line-height: var(--calendar-weekdays-height, @calendar-weekdays-height);
+  }
+
   &__days {
     position: relative;
     display: flex;
@@ -129,6 +140,18 @@
     bottom: 6px;
   }
 
+  &__bottom-dot {
+    position: absolute;
+    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--calendar-info-dot-color, @calendar-info-dot-color);
+  }
+
   &__selected-day {
     width: var(--calendar-selected-day-size, @calendar-selected-day-size);
     height: var(--calendar-selected-day-size, @calendar-selected-day-size);
@@ -138,6 +161,10 @@
       @calendar-selected-day-background-color
     );
     border-radius: @border-radius-md;
+
+    .van-calendar__bottom-dot {
+      background-color: var(--calendar-info-dot-active-color, @calendar-info-dot-active-color);
+    }
   }
 }
 

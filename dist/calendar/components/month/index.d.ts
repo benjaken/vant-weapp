@@ -3,4 +3,5 @@ export interface Day {
     type: string;
     text: number;
     bottomInfo?: string;
+    bottomDot?: boolean;
 }

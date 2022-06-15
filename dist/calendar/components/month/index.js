@@ -33,13 +33,22 @@ VantComponent({
             type: Number,
             observer: 'setDays',
         },
+        showWeekDays: Boolean,
         allowSameDay: Boolean,
         showSubtitle: Boolean,
         showMonthTitle: Boolean,
+        dotDate: {
+            type: null,
+            value: []
+        }
     },
     data: {
         visible: true,
+        weekdays: [],
         days: [],
+    },
+    created() {
+        this.initWeekDay();
     },
     methods: {
         onClick(event) {
@@ -49,9 +58,20 @@ VantComponent({
                 this.$emit('click', item);
             }
         },
+        initWeekDay() {
+            const defaultWeeks = ['日', '一', '二', '三', '四', '五', '六'];
+            const firstDayOfWeek = this.data.firstDayOfWeek || 0;
+            this.setData({
+                weekdays: [
+                    ...defaultWeeks.slice(firstDayOfWeek, 7),
+                    ...defaultWeeks.slice(0, firstDayOfWeek),
+                ],
+            });
+        },
         setDays() {
+            const { date, dotDate } = this.data;
             const days = [];
-            const startDate = new Date(this.data.date);
+            const startDate = new Date(date);
             const year = startDate.getFullYear();
             const month = startDate.getMonth();
             const totalDay = getMonthEndDay(startDate.getFullYear(), startDate.getMonth() + 1);
@@ -63,6 +83,7 @@ VantComponent({
                     type,
                     text: day,
                     bottomInfo: this.getBottomInfo(type),
+                    bottomDot: dotDate.some(item => compareDay(item, date) == 0)
                 };
                 if (this.data.formatter) {
                     config = this.data.formatter(config);

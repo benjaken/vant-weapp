@@ -2,6 +2,7 @@
   "component": true,
   "usingComponents": {
     "van-icon": "../icon/index",
-    "van-uploader": "../uploader/index"
+    "van-uploader": "../uploader/index",
+    "van-html": "../html/index"
   }
 }

@@ -115,11 +115,9 @@
 
 // Button
 @button-mini-height: 24px;
-@button-mini-min-width: 50px;
 @button-mini-font-size: @font-size-xs;
 @button-small-height: 30px;
 @button-small-font-size: @font-size-sm;
-@button-small-min-width: 60px;
 @button-normal-font-size: @font-size-md;
 @button-large-height: 50px;
 @button-default-height: 44px;
@@ -181,6 +179,8 @@
 @calendar-confirm-button-height: 36px;
 @calendar-confirm-button-margin: 7px 0;
 @calendar-confirm-button-line-height: 34px;
+@calendar-info-dot-color: @primary-color;
+@calendar-info-dot-active-color: @white;
 
 // Card
 @card-padding: @padding-xs @padding-md;
@@ -313,10 +313,10 @@
 @dialog-round-button-color-dark: @dark-text-color-2;
 
 // Field
-@field-label-color-light: @text-color-2;
-@field-label-color-dark: @dark-text-color-2;
-@field-input-text-color-light: @text-color;
-@field-input-text-color-dark: @dark-text-color;
+@field-label-color-light: @text-color;
+@field-label-color-dark: @dark-text-color;
+@field-input-text-color-light: @text-color-2;
+@field-input-text-color-dark: @dark-text-color-2;
 @field-input-error-text-color: @danger-color;
 @field-input-disabled-text-color-light: @text-color-3;
 @field-input-disabled-text-color-dark: @dark-text-color-3;
@@ -331,8 +331,8 @@
 @field-error-message-color: @danger-color;
 @field-error-message-text-font-size: @font-size-sm;
 @field-text-area-min-height: 60px;
-@field-word-limit-color-light: @text-color-2;
-@field-word-limit-color-dark: @dark-text-color-2;
+@field-word-limit-color-light: @text-color-3;
+@field-word-limit-color-dark: @dark-text-color-3;
 @field-word-limit-font-size: @font-size-sm;
 @field-word-limit-line-height: 16px;
 @field-word-num-full-color: @primary-color;
@@ -418,7 +418,7 @@
 @notice-bar-icon-min-width: 22px;
 
 // Notify
-@notify-padding: @padding-xs @padding-md;
+@notify-padding: 13px @padding-md;
 @notify-font-size: @font-size-md;
 @notify-line-height: @line-height-md;
 @notify-primary-background-color: @primary-color;
@@ -549,7 +549,7 @@
 // Search
 @search-padding: 10px @padding-sm;
 @search-background-color-light: @background-color-2;
-@search-background-color-dark: @background-color-2;
+@search-background-color-dark: @dark-background-color-2;
 @search-conntent-background-color-light: @gray-1;
 @search-conntent-background-color-dark: @gray-8;
 @search-input-height: 34px;
@@ -692,6 +692,7 @@
 @tabs-default-color: @primary-color;
 @tabs-line-height: 44px;
 @tabs-card-height: 30px;
+@tabs-piece-height: 48px;
 @tabs-nav-background-color-light: @background-color-2;
 @tabs-nav-background-color-dark: @dark-background-color-2;
 @tabs-bottom-bar-height: 3px;
@@ -703,8 +704,9 @@
 @tag-font-size: @font-size-sm;
 @tag-border-radius: @border-radius-md;
 @tag-line-height: 16px;
-@tag-medium-padding: 2px 6px;
-@tag-large-padding: @padding-base @padding-xs;
+@tag-mini-padding: 2px 6px;
+@tag-medium-padding: 6px 10px;
+@tag-large-padding: @padding-xs @padding-sm;
 @tag-large-border-radius: @border-radius-md;
 @tag-large-font-size: @font-size-md;
 @tag-round-border-radius: @border-radius-max;
@@ -869,12 +871,12 @@
 @check-button-font-size: @font-size-md;
 @check-button-color-light: @text-color;
 @check-button-color-dark: @dark-text-color;
-@check-button-background-light: @background-color-2;
-@check-button-background-dark: @dark-background-color-2;
+@check-button-background-light: @gray-2;
+@check-button-background-dark: @gray-8;
 @check-button-active-background: @primary-color;
 @check-button-active-color: @white;
 @check-button-disabled-background-light: @gray-3;
-@check-button-disabled-background-dark: @gray-8;
+@check-button-disabled-background-dark: @gray-7;
 @check-button-width: 80px;
 @check-button-margin-right: 2%;
 @check-button-horizon-margin-right: 16px;

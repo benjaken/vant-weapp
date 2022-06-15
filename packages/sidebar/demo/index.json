@@ -5,7 +5,6 @@
     "van-grid-item": "../../grid-item/index",
     "van-sidebar": "../../sidebar/index",
     "van-sidebar-item": "../../sidebar-item/index",
-    "van-notify": "../../notify/index",
-    "demo-block": "../../../example/components/demo-block/index"
+    "van-notify": "../../notify/index"
   }
 }

@@ -6,6 +6,12 @@
     {{ computed.formatMonthTitle(date) }}
   </view>
 
+  <view wx:if="{{ showWeekDays }}" class="van-calendar__weekdays">
+    <view wx:for="{{ weekdays }}" wx:key="index" class="van-calendar__weekday">
+      {{ item }}
+    </view>
+  </view>
+
   <view wx:if="{{ visible }}" class="van-calendar__days">
     <view wx:if="{{ showMark }}" class="van-calendar__month-mark">
       {{ computed.getMark(date) }}
@@ -25,6 +31,7 @@
         <view wx:if="{{ item.bottomInfo }}" class="van-calendar__bottom-info">
           {{ item.bottomInfo }}
         </view>
+        <view wx:if="{{ item.bottomDot }}" class="van-calendar__bottom-dot"></view>
       </view>
 
       <view wx:else>
@@ -33,6 +40,7 @@
         <view wx:if="{{ item.bottomInfo }}" class="van-calendar__bottom-info">
           {{ item.bottomInfo }}
         </view>
+        <view wx:if="{{ item.bottomDot }}" class="van-calendar__bottom-dot"></view>
       </view>
     </view>
   </view>

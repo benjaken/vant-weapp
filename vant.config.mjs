@@ -303,8 +303,28 @@ export default {
         title: '优房组件',
         items: [
           {
+            path: 'auto-graph',
+            title: 'AutoGraph 手写签名',
+          },
+          {
+            path: 'badge',
+            title: 'Badge 徽标',
+          },
+          {
+            path: 'bubble-box',
+            title: 'BubbleBox 气泡框',
+          },
+          {
+            path: 'cascader',
+            title: 'Cascader 级联选择',
+          },
+          {
             path: 'check-button',
             title: 'CheckButton 复选按钮',
+          },
+          {
+            path: 'comment-card',
+            title: 'CommentCard 评论卡片',
           },
           {
             path: 'editor',
@@ -313,7 +333,47 @@ export default {
           {
             path: 'image-swiper',
             title: 'ImageSwiper 图片轮播',
-          }
+          },
+          {
+            path: 'layer',
+            title: 'Layer 活动弹窗',
+          },
+          {
+            path: 'list',
+            title: 'List 列表',
+          },
+          {
+            path: 'number-keyboard',
+            title: 'NumberKeyboard 数字键盘',
+          },
+          {
+            path: 'overflow-hidden',
+            title: 'OverflowHidden 内容超出隐藏',
+          },
+          {
+            path: 'pagination',
+            title: 'Pagination 分页',
+          },
+          {
+            path: 'password-input',
+            title: 'PasswordInput 密码输入框',
+          },
+          {
+            path: 'person-card',
+            title: 'PersonCard 人员卡片',
+          },
+          {
+            path: 'rotate-verify',
+            title: 'RotateVerify 旋转验证码',
+          },
+          {
+            path: 'slide-captcha',
+            title: 'SlideCaptcha 滑块拼图验证',
+          },
+          {
+            path: 'slide-verify',
+            title: 'SlideVerify 滑动验证码',
+          },
         ]
       },
       {

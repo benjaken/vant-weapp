@@ -5,7 +5,6 @@
     "van-cell": "../../cell/index",
     "van-field": "../../field/index",
     "van-toast": "../../toast/index",
-    "van-number-keyboard": "../../number-keyboard/index",
-    "demo-block": "../../../example/components/demo-block/index"
+    "van-number-keyboard": "../../number-keyboard/index"
   }
 }

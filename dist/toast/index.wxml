@@ -17,7 +17,7 @@
     <text wx:if="{{ type === 'text' }}">{{ message }}</text>
 
     <!-- html only -->
-    <rich-text wx:elif="{{ type === 'html' }}" nodes="{{ message }}"></rich-text>
+    <van-html wx:elif="{{ type === 'html' }}" content="{{ message }}"></van-html>
 
     <!-- with icon -->
     <block wx:else>

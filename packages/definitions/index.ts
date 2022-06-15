@@ -25,6 +25,7 @@ export type VantComponentOptions<
   };
 
   methods?: Methods;
+  observers?: Record<string, (...args: any[]) => void>;
 
   // lifetimes
   beforeCreate?: () => void;

@@ -32,7 +32,7 @@
             <view class="{{ ellipsis ? 'van-ellipsis' : '' }}" style="{{ item.titleStyle }}">
               {{ item.title }}
               <van-info
-                wx:if="{{ item.info !== null || item.dot }}"
+                wx:if="{{ !!item.info || item.dot }}"
                 info="{{ item.info }}"
                 dot="{{ item.dot }}"
                 custom-class="van-tab__title__info"

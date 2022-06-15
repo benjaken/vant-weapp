@@ -52,6 +52,10 @@ function VantComponent<
     options.behaviors.push('wx://form-field');
   }
 
+  if (vantOptions.observers) {
+    options.observers = vantOptions.observers;
+  }
+
   // add default options
   options.options = {
     multipleSlots: true,

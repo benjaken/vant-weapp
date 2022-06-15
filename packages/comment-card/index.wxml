@@ -1,20 +1,21 @@
 <wxs src="../wxs/utils.wxs" module="utils" />
 
-<view class="{{ utils.bem('comment-card') }}">
+<view class="custom-class {{ utils.bem('comment-card') }}">
   <view class="van-comment-card__header">
     <view class="van-comment-card__user">
-      <image class="van-comment-card__user-avatar" src="{{ avatar }}" mode="aspectFill" />
+      <image wx:if="{{ avatar }}" class="van-comment-card__user-avatar" src="{{ avatar }}" mode="aspectFill" />
       <view class="van-comment-card_user-info">
-        <view class="van-comment-card__user-name">{{ name }}</view>
-        <view class="van-comment-card__user-time">{{ time }}</view>
+        <view class="van-comment-card__user-name" wx:if="{{ name }}">{{ name }}</view>
+        <view class="van-comment-card__user-time" wx:if="{{ time }}">{{ time }}</view>
       </view>
     </view>
-    <van-rate value="{{ point }}" size="28rpx" color="#F56C6C"></van-rate>
+    <van-rate wx:if="{{ point }}" value="{{ point }}" size="28rpx" color="#F56C6C"></van-rate>
   </view>
-  <view class="van-comment-card__content">
-    <rich-text nodes="{{content}}"></rich-text>
+  <view class="van-comment-card__content" wx:if="{{ content }}">
+    <van-html content="{{content}}"></van-html>
   </view>
   <van-uploader
+    wx:if="{{ fileList.length > 0 }}"
     file-list="{{ fileList }}"
     disabled
     show-upload="{{false}}"

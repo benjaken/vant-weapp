@@ -13,7 +13,7 @@
 	>
 		<block>
 			<swiper-item
-				wx:for="{{ swipeImages }}"
+				wx:for="{{ wxs.getImages(images) }}"
 				wx:key="index"
 				data-url="{{ item }}"
 				bindtap="onImagePreview"
@@ -29,7 +29,7 @@
 		class="{{ utils.bem('image-swiper__indicator', { vertical }) }}"
 		style="background:{{indicatorColor}};color:{{indicatorTextColor}}"
 	>
-		{{ current + 1 }}/{{ swipeImages.length }}
+		{{ current + 1 }}/{{ wxs.getImages(images).length }}
 	</view>
 	<view
 		wx:if="{{ showToggle }}"
@@ -39,7 +39,7 @@
 		<block wx:for="{{ images }}" wx:key="index">
 			<view
 				wx:if="{{ item.images.length > 0 }}"
-				class="{{ utils.bem('image-swiper__toggle-btn', { active: active == item.name }) }}"
+				class="{{ utils.bem('image-swiper__toggle-btn', { active: wxs.getActive(active, images) == item.name }) }}"
 				data-index="{{ wxs.getStartIndex(index, images) }}"
 				bindtap="toggleType"
 			>{{ item.label }}</view>

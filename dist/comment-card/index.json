@@ -3,6 +3,7 @@
   "usingComponents": {
     "van-rate": "../rate/index",
     "van-uploader": "../uploader/index",
-    "van-icon": "../icon/index"
+    "van-icon": "../icon/index",
+    "van-html": "../html/index"
   }
 }

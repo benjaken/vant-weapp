@@ -35,18 +35,18 @@
     </view>
     <view class="{{ utils.bem('editor__content', { background }) }}" wx:if="{{!showText}}">
       <editor id="editor" class="van-editor__container" placeholder="{{placeholder}}" bindstatuschange="onStatusChange" bindready="onEditorReady" bindinput="onEditorInput"></editor>
-      <view class="van-editor__count">{{editorLength}}/{{maxlength}}</view>
+      <view wx:if="{{!hideCount}}" class="van-editor__count">{{editorLength}}/{{maxlength}}</view>
     </view>
     <view class="{{ utils.bem('editor__content', { background }) }}" wx:else>
       <view class="van-editor__textarea">
-        <rich-text nodes="{{value}}" />
+        <van-html content="{{value}}" />
       </view>
     </view>
   </view>
   <view wx:else>
     <view class="{{ utils.bem('editor__content', { background }) }}" wx:if="{{!showText}}">
       <textarea name="{{name}}" auto-height class="van-editor__textarea" value="{{value}}" maxlength="{{maxlength}}" placeholder="{{placeholder}}" placeholder-class="placeholder" bindinput="onInput" />
-      <view class="van-editor__count">{{value.length}}/{{maxlength}}</view>
+      <view wx:if="{{!hideCount}}" class="van-editor__count">{{value.length}}/{{maxlength}}</view>
     </view>
     <view class="{{ utils.bem('editor__content', { background }) }}" wx:else>
       <view class="van-editor__textarea">

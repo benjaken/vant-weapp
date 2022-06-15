@@ -248,8 +248,16 @@ export default [
     icon: 'ellipsis',
     list: [
       {
+        path: '/auto-graph',
+        title: 'AutoGraph 手写签名',
+      },
+      {
         path: '/badge',
         title: 'Badge 徽标',
+      },
+      {
+        path: '/bubble-box',
+        title: 'BubbleBox 气泡框',
       },
       {
         path: '/cascader',
@@ -282,6 +290,10 @@ export default [
       {
         path: '/number-keyboard',
         title: 'NumberKeyboard 数字键盘',
+      },
+      {
+        path: '/overflow-hidden',
+        title: 'OverflowHidden 内容超出隐藏',
       },
       {
         path: '/pagination',

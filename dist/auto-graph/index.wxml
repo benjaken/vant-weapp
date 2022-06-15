@@ -1,0 +1,27 @@
+<wxs src="../wxs/utils.wxs" module="utils" />
+<view class="van-auto-graph">
+  <view class="van-auto-graph__wrapper">
+    <canvas
+      class="van-auto-graph__canvas"
+      id="canvas"
+      disable-scroll
+      type="2d"
+      bindtouchstart="onTouchStart"
+      bindtouchmove="onTouchMove"
+      bindtouchend="onTouchEnd"
+    />
+    <view wx:if="{{loading}}" class="van-auto-graph__loading">
+      <van-loading color="#F96401" />
+    </view>
+  </view>
+  <view class="van-auto-graph__action">
+    <view class="van-auto-graph__left">
+      <text class="{{ picIndex < 1 ? 'disabled' : '' }}" bindtap="handleBack">撤回</text>
+      <text class="{{ picLength == 1 || picIndex == picLength - 1 ? 'disabled' : '' }}" bindtap="handleGo">恢复</text>
+      <text bindtap="reset">重签</text>
+    </view>
+    <text bindtap="finish">完成</text>
+  </view>
+</view>
+
+<van-toast id="van-toast"></van-toast>

@@ -1,7 +1,8 @@
 {
-  "description": "项目配置文件",
+  "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
   "packOptions": {
-    "ignore": []
+    "ignore": [],
+    "include": []
   },
   "setting": {
     "urlCheck": true,
@@ -30,21 +31,22 @@
     "minifyWXSS": true,
     "disableUseStrict": false,
     "ignoreUploadUnusedFiles": true,
-    "minifyWXML": true
+    "minifyWXML": true,
+    "checkInvalidKey": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "showES6CompileOption": false,
+    "useCompilerPlugins": false,
+    "useStaticServer": true,
+    "localPlugins": false
   },
   "compileType": "miniprogram",
   "libVersion": "2.24.4",
   "appid": "wxeeafd0a624c7d877",
   "projectname": "example",
-  "debugOptions": {
-    "hidedInDevtools": []
-  },
-  "scripts": {},
-  "staticServerOptions": {
-    "baseURL": "",
-    "servePath": ""
-  },
-  "isGameTourist": false,
   "condition": {
     "search": {
       "list": []
@@ -435,5 +437,9 @@
         }
       ]
     }
+  },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
   }
 }

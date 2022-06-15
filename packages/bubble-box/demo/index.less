@@ -1,0 +1,27 @@
+.demo-bubble {
+  margin-bottom: 10px;
+}
+
+.demo-flex {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .w-50 {
+    box-sizing: border-box;
+    width: 50%;
+    padding: 0 10px;
+    display: flex;
+    justify-content: flex-end;
+
+    &.right {
+      justify-content: flex-start;
+    }
+  }
+
+  .w-100 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}

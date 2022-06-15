@@ -1,0 +1,65 @@
+<demo-block title="基础用法" padding>
+  <view class="demo-flex">
+    <view class="w-100">
+      <van-bubble-box custom-class="demo-bubble" text="Top Center 提示文字">
+        <van-button>上方显示</van-button>
+      </van-bubble-box>
+    </view>
+    <view class="w-50">
+      <van-bubble-box custom-class="demo-bubble" text="Top Right 提示文字" position="top-right">
+        <van-button>上右方显示</van-button>
+      </van-bubble-box>
+    </view>
+    <view class="w-50 right">
+      <van-bubble-box custom-class="demo-bubble" text="Top Left 提示文字" position="top-left">
+        <van-button>上左方显示</van-button>
+      </van-bubble-box>
+    </view>
+    <view class="w-50">
+      <van-bubble-box custom-class="demo-bubble" text="Right Top Center 提示文字" position="right-top">
+        <van-button>右上方显示</van-button>
+      </van-bubble-box>
+    </view>
+    <view class="w-50 right">
+      <van-bubble-box custom-class="demo-bubble" text="Left Top Center 提示文字" position="left-top">
+        <van-button>左上方显示</van-button>
+      </van-bubble-box>
+    </view>
+    <view class="w-50">
+      <van-bubble-box custom-class="demo-bubble" text="Right Center 提示文字" position="right">
+        <van-button>右方显示</van-button>
+      </van-bubble-box>
+    </view>
+    <view class="w-50 right">
+      <van-bubble-box custom-class="demo-bubble" text="Left Center 提示文字" position="left">
+        <van-button>左方显示</van-button>
+      </van-bubble-box>
+    </view>
+    <view class="w-50">
+      <van-bubble-box custom-class="demo-bubble" text="Right Bottom Center 提示文字" position="right-bottom">
+        <van-button>右下方显示</van-button>
+      </van-bubble-box>
+    </view>
+    <view class="w-50 right">
+      <van-bubble-box custom-class="demo-bubble" text="Left Bottom Center 提示文字" position="left-bottom">
+        <van-button>左下方显示</van-button>
+      </van-bubble-box>
+    </view>
+    <view class="w-50">
+      <van-bubble-box custom-class="demo-bubble" text="Bottom Right 提示文字" position="bottom-right">
+        <van-button>下右方显示</van-button>
+      </van-bubble-box>
+    </view>
+    <view class="w-50 right">
+      <van-bubble-box custom-class="demo-bubble" text="Bottom Left 提示文字" position="bottom-left">
+        <van-button>下左方显示</van-button>
+      </van-bubble-box>
+    </view>
+    <view class="w-100">
+      <van-bubble-box custom-class="demo-bubble" text="Bottom Center 提示文字" position="bottom">
+        <van-button>下方显示</van-button>
+      </van-bubble-box>
+    </view>
+  </view>
+</demo-block>
+<van-toast id="van-toast" />

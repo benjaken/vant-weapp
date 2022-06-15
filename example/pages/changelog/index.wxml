@@ -1,9 +1,16 @@
 <view class="title">
-  <text>1.0.4</text>
-  <text class="date">2022-06-08</text>
+  <text>1.0.5</text>
+  <text class="date">2022-06-15</text>
 </view>
 <view class="content">
-  <view>- 增加SlideVerify、RotateVerify、Pagination、SlideCaptcha组件</view>
+  <view>- 增加AutoGraph、BubbleBox、OverflowHidden组件</view>
+</view>
+<view class="title">
+  <text>1.0.4</text>
+  <text class="date">2022-06-10</text>
+</view>
+<view class="content">
+  <view>- 增加SlideVerify、RotateVerify、Pagination、SlideCaptcha、Table组件</view>
 </view>
 <view class="title">
   <text>1.0.3</text>

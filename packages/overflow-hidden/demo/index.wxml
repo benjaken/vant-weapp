@@ -1,0 +1,17 @@
+<demo-block title="基础用法">
+  <van-overflow-hidden text="{{text}}" />
+</demo-block>
+
+<demo-block title="显示两行">
+  <van-overflow-hidden line="2" text="{{text}}" />
+</demo-block>
+
+<demo-block title="调整样式，显示三行">
+  <van-overflow-hidden line="3" text="{{text}}" custom-style="color:orange;font-size:12px" />
+</demo-block>
+
+<demo-block title="渐变隐藏">
+  <van-overflow-hidden line="3" text="{{text}}" button />
+</demo-block>
+
+<van-toast id="van-toast" />

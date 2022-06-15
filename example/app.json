@@ -70,6 +70,9 @@
     "pages/rotate-verify/index",
     "pages/slide-captcha/index",
     "pages/table/index",
+    "pages/auto-graph/index",
+    "pages/bubble-box/index",
+    "pages/overflow-hidden/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "@navBgColor",
@@ -147,6 +150,9 @@
     "van-rotate-verify-demo": "./dist/rotate-verify/demo/index",
     "van-slide-captcha-demo": "./dist/slide-captcha/demo/index",
     "van-table-demo": "./dist/table/demo/index",
+    "van-auto-graph-demo": "./dist/auto-graph/demo/index",
+    "van-bubble-box-demo": "./dist/bubble-box/demo/index",
+    "van-overflow-hidden-demo": "./dist/overflow-hidden/demo/index"
   },
   "sitemapLocation": "sitemap.json",
   "darkmode": true,

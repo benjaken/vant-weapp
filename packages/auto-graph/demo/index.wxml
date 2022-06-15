@@ -1,0 +1,15 @@
+<demo-block title="基础用法" padding>
+  <view class="demo-title">请在下方空白处签名</view>
+  <van-auto-graph bind:finish="onFinish"></van-auto-graph>
+  <view class="demo-result">
+    您的签名为：
+    <image wx:if="{{detail}}" class="demo-result__image" src="{{detail}}" />
+  </view>
+</demo-block>
+
+<demo-block title="自定义样式" padding>
+  <view class="demo-title">请在下方空白处签名</view>
+  <van-auto-graph line-width="{{2}}" dash-width="{{3}}" color="#D92324" tip-color="#1989fa"></van-auto-graph>
+</demo-block>
+
+<van-toast id="van-toast" />

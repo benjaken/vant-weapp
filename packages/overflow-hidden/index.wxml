@@ -1,0 +1,13 @@
+<wxs src="../wxs/utils.wxs" module="utils" />
+<view class="{{ utils.bem('overflow-hidden') }} custom-class">
+  <view
+    class="{{ utils.bem('overflow-hidden__text', { show }) }}"
+    style="font-size:{{fontSize}}px;-webkit-line-clamp:{{line}};{{color ? 'color:' + color : ''}};{{customStyle}}"
+  >
+    {{text}}
+    <view wx:if="{{!show && button}}" class="van-overflow-hidden__mask"></view>
+  </view>
+  <view wx:if="{{button}}" class="van-overflow-hidden__button">
+    <van-button block bind:click="triggerContent">{{show ? '点击隐藏内容' : '点击查看所有内容'}}</van-button>
+  </view>
+</view>

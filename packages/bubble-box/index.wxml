@@ -1,0 +1,11 @@
+<wxs src="../wxs/utils.wxs" module="utils" />
+<view class="custom-class van-bubble-box" bindtap="showBubble">
+  <view wx:if="{{show}}" class="van-bubble-box__mask" catchtap="hideBubble"></view>
+  <view class="van-bubble-box__slot"><slot></slot></view>
+  <view wx:if="{{show}}"
+    class="{{utils.bem('bubble-box__bubble', [position])}}"
+    animation="{{ animationData }}"
+  >{{text}}</view>
+</view>
+
+<van-toast id="van-toast"></van-toast>

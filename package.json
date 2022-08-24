@@ -59,7 +59,7 @@
     "miniprogram-ci": "^1.6.1",
     "miniprogram-simulate": "^1.4.2",
     "mp-html": "^2.3.0",
-    "ts-jest": "^27.0.7",
+    "ts-jest": "^28.0.8",
     "tscpaths": "^0.0.9",
     "typescript": "^4.4.4",
     "vue": "^3.2.30"

@@ -19,7 +19,7 @@
 		&--rect {
 			background-color: @gray-6;
 			opacity: 0.2;
-			border-radius: @border-radius-sm;
+			border-radius: @border-radius-md;
 		}
 
 		&--circle {
@@ -55,6 +55,22 @@
 			border-color: @orange transparent @orange transparent;
 			animation: spin 1.2s linear infinite;
 		}
+	}
+
+	&__render-button {
+		position: fixed;
+		z-index: 9999;
+		right: 5px;
+		bottom: 5px;
+		width: 45px;
+		height: 45px;
+		border-radius: @border-radius-max;
+		color: @white;
+		line-height: 45px;
+		font-size: 24rpx;
+		text-align: center;
+		background-color: @orange;
+		box-shadow: 2px 2px 6px rgba(134, 151, 197, 0.17);
 	}
 }
 

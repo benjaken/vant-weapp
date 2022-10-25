@@ -1,31 +1,49 @@
 <wxs src="./index.wxs" module="computed"></wxs>
 <wxs src="../../../wxs/utils.wxs" module="utils" />
 
-<view class="van-calendar__month" style="{{ computed.getMonthStyle(visible, date, rowHeight) }}">
-  <view wx:if="{{ showMonthTitle }}" class="van-calendar__month-title">
+<view class="van-calendar__month" style="{{ computed.getMonthStyle(date, rowHeight) }}">
+  <view wx:if="{{ showMonthTitle }}" class="van-calendar__month-title" bindtap="onClickTitle">
     {{ computed.formatMonthTitle(date) }}
   </view>
 
+  <scroll-view
+    scroll-x
+    enhanced
+    scroll-anchoring
+    wx:if="{{horizon}}"
+    scroll-into-view="{{ scrollIntoView }}"
+    scroll-with-animation
+		show-scrollbar="{{false}}"
+  >
+    <template is="days" data="{{ showWeekDays, weekdays, showMask, horizon, date, days, rowHeight, color, firstDayOfWeek, round }}"></template>
+  </scroll-view>
+
+  <template wx:else is="days" data="{{ showWeekDays, weekdays, showMask, date, days, rowHeight, color, firstDayOfWeek, round }}"></template>
+</view>
+
+<template name="days">
   <view wx:if="{{ showWeekDays }}" class="van-calendar__weekdays">
-    <view wx:for="{{ weekdays }}" wx:key="index" class="van-calendar__weekday">
+    <view wx:for="{{ weekdays }}" wx:key="index" class="{{ utils.bem('calendar__weekday', { horizon }) }}">
       {{ item }}
     </view>
   </view>
 
-  <view wx:if="{{ visible }}" class="van-calendar__days">
-    <view wx:if="{{ showMark }}" class="van-calendar__month-mark">
+  <view class="{{ utils.bem('calendar__days', { horizon }) }}">
+
+    <view wx:if="{{ showMark && !horizon }}" class="van-calendar__month-mark">
       {{ computed.getMark(date) }}
     </view>
 
     <view
       wx:for="{{ days }}"
       wx:key="index"
-      style="{{ computed.getDayStyle(item.type, index, date, rowHeight, color, firstDayOfWeek) }}"
-      class="{{ utils.bem('calendar__day', [item.type]) }} {{ item.className }}"
+      id="day-{{index}}"
+      style="{{ computed.getDayStyle(item.type, index, date, rowHeight, color, firstDayOfWeek, horizon) }}"
+      class="{{ utils.bem('calendar__day', [item.type, { horizon }]) }} {{ item.className }}"
       data-index="{{ index }}"
       bindtap="onClick"
     >
-      <view wx:if="{{ item.type === 'selected' }}" class="van-calendar__selected-day" style="width: {{ rowHeight }}px; height: {{ rowHeight }}px; background: {{ color }}">
+      <view wx:if="{{ item.type === 'selected' }}" class="{{ utils.bem('calendar__selected-day', { round }) }}" style="width: {{ rowHeight }}px; height: {{ rowHeight }}px; background: {{ color }}">
         <view wx:if="{{ item.topInfo }}" class="van-calendar__top-info">{{ item.topInfo }}</view>
         {{ item.text }}
         <view wx:if="{{ item.bottomInfo }}" class="van-calendar__bottom-info">
@@ -44,4 +62,4 @@
       </view>
     </view>
   </view>
-</view>
+</template>

@@ -72,7 +72,8 @@
     "pages/table/index",
     "pages/auto-graph/index",
     "pages/bubble-box/index",
-    "pages/overflow-hidden/index"
+    "pages/overflow-hidden/index",
+    "pages/semicircle/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "@navBgColor",
@@ -152,7 +153,8 @@
     "van-table-demo": "./dist/table/demo/index",
     "van-auto-graph-demo": "./dist/auto-graph/demo/index",
     "van-bubble-box-demo": "./dist/bubble-box/demo/index",
-    "van-overflow-hidden-demo": "./dist/overflow-hidden/demo/index"
+    "van-overflow-hidden-demo": "./dist/overflow-hidden/demo/index",
+    "van-semicircle-demo": "./dist/semicircle/demo/index"
   },
   "sitemapLocation": "sitemap.json",
   "darkmode": true,

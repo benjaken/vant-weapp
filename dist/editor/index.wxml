@@ -33,22 +33,22 @@
       <em class="{{ utils.bem('editor__icon', ['shanchu']) }}" bindtap="clear"></em>
       <em class="{{ utils.bem('editor__icon', ['direction-rtl', {active: formats.direction === 'rtl'}]) }}" data-name="direction" data-value="rtl"></em>
     </view>
-    <view class="{{ utils.bem('editor__content', { background }) }}" wx:if="{{!showText}}">
+    <view class="{{ utils.bem('editor__content', { background }) }}" style="{{customStyle}}" wx:if="{{!showText}}">
       <editor id="editor" class="van-editor__container" placeholder="{{placeholder}}" bindstatuschange="onStatusChange" bindready="onEditorReady" bindinput="onEditorInput"></editor>
       <view wx:if="{{!hideCount}}" class="van-editor__count">{{editorLength}}/{{maxlength}}</view>
     </view>
-    <view class="{{ utils.bem('editor__content', { background }) }}" wx:else>
+    <view class="{{ utils.bem('editor__content', { background }) }}" style="{{customStyle}}" wx:else>
       <view class="van-editor__textarea">
         <van-html content="{{value}}" />
       </view>
     </view>
   </view>
   <view wx:else>
-    <view class="{{ utils.bem('editor__content', { background }) }}" wx:if="{{!showText}}">
+    <view class="{{ utils.bem('editor__content', { background }) }}" style="{{customStyle}}" wx:if="{{!showText}}">
       <textarea name="{{name}}" auto-height class="van-editor__textarea" value="{{value}}" maxlength="{{maxlength}}" placeholder="{{placeholder}}" placeholder-class="placeholder" bindinput="onInput" />
       <view wx:if="{{!hideCount}}" class="van-editor__count">{{value.length}}/{{maxlength}}</view>
     </view>
-    <view class="{{ utils.bem('editor__content', { background }) }}" wx:else>
+    <view class="{{ utils.bem('editor__content', { background }) }}" style="{{customStyle}}" wx:else>
       <view class="van-editor__textarea">
         <text wx:if="{{value}}">{{value}}</text>
         <text wx:else class="van-editor__placeholder">{{placeholder}}</text>

@@ -54,7 +54,11 @@ VantComponent({
         field: {
             type: Boolean,
             value: false
-        }
+        },
+        customStyle: {
+            type: String,
+            value: ''
+        },
     },
     data: {
         formats: {},

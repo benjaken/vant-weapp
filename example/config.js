@@ -312,6 +312,10 @@ export default [
         title: 'RotateVerify 旋转验证码',
       },
       {
+        path: '/semicircle',
+        title: 'Semicircle 半圆进度条',
+      },
+      {
         path: '/slide-captcha',
         title: 'SlideCaptcha 滑块拼图验证',
       },

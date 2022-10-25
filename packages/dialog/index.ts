@@ -64,6 +64,10 @@ VantComponent({
       type: String,
       value: 'scale',
     },
+		moreButtons: {
+			type: Array,
+			value: []
+		}
   },
 
   data: {
@@ -73,7 +77,8 @@ VantComponent({
     },
     callback: ((() => {}) as unknown) as (
       action: string,
-      context: WechatMiniprogram.Component.TrivialInstance
+      context: WechatMiniprogram.Component.TrivialInstance,
+      index?: number
     ) => void,
   },
 
@@ -86,11 +91,16 @@ VantComponent({
       this.handleAction('cancel');
     },
 
+    onClickMore({ currentTarget: { dataset }}) {
+      const index = dataset.index;
+      this.handleAction('more', parseInt(index));
+    },
+
     onClickOverlay() {
       this.close('overlay');
     },
 
-    close(action) {
+    close(action, index?: number) {
       this.setData({ show: false });
 
       wx.nextTick(() => {
@@ -98,7 +108,7 @@ VantComponent({
 
         const { callback } = this.data;
         if (callback) {
-          callback(action, this);
+          callback(action, this, index);
         }
       });
     },
@@ -112,12 +122,12 @@ VantComponent({
       });
     },
 
-    handleAction(action: Action) {
-      this.$emit(action, { dialog: this });
+    handleAction(action: Action, index?: number) {
+      this.$emit(action, { dialog: this, index });
 
       const { asyncClose, beforeClose } = this.data;
       if (!asyncClose && !beforeClose) {
-        this.close(action);
+        this.close(action, index);
         return;
       }
 
@@ -126,9 +136,9 @@ VantComponent({
       });
 
       if (beforeClose) {
-        toPromise(beforeClose(action)).then((value) => {
+        toPromise(beforeClose(action, index)).then((value) => {
           if (value) {
-            this.close(action);
+            this.close(action, index);
           } else {
             this.stopLoading();
           }

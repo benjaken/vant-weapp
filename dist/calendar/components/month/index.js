@@ -33,17 +33,23 @@ VantComponent({
             type: Number,
             observer: 'setDays',
         },
+        lang: {
+            type: String,
+            value: 'en',
+        },
         showWeekDays: Boolean,
         allowSameDay: Boolean,
         showSubtitle: Boolean,
         showMonthTitle: Boolean,
+        round: Boolean,
+        horizon: Boolean,
         dotDate: {
             type: null,
-            value: []
-        }
+            value: [],
+        },
     },
     data: {
-        visible: true,
+        scrollIntoView: '',
         weekdays: [],
         days: [],
     },
@@ -52,24 +58,55 @@ VantComponent({
     },
     methods: {
         onClick(event) {
+            const { horizon } = this.data;
             const { index } = event.currentTarget.dataset;
             const item = this.data.days[index];
             if (item.type !== 'disabled') {
+                if (horizon)
+                    this.scrollHorizon(item.date);
                 this.$emit('click', item);
             }
         },
+        onClickTitle() {
+            this.$emit('clickTitle');
+        },
         initWeekDay() {
-            const defaultWeeks = ['日', '一', '二', '三', '四', '五', '六'];
-            const firstDayOfWeek = this.data.firstDayOfWeek || 0;
+            const { firstDayOfWeek = 0, lang, currentDate, horizon } = this.data;
+            const defaultWeeks = {
+                en: ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'],
+                zh: ['日', '一', '二', '三', '四', '五', '六'],
+            };
+            let weekdays = [
+                ...defaultWeeks[lang].slice(firstDayOfWeek, 7),
+                ...defaultWeeks[lang].slice(0, firstDayOfWeek),
+            ];
+            if (horizon) {
+                const weeks = [
+                    ...defaultWeeks[lang].slice(1, 7),
+                    ...defaultWeeks[lang].slice(0, 1),
+                ];
+                const firstDayOfMonth = new Date(new Date(currentDate).getFullYear(), new Date(currentDate).getMonth(), 1).getDay();
+                const totalDay = getMonthEndDay(new Date(currentDate).getFullYear(), new Date(currentDate).getMonth() + 1);
+                weekdays = [
+                    ...weeks.slice(firstDayOfMonth - 1, 7),
+                    ...weeks,
+                    ...weeks,
+                    ...weeks,
+                    ...weeks,
+                    ...weeks,
+                ].slice(0, totalDay);
+            }
             this.setData({
-                weekdays: [
-                    ...defaultWeeks.slice(firstDayOfWeek, 7),
-                    ...defaultWeeks.slice(0, firstDayOfWeek),
-                ],
+                weekdays,
+            });
+        },
+        scrollHorizon(date) {
+            this.setData({
+                scrollIntoView: `day-${new Date(date).getDate() - 4 < 0 ? 0 : new Date(date).getDate() - 4}`,
             });
         },
         setDays() {
-            const { date, dotDate } = this.data;
+            const { date, currentDate, dotDate } = this.data;
             const days = [];
             const startDate = new Date(date);
             const year = startDate.getFullYear();
@@ -83,7 +120,7 @@ VantComponent({
                     type,
                     text: day,
                     bottomInfo: this.getBottomInfo(type),
-                    bottomDot: dotDate.some(item => compareDay(item, date) == 0)
+                    bottomDot: dotDate.some((item) => compareDay(item, date) == 0),
                 };
                 if (this.data.formatter) {
                     config = this.data.formatter(config);
@@ -91,6 +128,10 @@ VantComponent({
                 days.push(config);
             }
             this.setData({ days });
+            if (this.data.horizon) {
+                this.scrollHorizon(currentDate);
+                this.initWeekDay();
+            }
         },
         getMultipleDayType(day) {
             const { currentDate } = this.data;

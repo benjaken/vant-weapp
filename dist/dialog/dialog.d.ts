@@ -1,5 +1,5 @@
 /// <reference types="miniprogram-api-typings" />
-export declare type Action = 'confirm' | 'cancel' | 'overlay';
+export declare type Action = 'confirm' | 'cancel' | 'more' | 'overlay';
 interface DialogOptions {
     lang?: string;
     show?: boolean;
@@ -35,6 +35,11 @@ interface DialogOptions {
     showCancelButton?: boolean;
     closeOnClickOverlay?: boolean;
     confirmButtonOpenType?: string;
+    moreButtons?: Array<{
+        text: string;
+        color?: string;
+        loading?: boolean;
+    }>;
 }
 declare const Dialog: {
     (options: DialogOptions): Promise<WechatMiniprogram.Component.TrivialInstance>;

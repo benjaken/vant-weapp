@@ -9,6 +9,13 @@
     @calendar-background-color-light
   );
 
+  &__month {
+    color: var(
+      --calendar-color-light,
+      @calendar-color-light
+    );
+  }
+
   &__month-title {
     text-align: center;
     height: var(--calendar-header-title-height, @calendar-header-title-height);
@@ -32,6 +39,11 @@
     text-align: center;
     font-size: var(--calendar-weekdays-font-size, @calendar-weekdays-font-size);
     line-height: var(--calendar-weekdays-height, @calendar-weekdays-height);
+  
+    &--horizon {
+      width: 14.285%;
+      flex: 0 0 14.285%;
+    }
   }
 
   &__days {
@@ -39,6 +51,11 @@
     display: flex;
     flex-wrap: wrap;
     user-select: none;
+
+    &--horizon {
+      flex-wrap: nowrap;
+      align-items: center;
+    }
   }
 
   &__month-mark {
@@ -117,6 +134,10 @@
       cursor: default;
       color: var(--calendar-day-disabled-color-light, @calendar-day-disabled-color-light);
     }
+
+    &--horizon {
+      flex: 0 0 14.285%;
+    }
   }
 
   &__top-info,
@@ -165,6 +186,10 @@
     .van-calendar__bottom-dot {
       background-color: var(--calendar-info-dot-active-color, @calendar-info-dot-active-color);
     }
+
+    &--round {
+      border-radius: @border-radius-max;
+    }
   }
 }
 
@@ -174,6 +199,13 @@
       --calendar-background-color-dark,
       @calendar-background-color-dark
     );
+
+    &__month {
+      color: var(
+        --calendar-color-dark,
+        @calendar-color-dark
+      );
+    }
 
     &__month-mark {
       color: var(--calendar-month-mark-color-dark, @calendar-month-mark-color-dark);

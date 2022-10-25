@@ -1,6 +1,3 @@
 {
-  "component": true,
-  "usingComponents": {
-    "skeleton-btn": "./skeleton-btn"
-  }
+  "component": true
 }

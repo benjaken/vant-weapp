@@ -1,5 +1,5 @@
 let queue: WechatMiniprogram.Component.TrivialInstance[] = [];
-export type Action = 'confirm' | 'cancel' | 'overlay';
+export type Action = 'confirm' | 'cancel' | 'more' | 'overlay';
 
 interface DialogOptions {
   lang?: string;
@@ -38,6 +38,11 @@ interface DialogOptions {
   showCancelButton?: boolean;
   closeOnClickOverlay?: boolean;
   confirmButtonOpenType?: string;
+  moreButtons?: Array<{
+    text: string;
+    color?: string;
+    loading?: boolean;
+  }>;
 }
 
 const defaultOptions: DialogOptions = {
@@ -81,6 +86,7 @@ const Dialog = (options: DialogOptions) => {
     (resolve, reject) => {
       const context = options.context || getContext();
       const dialog = context.selectComponent(options.selector as string);
+      options.moreButtons = options.moreButtons || [];
 
       delete options.context;
       delete options.selector;
@@ -89,9 +95,14 @@ const Dialog = (options: DialogOptions) => {
         dialog.setData({
           callback: (
             action: Action,
-            instance: WechatMiniprogram.Component.TrivialInstance
+            instance: WechatMiniprogram.Component.TrivialInstance,
+            index?: number
           ) => {
-            action === 'confirm' ? resolve(instance) : reject(instance);
+            action === 'confirm' || action === 'more' ? resolve({
+              ...instance,
+              action,
+              index
+            }) : reject(instance);
           },
           ...options,
         });

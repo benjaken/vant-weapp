@@ -32,11 +32,13 @@ const Dialog = (options) => {
     return new Promise((resolve, reject) => {
         const context = options.context || getContext();
         const dialog = context.selectComponent(options.selector);
+        options.moreButtons = options.moreButtons || [];
         delete options.context;
         delete options.selector;
         if (dialog) {
-            dialog.setData(Object.assign({ callback: (action, instance) => {
-                    action === 'confirm' ? resolve(instance) : reject(instance);
+            dialog.setData(Object.assign({ callback: (action, instance, index) => {
+                    action === 'confirm' || action === 'more' ? resolve(Object.assign(Object.assign({}, instance), { action,
+                        index })) : reject(instance);
                 } }, options));
             wx.nextTick(() => {
                 dialog.setData({ show: true });

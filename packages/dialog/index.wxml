@@ -69,12 +69,50 @@
     </van-goods-action-button>
   </van-goods-action>
 
-  <view wx:else class="van-hairline--top van-dialog__footer">
+  <view wx:else class="van-hairline--top {{utils.bem('dialog__footer', { more: moreButtons.length > 0 })}}">
+    <van-button
+      wx:if="{{ showConfirmButton && moreButtons.length > 0 }}"
+      size="large"
+      class="van-dialog__button van-hairline--bottom"
+      loading="{{ loading.confirm }}"
+      custom-class="van-dialog__confirm"
+      custom-style="color: {{ confirmButtonColor }}"
+      open-type="{{ confirmButtonOpenType }}"
+      lang="{{ lang }}"
+      business-id="{{ businessId }}"
+      session-from="{{ sessionFrom }}"
+      send-message-title="{{ sendMessageTitle }}"
+      send-message-path="{{ sendMessagePath }}"
+      send-message-img="{{ sendMessageImg }}"
+      show-message-card="{{ showMessageCard }}"
+      app-parameter="{{ appParameter }}"
+      bind:click="onConfirm"
+      bindgetuserinfo="onGetUserInfo"
+      bindcontact="onContact"
+      bindgetphonenumber="onGetPhoneNumber"
+      binderror="onError"
+      bindlaunchapp="onLaunchApp"
+      bindopensetting="onOpenSetting"
+    >
+      {{ confirmButtonText }}
+    </van-button>
+    <van-button
+      wx:for="{{ moreButtons }}"
+      wx:key="index"
+      size="large"
+      class="van-dialog__button van-hairline--bottom"
+      custom-class="van-dialog__more"
+      custom-style="color: {{ item.color }}"
+      data-index="{{index}}"
+      bind:click="onClickMore"
+    >
+      {{ item.text }}
+    </van-button>
     <van-button
       wx:if="{{ showCancelButton }}"
       size="large"
       loading="{{ loading.cancel }}"
-      class="van-dialog__button van-hairline--right"
+      class="van-dialog__button {{moreButtons.length == 0 ? 'van-hairline--right' : ''}}"
       custom-class="van-dialog__cancel"
       custom-style="color: {{ cancelButtonColor }}"
       bind:click="onCancel"
@@ -82,9 +120,9 @@
       {{ cancelButtonText }}
     </van-button>
     <van-button
-      wx:if="{{ showConfirmButton }}"
+      wx:if="{{ showConfirmButton && moreButtons.length == 0 }}"
       size="large"
-      class="van-dialog__button"
+      class="van-dialog__button van-hairline--bottom"
       loading="{{ loading.confirm }}"
       custom-class="van-dialog__confirm"
       custom-style="color: {{ confirmButtonColor }}"

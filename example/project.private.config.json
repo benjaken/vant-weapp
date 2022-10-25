@@ -430,6 +430,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "semicircle",
+          "pathName": "pages/semicircle/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

@@ -61,6 +61,10 @@ VantComponent({
             type: String,
             value: 'scale',
         },
+        moreButtons: {
+            type: Array,
+            value: []
+        }
     },
     data: {
         loading: {
@@ -76,16 +80,20 @@ VantComponent({
         onCancel() {
             this.handleAction('cancel');
         },
+        onClickMore({ currentTarget: { dataset } }) {
+            const index = dataset.index;
+            this.handleAction('more', parseInt(index));
+        },
         onClickOverlay() {
             this.close('overlay');
         },
-        close(action) {
+        close(action, index) {
             this.setData({ show: false });
             wx.nextTick(() => {
                 this.$emit('close', action);
                 const { callback } = this.data;
                 if (callback) {
-                    callback(action, this);
+                    callback(action, this, index);
                 }
             });
         },
@@ -97,20 +105,20 @@ VantComponent({
                 },
             });
         },
-        handleAction(action) {
-            this.$emit(action, { dialog: this });
+        handleAction(action, index) {
+            this.$emit(action, { dialog: this, index });
             const { asyncClose, beforeClose } = this.data;
             if (!asyncClose && !beforeClose) {
-                this.close(action);
+                this.close(action, index);
                 return;
             }
             this.setData({
                 [`loading.${action}`]: true,
             });
             if (beforeClose) {
-                toPromise(beforeClose(action)).then((value) => {
+                toPromise(beforeClose(action, index)).then((value) => {
                     if (value) {
-                        this.close(action);
+                        this.close(action, index);
                     }
                     else {
                         this.stopLoading();

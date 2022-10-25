@@ -1,5 +1,5 @@
 import { ORANGE } from '../common/color';
-import { getRect } from '../common/utils';
+import { getRect, toPromise } from '../common/utils';
 import { VantComponent } from '../common/component';
 
 VantComponent({
@@ -27,9 +27,20 @@ VantComponent({
       type: String,
       value: ORANGE,
     },
+    remote: Boolean,
+    request: {
+      type: null,
+      value: () => {},
+    },
+    verity: {
+      type: null,
+      value: () => {},
+    },
   },
   data: {
-    image: '',
+    img: '',
+    uuid: '',
+    remoteRadio: 1,
     loading: true,
     sizeX: 0,
     sizeY: 0,
@@ -44,6 +55,7 @@ VantComponent({
   },
   methods: {
     calcuateWidth() {
+      const { remote, request } = this.properties;
       Promise.all([
         getRect(this, '.van-slide-captcha__content'),
         getRect(this, '.van-slide-captcha__dragger'),
@@ -54,7 +66,19 @@ VantComponent({
           sizeX,
           sizeY,
         });
-        this.randomTarget();
+        if (remote) {
+          toPromise(request()).then((data: any) => {
+            this.setData({
+              loading: false,
+              uuid: data.uuid,
+              img: data.backImg,
+              tempFilePath: data.targetImg,
+            });
+            this.buildImage();
+          });
+        } else {
+          this.randomTarget();
+        }
       });
     },
     async randomTarget() {
@@ -62,7 +86,7 @@ VantComponent({
         'https://img.yzcdn.cn/vant/cat.jpeg',
         'https://img.yzcdn.cn/vant/sand.jpg',
         'https://img.yzcdn.cn/vant/leaf.jpg',
-        'https://img.yzcdn.cn/vant/tree.jpg'
+        'https://img.yzcdn.cn/vant/tree.jpg',
       ];
       const { width = 0, height = 0, sizeX = 0 } = this.data;
       const minW = sizeX * 2;
@@ -81,40 +105,63 @@ VantComponent({
       this.buildImage();
     },
     buildImage() {
+      const { remote } = this.properties;
       const { img, left, top } = this.data;
       this.createSelectorQuery()
         .select('#canvas')
         .fields({ node: true, size: true })
         .exec(async (res) => {
           const canvas = res[0].node;
-          const ctx = canvas.getContext('2d')
+          const ctx = canvas.getContext('2d');
           const dpr = wx.getWindowInfo().pixelRatio;
           const image = canvas.createImage();
           canvas.width = 300 * dpr;
           canvas.height = 180 * dpr;
-          const { path, width, height } = await wx.getImageInfo({
-            src: img
-          })
           const canvasRatio = canvas.width / canvas.height;
-          image.src = path;
-          image.onload = async () => {
-            const imgRatio = width / height
-            if (canvasRatio > imgRatio) {
-              ctx.drawImage(image, 0, 0, canvas.width, canvas.width / imgRatio);
-            } else {
-              ctx.drawImage(image, 0, 0, canvas.height * imgRatio, canvas.height);
-            }
-            const { tempFilePath } = await wx.canvasToTempFilePath({
-              canvas,
-              x: left,
-              y: top,
-              width: 40,
-              height: 40,
-              destWidth: 40,
-              destHeight: 40,
-              canvasId: 'canvas'
-            })
-            this.setData({ tempFilePath })
+          if (remote) {
+            image.src = img;
+            image.onload = () => {
+              this.setData({
+                remoteRadio: image.width * dpr / canvas.width,
+              });
+              ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+            };
+          } else {
+            const { path, width, height } = await wx.getImageInfo({
+              src: img,
+            });
+            image.src = path;
+            image.onload = async () => {
+              const imgRatio = width / height;
+              if (canvasRatio > imgRatio) {
+                ctx.drawImage(
+                  image,
+                  0,
+                  0,
+                  canvas.width,
+                  canvas.width / imgRatio
+                );
+              } else {
+                ctx.drawImage(
+                  image,
+                  0,
+                  0,
+                  canvas.height * imgRatio,
+                  canvas.height
+                );
+              }
+              const { tempFilePath } = await wx.canvasToTempFilePath({
+                canvas,
+                x: left,
+                y: top,
+                width: 40,
+                height: 40,
+                destWidth: 40,
+                destHeight: 40,
+                canvasId: 'canvas',
+              });
+              this.setData({ tempFilePath });
+            };
           }
         });
     },
@@ -122,15 +169,24 @@ VantComponent({
       this.setData({ isDrag });
     },
     onDragEnd({ x, isDrag }) {
-      const { deviation } = this.properties;
-      const { target } = this.data;
-      if (x > target + deviation || x < target - deviation) {
+      const { deviation, remote, verity } = this.properties;
+      const { target, uuid, remoteRadio } = this.data;
+      if (remote) {
         this.setData({
-          x: 0,
           isDrag,
-          success: false,
+          success: true,
         });
+        toPromise(verity(parseInt(x) * remoteRadio, uuid)).then((value) => {
+          if (value) {
+            this.$emit('success');
+          } else {
+            this.$emit('error');
+            this.reset();
+          }
+        });
+      } else if (x > target + deviation || x < target - deviation) {
         this.$emit('error');
+        this.reset();
       } else {
         this.setData({
           isDrag,

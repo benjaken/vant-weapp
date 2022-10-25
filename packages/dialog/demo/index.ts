@@ -57,6 +57,31 @@ VantComponent({
       });
     },
 
+    async showMoreDialog() {
+      await Dialog.confirm({
+        context: this,
+        title: '标题',
+        message,
+        moreButtons: [
+          {
+            text: '按钮1',
+            color: '#1989fa',
+          },
+          {
+            text: '按钮2',
+            color: '#1989fa',
+          },
+        ]
+      })
+      await Dialog.confirm({
+        context: this,
+        title: '改为机构代支付失败',
+        message: '未查询到您的所属机构，请先加入您的就职机构。',
+        confirmButtonText: '我知道了',
+        showCancelButton: false
+      })
+    },
+
     onClickAsyncClose() {
       const beforeClose = (action: Action): Promise<boolean> =>
         new Promise((resolve) => {

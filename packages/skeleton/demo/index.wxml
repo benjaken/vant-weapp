@@ -1,6 +1,6 @@
-<demo-block title="基础用法">
+<van-skeleton is-dev wrapper="demo" selector="skeleton" />
+<demo-block class="demo" title="基本用法">
   <view class="card skeleton">
-    <van-skeleton is-dev selector="skeleton" />
     <image class="image skeleton-round" mode="aspectFill" src="https://img.yzcdn.cn/vant/cat.jpeg" />
     <view class="content">
       <view class="title skeleton-rect">关于 Vant</view>

@@ -10,11 +10,15 @@
 </demo-block>
 
 <demo-block card title="异步关闭" padding>
-  <van-cell title="异步关闭" bind:click="onClickAsyncClose" />
+  <van-cell title="异步关闭" bind:click="onClickAsyncClose" is-link />
 </demo-block>
 
 <demo-block card title="组件调用" padding>
-  <van-cell title="组件调用" bind:click="showCustomDialog" />
+  <van-cell title="组件调用" bind:click="showCustomDialog" is-link />
+</demo-block>
+
+<demo-block card title="更多按钮" padding>
+  <van-cell title="更多按钮" bind:click="showMoreDialog" is-link />
 </demo-block>
 
 <van-dialog

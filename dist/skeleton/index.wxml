@@ -19,11 +19,6 @@
 	</view>
 	<view class="van-skeleton__shine" />
 </view>
-<skeleton-btn
-	wx:if="{{ isDev }}"
-	selector="{{ selector }}"
-	isShow="{{ isShowByDev }}"
-	selectorTypes="{{ selectorTypes }}"
-	bindupdateData="handleUpdateData"
-	bindtoggleShow="handleToggleShow"
-></skeleton-btn>
+<view wx:if="{{ isDev }}" bindtap="toggleBtnTap" class="van-skeleton__render-button">
+	{{ isShowByDev ? '关闭' : '骨架屏' }}
+</view>

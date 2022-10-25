@@ -1,0 +1,7 @@
+<demo-block title="基础用法">
+  <van-semicircle
+    custom-class="demo-semicircle"
+    percentage="{{ percentage }}"
+    bottom-text="总成绩"
+  />
+</demo-block>

@@ -1,4 +1,4 @@
-import { ORANGE } from '../common/color';
+import { GREEN } from '../common/color';
 import { VantComponent } from '../common/component';
 VantComponent({
     props: {
@@ -34,7 +34,7 @@ VantComponent({
         },
         activeColor: {
             type: String,
-            value: ORANGE,
+            value: GREEN,
         },
         swipeable: Boolean,
         loading: Boolean,

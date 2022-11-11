@@ -62,8 +62,7 @@
 
 	&__textarea {
 		width: 100%;
-		min-height: calc(100% - 14px);
-		max-height: calc(100% - 14px);
+		height: calc(100% - 14px);
 		overflow-wrap: break-word;
 		word-break: break-all;
 		overflow: auto;
@@ -103,7 +102,7 @@
 	}
 }
 
-@media (prefers-color-scheme: dark) {
+.page-dark {
 	.van-editor {
 		color: var(--editor-color-dark, @editor-color-dark);
 		background-color: var(--editor-background-color-dark, @editor-background-color-dark);

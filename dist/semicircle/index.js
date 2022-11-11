@@ -7,7 +7,7 @@ VantComponent({
         bottomText: String,
         activeColor: {
             type: String,
-            value: '#F96401',
+            value: '#307C8A',
         },
         total: {
             type: Number,

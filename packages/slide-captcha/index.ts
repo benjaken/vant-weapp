@@ -1,4 +1,4 @@
-import { ORANGE } from '../common/color';
+import { GREEN } from '../common/color';
 import { getRect, toPromise } from '../common/utils';
 import { VantComponent } from '../common/component';
 
@@ -25,7 +25,7 @@ VantComponent({
     },
     activeColor: {
       type: String,
-      value: ORANGE,
+      value: GREEN,
     },
     remote: Boolean,
     request: {

@@ -1,4 +1,4 @@
-import { ORANGE } from '../common/color';
+import { GREEN } from '../common/color';
 import { VantComponent } from '../common/component';
 
 export type CascaderOption = {
@@ -57,7 +57,7 @@ VantComponent({
     },
     activeColor: {
       type: String,
-      value: ORANGE,
+      value: GREEN,
     },
     swipeable: Boolean,
     loading: Boolean,

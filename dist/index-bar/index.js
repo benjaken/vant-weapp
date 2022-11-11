@@ -1,4 +1,4 @@
-import { ORANGE } from '../common/color';
+import { GREEN } from '../common/color';
 import { VantComponent } from '../common/component';
 import { useChildren } from '../common/relation';
 import { getRect, isDef } from '../common/utils';
@@ -26,7 +26,7 @@ VantComponent({
         },
         highlightColor: {
             type: String,
-            value: ORANGE,
+            value: GREEN,
         },
         stickyOffsetTop: {
             type: Number,

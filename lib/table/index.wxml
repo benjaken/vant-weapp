@@ -12,7 +12,7 @@
       </view>
     </view>
     <view wx:if="{{loading}}" class="van-table__loading">
-      <van-loading color="#F96401" />
+      <van-loading color="#307C8A" />
     </view>
   </view>
 </view>

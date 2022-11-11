@@ -45,7 +45,7 @@
   </view>
   <view wx:else>
     <view class="{{ utils.bem('editor__content', { background }) }}" style="{{customStyle}}" wx:if="{{!showText}}">
-      <textarea name="{{name}}" auto-height class="van-editor__textarea" value="{{value}}" maxlength="{{maxlength}}" placeholder="{{placeholder}}" placeholder-class="placeholder" bindinput="onInput" />
+      <textarea name="{{name}}" class="van-editor__textarea" value="{{value}}" maxlength="{{maxlength}}" placeholder="{{placeholder}}" placeholder-class="placeholder" bindinput="onInput" />
       <view wx:if="{{!hideCount}}" class="van-editor__count">{{value.length}}/{{maxlength}}</view>
     </view>
     <view class="{{ utils.bem('editor__content', { background }) }}" style="{{customStyle}}" wx:else>

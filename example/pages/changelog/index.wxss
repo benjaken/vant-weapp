@@ -18,7 +18,7 @@
   padding: 20rpx 32rpx;
 }
 
-@media (prefers-color-scheme: dark) {
+.page-dark {
   .title {
     color: #f5f5f5;
   }

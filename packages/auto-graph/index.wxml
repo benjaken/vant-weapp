@@ -11,7 +11,7 @@
       bindtouchend="onTouchEnd"
     />
     <view wx:if="{{loading}}" class="van-auto-graph__loading">
-      <van-loading color="#F96401" />
+      <van-loading color="#307C8A" />
     </view>
   </view>
   <view class="van-auto-graph__action">

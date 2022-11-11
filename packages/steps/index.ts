@@ -1,5 +1,14 @@
+/*
+ * @Author: chenzh chenzh@szfdc.net.cn
+ * @Date: 2022-06-01 15:23:39
+ * @LastEditors: chenzh chenzh@szfdc.net.cn
+ * @LastEditTime: 2022-11-11 16:54:13
+ * @Description: 
+ * 
+ * Copyright (c) 2022 by 深圳市优房网络有限公司 All Rights Reserved. 
+ */
 import { VantComponent } from '../common/component';
-import { ORANGE, GRAY_DARK } from '../common/color';
+import { GREEN, GRAY_DARK } from '../common/color';
 
 VantComponent({
   classes: ['desc-class'],
@@ -14,7 +23,7 @@ VantComponent({
     },
     activeColor: {
       type: String,
-      value: ORANGE,
+      value: GREEN,
     },
     inactiveColor: {
       type: String,

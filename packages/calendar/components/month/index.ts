@@ -1,3 +1,4 @@
+import { getRect } from '../../../common/utils';
 import { VantComponent } from '../../../common/component';
 import {
   getMonthEndDay,
@@ -64,7 +65,7 @@ VantComponent({
   },
 
   data: {
-    scrollIntoView: '',
+    scrollLeft: 0,
     weekdays: [] as Array<string>,
     days: [] as Day[],
   },
@@ -126,11 +127,12 @@ VantComponent({
       });
     },
 
-    scrollHorizon(date: Date) {
+    async scrollHorizon(date: Date) {
+      const { width } = await getRect(this, '.van-calendar__day');
+      const data =
+        new Date(date).getDate() - 4 < 0 ? 0 : new Date(date).getDate() - 4;
       this.setData({
-        scrollIntoView: `day-${
-          new Date(date).getDate() - 4 < 0 ? 0 : new Date(date).getDate() - 4
-        }`,
+        scrollLeft: data * width,
       });
     },
 

@@ -147,6 +147,7 @@
   &--mini {
     display: inline-block;
     height: var(--button-mini-height, @button-mini-height);
+    padding: 0 var(--padding-base, @padding-base);
     font-size: var(--button-mini-font-size, @button-mini-font-size);
 
     & + .van-button--mini {
@@ -214,7 +215,7 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
+.page-dark {
   .van-button--default {
     color: var(--button-default-color-dark, @button-default-color-dark);
     background: var(

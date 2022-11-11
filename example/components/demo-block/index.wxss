@@ -22,7 +22,7 @@
 }
 
 
-@media (prefers-color-scheme: dark) {
+.page-dark {
   .demo-block__title {
     color: rgba(255, 255, 255, .6);
   }

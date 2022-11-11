@@ -7,7 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { ORANGE } from '../common/color';
+import { GREEN } from '../common/color';
 import { getRect, toPromise } from '../common/utils';
 import { VantComponent } from '../common/component';
 VantComponent({
@@ -33,7 +33,7 @@ VantComponent({
         },
         activeColor: {
             type: String,
-            value: ORANGE,
+            value: GREEN,
         },
         remote: Boolean,
         request: {

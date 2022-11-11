@@ -54,34 +54,3 @@
     color: var(--sidebar-disabled-text-color-light, @sidebar-disabled-text-color-light);
   }
 }
-
-@media (prefers-color-scheme: dark) {
-  .van-sidebar-item {
-    color: var(--sidebar-text-color-dark, @sidebar-text-color-dark);
-    background-color: var(--sidebar-background-color-dark, @sidebar-background-color-dark);
-
-    &--hover:not(&--disabled) {
-      background-color: var(--sidebar-active-color-dark, @sidebar-active-color-dark);
-    }
-
-    &--selected {
-      color: var(--sidebar-selected-text-color-dark, @sidebar-selected-text-color-dark);
-
-      &::after {
-        border-right-width: 1px;
-      }
-    }
-
-    &--selected,
-    &--selected&--hover {
-      background-color: var(
-        --sidebar-selected-background-color-dark,
-        @sidebar-selected-background-color-dark
-      );
-    }
-
-    &--disabled {
-      color: var(--sidebar-disabled-text-color-dark, @sidebar-disabled-text-color-dark);
-    }
-  }
-}

@@ -11,7 +11,7 @@
     enhanced
     scroll-anchoring
     wx:if="{{horizon}}"
-    scroll-into-view="{{ scrollIntoView }}"
+    scroll-left	="{{ scrollLeft }}"
     scroll-with-animation
 		show-scrollbar="{{false}}"
   >

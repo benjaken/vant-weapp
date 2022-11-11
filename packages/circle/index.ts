@@ -1,4 +1,4 @@
-import { ORANGE, WHITE } from '../common/color';
+import { GREEN, WHITE } from '../common/color';
 import { VantComponent } from '../common/component';
 import { getSystemInfoSync } from '../common/utils';
 import { isObj } from '../common/validator';
@@ -42,7 +42,7 @@ VantComponent({
     },
     color: {
       type: null,
-      value: ORANGE,
+      value: GREEN,
       observer() {
         this.setHoverColor().then(() => {
           this.drawCircle(this.currentValue);
@@ -64,7 +64,7 @@ VantComponent({
   },
 
   data: {
-    hoverColor: ORANGE,
+    hoverColor: GREEN,
   },
 
   methods: {

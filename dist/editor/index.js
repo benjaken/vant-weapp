@@ -39,6 +39,10 @@ VantComponent({
             type: Boolean,
             value: true
         },
+        height: {
+            type: Number,
+            value: 250
+        },
         value: {
             type: String,
             value: ''

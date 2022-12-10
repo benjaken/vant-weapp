@@ -1,5 +1,5 @@
 import { VantComponent } from '../common/component';
-import { getRect, getSystemInfoSync } from '../common/utils';
+import { getRect, getSystemInfoSync, toPromise } from '../common/utils';
 
 VantComponent({
   classes: ['title-class'],
@@ -31,6 +31,7 @@ VantComponent({
       type: Boolean,
       value: true,
     },
+    beforeQuit: null
   },
 
   data: {
@@ -52,7 +53,20 @@ VantComponent({
 
   methods: {
     onClickLeft() {
-      this.$emit('click-left');
+      const { beforeQuit } = this.data
+      if (beforeQuit) {
+        toPromise(beforeQuit()).then((value) => {
+          if (value) {
+            this.$emit('click-left');
+          }
+        })
+      } else {
+        this.$emit('click-left');
+      }
+    },
+
+    onClickTitle() {
+      this.$emit('click-title');
     },
 
     onClickRight() {
@@ -60,7 +74,16 @@ VantComponent({
     },
 
     onClickHome() {
-      this.$emit('click-home');
+      const { beforeQuit } = this.data
+      if (beforeQuit) {
+        toPromise(beforeQuit()).then((value) => {
+          if (value) {
+            this.$emit('click-home');
+          }
+        })
+      } else {
+        this.$emit('click-home');
+      }
     },
 
     setHeight() {

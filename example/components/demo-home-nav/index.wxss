@@ -36,20 +36,3 @@
   color: rgb(182, 195, 210);
   font-weight: 900 !important;
 }
-
-.page-dark {
-  .demo-home-nav__block {
-    background: rgba(255, 255, 255, 0.1);
-    color:rgba(255, 255, 255, .75)
-  }
-  .demo-home-nav__block:hover {
-    background: darken(rgba(255, 255, 255, 0.1), 3%);
-  }
-  .demo-home-nav__block:active {
-    background: darken(rgba(255, 255, 255, 0.1), 6%);
-  }
-  .demo-home-nav__title,
-  .demo-home-nav__icon {
-    color: rgba(255, 255, 255, .6);
-  }
-}

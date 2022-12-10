@@ -117,7 +117,7 @@ VantComponent({
         },
         buildImage() {
             const { remote } = this.properties;
-            const { img, left, top } = this.data;
+            const { width, height, img, left, top } = this.data;
             this.createSelectorQuery()
                 .select('#canvas')
                 .fields({ node: true, size: true })
@@ -126,8 +126,8 @@ VantComponent({
                 const ctx = canvas.getContext('2d');
                 const dpr = wx.getWindowInfo().pixelRatio;
                 const image = canvas.createImage();
-                canvas.width = 300 * dpr;
-                canvas.height = 180 * dpr;
+                canvas.width = width * dpr;
+                canvas.height = height * dpr;
                 const canvasRatio = canvas.width / canvas.height;
                 if (remote) {
                     image.src = img;
@@ -135,7 +135,13 @@ VantComponent({
                         this.setData({
                             remoteRadio: image.width * dpr / canvas.width,
                         });
-                        ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+                        const imgRatio = image.width / image.height;
+                        if (canvasRatio > imgRatio) {
+                            ctx.drawImage(image, 0, 0, canvas.width, canvas.width / imgRatio);
+                        }
+                        else {
+                            ctx.drawImage(image, 0, 0, canvas.height * imgRatio, canvas.height);
+                        }
                     };
                 }
                 else {
@@ -156,9 +162,9 @@ VantComponent({
                             x: left,
                             y: top,
                             width: 40,
-                            height: 40,
+                            height: 40 * canvasRatio,
                             destWidth: 40,
-                            destHeight: 40,
+                            destHeight: 40 * canvasRatio,
                             canvasId: 'canvas',
                         });
                         this.setData({ tempFilePath });
@@ -177,6 +183,7 @@ VantComponent({
                     isDrag,
                     success: true,
                 });
+                console.log(x, remoteRadio);
                 toPromise(verity(parseInt(x) * remoteRadio, uuid)).then((value) => {
                     if (value) {
                         this.$emit('success');

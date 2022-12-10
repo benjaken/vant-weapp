@@ -10,6 +10,10 @@
   <van-button block data-id="verify3" bind:click="openVerify">点击按钮进行验证</van-button>
 </demo-block>
 
+<demo-block title="后端图片验证" padding>
+  <van-button block data-id="verify4" bind:click="openVerify">点击按钮进行验证</van-button>
+</demo-block>
+
 <van-slide-captcha
   show="{{verify1}}"
   data-id="verify1"
@@ -36,6 +40,16 @@
   data-id="verify3"
   bind:success="onSuccess"
   bind:error="onError"
+>
+  <view class="demo-title">安全验证</view>
+</van-slide-captcha>
+
+<van-slide-captcha
+  show="{{verify4}}"
+  data-id="verify1"
+  remote
+  request="{{request}}"
+  verity="{{verity}}"
 >
   <view class="demo-title">安全验证</view>
 </van-slide-captcha>

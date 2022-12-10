@@ -20,10 +20,3 @@
 .demo-block--padding .demo-block__title {
   padding-left: 0;
 }
-
-
-.page-dark {
-  .demo-block__title {
-    color: rgba(255, 255, 255, .6);
-  }
-}

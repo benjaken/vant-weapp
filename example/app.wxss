@@ -24,10 +24,3 @@ page {
   display: block;
   margin-bottom: 15px;
 }
-
-.page-dark {
-  page {
-    background: #202124;
-    color: #fff;
-  }
-}

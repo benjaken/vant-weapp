@@ -2,23 +2,23 @@
 
 .van-slide-captcha {
   box-sizing: border-box;
-  padding: 20px;
-  border-radius: 12px;
+  padding: 40rpx;
+  border-radius: @border-radius-lg;
 
   &__wrapper {
-    width: 300px;
+    width: 600rpx;
     position: relative;
   }
 
   &__content {
     position: relative;
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 40rpx;
   }
 
   &__img {
     width: 100%;
-    height: calc(300px * 0.61);
+    height: calc(600rpx * 0.61);
   }
 
   &__tip {
@@ -55,8 +55,8 @@
 
   &__target {
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 80rpx;
+    height: 80rpx;
     background: var(
       --popup-background-color-light,
       @popup-background-color-light
@@ -73,8 +73,8 @@
 
   &__origin {
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 80rpx;
+    height: 80rpx;
     z-index: 1;
     top: 0;
     left: 0;
@@ -82,7 +82,7 @@
     overflow: hidden;
 
     &--remote {
-      width: 50px;
+      width: 100rpx;
       height: 100%;
       box-shadow: none;
     }

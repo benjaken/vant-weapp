@@ -1,3 +1,4 @@
+import { toPromise } from '../common/utils';
 import { VantComponent } from '../common/component';
 VantComponent({
     props: {
@@ -33,9 +34,11 @@ VantComponent({
             type: Boolean,
             value: false,
         },
+        beforeChange: null,
     },
     methods: {
         selectItem({ target }) {
+            const { beforeChange } = this.data;
             const { item } = target.dataset;
             let { value } = this.properties;
             const { single, disabled } = this.properties;
@@ -49,9 +52,17 @@ VantComponent({
                 else {
                     value.push(item);
                 }
-                this.setData({ value });
-                this.$emit('change', value);
+                if (beforeChange) {
+                    toPromise(beforeChange()).then(() => {
+                        this.setData({ value });
+                        this.$emit('change', value);
+                    });
+                }
+                else {
+                    this.setData({ value });
+                    this.$emit('change', value);
+                }
             }
         },
-    }
+    },
 });

@@ -1,3 +1,4 @@
+import { toPromise } from '../common/utils';
 import { VantComponent } from '../common/component';
 
 VantComponent({
@@ -14,7 +15,7 @@ VantComponent({
       type: Boolean,
       value: false,
     },
-		single: {
+    single: {
       type: Boolean,
       value: false,
     },
@@ -23,8 +24,8 @@ VantComponent({
       value: false,
     },
     horizon: {
-			type: Boolean,
-			value: false,
+      type: Boolean,
+      value: false,
     },
     row: {
       type: Number,
@@ -34,23 +35,32 @@ VantComponent({
       type: Boolean,
       value: false,
     },
+    beforeChange: null,
   },
   methods: {
     selectItem({ target }) {
+      const { beforeChange } = this.data;
       const { item } = target.dataset;
       let { value } = this.properties;
       const { single, disabled } = this.properties;
-			if (!disabled) {
-				if (value.indexOf(item) > -1) {
-					value = single ? value : value.filter((v: string) => v !== item);
-				} else if (single) {
-					value = [item];
-				} else {
-					value.push(item);
-				}
-				this.setData({ value });
-				this.$emit('change', value);
-			}
+      if (!disabled) {
+        if (value.indexOf(item) > -1) {
+          value = single ? value : value.filter((v: string) => v !== item);
+        } else if (single) {
+          value = [item];
+        } else {
+          value.push(item);
+        }
+        if (beforeChange) {
+          toPromise(beforeChange()).then(() => {
+            this.setData({ value });
+            this.$emit('change', value);
+          });
+        } else {
+          this.setData({ value });
+          this.$emit('change', value);
+        }
+      }
     },
-  }
+  },
 });

@@ -7,73 +7,76 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+import { nextTick } from '../common/utils';
 import { VantComponent } from '../common/component';
 VantComponent({
     field: true,
     props: {
         name: {
             type: String,
-            value: ''
+            value: '',
         },
         title: {
             type: String,
-            value: ''
+            value: '',
         },
         required: {
             type: Boolean,
-            value: false
+            value: false,
         },
         hideCount: {
             type: Boolean,
-            value: false
+            value: false,
         },
         showText: {
             type: Boolean,
-            value: false
+            value: false,
         },
         mode: {
             type: String,
-            value: 'textarea'
+            value: 'textarea',
         },
         background: {
             type: Boolean,
-            value: true
+            value: true,
         },
         height: {
             type: Number,
-            value: 250
+            value: 250,
         },
         value: {
             type: String,
-            value: ''
+            value: '',
         },
         maxlength: {
             type: Number,
-            value: 500
+            value: 500,
         },
         placeholder: {
             type: String,
-            value: ''
+            value: '',
         },
         field: {
             type: Boolean,
-            value: false
+            value: false,
         },
         customStyle: {
             type: String,
-            value: ''
+            value: '',
         },
     },
     data: {
         formats: {},
         isIOS: false,
         editorLength: 0,
-        editorCtx: null
+        editorCtx: null,
     },
     methods: {
         onInput({ detail: { value } }) {
             this.setData({ value });
-            this.$emit('change', value);
+            nextTick(() => {
+                this.$emit('change', value);
+            });
         },
         onEditorReady() {
             wx.createSelectorQuery()
@@ -85,17 +88,13 @@ VantComponent({
                 const text = this.data.value.replace(/<[^>]+>|&[^>]+;/g, '').trim();
                 this.setData({
                     editorCtx: context,
-                    editorLength: text.length
+                    editorLength: text.length,
                 });
                 if (this.data.value) {
                     this.data.editorCtx.setContents({
-                        html: this.data.value
+                        html: this.data.value,
                     });
                 }
-                wx.pageScrollTo({
-                    scrollTop: 0,
-                    duration: 0
-                });
             })
                 .exec();
         },
@@ -103,12 +102,25 @@ VantComponent({
             this.setData({ formats: detail });
         },
         onEditorInput({ detail: { html: value } }) {
+            this.setContent(value);
+        },
+        insertContent(value) {
+            this.setContent(value);
+            if (this.data.mode == 'editor' && this.data.editorCtx) {
+                this.data.editorCtx.setContents({
+                    html: `${value}\n`,
+                });
+            }
+        },
+        setContent(value) {
             const text = value.replace(/<[^>]+>|&[^>]+;/g, '').trim();
             this.setData({
                 value,
-                editorLength: text.length
+                editorLength: text.length,
             });
-            this.$emit('change', value);
+            nextTick(() => {
+                this.$emit('change', value);
+            });
         },
         format({ target: dataset }) {
             const item = dataset.dataset;
@@ -135,18 +147,18 @@ VantComponent({
             const date = new Date();
             const formatDate = `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
             this.data.editorCtx.insertText({
-                text: formatDate
+                text: formatDate,
             });
         },
         insertImage() {
             return __awaiter(this, void 0, void 0, function* () {
                 const res = yield wx.chooseImage({
-                    count: 1
+                    count: 1,
                 });
                 const file = res.tempFiles[0];
                 this.data.editorCtx.insertImage({
                     src: file.path,
-                    width: '100%'
+                    width: '100%',
                 });
             });
         },

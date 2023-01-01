@@ -1,6 +1,6 @@
 <wxs src="../wxs/utils.wxs" module="utils" />
 
-<van-overlay z-index="201" show="{{show}}">
+<van-overlay z-index="3000" show="{{show}}">
 	<view class="custom-class van-layer">
 		<view wx:if="{{title}}" class="van-layer__title">
 			<text>{{title}}</text>

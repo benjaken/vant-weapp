@@ -37,16 +37,28 @@ VantComponent({
     indicatorTextColor: {
       type: String,
       value: '#fff'
+    },
+    height: {
+      type: String,
+      value: '500rpx'
+    },
+    clickable: {
+      type: Boolean,
+      value: false
     }
   },
   data: {
     active: '',
-    current: 0
+    current: 0,
+    currentIndex: 0
   },
   methods: {
     toggleType({ currentTarget: { dataset } }) {
       const current = dataset.index || 0
-      this.setData({ current })
+      this.setData({
+        current,
+        currentIndex: current,
+      })
     },
     getImages() {
       const { images } = this.properties
@@ -60,14 +72,17 @@ VantComponent({
       const image = swipeImages[current]
       const target = images.find(item => item.images.includes(image))
       this.setData({
-        current,
+        currentIndex: current,
         active: target.name
       })
     },
     onImagePreview({ currentTarget: { dataset } }) {
+      if (this.data.clickable) {
+        return this.$emit('click', dataset.index)
+      }
       const swipeImages = this.getImages()
       const current = dataset.url || swipeImages[0]
-      wx.previewImage({
+      return wx.previewImage({
         current,
         urls: swipeImages,
         fail() {

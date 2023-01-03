@@ -4,6 +4,7 @@
 <view class="van-image-swiper">
 	<swiper
 		class="van-image-swiper__content"
+		style="height:{{height}}"
 		autoplay="{{autoplay}}"
 		interval="{{interval}}"
 		current="{{current}}"
@@ -15,10 +16,11 @@
 			<swiper-item
 				wx:for="{{ wxs.getImages(images) }}"
 				wx:key="index"
+				data-index="{{ index }}"
 				data-url="{{ item }}"
 				bindtap="onImagePreview"
 			>
-				<view class="van-image-swiper__content-item">
+				<view class="van-image-swiper__content-item" style="height:{{height}}">
 					<image class="van-image-swiper__image" mode="aspectFill" src="{{ item }}" />
 				</view>
 			</swiper-item>
@@ -29,7 +31,7 @@
 		class="{{ utils.bem('image-swiper__indicator', { vertical }) }}"
 		style="background:{{indicatorColor}};color:{{indicatorTextColor}}"
 	>
-		{{ current + 1 }}/{{ wxs.getImages(images).length }}
+		{{ currentIndex + 1 }}/{{ wxs.getImages(images).length }}
 	</view>
 	<view
 		wx:if="{{ showToggle }}"

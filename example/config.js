@@ -276,6 +276,10 @@ export default [
         title: 'Editor 编辑器',
       },
       {
+        path: '/image-cropper',
+        title: 'ImageCropper 图片裁剪',
+      },
+      {
         path: '/image-swiper',
         title: 'ImageSwiper 图片轮播',
       },

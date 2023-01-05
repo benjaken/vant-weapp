@@ -25,11 +25,7 @@ VantComponent({
         zIndex: {
             type: Number,
             value: 3000,
-        },
-        closeOnClickOverlay: {
-            type: Boolean,
-            value: false,
-        },
+        }
     },
     methods: {
         closeOverlay() {
@@ -37,11 +33,6 @@ VantComponent({
                 show: false,
             });
             this.$emit('close');
-        },
-        onClick() {
-            if (this.data.closeOnClickOverlay) {
-                this.closeOverlay();
-            }
-        },
+        }
     },
 });

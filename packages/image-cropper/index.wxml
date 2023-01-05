@@ -1,0 +1,36 @@
+<wxs src="../wxs/utils.wxs" module="utils" />
+
+<view class="van-image-cropper">
+  <view class='van-image-cropper__wrapper'>
+    <view wx:if="{{showImg}}" class="van-image-cropper__wrapper-corpper">
+      <view class="van-image-cropper__wrapper-corpper-content" style="width:{{cropperW}}rpx;height:{{cropperH}}rpx;">
+        <view class="van-image-cropper__wrapper-corpper-content-bg">
+          <image src="{{filePath}}" style="width:{{cropperW}}rpx;height:{{cropperH}}rpx"></image>
+        </view>
+        <view class="van-image-cropper__wrapper-corpper-content-box" bind:touchstart="contentDragStart" bind:touchmove="contentDragMove" bind:touchend="contentTouchEnd" style="left:{{cutL}}rpx;top:{{cutT}}rpx;right:{{cutR}}rpx;bottom:{{cutB}}rpx">
+          <view class="van-image-cropper__wrapper-corpper-content-box-view">
+            <view class="van-image-cropper__wrapper-corpper-content-box-view-dashed-h"></view>
+            <view class="van-image-cropper__wrapper-corpper-content-box-view-dashed-v"></view>
+            <view class="van-image-cropper__wrapper-corpper-content-box-view-line-t" data-drag="top" catch:touchstart="sideDragStart" catch:touchmove="sideDragMove" catch:touchend="sideDragEnd"></view>
+            <view class="van-image-cropper__wrapper-corpper-content-box-view-line-r" data-drag="right" catch:touchstart="sideDragStart" catch:touchmove="sideDragMove" catch:touchend="sideDragEnd"></view>
+            <view class="van-image-cropper__wrapper-corpper-content-box-view-line-b" data-drag="bottom" catch:touchstart="sideDragStart" catch:touchmove="sideDragMove" catch:touchend="sideDragEnd"></view>
+            <view class="van-image-cropper__wrapper-corpper-content-box-view-line-l" data-drag="left" catch:touchstart="sideDragStart" catch:touchmove="sideDragMove" catch:touchend="sideDragEnd"></view>
+            <view class="{{utils.bem('image-cropper__wrapper-corpper-content-box-view-point', 't')}}" data-drag="top" catch:touchstart="sideDragStart" catch:touchmove="sideDragMove" catch:touchend="sideDragEnd"></view>
+            <view class="{{utils.bem('image-cropper__wrapper-corpper-content-box-view-point', 'tr')}}" data-drag="topTight"></view>
+            <view class="{{utils.bem('image-cropper__wrapper-corpper-content-box-view-point', 'r')}}" data-drag="right" catch:touchstart="sideDragStart" catch:touchmove="sideDragMove" catch:touchend="sideDragEnd"></view>
+            <view class="{{utils.bem('image-cropper__wrapper-corpper-content-box-view-point', 'rb')}}" data-drag="rightBottom" catch:touchstart="sideDragStart" catch:touchmove="sideDragMove" catch:touchend="sideDragEnd"></view>
+            <view class="{{utils.bem('image-cropper__wrapper-corpper-content-box-view-point', 'b')}}" data-drag="bottom" catch:touchstart="sideDragStart" catch:touchmove="sideDragMove" catch:touchend="sideDragEnd"></view>
+            <view class="{{utils.bem('image-cropper__wrapper-corpper-content-box-view-point', 'bl')}}" data-drag="bottomLeft"></view>
+            <view class="{{utils.bem('image-cropper__wrapper-corpper-content-box-view-point', 'l')}}" data-drag="left" catch:touchstart="sideDragStart" catch:touchmove="sideDragMove" catch:touchend="sideDragEnd"></view>
+            <view class="{{utils.bem('image-cropper__wrapper-corpper-content-box-view-point', 'lt')}}" data-drag="leftTop"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='van-image-cropper__action'>
+    <text class="van-image-cropper__action-button" bindtap="cancel">取消</text>
+    <text class="van-image-cropper__action-button" bindtap="getImageInfo">完成</text>
+  </view>
+  <canvas canvas-id="wxCropperCanvas" style="position:absolute; width:{{qualityWidth}}px;height:{{qualityWidth / innerAspectRadio }}px;top:-9999px;left:-9999px;"></canvas>
+</view>

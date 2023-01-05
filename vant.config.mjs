@@ -331,6 +331,10 @@ export default {
             title: 'Editor 编辑器',
           },
           {
+            path: 'image-cropper',
+            title: 'ImageCropper 图片裁剪',
+          },
+          {
             path: 'image-swiper',
             title: 'ImageSwiper 图片轮播',
           },
@@ -374,7 +378,7 @@ export default {
             path: 'slide-verify',
             title: 'SlideVerify 滑动验证码',
           },
-        ]
+        ],
       },
       {
         title: '废弃',

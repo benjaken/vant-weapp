@@ -1,0 +1,13 @@
+<demo-block title="按比例裁剪" padding>
+  <van-button type="primary" bind:click="showCut">按比例裁剪</van-button>
+</demo-block>
+<demo-block title="随意裁剪" padding>
+  <van-button type="primary" bind:click="showRandomCut">随意裁剪</van-button>
+</demo-block>
+<van-image-cropper
+  wx:if="{{showCropper}}"
+  id="image-cropper"
+  cutRatio="{{cutRatio}}"
+  bind:confirm="onConfirm"
+  bind:cancel="onCancel"
+/>

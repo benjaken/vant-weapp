@@ -303,6 +303,12 @@
           "scene": null
         },
         {
+          "name": "image-cropper",
+          "pathName": "pages/image-cropper/index",
+          "query": "",
+          "scene": null
+        },
+        {
           "name": "image-swiper",
           "pathName": "pages/image-swiper/index",
           "query": "",
@@ -434,6 +440,13 @@
         {
           "name": "semicircle",
           "pathName": "pages/semicircle/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "image-cropper",
+          "pathName": "pages/image-cropper/index",
           "query": "",
           "launchMode": "default",
           "scene": null

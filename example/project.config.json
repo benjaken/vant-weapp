@@ -416,6 +416,11 @@
           "scene": null
         },
         {
+          "name": "image-cropper",
+          "pathName": "pages/image-cropper/index",
+          "scene": null
+        },
+        {
           "name": "image-swiper",
           "pathName": "pages/image-swiper/index",
           "scene": null

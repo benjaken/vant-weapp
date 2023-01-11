@@ -112,10 +112,11 @@ VantComponent({
         },
         scrollHorizon(date) {
             return __awaiter(this, void 0, void 0, function* () {
-                const { width } = yield getRect(this, '.van-calendar__day');
-                const data = new Date(date).getDate() - 4 < 0 ? 0 : new Date(date).getDate() - 4;
-                this.setData({
-                    scrollLeft: data * width,
+                getRect(this, '.van-calendar__day').then(({ width }) => {
+                    const data = new Date(date).getDate() - 4 < 0 ? 0 : new Date(date).getDate() - 4;
+                    this.setData({
+                        scrollLeft: data * width,
+                    });
                 });
             });
         },
@@ -143,7 +144,9 @@ VantComponent({
             }
             this.setData({ days });
             if (this.data.horizon) {
-                this.scrollHorizon(currentDate);
+                wx.nextTick(() => {
+                    this.scrollHorizon(currentDate);
+                });
                 this.initWeekDay();
             }
         },

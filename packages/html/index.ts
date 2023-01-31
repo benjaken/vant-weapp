@@ -1,3 +1,4 @@
+import { getRect } from '../common/utils';
 import { VantComponent } from '../common/component';
 const Parser = require('./parser')
 const plugins: any = []
@@ -310,9 +311,10 @@ VantComponent({
 
       this.setData(data,
         // #ifndef MP-TOUTIAO
-        () => {
+        async () => {
+          const { height } = await getRect(this, '._root')
           this._hook('onLoad')
-          this.triggerEvent('load')
+          this.triggerEvent('load', height)
         }
         // #endif
       )

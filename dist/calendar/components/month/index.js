@@ -112,11 +112,12 @@ VantComponent({
         },
         scrollHorizon(date) {
             return __awaiter(this, void 0, void 0, function* () {
-                getRect(this, '.van-calendar__day').then(({ width }) => {
-                    const data = new Date(date).getDate() - 4 < 0 ? 0 : new Date(date).getDate() - 4;
-                    this.setData({
-                        scrollLeft: data * width,
-                    });
+                const res = yield getRect(this, '.van-calendar__day');
+                if (!res)
+                    return;
+                const data = new Date(date).getDate() - 4 < 0 ? 0 : new Date(date).getDate() - 4;
+                this.setData({
+                    scrollLeft: data * res.width,
                 });
             });
         },

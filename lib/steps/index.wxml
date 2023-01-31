@@ -1,6 +1,4 @@
 <wxs src="../wxs/utils.wxs" module="utils" />
-<wxs src="./index.wxs" module="handler" />
-
 <view class="custom-class {{ utils.bem('steps', [direction]) }}">
   <view class="van-step__wrapper">
     <view
@@ -21,10 +19,10 @@
         class="van-step__desc"
         style="max-height: {{!item.showMore ? '36px' : 'auto'}}"
       >
-        <van-html content="{{item.desc}}" />
+        <van-html content="{{item.desc}}" data-index="{{index}}" bind:load="onHtmlLoad" />
       </view>
       <van-uploader
-        wx:if="{{ item.file && handler.hasMore(item.file) && item.showMore && direction == 'vertical' }}"
+        wx:if="{{ item.file && item.hasMore && item.showMore && direction == 'vertical' }}"
         class="van-step__upload"
         file-list="{{ item.file }}"
         deletable="{{ false }}"
@@ -35,10 +33,13 @@
       <view
         class="van-step__more"
         style="{{ 'color: ' + ((reverse ? index >= active : index < active) ? activeColor : inactiveColor) }}"
-        wx:if="{{ handler.hasMore(item.file) && direction == 'vertical' }}"
+        wx:if="{{ item.hasMore && direction == 'vertical' }}"
         data-index="{{index}}"
         catchtap="onToggle"
-      >{{item.showMore ? '收回' : '详情'}}</view>
+      >
+        <text>{{item.showMore ? '收回' : '展开'}}</text>
+        <van-icon custom-class="{{ utils.bem('step__more-icon', { show: item.showMore }) }}" name="arrow-down" />
+      </view>
       <view class="van-step__circle-container">
         <block wx:if="{{ index !== active }}">
           <van-icon
@@ -53,7 +54,6 @@
             style="{{ 'background-color: ' + ((reverse ? index >= active : index < active) ? activeColor : inactiveColor) }}"
           />
         </block>
-
         <van-icon wx:else name="{{ item.activeIcon || activeIcon }}" color="{{ activeColor }}" custom-class="van-step__icon" />
       </view>
       <view

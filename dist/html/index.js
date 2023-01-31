@@ -7,6 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+import { getRect } from '../common/utils';
 import { VantComponent } from '../common/component';
 const Parser = require('./parser');
 const plugins = [];
@@ -299,10 +300,11 @@ VantComponent({
                 }
                 this.setData(data, 
                 // #ifndef MP-TOUTIAO
-                () => {
+                () => __awaiter(this, void 0, void 0, function* () {
+                    const { height } = yield getRect(this, '._root');
                     this._hook('onLoad');
-                    this.triggerEvent('load');
-                }
+                    this.triggerEvent('load', height);
+                })
                 // #endif
                 );
                 if (this.properties.lazyLoad || this.imgList._unloadimgs < this.imgList.length / 2) {

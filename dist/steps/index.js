@@ -2,7 +2,7 @@
  * @Author: chenzh chenzh@szfdc.net.cn
  * @Date: 2022-06-01 15:23:39
  * @LastEditors: chenzh chenzh@szfdc.net.cn
- * @LastEditTime: 2022-11-11 16:54:13
+ * @LastEditTime: 2023-01-31 15:31:55
  * @Description:
  *
  * Copyright (c) 2022 by 深圳市优房网络有限公司 All Rights Reserved.
@@ -43,9 +43,16 @@ VantComponent({
             this.$emit('click-step', index);
         },
         onToggle({ currentTarget: { dataset } }) {
+            const index = dataset.index;
             const { steps } = this.data;
-            const { showMore = false } = steps[dataset.index];
-            steps[dataset.index].showMore = !showMore;
+            const { showMore = false } = steps[index];
+            steps[index].showMore = !showMore;
+            this.setData({ steps });
+        },
+        onHtmlLoad({ detail, currentTarget: { dataset } }) {
+            const index = dataset.index;
+            const { steps } = this.data;
+            steps[index].hasMore = detail > 36 || (steps[index].file && steps[index].file.length > 0);
             this.setData({ steps });
         }
     }

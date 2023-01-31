@@ -3,7 +3,6 @@ var startX = 0;
 function start(event) {
   var touch = event.touches[0] || event.changedTouches[0];
   startX = touch.pageX;
-  console.log(startX)
 }
 function move(event, ins) {
   var touch = event.touches[0] || event.changedTouches[0];

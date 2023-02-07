@@ -124,7 +124,7 @@ VantComponent({
                 .exec((res) => __awaiter(this, void 0, void 0, function* () {
                 const canvas = res[0].node;
                 const ctx = canvas.getContext('2d');
-                const dpr = wx.getWindowInfo().pixelRatio;
+                const dpr = wx.getSystemInfoSync().pixelRatio;
                 const image = canvas.createImage();
                 canvas.width = width * dpr;
                 canvas.height = height * dpr;

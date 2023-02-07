@@ -61,7 +61,7 @@ VantComponent({
       const { color, lineWidth, dashWidth } = this.properties;
       const { width, height, writeTips, context } = this.data;
       const { x, y } = event.changedTouches[0];
-      const dpr = wx.getWindowInfo().pixelRatio;
+      const dpr = wx.getSystemInfoSync().pixelRatio;
       if (writeTips) {
         context.clearRect(0, 0, width, height);
         this.setData({

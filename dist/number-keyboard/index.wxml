@@ -63,7 +63,7 @@
         </view>
         <view class="van-number-keyboard__keys-wrapper">
           <view
-            class="{{ utils.bem('number-keyboard__button', { large: true, orange: true }) }}"
+            class="{{ utils.bem('number-keyboard__button', { large: true, primary: true }) }}"
             data-key="collapse"
             bindtap="onClickKey"
           >

@@ -16,7 +16,7 @@
     class="{{ utils.bem('dialog__header', { isolated: !(message || useSlot) }) }}"
   >
     <slot wx:if="{{ useTitleSlot }}" name="title" />
-    <block wx:elif="{{ title }}">{{ title }}</block>
+    <text wx:elif="{{ title }}">{{ title }}</text>
   </view>
 
   <slot wx:if="{{ useSlot }}" />

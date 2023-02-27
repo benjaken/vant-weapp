@@ -12,3 +12,7 @@ export declare function getScrollOffset(): Promise<WechatMiniprogram.ScrollOffse
 export declare function groupSetData(context: WechatMiniprogram.Component.TrivialInstance, cb: () => void): void;
 export declare function toPromise(promiseLike: Promise<unknown> | unknown): Promise<unknown>;
 export declare function getCurrentPage<T>(): T & WechatMiniprogram.OptionalInterface<WechatMiniprogram.Page.ILifetime> & WechatMiniprogram.Page.InstanceProperties & WechatMiniprogram.Page.InstanceMethods<WechatMiniprogram.IAnyObject> & WechatMiniprogram.Page.Data<WechatMiniprogram.IAnyObject> & WechatMiniprogram.IAnyObject;
+export declare function getPngSize(base64: any): {
+    width: number;
+    height: number;
+};

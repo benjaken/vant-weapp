@@ -69,11 +69,8 @@ export function getAllRect(context, selector) {
     });
 }
 export function getScrollOffset() {
-    return new Promise(resolve => {
-        wx.createSelectorQuery()
-            .selectViewport()
-            .scrollOffset(resolve)
-            .exec();
+    return new Promise((resolve) => {
+        wx.createSelectorQuery().selectViewport().scrollOffset(resolve).exec();
     });
 }
 export function groupSetData(context, cb) {
@@ -93,4 +90,27 @@ export function toPromise(promiseLike) {
 export function getCurrentPage() {
     const pages = getCurrentPages();
     return pages[pages.length - 1];
+}
+export function getPngSize(base64) {
+    if (base64.substring(0, 22) === 'data:image/png;base64,') {
+        const data = base64.substring(22 + 20, 22 + 32);
+        const base64Characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+        const nums = [];
+        for (const c of data) {
+            nums.push(base64Characters.indexOf(c));
+        }
+        const bytes = [];
+        for (let i = 0; i < nums.length; i += 4) {
+            bytes.push((nums[i] << 2) + (nums[i + 1] >> 4));
+            bytes.push(((nums[i + 1] & 15) << 4) + (nums[i + 2] >> 2));
+            bytes.push(((nums[i + 2] & 3) << 6) + nums[i + 3]);
+        }
+        const width = (bytes[1] << 24) + (bytes[2] << 16) + (bytes[3] << 8) + bytes[4];
+        const height = (bytes[5] << 24) + (bytes[6] << 16) + (bytes[7] << 8) + bytes[8];
+        return {
+            width,
+            height,
+        };
+    }
+    throw Error('unsupported image type');
 }

@@ -8,7 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import { GREEN } from '../common/color';
-import { getRect, toPromise } from '../common/utils';
+import { getPngSize, getRect, toPromise } from '../common/utils';
 import { VantComponent } from '../common/component';
 VantComponent({
     props: {
@@ -46,6 +46,7 @@ VantComponent({
         },
     },
     data: {
+        type: 'canvas',
         img: '',
         uuid: '',
         remoteRadio: 1,
@@ -75,15 +76,28 @@ VantComponent({
                     sizeY,
                 });
                 if (remote) {
-                    toPromise(request()).then((data) => {
+                    toPromise(request()).then((data) => __awaiter(this, void 0, void 0, function* () {
+                        let imageWidth = 0;
+                        const { width } = yield getRect(this, '.van-slide-captcha__content');
+                        if (data.backImg.indexOf('data:image/png;base64') === 0) {
+                            const { width } = getPngSize(data.backImg);
+                            imageWidth = width;
+                        }
+                        else if (data.backImg.indexOf('http') === 0) {
+                            const { width } = yield wx.getImageInfo({
+                                src: data.backImg,
+                            });
+                            imageWidth = width;
+                        }
                         this.setData({
+                            type: 'image',
                             loading: false,
                             uuid: data.uuid,
                             img: data.backImg,
                             tempFilePath: data.targetImg,
+                            remoteRadio: imageWidth / width
                         });
-                        this.buildImage();
-                    });
+                    }));
                 }
                 else {
                     this.randomTarget();
@@ -116,41 +130,25 @@ VantComponent({
             });
         },
         buildImage() {
-            const { remote } = this.properties;
             const { width, height, img, left, top } = this.data;
             this.createSelectorQuery()
                 .select('#canvas')
                 .fields({ node: true, size: true })
                 .exec((res) => __awaiter(this, void 0, void 0, function* () {
-                const canvas = res[0].node;
-                const ctx = canvas.getContext('2d');
-                const dpr = wx.getSystemInfoSync().pixelRatio;
-                const image = canvas.createImage();
-                canvas.width = width * dpr;
-                canvas.height = height * dpr;
-                const canvasRatio = canvas.width / canvas.height;
-                if (remote) {
-                    image.src = img;
-                    image.onload = () => {
-                        this.setData({
-                            remoteRadio: image.width * dpr / canvas.width,
-                        });
-                        const imgRatio = image.width / image.height;
-                        if (canvasRatio > imgRatio) {
-                            ctx.drawImage(image, 0, 0, canvas.width, canvas.width / imgRatio);
-                        }
-                        else {
-                            ctx.drawImage(image, 0, 0, canvas.height * imgRatio, canvas.height);
-                        }
-                    };
-                }
-                else {
-                    const { path, width, height } = yield wx.getImageInfo({
+                try {
+                    const canvas = res[0].node;
+                    const ctx = canvas.getContext('2d');
+                    const dpr = wx.getSystemInfoSync().pixelRatio;
+                    const image = canvas.createImage();
+                    canvas.width = width * dpr;
+                    canvas.height = height * dpr;
+                    const canvasRatio = canvas.width / canvas.height;
+                    const { path, width: imageWidth, height: imageHeight } = yield wx.getImageInfo({
                         src: img,
                     });
                     image.src = path;
                     image.onload = () => __awaiter(this, void 0, void 0, function* () {
-                        const imgRatio = width / height;
+                        const imgRatio = imageWidth / imageHeight;
                         if (canvasRatio > imgRatio) {
                             ctx.drawImage(image, 0, 0, canvas.width, canvas.width / imgRatio);
                         }
@@ -170,6 +168,9 @@ VantComponent({
                         this.setData({ tempFilePath });
                     });
                 }
+                catch (error) {
+                    console.log(error);
+                }
             }));
         },
         onDragStart({ isDrag }) {
@@ -183,7 +184,6 @@ VantComponent({
                     isDrag,
                     success: true,
                 });
-                console.log(x, remoteRadio);
                 toPromise(verity(parseInt(x) * remoteRadio, uuid)).then((value) => {
                     if (value) {
                         this.$emit('success');

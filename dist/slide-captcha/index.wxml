@@ -18,9 +18,16 @@
     </view>
     <view class="van-slide-captcha__content">
       <canvas
-        class="van-slide-captcha__img"
+        wx:if="{{type == 'canvas'}}"
+        class="van-slide-captcha__canvas"
         id="canvas"
         type="2d"
+      />
+      <image
+        wx:if="{{type == 'image'}}"
+        class="van-slide-captcha__img"
+        src="{{img}}"
+        mode="widthFix"
       />
       <view
         wx:if="{{!loading && img && !remote}}"
@@ -32,7 +39,8 @@
         class="{{ utils.bem('slide-captcha__origin', [{ round, remote }]) }}"
         style="{{isDrag || success ? '' : 'left:' + (left - target) + 'px !important;transition:left 0.5s ease-in-out;'}}top:{{top}}px"
       >
-        <image class="van-slide-captcha__origin--image" src="{{tempFilePath}}" />
+        <image wx:if="{{remote}}" class="van-slide-captcha__origin--image" mode="widthFix" src="{{tempFilePath}}" />
+        <image wx:else class="van-slide-captcha__origin--image" src="{{tempFilePath}}" />
       </view>
       <view class="van-slide-captcha__mask" wx:if="{{success && !remote}}">
         <van-icon name="success" size="20px" color="{{activeColor}}"></van-icon>

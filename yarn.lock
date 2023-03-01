@@ -2386,9 +2386,10 @@
     eslint-plugin-import "^2.24.0"
     eslint-plugin-vue "^7.18.0"
 
-"@vant/icons@git+http://10.2.1.61:18080/frontend/vant-icon.git":
+"@vant/icons@^1.7.1":
   version "1.8.0"
-  resolved "git+http://10.2.1.61:18080/frontend/vant-icon.git#a2a39f615aec100222e4905240aafd69c4263ab8"
+  resolved "https://registry.npmmirror.com/@vant/icons/-/icons-1.8.0.tgz#36b13f2e628b533f6523a93a168cf02f07056674"
+  integrity sha512-sKfEUo2/CkQFuERxvkuF6mGQZDKu3IQdj5rV9Fm0weJXtchDSSQ+zt8qPCNUEhh9Y8shy5PzxbvAfOOkCwlCXg==
 
 "@vant/markdown-vetur@^2.2.0":
   version "2.2.0"
@@ -7787,14 +7788,14 @@ istanbul-reports@^3.1.3:
     html-escaper "^2.0.0"
     istanbul-lib-report "^3.0.0"
 
-j-component@^1.4.6:
-  version "1.4.6"
-  resolved "https://registry.npmmirror.com/j-component/-/j-component-1.4.6.tgz#e533399addea268aadb00876a2357c8c59a8b43c"
-  integrity sha512-yKugOAw8LmalSC9mFXsFf+q5WRUvqaeA0lnOiUJiBhyBCJGhbSLAqyfYv3+u5TQtQVVUrB691ocyJUNIuYkcmA==
+j-component@^1.4.9:
+  version "1.4.9"
+  resolved "https://registry.npmmirror.com/j-component/-/j-component-1.4.9.tgz#c44d62b506df1d5d2156c68bd9408e5d18c74ec5"
+  integrity sha512-7TaTylECTW4sRaDLaj463sTj9BK6/3rSD67um47ypLPwtZW3wPwynCQ9sdnEJmTIw9Jfy2ZLKWiSDRdaINv50w==
   dependencies:
     expr-parser "^1.0.0"
     miniprogram-api-typings "^3.2.2"
-    miniprogram-exparser "2.15.0"
+    miniprogram-exparser latest
 
 jake@^10.6.1:
   version "10.8.2"
@@ -9190,18 +9191,18 @@ miniprogram-compiler@latest:
     glob "^7.1.3"
     unescape-js "^1.1.1"
 
-miniprogram-exparser@2.15.0:
-  version "2.15.0"
-  resolved "https://registry.npmmirror.com/miniprogram-exparser/-/miniprogram-exparser-2.15.0.tgz#8893a250dfed768802c061b13ff9ae1958b1223c"
-  integrity sha512-W6aS1R3oVTwYw5hPguRqICFqx3wk2dtPAcwT6269WeWRjuQslbVPZRW/nlN16bg0NM5eQFmfU49PM6/PQ5DE8w==
+miniprogram-exparser@latest:
+  version "2.29.1"
+  resolved "https://registry.npmmirror.com/miniprogram-exparser/-/miniprogram-exparser-2.29.1.tgz#c8404b7182e7b1e7fb68e2d9d37abdae90db26b5"
+  integrity sha512-f2LUVYcQ5O664nOHhrEbtR//hlqln88dRY0mIwuRncJfuXMCdK9FBk0vzNDG6EgaaeTt3iGLeFQLRHlhYktkXw==
 
 miniprogram-simulate@^1.4.2:
-  version "1.5.5"
-  resolved "https://registry.npmmirror.com/miniprogram-simulate/-/miniprogram-simulate-1.5.5.tgz#d1bcc24675f5ec99bb0d2365697cd96ccf24eab5"
-  integrity sha512-GeI2jZ9y78o7TIybb3NX0BFrdV2YombyXRCEaAJVEoeWtpUSqvxHwfRUSMDsY8na8KXRXUfLtUWP1B5rS6LLlA==
+  version "1.5.9"
+  resolved "https://registry.npmmirror.com/miniprogram-simulate/-/miniprogram-simulate-1.5.9.tgz#427bf5040a239e3ab017a6e5b18079eca491318e"
+  integrity sha512-l/Ddm/L7tZ1I9/V86JnDJpM5fGqw53LieQIkuyIJyyC4/8lBjBQ0ziMCBwb+1EO2aKz4Uhlt4moT4PS/s9QAjQ==
   dependencies:
     csso "^3.5.1"
-    j-component "^1.4.6"
+    j-component "^1.4.9"
     less "^3.10.3"
     miniprogram-compiler latest
     postcss "^7.0.23"

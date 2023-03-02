@@ -23,11 +23,12 @@
         id="canvas"
         type="2d"
       />
-      <image
+      <van-image
         wx:if="{{type == 'image'}}"
-        class="van-slide-captcha__img"
+        custom-class="van-slide-captcha__img"
         src="{{img}}"
-        mode="widthFix"
+        fit="widthFix"
+        error-text="加载验证码失败，请点右上角刷新键重试"
       />
       <view
         wx:if="{{!loading && img && !remote}}"

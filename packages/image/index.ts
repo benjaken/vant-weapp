@@ -32,6 +32,7 @@ VantComponent({
       type: Boolean,
       value: true,
     },
+    errorText: String,
     showLoading: {
       type: Boolean,
       value: true,

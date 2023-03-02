@@ -30,5 +30,6 @@
   >
     <slot wx:if="{{ useErrorSlot }}" name="error" />
     <van-icon wx:else name="photo-fail" custom-class="van-image__error-icon" />
+    <view wx:if="{{ errorText }}" class="van-image__error-text">{{ errorText }}</view>
   </view>
 </view>

@@ -9,7 +9,10 @@ VantComponent({
     username2: '',
     username3: '',
     message: '',
-    phone: '1365577',
+    phone: '',
+    idCard: '',
+    area: '',
+    phone1: '1365577',
   },
 
   methods: {

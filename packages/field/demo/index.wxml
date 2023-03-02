@@ -49,7 +49,7 @@
       error
     />
     <van-field
-      value="{{ phone }}"
+      value="{{ phone1 }}"
       label="手机号"
       placeholder="请输入手机号"
       error-message="手机号格式错误"
@@ -95,6 +95,44 @@
       border="{{ false }}"
     >
       <van-button slot="button" size="small" type="primary" custom-class="button">发送验证码</van-button>
+    </van-field>
+  </van-cell-group>
+</demo-block>
+
+<demo-block title="带输入提示">
+  <van-cell-group>
+    <van-field
+      type="number"
+      value="{{ phone }}"
+      center
+      clearable
+      label="手机号"
+      placeholder="请输入手机号"
+      maxlength="11"
+      tip-type="mobile"
+    />
+    <van-field
+      type="idcard"
+      value="{{ idCard }}"
+      center
+      clearable
+      label="身份证号"
+      placeholder="请输入身份证号"
+      maxlength="18"
+      tip-type="idcard"
+    />
+    <van-field
+      type="digit"
+      value="{{ area }}"
+      center
+      clearable
+      label="面积"
+      placeholder="请输入面积"
+      show-tip
+      tip-unit="㎡"
+      input-align="right"
+    >
+      <text slot="icon">㎡</text>
     </van-field>
   </van-cell-group>
 </demo-block>

@@ -57,4 +57,14 @@
   <view slot="label" wx:if="{{ tipMessage }}" class="{{ utils.bem('field__tip-message', { disabled }) }}">
     {{ tipMessage }}
   </view>
+  <view wx:if="{{tipVisible && type !== 'textarea'}}"
+    class="{{ utils.bem('field__tip', [inputAlign]) }}"
+    style="{{ inputAlign === 'left' ? 'left:' + utils.addUnit(tipLeft) : '' }}"
+    animation="{{ animationData }}"
+  >
+    <view class="van-field__tip-inner">
+      <text>{{ computed.formatValue(value, tipType) }}</text>
+      <text class="van-field__tip-unit" wx:if="{{tipUnit}}">{{ tipUnit }}</text>
+    </view>
+  </view>
 </van-cell>

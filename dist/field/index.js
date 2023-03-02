@@ -1,10 +1,22 @@
-import { nextTick } from '../common/utils';
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+import { getRect, nextTick } from '../common/utils';
 import { VantComponent } from '../common/component';
 import { commonProps, inputProps, textareaProps } from './props';
 VantComponent({
     field: true,
     classes: ['input-class', 'right-icon-class', 'label-class'],
-    props: Object.assign(Object.assign(Object.assign(Object.assign({}, commonProps), inputProps), textareaProps), { size: String, icon: String, label: String, error: Boolean, center: Boolean, isLink: Boolean, leftIcon: String, rightIcon: String, autosize: null, required: Boolean, iconClass: String, clickable: Boolean, inputAlign: String, customStyle: String, errorMessage: String, arrowDirection: String, showWordLimit: Boolean, errorMessageAlign: String, tipMessage: String, readonly: {
+    props: Object.assign(Object.assign(Object.assign(Object.assign({}, commonProps), inputProps), textareaProps), { size: String, icon: String, label: String, error: Boolean, center: Boolean, isLink: Boolean, leftIcon: String, rightIcon: String, autosize: null, required: Boolean, iconClass: String, clickable: Boolean, inputAlign: {
+            type: String,
+            value: 'left',
+        }, customStyle: String, errorMessage: String, arrowDirection: String, showWordLimit: Boolean, errorMessageAlign: String, tipMessage: String, readonly: {
             type: Boolean,
             observer: 'setShowClear',
         }, clearable: {
@@ -22,31 +34,50 @@ VantComponent({
         }, clearIcon: {
             type: String,
             value: 'clear',
+        }, showTip: {
+            type: Boolean,
+            value: false,
+        }, tipType: {
+            type: String,
+            value: '',
+        }, tipUnit: {
+            type: String,
+            value: '',
         } }),
     data: {
         focused: false,
         innerValue: '',
         showClear: false,
+        tipVisible: false,
     },
     created() {
-        this.value = this.data.value;
-        this.setData({ innerValue: this.value });
+        return __awaiter(this, void 0, void 0, function* () {
+            this.value = this.data.value;
+            const { left } = yield getRect(this, '.van-field__body');
+            this.setData({
+                innerValue: this.value,
+                tipLeft: left
+            });
+        });
     },
     methods: {
         onInput(event) {
             const { value = '' } = event.detail || {};
             this.value = value;
             this.setShowClear();
+            this.setShowTip();
             this.emitChange();
         },
         onFocus(event) {
             this.focused = true;
             this.setShowClear();
+            this.setShowTip();
             this.$emit('focus', event.detail);
         },
         onBlur(event) {
             this.focused = false;
             this.setShowClear();
+            this.setShowTip();
             this.$emit('blur', event.detail);
         },
         onClickIcon() {
@@ -68,11 +99,13 @@ VantComponent({
             const { value = '' } = event.detail || {};
             this.value = value;
             this.setShowClear();
+            this.setShowTip();
             this.$emit('confirm', value);
         },
         setValue(value) {
             this.value = value;
             this.setShowClear();
+            this.setShowTip();
             if (value === '') {
                 this.setData({ innerValue: '' });
             }
@@ -101,6 +134,48 @@ VantComponent({
                 showClear = hasValue && trigger;
             }
             this.setData({ showClear });
+        },
+        setShowTip() {
+            const { showTip, tipType, readonly } = this.data;
+            const { focused, value } = this;
+            let tipVisible = false;
+            if ((showTip || tipType) && !readonly) {
+                const hasValue = !!value;
+                tipVisible = hasValue && focused;
+            }
+            if (tipVisible) {
+                this.setData({
+                    tipVisible,
+                }, () => {
+                    this.setData({
+                        animationData: wx
+                            .createAnimation({
+                            timingFunction: 'ease-in-out',
+                        })
+                            .top(0)
+                            .opacity(1)
+                            .step()
+                            .export(),
+                    });
+                });
+            }
+            else {
+                this.setData({
+                    animationData: wx
+                        .createAnimation({
+                        timingFunction: 'ease-in-out',
+                    })
+                        .opacity(0)
+                        .step()
+                        .export(),
+                }, () => {
+                    setTimeout(() => {
+                        this.setData({
+                            tipVisible,
+                        });
+                    }, 400);
+                });
+            }
         },
         noop() { },
     },

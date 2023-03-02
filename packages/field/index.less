@@ -17,7 +17,6 @@
   &__body {
     display: flex;
     align-items: center;
-    height: 100%;
 
     &--textarea {
       box-sizing: border-box;
@@ -84,6 +83,48 @@
       display: flex;
       align-items: center;
       min-height: var(--cell-line-height, @cell-line-height);
+    }
+  }
+
+  &__tip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+
+    &-inner {
+      display: inline-block;
+      border: 1px solid var(--field-tip-border-color-light, @field-tip-border-color-light);
+      background-color: var(--field-tip-background-color-light, @field-tip-background-color-light);
+      border-radius: var(--field-tip-border-radius, @field-tip-border-radius);
+      font-weight: bold;
+      font-size: var(--field-tip-text-font-size, @field-tip-text-font-size);
+      color: var(--field-tip-text-color-light, @field-tip-text-color-light);
+      padding: var(--field-tip-text-padding, @field-tip-text-padding);
+    }
+
+    &--left {
+      left: 0;
+      right: 0;
+      transform: translate3d(-32px, -110%, 0);
+      text-align: left;
+    }
+
+    &--right {
+      left: 0;
+      right: 0;
+      transform: translate3d(0, -110%, 0);
+      text-align: right;
+    }
+
+    &--center {
+      left: 50%;
+      transform: translate3d(-50%, -110%, 0);
+      text-align: center;
+    }
+
+    &-unit {
+      margin-left: var(--padding-base, @padding-base);
     }
   }
 
@@ -202,7 +243,10 @@
       color: var(--field-input-text-color-dark, @field-input-text-color-dark);
 
       &--error {
-        color: var(--field-input-error-text-color, @field-input-error-text-color);
+        color: var(
+          --field-input-error-text-color,
+          @field-input-error-text-color
+        );
       }
 
       &--disabled {

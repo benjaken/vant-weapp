@@ -13,40 +13,42 @@ VantComponent({
   },
   methods: {
     showBubble() {
-      this.setData({
-        show: true,
-      });
-      setTimeout(() => {
-        this.setData({
-          animationData: wx
-            .createAnimation({
-              duration: 500,
-              timingFunction: 'ease',
-              delay: 0,
-            })
-            .opacity(1)
-            .step()
-            .export(),
-        });
-      }, 0);
+      this.setData(
+        {
+          show: true,
+        },
+        () => {
+          this.setData({
+            animationData: wx
+              .createAnimation({
+                duration: 500,
+                timingFunction: 'ease-in-out',
+                delay: 0,
+              })
+              .opacity(1)
+              .step()
+              .export(),
+          });
+        }
+      );
     },
     hideBubble() {
       this.setData({
-        show: false,
-      });
-      setTimeout(() => {
-        this.setData({
-          animationData: wx
-            .createAnimation({
-              duration: 500,
-              timingFunction: 'ease',
-              delay: 0,
-            })
-            .opacity(0)
-            .step()
-            .export(),
-        });
-      }, 0);
+        animationData: wx
+          .createAnimation({
+            duration: 500,
+            timingFunction: 'ease-in-out',
+            delay: 0,
+          })
+          .opacity(0)
+          .export(),
+      }, () => {
+        setTimeout(() => {
+          this.setData({
+            tipVisible: false,
+          })
+        }, 400);
+      })
     },
   },
 });

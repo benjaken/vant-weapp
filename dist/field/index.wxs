@@ -13,6 +13,45 @@ function inputStyle(autosize) {
   return '';
 }
 
+function formatValue(value, type) {
+  if (type === 'mobile') {
+    var reg = getRegExp('^(\d{3})(\d{0,4})(\d{0,4})$', '');
+    if (value.length <= 3) {
+      return value;
+    } else if (value.length <= 7) {
+      return value.replace(reg, '$1 $2');
+    } else {
+      return value.replace(reg, '$1 $2 $3');
+    }
+  } else if (type === 'idcard') {
+    var reg = getRegExp('^(\d{6})(\d{0,4})(\d{0,4})(\w{0,4})$', '');
+    if (value.length <= 6) {
+      return value;
+    } else if (value.length <= 10) {
+      return value.replace(reg, '$1 $2');
+    } else if (value.length <= 14) {
+      return value.replace(reg, '$1 $2 $3');
+    } else {
+      return value.replace(reg, '$1 $2 $3 $4');
+    }
+  } else if (type === 'bankcard') {
+    var reg = getRegExp('^(\d{4})(\d{0,4})(\d{0,4})(\d{0,4})(\d{0,4})$', '');
+    if (value.length <= 4) {
+      return value;
+    } else if (value.length <= 8) {
+      return value.replace(reg, '$1 $2');
+    } else if (value.length <= 12) {
+      return value.replace(reg, '$1 $2 $3');
+    } else if (value.length <= 16) {
+      return value.replace(reg, '$1 $2 $3 $4');
+    } else {
+      return value.replace(reg, '$1 $2 $3 $4 $5');
+    }
+  }
+  return value;
+}
+
 module.exports = {
   inputStyle: inputStyle,
+  formatValue: formatValue
 };

@@ -1,4 +1,4 @@
-import { nextTick } from '../common/utils';
+import { getRect, nextTick } from '../common/utils';
 import { VantComponent } from '../common/component';
 import { commonProps, inputProps, textareaProps } from './props';
 
@@ -23,7 +23,10 @@ VantComponent({
     required: Boolean,
     iconClass: String,
     clickable: Boolean,
-    inputAlign: String,
+    inputAlign: {
+      type: String,
+      value: 'left',
+    },
     customStyle: String,
     errorMessage: String,
     arrowDirection: String,
@@ -54,17 +57,34 @@ VantComponent({
       type: String,
       value: 'clear',
     },
+    showTip: {
+      type: Boolean,
+      value: false,
+    },
+    tipType: {
+      type: String,
+      value: '',
+    },
+    tipUnit: {
+      type: String,
+      value: '',
+    },
   },
 
   data: {
     focused: false,
     innerValue: '',
     showClear: false,
+    tipVisible: false,
   },
 
-  created() {
+  async created() {
     this.value = this.data.value;
-    this.setData({ innerValue: this.value });
+    const { left } = await getRect(this, '.van-field__body');
+    this.setData({
+      innerValue: this.value,
+      tipLeft: left
+    });
   },
 
   methods: {
@@ -73,6 +93,7 @@ VantComponent({
 
       this.value = value;
       this.setShowClear();
+      this.setShowTip();
       this.emitChange();
     },
 
@@ -81,6 +102,7 @@ VantComponent({
     ) {
       this.focused = true;
       this.setShowClear();
+      this.setShowTip();
       this.$emit('focus', event.detail);
     },
 
@@ -89,6 +111,7 @@ VantComponent({
     ) {
       this.focused = false;
       this.setShowClear();
+      this.setShowTip();
       this.$emit('blur', event.detail);
     },
 
@@ -117,12 +140,14 @@ VantComponent({
       const { value = '' } = event.detail || {};
       this.value = value;
       this.setShowClear();
+      this.setShowTip();
       this.$emit('confirm', value);
     },
 
     setValue(value) {
       this.value = value;
       this.setShowClear();
+      this.setShowTip();
 
       if (value === '') {
         this.setData({ innerValue: '' });
@@ -167,6 +192,57 @@ VantComponent({
       }
 
       this.setData({ showClear });
+    },
+
+    setShowTip() {
+      const { showTip, tipType, readonly } = this.data;
+      const { focused, value } = this;
+
+      let tipVisible = false;
+
+      if ((showTip || tipType) && !readonly) {
+        const hasValue = !!value;
+        tipVisible = hasValue && focused;
+      }
+
+      if (tipVisible) {
+        this.setData(
+          {
+            tipVisible,
+          },
+          () => {
+            this.setData({
+              animationData: wx
+                .createAnimation({
+                  timingFunction: 'ease-in-out',
+                })
+                .top(0)
+                .opacity(1)
+                .step()
+                .export(),
+            });
+          }
+        );
+      } else {
+        this.setData(
+          {
+            animationData: wx
+              .createAnimation({
+                timingFunction: 'ease-in-out',
+              })
+              .opacity(0)
+              .step()
+              .export(),
+          },
+          () => {
+            setTimeout(() => {
+              this.setData({
+                tipVisible,
+              })
+            }, 400);
+          }
+        );
+      }
     },
 
     noop() {},

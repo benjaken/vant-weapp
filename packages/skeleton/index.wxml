@@ -5,19 +5,25 @@
 	style="background-color: {{ bgcolor || '#FFF' }}; {{ isDev ? devData.container : data.container }}"
 	wx:if="{{ !isDev || isShowByDev }}"
 >
-	<block wx:for="{{ isDev ? devData.lists : data.lists }}" wx:for-item="list" wx:key="type">
-		<view
-			wx:for="{{ list.elements }}"
-			wx:for-item="item"
-			wx:key="index"
-			class="van-skeleton__item van-skeleton__item--{{ list.type }}"
-			style="{{ item }}"
-		/>
-	</block>
-	<view class="van-skeleton__spinbox">
-		<view class="van-skeleton__spin" />
+	<view class="van-skeleton__error" wx:if="{{error}}">
+		<view class="van-skeleton__error-text">{{errorText}}</view>
+		<van-button class="van-skeleton__error-button" type="primary" size="small" bind:click="retry" block>重试</van-button>
 	</view>
-	<view class="van-skeleton__shine" />
+	<block wx:else>
+		<block wx:for="{{ isDev ? devData.lists : data.lists }}" wx:for-item="list" wx:key="type">
+			<view
+				wx:for="{{ list.elements }}"
+				wx:for-item="item"
+				wx:key="index"
+				class="van-skeleton__item van-skeleton__item--{{ list.type }}"
+				style="{{ item }}"
+			/>
+		</block>
+		<view class="van-skeleton__spinbox">
+			<view class="van-skeleton__spin" />
+		</view>
+		<view class="van-skeleton__shine" />
+	</block>
 </view>
 <view wx:if="{{ isDev }}" bindtap="toggleBtnTap" class="van-skeleton__render-button">
 	{{ isShowByDev ? '关闭' : '骨架屏' }}

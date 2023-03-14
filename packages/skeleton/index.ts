@@ -26,7 +26,15 @@ VantComponent({
 		loading: {
 			type: String,
 			value: 'shine'
-		}
+		},
+    error: {
+      type: Boolean,
+      value: false,
+    },
+    errorText: {
+      type: String,
+      value: '请求失败，请点击重试',
+    }
   },
   data: {
     physicalRadio: 2,
@@ -151,5 +159,8 @@ VantComponent({
       );
       return Promise.all(promises);
     },
+    retry() {
+      this.$emit('retry');
+    }
   },
 });

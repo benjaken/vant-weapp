@@ -72,6 +72,24 @@
 		background-color: @primary-color;
 		box-shadow: 2px 2px 6px rgba(134, 151, 197, 0.17);
 	}
+
+	&__error {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		height: 60vh;
+
+		&-text {
+			font-size: @font-size-md;
+			color: @text-color-2;
+			margin: @padding-sm 0;
+		}
+
+		&-button {
+			width: 160rpx;
+		}
+	}
 }
 
 /* spin start */

@@ -5,7 +5,7 @@ import { commonProps, inputProps, textareaProps } from './props';
 VantComponent({
   field: true,
 
-  classes: ['input-class', 'right-icon-class', 'label-class'],
+  classes: ['field-class', 'input-class', 'right-icon-class', 'label-class'],
 
   props: {
     ...commonProps,
@@ -69,6 +69,10 @@ VantComponent({
       type: String,
       value: '',
     },
+    passwordTip: {
+      type: Array,
+      value: []
+    }
   },
 
   data: {
@@ -80,10 +84,10 @@ VantComponent({
 
   async created() {
     this.value = this.data.value;
-    const { left } = await getRect(this, '.van-field__body');
+    const res = await getRect(this, '.van-field__body');
     this.setData({
       innerValue: this.value,
-      tipLeft: left
+      tipLeft: res.left || 0
     });
   },
 
@@ -195,12 +199,12 @@ VantComponent({
     },
 
     setShowTip() {
-      const { showTip, tipType, readonly } = this.data;
+      const { type, showTip, tipType, readonly, passwordTip } = this.data;
       const { focused, value } = this;
 
       let tipVisible = false;
 
-      if ((showTip || tipType) && !readonly) {
+      if ((showTip || tipType || (type == 'password' && passwordTip.length > 0)) && !readonly) {
         const hasValue = !!value;
         tipVisible = hasValue && focused;
       }

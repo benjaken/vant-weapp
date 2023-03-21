@@ -23,6 +23,7 @@
       placeholder="请输入密码"
       required
       border="{{ false }}"
+      password-tip="{{ passwordTip }}"
     />
   </van-cell-group>
 </demo-block>

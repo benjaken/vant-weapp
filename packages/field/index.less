@@ -103,6 +103,25 @@
       padding: var(--field-tip-text-padding, @field-tip-text-padding);
     }
 
+    &-item {
+      position: relative;
+      font-size: @font-size-sm;
+      font-weight: normal;
+      line-height: @font-size-lg;
+      padding-left: @padding-md;
+      margin-bottom: @padding-base;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &-icon {
+        position: absolute;
+        left: 0;
+        top: 2px;
+      }
+    }
+
     &--left {
       left: 0;
       right: 0;

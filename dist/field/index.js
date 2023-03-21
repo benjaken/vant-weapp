@@ -12,7 +12,7 @@ import { VantComponent } from '../common/component';
 import { commonProps, inputProps, textareaProps } from './props';
 VantComponent({
     field: true,
-    classes: ['input-class', 'right-icon-class', 'label-class'],
+    classes: ['field-class', 'input-class', 'right-icon-class', 'label-class'],
     props: Object.assign(Object.assign(Object.assign(Object.assign({}, commonProps), inputProps), textareaProps), { size: String, icon: String, label: String, error: Boolean, center: Boolean, isLink: Boolean, leftIcon: String, rightIcon: String, autosize: null, required: Boolean, iconClass: String, clickable: Boolean, inputAlign: {
             type: String,
             value: 'left',
@@ -43,6 +43,9 @@ VantComponent({
         }, tipUnit: {
             type: String,
             value: '',
+        }, passwordTip: {
+            type: Array,
+            value: []
         } }),
     data: {
         focused: false,
@@ -53,10 +56,10 @@ VantComponent({
     created() {
         return __awaiter(this, void 0, void 0, function* () {
             this.value = this.data.value;
-            const { left } = yield getRect(this, '.van-field__body');
+            const res = yield getRect(this, '.van-field__body');
             this.setData({
                 innerValue: this.value,
-                tipLeft: left
+                tipLeft: res.left || 0
             });
         });
     },
@@ -136,10 +139,10 @@ VantComponent({
             this.setData({ showClear });
         },
         setShowTip() {
-            const { showTip, tipType, readonly } = this.data;
+            const { type, showTip, tipType, readonly, passwordTip } = this.data;
             const { focused, value } = this;
             let tipVisible = false;
-            if ((showTip || tipType) && !readonly) {
+            if ((showTip || tipType || (type == 'password' && passwordTip.length > 0)) && !readonly) {
                 const hasValue = !!value;
                 tipVisible = hasValue && focused;
             }

@@ -13,8 +13,8 @@
   title-style="margin-right: 12px;"
   custom-style="{{ customStyle }}"
   arrow-direction="{{ arrowDirection }}"
-  use-label-slot
-  custom-class="van-field"
+  use-label-slot="{{ tipMessage }}"
+  custom-class="van-field field-class"
 >
   <slot name="left-icon" slot="icon" />
   <view wx:if="{{ label }}" class="label-class {{ utils.bem('field__label', { disabled }) }}" slot="title">
@@ -62,8 +62,18 @@
     style="{{ inputAlign === 'left' ? 'left:' + utils.addUnit(tipLeft) : '' }}"
     animation="{{ animationData }}"
   >
-    <view class="van-field__tip-inner">
-      <text>{{ computed.formatValue(value, tipType) }}</text>
+    <view class="{{utils.bem('field__tip-inner', { pass: passwordTip.length > 0 })}}">
+      <block wx:if="{{ type == 'password' && passwordTip.length > 0 }}">
+        <view wx:for="{{ passwordTip }}" wx:key="index" class="{{ utils.bem('field__tip-item') }}">
+          <van-icon
+            class="van-field__tip-item-icon"
+            name="{{computed.validate(value, item.reg) ? 'success' : 'cross'}}"
+            color="{{computed.validate(value, item.reg) ? '#07c160' : '#D92324'}}"
+          />
+          <text>{{ item.text }}</text>
+        </view>
+      </block>
+      <text wx:else>{{ computed.formatValue(value, tipType) }}</text>
       <text class="van-field__tip-unit" wx:if="{{tipUnit}}">{{ tipUnit }}</text>
     </view>
   </view>

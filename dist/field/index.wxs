@@ -1,3 +1,12 @@
+/*
+ * @Author: chenzh chenzh@szfdc.net.cn
+ * @Date: 2022-04-07 14:11:58
+ * @LastEditors: chenzh chenzh@szfdc.net.cn
+ * @LastEditTime: 2023-03-23 11:52:17
+ * @Description: 
+ * 
+ * Copyright (c) 2023 by 深圳市优房网络有限公司 All Rights Reserved. 
+ */
 /* eslint-disable */
 var style = require('../wxs/style.wxs');
 var addUnit = require('../wxs/add-unit.wxs');
@@ -11,6 +20,11 @@ function inputStyle(autosize) {
   }
 
   return '';
+}
+
+function validate(value, reg) {
+  var REGEXP = getRegExp(reg, '');
+  return REGEXP.test(value);
 }
 
 function formatValue(value, type) {
@@ -53,5 +67,6 @@ function formatValue(value, type) {
 
 module.exports = {
   inputStyle: inputStyle,
-  formatValue: formatValue
+  formatValue: formatValue,
+  validate: validate
 };

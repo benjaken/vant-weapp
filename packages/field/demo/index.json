@@ -3,6 +3,7 @@
   "usingComponents": {
     "van-field": "../../field/index",
     "van-cell-group": "../../cell-group/index",
+    "van-button": "../../button/index",
     "demo-block": "../../../example/components/demo-block/index"
   }
 }

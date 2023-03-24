@@ -62,7 +62,7 @@
     style="{{ inputAlign === 'left' ? 'left:' + utils.addUnit(tipLeft) : '' }}"
     animation="{{ animationData }}"
   >
-    <view class="{{utils.bem('field__tip-inner', { pass: passwordTip.length > 0 })}}">
+    <view class="{{utils.bem('field__tip-inner', { password: passwordTip.length > 0 })}}">
       <block wx:if="{{ type == 'password' && passwordTip.length > 0 }}">
         <view wx:for="{{ passwordTip }}" wx:key="index" class="{{ utils.bem('field__tip-item') }}">
           <van-icon

@@ -101,10 +101,6 @@
       font-size: var(--field-tip-text-font-size, @field-tip-text-font-size);
       color: var(--field-tip-text-color-light, @field-tip-text-color-light);
       padding: var(--field-tip-text-padding, @field-tip-text-padding);
-    
-      &--password {
-        width: 100%;
-      }
     }
 
     &-item {
@@ -114,11 +110,6 @@
       font-weight: normal;
       line-height: var(--field-tip-item-line-height, @field-tip-item-line-height);
       padding-left: var(--field-tip-item-padding-left, @field-tip-item-padding-left);
-      margin-bottom: var(--field-tip-item-margin-bottom, @field-tip-item-margin-bottom);
-
-      &:last-child {
-        margin-bottom: 0;
-      }
 
       &-icon {
         position: absolute;
@@ -145,6 +136,12 @@
       left: 50%;
       transform: translate3d(-50%, -110%, 0);
       text-align: center;
+    }
+
+    &--left, &--center {
+      .van-field__tip-inner--password {
+        width: 100%;
+      }
     }
 
     &-unit {

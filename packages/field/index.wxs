@@ -2,7 +2,7 @@
  * @Author: chenzh chenzh@szfdc.net.cn
  * @Date: 2022-04-07 14:11:58
  * @LastEditors: chenzh chenzh@szfdc.net.cn
- * @LastEditTime: 2023-03-23 11:52:17
+ * @LastEditTime: 2023-03-27 14:40:34
  * @Description: 
  * 
  * Copyright (c) 2023 by 深圳市优房网络有限公司 All Rights Reserved. 
@@ -38,8 +38,9 @@ function formatValue(value, type) {
       return value.replace(reg, '$1 $2 $3');
     }
   } else if (type === 'idcard') {
+    var isOther = getRegExp('^[^0-9].*$', '');
     var reg = getRegExp('^(\d{6})(\d{0,4})(\d{0,4})(\w{0,4})$', '');
-    if (value.length <= 6) {
+    if (isOther.test(value) || value.length <= 6) {
       return value;
     } else if (value.length <= 10) {
       return value.replace(reg, '$1 $2');

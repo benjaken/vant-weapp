@@ -5,7 +5,7 @@
   <view class="van-password-input__security">
     <view
       class="{{ utils.bem('password-input__item', [ theme, { gutter: gutter > 0, focused: focused && index == value.length } ]) }}"
-      style="{{index != 0 ? ('margin-left:' + gutter + 'px') : ''}}"
+      style="background:{{background}};border-radius:{{theme == 'square' ? gutterRadius : '0px'}};{{index != 0 ? ('margin-left:' + gutter + 'px') : ''}}"
       wx:for="{{length}}"
       wx:key="index"
       bindtouchstart="onFocus"
@@ -17,6 +17,16 @@
       <view wx:if="{{focused && index == value.length}}" class="van-password-input__item-cursor" />
     </view>
   </view>
+  <input
+    value="{{value}}"
+    focus="{{focused}}"
+    maxlength="{{length}}"
+    type="number"
+    class='van-password-input__input'
+    bindinput="onInput"
+    bindfocus="onInputFocus"
+    bindblur="onInputBlur"
+  />
   <view wx:if="{{errorInfo || info}}" class="{{ utils.bem('password-input__info', { error: errorInfo })}}">
     {{ errorInfo || info }}
   </view>

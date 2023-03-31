@@ -1,6 +1,12 @@
 <demo-block title="加载类型" padding>
   <van-loading custom-class="demo-loading" />
   <van-loading custom-class="demo-loading" type="spinner" />
+  <van-loading custom-class="demo-loading" type="ccw" />
+  <van-loading custom-class="demo-loading" type="double-ring" />
+  <van-loading custom-class="demo-loading" type="text" />
+  <van-loading custom-class="demo-loading" type="ball" />
+  <van-loading custom-class="demo-loading" type="ball-step" />
+  <van-loading custom-class="demo-loading" type="jump-ball" />
 </demo-block>
 
 <demo-block title="自定义颜色" padding>

@@ -19,7 +19,7 @@
     max-width: 100%;
     max-height: 100%;
     height: var(--loading-spinner-size, @loading-spinner-size);
-    animation: van-rotate
+    animation: rotate
       var(
         --loading-spinner-animation-duration,
         @loading-spinner-animation-duration
@@ -34,6 +34,220 @@
       border: 1px solid transparent;
       border-top-color: currentColor;
       border-radius: 100%;
+    }
+
+    &--double-ring {
+      &::before,
+      &::after {
+        content: '';
+        box-sizing: border-box;
+        position: absolute;
+        inset: 0px;
+        border-radius: 50%;
+        border: var(--loading-double-ring-border, @loading-double-ring-border)
+          solid
+          var(
+            --loading-double-ring-color-outside,
+            @loading-double-ring-color-outside
+          );
+        animation: prixClipFix
+          calc(
+            var(
+                --loading-spinner-animation-duration,
+                @loading-spinner-animation-duration
+              ) * 2
+          )
+          linear infinite;
+      }
+      &::after {
+        inset: calc(
+          var(--loading-double-ring-border, @loading-double-ring-border) * 1.5
+        );
+        animation: prixClipFix
+            calc(
+              var(
+                  --loading-spinner-animation-duration,
+                  @loading-spinner-animation-duration
+                ) * 2
+            )
+            linear infinite,
+          rotate
+            calc(
+              var(
+                  --loading-spinner-animation-duration,
+                  @loading-spinner-animation-duration
+                ) / 2
+            )
+            linear infinite reverse;
+        border-color: var(
+          --loading-double-ring-color-light,
+          @loading-double-ring-color-light
+        );
+      }
+    }
+
+    &--text {
+      width: auto;
+      line-height: var(--loading-spinner-size, @loading-spinner-size);
+      font-size: calc(var(--loading-spinner-size, @loading-spinner-size) / 1.5);
+      animation: none;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 0 2px @primary-color, 0 0 1px @primary-color,
+        0 0 1px @primary-color;
+      position: relative;
+      box-sizing: border-box;
+
+      &::after {
+        content: 'Loading...';
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: @primary-color;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
+        animation: animloader
+          calc(
+            var(
+                --loading-spinner-animation-duration,
+                @loading-spinner-animation-duration
+              ) * 6
+          )
+          linear infinite;
+      }
+    }
+
+    &--ccw {
+      border-radius: 50%;
+      display: inline-block;
+      border-top: 4px solid
+        var(--loading-spinner-color-light, @loading-spinner-color-light);
+      border-right: 4px solid transparent;
+      box-sizing: border-box;
+
+      &::after {
+        content: '';
+        box-sizing: border-box;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: var(--loading-spinner-size, @loading-spinner-size);
+        height: var(--loading-spinner-size, @loading-spinner-size);
+        border-radius: 50%;
+        border-bottom: 4px solid @primary-color;
+        border-left: 4px solid transparent;
+      }
+    }
+
+    &--ball {
+      width: calc(var(--loading-spinner-size, @loading-spinner-size) * 1.4) !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: none;
+
+      &-inner {
+        position: relative;
+        width: calc(var(--loading-spinner-size, @loading-spinner-size) / 3);
+        height: calc(var(--loading-spinner-size, @loading-spinner-size) / 3);
+        border-radius: 50%;
+        background-color: var(
+          --loading-spinner-color-light,
+          @loading-spinner-color-light
+        );
+        box-shadow: calc(
+              var(--loading-spinner-size, @loading-spinner-size) / 1.875
+            )
+            0 var(--loading-spinner-color-light, @loading-spinner-color-light),
+          calc(var(--loading-spinner-size, @loading-spinner-size) / -1.875) 0
+            var(--loading-spinner-color-light, @loading-spinner-color-light);
+        animation: flash
+          var(
+            --loading-spinner-animation-duration,
+            @loading-spinner-animation-duration
+          )
+          ease-out infinite alternate;
+      }
+    }
+
+    &--ball-step {
+      position: relative;
+      width: 75px !important;
+      height: 60px !important;
+      background-repeat: no-repeat;
+      background-image: linear-gradient(#ddd 50px, transparent 0),
+        linear-gradient(#ddd 50px, transparent 0),
+        linear-gradient(#ddd 50px, transparent 0),
+        linear-gradient(#ddd 50px, transparent 0),
+        linear-gradient(#ddd 50px, transparent 0);
+      background-size: 8px 100%;
+      background-position: 0px 50px, 15px 38px, 30px 26px, 45px 18px, 60px 10px;
+      animation: pillerPushUp 4s linear infinite;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        background: @primary-color;
+        border-radius: 50%;
+        animation: ballStepUp 4s linear infinite;
+      }
+    }
+
+    &--jump-ball {
+      width: 60px !important;
+      height: var(--loading-spinner-size, @loading-spinner-size);
+      animation: none;
+
+      &-inner {
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        border-radius: 50%;
+        background-color: @primary-color;
+        left: 0;
+        transform-origin: 50%;
+        animation: circle 0.5s alternate infinite ease;
+
+        &:nth-child(2) {
+          left: 25px;
+          animation-delay: 0.2s;
+        }
+
+        &:nth-child(3) {
+          left: 50px;
+          animation-delay: 0.3s;
+        }
+      }
+
+      &-shadow {
+        width: 10px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: var(--loading-spinner-color-light, @loading-spinner-color-light);
+        position: absolute;
+        top: calc(var(--loading-spinner-size, @loading-spinner-size) - 4px);
+        transform-origin: 50%;
+        left: 0;
+        z-index: -1;
+        animation: shadow 0.5s alternate infinite ease;
+
+        &:nth-child(4) {
+          left: 25px;
+          animation-delay: 0.2s;
+        }
+
+        &:nth-child(5) {
+          left: 50px;
+          animation-delay: 0.3s;
+        }
+      }
     }
   }
 
@@ -52,7 +266,7 @@
     flex-direction: column;
 
     .van-loading__text {
-      margin: var(--padding-xs, @padding-xs) 0 0;
+      margin: var(--padding-sm, @padding-sm) 0 0;
     }
   }
 
@@ -84,13 +298,192 @@
 }
 .generate(12);
 
-@keyframes van-rotate {
-  from {
+@keyframes rotate {
+  0% {
     transform: rotate(0deg);
   }
-
-  to {
+  100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes prixClipFix {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
+  }
+  25% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
+  }
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
+  }
+  75% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+  }
+}
+
+@keyframes animloader {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes spin {
+  0%,
+  100% {
+    box-shadow: 0.2em 0px 0 0px currentcolor;
+  }
+  12% {
+    box-shadow: 0.2em 0.2em 0 0 currentcolor;
+  }
+  25% {
+    box-shadow: 0 0.2em 0 0px currentcolor;
+  }
+  37% {
+    box-shadow: -0.2em 0.2em 0 0 currentcolor;
+  }
+  50% {
+    box-shadow: -0.2em 0 0 0 currentcolor;
+  }
+  62% {
+    box-shadow: -0.2em -0.2em 0 0 currentcolor;
+  }
+  75% {
+    box-shadow: 0px -0.2em 0 0 currentcolor;
+  }
+  87% {
+    box-shadow: 0.2em -0.2em 0 0 currentcolor;
+  }
+}
+
+@keyframes flash {
+  0% {
+    background-color: #fff2;
+    box-shadow: calc(var(--loading-spinner-size, @loading-spinner-size) / 1.875)
+        0 #fff2,
+      calc(var(--loading-spinner-size, @loading-spinner-size) / -1.875) 0
+        @primary-color;
+  }
+  50% {
+    background-color: @primary-color;
+    box-shadow: calc(var(--loading-spinner-size, @loading-spinner-size) / 1.875)
+        0 #fff2,
+      calc(var(--loading-spinner-size, @loading-spinner-size) / -1.875) 0 #fff2;
+  }
+  100% {
+    background-color: #fff2;
+    box-shadow: calc(var(--loading-spinner-size, @loading-spinner-size) / 1.875)
+        0 @primary-color,
+      calc(var(--loading-spinner-size, @loading-spinner-size) / -1.875) 0 #fff2;
+  }
+}
+
+@keyframes pillerPushUp {
+  0%,
+  40%,
+  100% {
+    background-position: 0px 50px, 15px 38px, 30px 26px, 45px 18px, 60px 10px;
+  }
+  50%,
+  90% {
+    background-position: 0px 10px, 15px 18px, 30px 26px, 45px 38px, 60px 50px;
+  }
+}
+
+@keyframes ballStepUp {
+  0% {
+    transform: translate(0, 0);
+  }
+  5% {
+    transform: translate(8px, -14px);
+  }
+  10% {
+    transform: translate(15px, -10px);
+  }
+  17% {
+    transform: translate(23px, -24px);
+  }
+  20% {
+    transform: translate(30px, -20px);
+  }
+  27% {
+    transform: translate(38px, -34px);
+  }
+  30% {
+    transform: translate(45px, -30px);
+  }
+  37% {
+    transform: translate(53px, -44px);
+  }
+  40% {
+    transform: translate(60px, -40px);
+  }
+  50% {
+    transform: translate(60px, 0);
+  }
+  57% {
+    transform: translate(53px, -14px);
+  }
+  60% {
+    transform: translate(45px, -10px);
+  }
+  67% {
+    transform: translate(37px, -24px);
+  }
+  70% {
+    transform: translate(30px, -20px);
+  }
+  77% {
+    transform: translate(22px, -34px);
+  }
+  80% {
+    transform: translate(15px, -30px);
+  }
+  87% {
+    transform: translate(7px, -44px);
+  }
+  90% {
+    transform: translate(0, -40px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes circle {
+  0% {
+    top: calc(var(--loading-spinner-size, @loading-spinner-size) - 10px);
+    height: 6px;
+    border-radius: 3px 3px 3px 3px;
+    transform: scaleX(1.5);
+  }
+  30% {
+    height: 10px;
+    border-radius: 50%;
+    transform: scaleX(1);
+  }
+  100% {
+    top: -50%;
+  }
+}
+
+@keyframes shadow {
+  0% {
+    transform: scaleX(1.5);
+  }
+  30% {
+    transform: scaleX(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scaleX(0.2);
+    opacity: 0.4;
   }
 }
 

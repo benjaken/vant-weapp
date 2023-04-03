@@ -82,7 +82,7 @@ VantComponent({
     tipVisible: false,
   },
 
-  async created() {
+  async mounted() {
     this.value = this.data.value;
     const res = await getRect(this, '.van-field__body');
     this.setData({

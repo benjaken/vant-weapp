@@ -53,7 +53,7 @@ VantComponent({
         showClear: false,
         tipVisible: false,
     },
-    created() {
+    mounted() {
         return __awaiter(this, void 0, void 0, function* () {
             this.value = this.data.value;
             const res = yield getRect(this, '.van-field__body');

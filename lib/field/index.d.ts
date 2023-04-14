@@ -85,6 +85,22 @@ export declare const Field: import("../utils").WithInstall<import("vue").DefineC
         type: BooleanConstructor;
         default: null;
     };
+    showTip: {
+        type: BooleanConstructor;
+        value: boolean;
+    };
+    FieldTipType: {
+        type: import("vue").PropType<import("./types").FieldTipType>;
+        value: string;
+    };
+    tipUnit: {
+        type: StringConstructor;
+        value: string;
+    };
+    passwordTip: {
+        type: ArrayConstructor;
+        value: never[];
+    };
 }, () => JSX.Element, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("clear" | "focus" | "blur" | "keypress" | "clickInput" | "endValidate" | "startValidate" | "clickLeftIcon" | "clickRightIcon" | "update:modelValue")[], "clear" | "focus" | "blur" | "keypress" | "clickInput" | "endValidate" | "startValidate" | "clickLeftIcon" | "clickRightIcon" | "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     tag: {
         type: import("vue").PropType<keyof HTMLElementTagNameMap>;
@@ -171,6 +187,22 @@ export declare const Field: import("../utils").WithInstall<import("vue").DefineC
         type: BooleanConstructor;
         default: null;
     };
+    showTip: {
+        type: BooleanConstructor;
+        value: boolean;
+    };
+    FieldTipType: {
+        type: import("vue").PropType<import("./types").FieldTipType>;
+        value: string;
+    };
+    tipUnit: {
+        type: StringConstructor;
+        value: string;
+    };
+    passwordTip: {
+        type: ArrayConstructor;
+        value: never[];
+    };
 }>> & {
     onFocus?: ((...args: any[]) => any) | undefined;
     onBlur?: ((...args: any[]) => any) | undefined;
@@ -201,6 +233,7 @@ export declare const Field: import("../utils").WithInstall<import("vue").DefineC
     readonly: boolean;
     showWordLimit: boolean;
     colon: boolean;
+    showTip: boolean;
 }>>;
 export default Field;
 export { fieldProps } from './Field';

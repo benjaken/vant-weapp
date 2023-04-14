@@ -68,6 +68,7 @@ import type {
   FieldValidationStatus,
   FieldValidateTrigger,
   FieldFormSharedProps,
+  FieldTipType
 } from './types';
 
 const [name, bem] = createNamespace('field');
@@ -119,6 +120,22 @@ export const fieldProps = extend({}, cellSharedProps, fieldSharedProps, {
     type: Boolean,
     default: null,
   },
+  showTip: {
+    type: Boolean,
+    value: false,
+  },
+  FieldTipType: {
+    type: String as PropType<FieldTipType>,
+    value: '',
+  },
+  tipUnit: {
+    type: String,
+    value: '',
+  },
+  passwordTip: {
+    type: Array,
+    value: [],
+  },
 });
 
 export type FieldProps = ExtractPropTypes<typeof fieldProps>;
@@ -147,8 +164,10 @@ export default defineComponent({
       status: 'unvalidated' as FieldValidationStatus,
       focused: false,
       validateMessage: '',
+      tipVisible: false,
     });
 
+    const tipLeft = ref<number>(0);
     const inputRef = ref<HTMLInputElement>();
     const clearIconRef = ref<ComponentInstance>();
     const customValue = ref<() => unknown>();
@@ -178,6 +197,25 @@ export default defineComponent({
         return hasValue && trigger;
       }
       return false;
+    });
+
+    const showTip = computed(() => {
+      const readonly = getProp('readonly');
+
+      let visible = false;
+
+      if (
+        (props.showTip ||
+          props.FieldTipType ||
+          (props.type === 'password' &&
+            (props?.passwordTip || []).length > 0)) &&
+        !readonly
+      ) {
+        const hasValue = getModelValue() !== '';
+        visible = hasValue && state.focused;
+      }
+
+      return visible;
     });
 
     const formValue = computed(() => {
@@ -571,6 +609,104 @@ export default defineComponent({
       }
     };
 
+    const tipStyle = computed(() => {
+      const { inputAlign } = props;
+      if (inputAlign === 'left') {
+        return { left: `${tipLeft.value}px` };
+      }
+    });
+
+    const validateValue = (value: string, reg: string) => {
+      const regExp = new RegExp(reg);
+      return regExp.test(value);
+    };
+
+    const formatValue = (value: string, type: FieldTipType) => {
+      if (type === 'mobile') {
+        const reg = /^(d{3})(d{0,4})(d{0,4})$/;
+        if (value.length <= 3) {
+          return value;
+        }
+        if (value.length <= 7) {
+          return value.replace(reg, '$1 $2');
+        }
+        return value.replace(reg, '$1 $2 $3');
+      }
+      if (type === 'idcard') {
+        const isOther = /^[^0-9].*$/;
+        const reg = /^(d{6})(d{0,4})(d{0,4})(w{0,4})$/g;
+        if (isOther.test(value) || value.length <= 6) {
+          return value;
+        }
+        if (value.length <= 10) {
+          return value.replace(reg, '$1 $2');
+        }
+        if (value.length <= 14) {
+          return value.replace(reg, '$1 $2 $3');
+        }
+        return value.replace(reg, '$1 $2 $3 $4');
+      }
+      if (type === 'bankcard') {
+        const reg = /^(d{4})(d{0,4})(d{0,4})(d{0,4})(d{0,4})$/;
+        if (value.length <= 4) {
+          return value;
+        }
+        if (value.length <= 8) {
+          return value.replace(reg, '$1 $2');
+        }
+        if (value.length <= 12) {
+          return value.replace(reg, '$1 $2 $3');
+        }
+        if (value.length <= 16) {
+          return value.replace(reg, '$1 $2 $3 $4');
+        }
+        return value.replace(reg, '$1 $2 $3 $4 $5');
+      }
+      return value;
+    };
+
+    const renderTipContent = () => {
+      const { type, FieldTipType, passwordTip = [] } = props;
+      if (type === 'password' && passwordTip.length > 0) {
+        return passwordTip.map((item: any) => (
+          <div class={bem('tip-item')}>
+            <Icon
+              class={bem('tip-item-icon')}
+              name={
+                validateValue(getModelValue(), item.reg) ? 'success' : 'cross'
+              }
+              color={
+                validateValue(getModelValue(), item.reg) ? '#07c160' : '#D92324'
+              }
+            />
+            <span>{item.text}</span>
+          </div>
+        ));
+      }
+      return <span>{formatValue(getModelValue(), FieldTipType || 'mobile')}</span>;
+    };
+
+    const renderTip = () => {
+      const { type, inputAlign = 'left', passwordTip = [], tipUnit } = props;
+      if (showTip.value && type !== 'textarea') {
+        return (
+          <div
+            class={bem('tip', [inputAlign])}
+            style={tipStyle.value}
+          >
+            <div
+              class={bem('tip-inner', {
+                password: passwordTip.length > 0,
+              })}
+            >
+              {renderTipContent()}
+              {tipUnit ? <span class={bem('tip-unit')} >{tipUnit}</span> : null}
+            </div>
+          </div>
+        );
+      }
+    };
+
     const renderLabel = () => {
       const labelWidth = getProp('labelWidth');
       const labelAlign = getProp('labelAlign');
@@ -611,6 +747,7 @@ export default defineComponent({
       </div>,
       renderWordLimit(),
       renderMessage(),
+      renderTip(),
     ];
 
     useExpose<FieldExpose>({

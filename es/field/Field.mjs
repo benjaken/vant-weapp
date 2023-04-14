@@ -53,6 +53,22 @@ const fieldProps = extend({}, cellSharedProps, fieldSharedProps, {
   colon: {
     type: Boolean,
     default: null
+  },
+  showTip: {
+    type: Boolean,
+    value: false
+  },
+  FieldTipType: {
+    type: String,
+    value: ""
+  },
+  tipUnit: {
+    type: String,
+    value: ""
+  },
+  passwordTip: {
+    type: Array,
+    value: []
   }
 });
 var stdin_default = defineComponent({
@@ -67,8 +83,10 @@ var stdin_default = defineComponent({
     const state = reactive({
       status: "unvalidated",
       focused: false,
-      validateMessage: ""
+      validateMessage: "",
+      tipVisible: false
     });
+    const tipLeft = ref(0);
     const inputRef = ref();
     const clearIconRef = ref();
     const customValue = ref();
@@ -95,6 +113,15 @@ var stdin_default = defineComponent({
         return hasValue && trigger;
       }
       return false;
+    });
+    const showTip = computed(() => {
+      const readonly = getProp("readonly");
+      let visible = false;
+      if ((props.showTip || props.FieldTipType || props.type === "password" && ((props == null ? void 0 : props.passwordTip) || []).length > 0) && !readonly) {
+        const hasValue = getModelValue() !== "";
+        visible = hasValue && state.focused;
+      }
+      return visible;
     });
     const formValue = computed(() => {
       if (customValue.value && slots.input) {
@@ -417,6 +444,100 @@ var stdin_default = defineComponent({
         }) : message]);
       }
     };
+    const tipStyle = computed(() => {
+      const {
+        inputAlign
+      } = props;
+      if (inputAlign === "left") {
+        return {
+          left: `${tipLeft.value}px`
+        };
+      }
+    });
+    const validateValue = (value, reg) => {
+      const regExp = new RegExp(reg);
+      return regExp.test(value);
+    };
+    const formatValue = (value, type) => {
+      if (type === "mobile") {
+        const reg = /^(d{3})(d{0,4})(d{0,4})$/;
+        if (value.length <= 3) {
+          return value;
+        }
+        if (value.length <= 7) {
+          return value.replace(reg, "$1 $2");
+        }
+        return value.replace(reg, "$1 $2 $3");
+      }
+      if (type === "idcard") {
+        const isOther = /^[^0-9].*$/;
+        const reg = /^(d{6})(d{0,4})(d{0,4})(w{0,4})$/g;
+        if (isOther.test(value) || value.length <= 6) {
+          return value;
+        }
+        if (value.length <= 10) {
+          return value.replace(reg, "$1 $2");
+        }
+        if (value.length <= 14) {
+          return value.replace(reg, "$1 $2 $3");
+        }
+        return value.replace(reg, "$1 $2 $3 $4");
+      }
+      if (type === "bankcard") {
+        const reg = /^(d{4})(d{0,4})(d{0,4})(d{0,4})(d{0,4})$/;
+        if (value.length <= 4) {
+          return value;
+        }
+        if (value.length <= 8) {
+          return value.replace(reg, "$1 $2");
+        }
+        if (value.length <= 12) {
+          return value.replace(reg, "$1 $2 $3");
+        }
+        if (value.length <= 16) {
+          return value.replace(reg, "$1 $2 $3 $4");
+        }
+        return value.replace(reg, "$1 $2 $3 $4 $5");
+      }
+      return value;
+    };
+    const renderTipContent = () => {
+      const {
+        type,
+        FieldTipType,
+        passwordTip = []
+      } = props;
+      if (type === "password" && passwordTip.length > 0) {
+        return passwordTip.map((item) => _createVNode("div", {
+          "class": bem("tip-item")
+        }, [_createVNode(Icon, {
+          "class": bem("tip-item-icon"),
+          "name": validateValue(getModelValue(), item.reg) ? "success" : "cross",
+          "color": validateValue(getModelValue(), item.reg) ? "#07c160" : "#D92324"
+        }, null), _createVNode("span", null, [item.text])]));
+      }
+      return _createVNode("span", null, [formatValue(getModelValue(), FieldTipType || "mobile")]);
+    };
+    const renderTip = () => {
+      const {
+        type,
+        inputAlign = "left",
+        passwordTip = [],
+        tipUnit
+      } = props;
+      if (showTip.value && type !== "textarea") {
+        return _createVNode("div", {
+          "class": bem("tip", [inputAlign]),
+          "style": tipStyle.value
+        }, [_createVNode("div", {
+          "class": bem("tip-inner", {
+            password: passwordTip.length > 0
+          })
+        }, [renderTipContent(), tipUnit ? _createVNode("span", {
+          "class": bem("tip-unit")
+        }, [tipUnit]) : null])]);
+      }
+    };
     const renderLabel = () => {
       const labelWidth = getProp("labelWidth");
       const labelAlign = getProp("labelAlign");
@@ -442,7 +563,7 @@ var stdin_default = defineComponent({
       "class": bem("clear")
     }, null), renderRightIcon(), slots.button && _createVNode("div", {
       "class": bem("button")
-    }, [slots.button()])]), renderWordLimit(), renderMessage()];
+    }, [slots.button()])]), renderWordLimit(), renderMessage(), renderTip()];
     useExpose({
       blur,
       focus,

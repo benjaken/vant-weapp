@@ -25,11 +25,7 @@ export default {
     darkModeClass: 'van-theme-dark',
     lightModeClass: 'van-theme-light',
     enableVConsole: false,
-    versions: [
-      { label: 'v1', link: '/vant/v1/' },
-      { label: 'v2', link: '/vant/v2/' },
-      { label: 'v3', link: '/vant/v3/' },
-    ],
+    versions: [],
     baiduAnalytics: {
       seed: 'af5d41bc4e446e76665dbe3ec18d55c3',
     },
@@ -41,7 +37,7 @@ location.href = location.href.replace('youzan.github.io', 'vant-ui.github.io');
 `,
     locales: {
       'zh-CN': {
-        title: 'Vant 4',
+        title: 'YouFang Vant',
         subtitle: '（适用于 Vue 3）',
         description: '轻量、可定制的移动端组件库',
         logo: 'https://fastly.jsdelivr.net/npm/@vant/assets/logo.png',
@@ -49,11 +45,11 @@ location.href = location.href.replace('youzan.github.io', 'vant-ui.github.io');
         links: [
           {
             logo: 'https://fastly.jsdelivr.net/npm/@vant/assets/weapp.svg',
-            url: 'https://vant-contrib.gitee.io/vant-weapp/',
+            url: 'http://10.2.1.61:18080/frontend/vant-weapp',
           },
           {
             logo: 'https://fastly.jsdelivr.net/npm/@vant/assets/github.svg',
-            url: 'https://github.com/vant-ui/vant',
+            url: 'http://10.2.1.61:18080/frontend/vant',
           },
         ],
         nav: [
@@ -161,10 +157,6 @@ location.href = location.href.replace('youzan.github.io', 'vant-ui.github.io');
               {
                 path: 'cascader',
                 title: 'Cascader 级联选择',
-              },
-              {
-                path: 'check-button',
-                title: 'CheckButton 复选按钮',
               },
               {
                 path: 'checkbox',
@@ -441,6 +433,15 @@ location.href = location.href.replace('youzan.github.io', 'vant-ui.github.io');
             ],
           },
           {
+            title: '优房组件',
+            items: [
+              {
+                path: 'check-button',
+                title: 'CheckButton 复选按钮',
+              },
+            ],
+          },
+          {
             title: '组合式 API',
             items: [
               {
@@ -492,7 +493,7 @@ location.href = location.href.replace('youzan.github.io', 'vant-ui.github.io');
         ],
       },
       'en-US': {
-        title: 'Vant 4',
+        title: 'YouFang Vant',
         subtitle: ' (for Vue 3)',
         description:
           'A lightweight, customizable Vue UI library for mobile web apps.',
@@ -500,8 +501,12 @@ location.href = location.href.replace('youzan.github.io', 'vant-ui.github.io');
         langLabel: 'EN',
         links: [
           {
+            logo: 'https://fastly.jsdelivr.net/npm/@vant/assets/weapp.svg',
+            url: 'http://10.2.1.61:18080/frontend/vant-weapp',
+          },
+          {
             logo: 'https://fastly.jsdelivr.net/npm/@vant/assets/github.svg',
-            url: 'https://github.com/vant-ui/vant',
+            url: 'http://10.2.1.61:18080/frontend/vant',
           },
         ],
         nav: [
@@ -609,10 +614,6 @@ location.href = location.href.replace('youzan.github.io', 'vant-ui.github.io');
               {
                 path: 'cascader',
                 title: 'Cascader',
-              },
-              {
-                path: 'check-button',
-                title: 'CheckButton',
               },
               {
                 path: 'checkbox',
@@ -885,6 +886,15 @@ location.href = location.href.replace('youzan.github.io', 'vant-ui.github.io');
               {
                 path: 'submit-bar',
                 title: 'SubmitBar',
+              },
+            ],
+          },
+          {
+            title: 'YouFang',
+            items: [
+              {
+                path: 'check-button',
+                title: 'CheckButton',
               },
             ],
           },

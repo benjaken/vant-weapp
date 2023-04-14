@@ -120,3 +120,5 @@ export type FieldThemeVars = {
   fieldDisabledTextColor?: string;
   fieldRequiredMarkColor?: string;
 };
+
+export type FieldTipType = 'mobile' | 'idcard' | 'bankcard';

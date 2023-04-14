@@ -10,6 +10,7 @@ import Autosize from './Autosize.vue';
 import ShowWordLimit from './ShowWordLimit.vue';
 import InputAlign from './InputAlign.vue';
 import LabelAlign from './LabelAlign.vue';
+import ShowTip from './ShowTip.vue'
 </script>
 
 <template>
@@ -24,4 +25,5 @@ import LabelAlign from './LabelAlign.vue';
   <show-word-limit />
   <input-align />
   <label-align />
+  <show-tip />
 </template>

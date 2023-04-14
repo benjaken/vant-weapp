@@ -1,0 +1,19 @@
+{
+  "0 error pnpm": {
+    "code": "ERR_PNPM_UNSUPPORTED_ENGINE",
+    "packageId": "/Users/nerochen/Documents/youfang/vant",
+    "wanted": {
+      "pnpm": ">= 8.0.0"
+    },
+    "current": {
+      "node": "v16.16.0",
+      "pnpm": "7.1.9"
+    },
+    "err": {
+      "name": "pnpm",
+      "message": "Unsupported engine for /Users/nerochen/Documents/youfang/vant: wanted: {\"pnpm\":\">= 8.0.0\"} (current: {\"node\":\"v16.16.0\",\"pnpm\":\"7.1.9\"})",
+      "code": "ERR_PNPM_UNSUPPORTED_ENGINE",
+      "stack": "pnpm: Unsupported engine for /Users/nerochen/Documents/youfang/vant: wanted: {\"pnpm\":\">= 8.0.0\"} (current: {\"node\":\"v16.16.0\",\"pnpm\":\"7.1.9\"})\n    at checkEngine (/Users/nerochen/emsdk/node/14.18.2_64bit/lib/node_modules/pnpm/dist/pnpm.cjs:41257:16)\n    at checkPackage (/Users/nerochen/emsdk/node/14.18.2_64bit/lib/node_modules/pnpm/dist/pnpm.cjs:43505:74)\n    at packageIsInstallable (/Users/nerochen/emsdk/node/14.18.2_64bit/lib/node_modules/pnpm/dist/pnpm.cjs:43528:61)\n    at exports2.default (/Users/nerochen/emsdk/node/14.18.2_64bit/lib/node_modules/pnpm/dist/pnpm.cjs:49353:46)\n    at async run (/Users/nerochen/emsdk/node/14.18.2_64bit/lib/node_modules/pnpm/dist/pnpm.cjs:182724:29)\n    at async runPnpm (/Users/nerochen/emsdk/node/14.18.2_64bit/lib/node_modules/pnpm/dist/pnpm.cjs:182987:5)\n    at async /Users/nerochen/emsdk/node/14.18.2_64bit/lib/node_modules/pnpm/dist/pnpm.cjs:182979:7"
+    }
+  }
+}

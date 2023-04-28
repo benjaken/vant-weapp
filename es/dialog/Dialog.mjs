@@ -26,7 +26,10 @@ const dialogProps = extend({}, popupSharedProps, {
   confirmButtonColor: String,
   confirmButtonDisabled: Boolean,
   showConfirmButton: truthProp,
-  closeOnClickOverlay: Boolean
+  closeOnClickOverlay: Boolean,
+  inputPattern: String,
+  inputErrorMessage: String,
+  inputPlaceholder: String
 });
 const popupInheritKeys = [...popupSharedPropKeys, "transition", "closeOnPopstate"];
 var stdin_default = defineComponent({
@@ -38,6 +41,8 @@ var stdin_default = defineComponent({
     slots
   }) {
     const root = ref();
+    const inputValue = ref("");
+    const inputError = ref(false);
     const loading = reactive({
       confirm: false,
       cancel: false
@@ -46,17 +51,41 @@ var stdin_default = defineComponent({
     const close = (action) => {
       var _a;
       updateShow(false);
+      if (props.theme === "input") {
+        inputValue.value = "";
+        inputError.value = false;
+      }
       (_a = props.callback) == null ? void 0 : _a.call(props, action);
+    };
+    const validateInput = () => {
+      const {
+        inputPattern
+      } = props;
+      inputError.value = inputPattern ? !new RegExp(inputPattern).test(inputValue.value) : false;
+    };
+    const onInput = (event) => {
+      const input = event.target;
+      const {
+        value
+      } = input;
+      inputValue.value = value;
     };
     const getActionHandler = (action) => () => {
       if (!props.show) {
         return;
       }
+      if (action === "confirm" && props.theme === "input") {
+        validateInput();
+        if (inputError.value)
+          return;
+      }
       emit(action);
       if (props.beforeClose) {
         loading[action] = true;
         callInterceptor(props.beforeClose, {
-          args: [action],
+          args: [action, {
+            value: inputValue.value
+          }],
           done() {
             close(action);
             loading[action] = false;
@@ -97,7 +126,10 @@ var stdin_default = defineComponent({
       const {
         message,
         allowHtml,
-        messageAlign
+        messageAlign,
+        theme,
+        inputPlaceholder,
+        inputErrorMessage
       } = props;
       const classNames = bem("message", {
         "has-title": hasTitle,
@@ -112,7 +144,14 @@ var stdin_default = defineComponent({
       }
       return _createVNode("div", {
         "class": classNames
-      }, [content]);
+      }, [content, theme === "input" ? _createVNode("input", {
+        "class": bem("input"),
+        "placeholder": inputPlaceholder,
+        "onBlur": validateInput,
+        "onInput": onInput
+      }, null) : "", inputError.value ? _createVNode("div", {
+        "class": bem("error-message")
+      }, [inputErrorMessage]) : ""]);
     };
     const renderContent = () => {
       if (slots.default) {

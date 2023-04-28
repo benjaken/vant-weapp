@@ -52,6 +52,7 @@ export type FieldRuleMessage =
 
 export type FieldRuleValidator = (
   value: any,
+  name: string,
   rule: FieldRule
 ) => boolean | string | Promise<boolean | string>;
 

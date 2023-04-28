@@ -52,6 +52,9 @@ export declare const Dialog: import("../utils").WithInstall<import("vue").Define
         default: true;
     };
     closeOnClickOverlay: BooleanConstructor;
+    inputPattern: StringConstructor;
+    inputErrorMessage: StringConstructor;
+    inputPlaceholder: StringConstructor;
 }, () => JSX.Element, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("cancel" | "keydown" | "update:show" | "confirm")[], "cancel" | "keydown" | "update:show" | "confirm", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     show: BooleanConstructor;
     zIndex: (NumberConstructor | StringConstructor)[];
@@ -106,6 +109,9 @@ export declare const Dialog: import("../utils").WithInstall<import("vue").Define
         default: true;
     };
     closeOnClickOverlay: BooleanConstructor;
+    inputPattern: StringConstructor;
+    inputErrorMessage: StringConstructor;
+    inputPlaceholder: StringConstructor;
 }>> & {
     onKeydown?: ((...args: any[]) => any) | undefined;
     "onUpdate:show"?: ((...args: any[]) => any) | undefined;

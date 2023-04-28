@@ -26,15 +26,55 @@ const t = useTranslate({
     title7: "Need Index",
   },
 });
-
-const value1 = ref(["苹果", "梨"]);
-const value2 = ref(["苹果", "梨"]);
-const value3 = ref(["苹果", "梨"]);
-const value4 = ref(["苹果", "梨"]);
-const value5 = ref(["苹果", "梨"]);
-const value6 = ref(["苹果"]);
+const value1 = ref(["apple", "pear"]);
+const value2 = ref(["apple", "pear"]);
+const value3 = ref(["apple", "pear"]);
+const value4 = ref(["apple", "pear"]);
+const value5 = ref(["apple", "pear"]);
+const value6 = ref(["apple"]);
 const value7 = ref([0, 1]);
-const options = ref(["苹果", "梨", "葡萄", "芒果", "火龙果"]);
+const options = ref([
+  {
+    value: "apple",
+    text: "苹果",
+  },
+  {
+    value: "pear",
+    text: "梨子",
+  },
+  {
+    value: "orange",
+    text: "橘子",
+  },
+  {
+    value: "watermelon",
+    text: "西瓜",
+  },
+  {
+    value: "peach",
+    text: "桃子",
+  },
+  {
+    value: "banana",
+    text: "香蕉",
+  },
+  {
+    value: "pitaya",
+    text: "火龙果",
+  },
+  {
+    value: "grape",
+    text: "葡萄",
+  },
+  {
+    value: "strawberry",
+    text: "草莓",
+  },
+  {
+    value: "cherry",
+    text: "樱桃",
+  },
+]);
 
 const onChange = (value: string) => showToast(t("text") + value);
 </script>

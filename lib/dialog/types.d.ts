@@ -1,6 +1,6 @@
 import type { CSSProperties, TeleportProps } from 'vue';
 import type { Interceptor, Numeric } from '../utils';
-export type DialogTheme = 'default' | 'round-button';
+export type DialogTheme = 'default' | 'round-button' | 'input';
 export type DialogAction = 'confirm' | 'cancel';
 export type DialogMessage = string | (() => JSX.Element);
 export type DialogMessageAlign = 'left' | 'center' | 'right' | 'justify';
@@ -29,6 +29,9 @@ export type DialogOptions = {
     confirmButtonColor?: string;
     confirmButtonDisabled?: boolean;
     closeOnClickOverlay?: boolean;
+    inputPattern?: string;
+    inputErrorMessage?: string;
+    inputPlaceholder?: string;
 };
 export type DialogThemeVars = {
     dialogWidth?: string;

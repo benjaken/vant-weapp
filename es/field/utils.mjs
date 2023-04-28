@@ -28,9 +28,9 @@ function runSyncRule(value, rule) {
   }
   return true;
 }
-function runRuleValidator(value, rule) {
+function runRuleValidator(value, name, rule) {
   return new Promise((resolve) => {
-    const returnVal = rule.validator(value, rule);
+    const returnVal = rule.validator(value, name, rule);
     if (isPromise(returnVal)) {
       returnVal.then(resolve);
       return;

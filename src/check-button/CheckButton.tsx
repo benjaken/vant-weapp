@@ -21,8 +21,12 @@ type CheckButtonValue = string | number;
 
 export const checkButtonProps = {
   options: {
-    type: Array as PropType<string[]>,
+    type: Array as any,
     default: []
+  },
+  label: {
+    type: String,
+    default: 'text'
   },
   modelValue: {
     type: Array as PropType<CheckButtonValue[]>,
@@ -82,16 +86,16 @@ export default defineComponent({
     };
 
     const renderButtons = () => {
-      const { options, needIndex, round, modelValue } = props;
-      return options.map((item, index) => (
+      const { label, options, needIndex, round, modelValue } = props;
+      return options.map((item: { [x: string]: any; value: CheckButtonValue; }, index: number) => (
           <div
             class={bem('item', {
-              active: modelValue.includes((needIndex ? index : item)),
+              active: modelValue.includes((needIndex ? index : item.value)),
               round,
             })}
             style={itemStyle(index)}
-            onClick={selectItem(needIndex ? index : item)}
-          >{item}</div>
+            onClick={selectItem(needIndex ? index : item.value)}
+          >{item[label]}</div>
         ))
     }
 

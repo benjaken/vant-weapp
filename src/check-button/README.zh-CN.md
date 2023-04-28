@@ -32,8 +32,49 @@ import { showToast } from 'vant';
 
 export default {
   setup() {
-    const value = ref(['苹果', '梨']);
-    const options = ref(['苹果', '梨', '葡萄', '芒果', '火龙果']);
+    const value = ref(["apple", "pear"]);
+    const options = ref([
+      {
+        value: "apple",
+        text: "苹果",
+      },
+      {
+        value: "pear",
+        text: "梨子",
+      },
+      {
+        value: "orange",
+        text: "橘子",
+      },
+      {
+        value: "watermelon",
+        text: "西瓜",
+      },
+      {
+        value: "peach",
+        text: "桃子",
+      },
+      {
+        value: "banana",
+        text: "香蕉",
+      },
+      {
+        value: "pitaya",
+        text: "火龙果",
+      },
+      {
+        value: "grape",
+        text: "葡萄",
+      },
+      {
+        value: "strawberry",
+        text: "草莓",
+      },
+      {
+        value: "cherry",
+        text: "樱桃",
+      },
+    ]);
     const onChange = (value) => showToast('当前值：' + value);
     return {
       value,
@@ -57,8 +98,49 @@ import { showToast } from 'vant';
 
 export default {
   setup() {
-    const value = ref(['苹果', '梨']);
-    const options = ref(['苹果', '梨', '葡萄', '芒果', '火龙果']);
+    const value = ref(["apple", "pear"]);
+    const options = ref([
+      {
+        value: "apple",
+        text: "苹果",
+      },
+      {
+        value: "pear",
+        text: "梨子",
+      },
+      {
+        value: "orange",
+        text: "橘子",
+      },
+      {
+        value: "watermelon",
+        text: "西瓜",
+      },
+      {
+        value: "peach",
+        text: "桃子",
+      },
+      {
+        value: "banana",
+        text: "香蕉",
+      },
+      {
+        value: "pitaya",
+        text: "火龙果",
+      },
+      {
+        value: "grape",
+        text: "葡萄",
+      },
+      {
+        value: "strawberry",
+        text: "草莓",
+      },
+      {
+        value: "cherry",
+        text: "樱桃",
+      },
+    ]);
     const onChange = (value) => showToast('当前值：' + value);
     return {
       value,
@@ -82,8 +164,49 @@ import { showToast } from 'vant';
 
 export default {
   setup() {
-    const value = ref(['苹果', '梨']);
-    const options = ref(['苹果', '梨', '葡萄', '芒果', '火龙果']);
+    const value = ref(["apple", "pear"]);
+    const options = ref([
+      {
+        value: "apple",
+        text: "苹果",
+      },
+      {
+        value: "pear",
+        text: "梨子",
+      },
+      {
+        value: "orange",
+        text: "橘子",
+      },
+      {
+        value: "watermelon",
+        text: "西瓜",
+      },
+      {
+        value: "peach",
+        text: "桃子",
+      },
+      {
+        value: "banana",
+        text: "香蕉",
+      },
+      {
+        value: "pitaya",
+        text: "火龙果",
+      },
+      {
+        value: "grape",
+        text: "葡萄",
+      },
+      {
+        value: "strawberry",
+        text: "草莓",
+      },
+      {
+        value: "cherry",
+        text: "樱桃",
+      },
+    ]);
     const onChange = (value) => showToast('当前值：' + value);
     return {
       value,
@@ -102,6 +225,7 @@ export default {
 | options | 备选项 | _Array_ | [] |
 | value | 当前选中的值 | _Array_ | [] |
 | single | 是否为单选状态 | _boolean_ | `false` |
+| label | 默认显示字段 | _string_ | `text` |
 | disabled | 是否禁用单选框 | _boolean_ | `false` |
 | horizon | 是否一行水平滑动模式 | _boolean_ | `false` |
 | needIndex | 是否返回对应的序号 | _boolean_ | `false` |

@@ -8,6 +8,10 @@ const checkButtonProps = {
     type: Array,
     default: []
   },
+  label: {
+    type: String,
+    default: "text"
+  },
   modelValue: {
     type: Array,
     default: []
@@ -63,6 +67,7 @@ var stdin_default = defineComponent({
     };
     const renderButtons = () => {
       const {
+        label,
         options,
         needIndex,
         round,
@@ -70,12 +75,12 @@ var stdin_default = defineComponent({
       } = props;
       return options.map((item, index) => _createVNode("div", {
         "class": bem("item", {
-          active: modelValue.includes(needIndex ? index : item),
+          active: modelValue.includes(needIndex ? index : item.value),
           round
         }),
         "style": itemStyle(index),
-        "onClick": selectItem(needIndex ? index : item)
-      }, [item]));
+        "onClick": selectItem(needIndex ? index : item.value)
+      }, [item[label]]));
     };
     updateValue(props.modelValue);
     useCustomFieldValue(() => props.modelValue);

@@ -62,6 +62,9 @@ export const dialogProps = extend({}, popupSharedProps, {
   confirmButtonDisabled: Boolean,
   showConfirmButton: truthProp,
   closeOnClickOverlay: Boolean,
+  inputPattern: String,
+  inputErrorMessage: String,
+  inputPlaceholder: String,
 });
 
 export type DialogProps = ExtractPropTypes<typeof dialogProps>;
@@ -81,6 +84,8 @@ export default defineComponent({
 
   setup(props, { emit, slots }) {
     const root = ref<ComponentInstance>();
+    const inputValue = ref('');
+    const inputError = ref(false);
     const loading = reactive({
       confirm: false,
       cancel: false,
@@ -90,7 +95,22 @@ export default defineComponent({
 
     const close = (action: DialogAction) => {
       updateShow(false);
+      if (props.theme === 'input') {
+        inputValue.value = '';
+        inputError.value = false;
+      }
       props.callback?.(action);
+    };
+
+    const validateInput = () => {
+      const { inputPattern } = props;
+      inputError.value = inputPattern ? !new RegExp(inputPattern).test(inputValue.value) : false;
+    };
+
+    const onInput = (event: Event) => {
+      const input = event.target as HTMLInputElement;
+      const { value } = input;
+      inputValue.value = value;
     };
 
     const getActionHandler = (action: DialogAction) => () => {
@@ -99,12 +119,17 @@ export default defineComponent({
         return;
       }
 
+      if (action === 'confirm' && props.theme === 'input') {
+        validateInput();
+        if (inputError.value) return;
+      }
+
       emit(action);
 
       if (props.beforeClose) {
         loading[action] = true;
         callInterceptor(props.beforeClose, {
-          args: [action],
+          args: [action, { value: inputValue.value }],
           done() {
             close(action);
             loading[action] = false;
@@ -154,7 +179,14 @@ export default defineComponent({
     };
 
     const renderMessage = (hasTitle: boolean) => {
-      const { message, allowHtml, messageAlign } = props;
+      const {
+        message,
+        allowHtml,
+        messageAlign,
+        theme,
+        inputPlaceholder,
+        inputErrorMessage,
+      } = props;
       const classNames = bem('message', {
         'has-title': hasTitle,
         [messageAlign as string]: messageAlign,
@@ -166,7 +198,26 @@ export default defineComponent({
         return <div class={classNames} innerHTML={content} />;
       }
 
-      return <div class={classNames}>{content}</div>;
+      return (
+        <div class={classNames}>
+          {content}
+          {theme === 'input' ? (
+            <input
+              class={bem('input')}
+              placeholder={inputPlaceholder}
+              onBlur={validateInput}
+              onInput={onInput}
+            />
+          ) : (
+            ''
+          )}
+          {inputError.value ? (
+            <div class={bem('error-message')}>{inputErrorMessage}</div>
+          ) : (
+            ''
+          )}
+        </div>
+      );
     };
 
     const renderContent = () => {

@@ -28,7 +28,10 @@ const DEFAULT_OPTIONS = {
   showConfirmButton: true,
   showCancelButton: false,
   closeOnPopstate: true,
-  closeOnClickOverlay: false
+  closeOnClickOverlay: false,
+  inputPattern: "",
+  inputErrorMessage: "",
+  inputPlaceholder: ""
 };
 let currentOptions = extend({}, DEFAULT_OPTIONS);
 function initInstance() {

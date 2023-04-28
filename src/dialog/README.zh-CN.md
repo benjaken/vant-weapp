@@ -94,6 +94,24 @@ showDialog({
 });
 ```
 
+### 带输入框
+
+将 theme 选项设置为 `input` 可以展示带输入框的弹窗。
+
+```js
+import { showDialog } from 'vant';
+
+showDialog({
+  title: '标题',
+  message: '代码是写出来给人看的，附带能在机器上运行。',
+  inputPattern: "\\S",
+  inputErrorMessage: "不能为空",
+  inputPlaceholder: "请输入内容",
+}).then(() => {
+  // on close
+});
+```
+
 ### 异步关闭
 
 通过 `beforeClose` 属性可以传入一个回调函数，在弹窗关闭前进行特定操作。
@@ -166,7 +184,7 @@ Vant 中导出了以下 Dialog 相关的辅助函数：
 | width | 弹窗宽度，默认单位为 `px` | _number \| string_ | `320px` |
 | message | 文本内容，支持通过 `\n` 换行 | _string \| () => JSX.ELement_ | - |
 | messageAlign | 内容对齐方式，可选值为 `left` `right` | _string_ | `center` |
-| theme | 样式风格，可选值为 `round-button` | _string_ | `default` |
+| theme | 样式风格，可选值为 `round-button` `input` | _string_ | `default` |
 | className | 自定义类名 | _string \| Array \| object_ | - |
 | showConfirmButton | 是否展示确认按钮 | _boolean_ | `true` |
 | showCancelButton | 是否展示取消按钮 | _boolean_ | `false` |
@@ -176,6 +194,9 @@ Vant 中导出了以下 Dialog 相关的辅助函数：
 | cancelButtonText | 取消按钮文案 | _string_ | `取消` |
 | cancelButtonColor | 取消按钮颜色 | _string_ | `black` |
 | cancelButtonDisabled | 是否禁用取消按钮 | _boolean_ | `false` |
+| inputPattern | 弹出框的输入框正则 | _string_ | - |
+| inputErrorMessage | 弹出框的输入框错误提示 | _string_ | - |
+| inputPlaceholder | 弹出框的输入框placeholder | _string_ | - |
 | overlay | 是否展示遮罩层 | _boolean_ | `true` |
 | overlayClass | 自定义遮罩层类名 | _string \| Array \| object_ | - |
 | overlayStyle | 自定义遮罩层样式 | _object_ | - |
@@ -198,7 +219,7 @@ Vant 中导出了以下 Dialog 相关的辅助函数：
 | width | 弹窗宽度，默认单位为 `px` | _number \| string_ | `320px` |
 | message | 文本内容，支持通过 `\n` 换行 | _string \| () => JSX.Element_ | - |
 | message-align | 内容水平对齐方式，可选值为 `left` `right` `justify` | _string_ | `center` |
-| theme | 样式风格，可选值为 `round-button` | _string_ | `default` |
+| theme | 样式风格，可选值为 `round-button` `input` | _string_ | `default` |
 | show-confirm-button | 是否展示确认按钮 | _boolean_ | `true` |
 | show-cancel-button | 是否展示取消按钮 | _boolean_ | `false` |
 | confirm-button-text | 确认按钮文案 | _string_ | `确认` |
@@ -207,6 +228,9 @@ Vant 中导出了以下 Dialog 相关的辅助函数：
 | cancel-button-text | 取消按钮文案 | _string_ | `取消` |
 | cancel-button-color | 取消按钮颜色 | _string_ | `black` |
 | cancel-button-disabled | 是否禁用取消按钮 | _boolean_ | `false` |
+| input-pattern | 弹出框的输入框正则 | _string_ | - |
+| input-error-message | 弹出框的输入框错误提示 | _string_ | - |
+| input-placeholder | 弹出框的输入框placeholder | _string_ | - |
 | z-index | 将弹窗的 z-index 层级设置为一个固定值 | _number \| string_ | `2000+` |
 | overlay | 是否展示遮罩层 | _boolean_ | `true` |
 | overlay-class | 自定义遮罩层类名 | _string_ | - |

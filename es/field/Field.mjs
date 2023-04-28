@@ -148,7 +148,7 @@ var stdin_default = defineComponent({
         if (isEmptyValue(value) && rule.validateEmpty === false) {
           return;
         }
-        return runRuleValidator(value, rule).then((result) => {
+        return runRuleValidator(value, props.name || "", rule).then((result) => {
           if (result && typeof result === "string") {
             state.status = "failed";
             state.validateMessage = result;

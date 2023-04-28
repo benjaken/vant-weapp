@@ -14,7 +14,7 @@ export type FieldValidateError = {
     message: string;
 };
 export type FieldRuleMessage = string | ((value: any, rule: FieldRule) => string);
-export type FieldRuleValidator = (value: any, rule: FieldRule) => boolean | string | Promise<boolean | string>;
+export type FieldRuleValidator = (value: any, name: string, rule: FieldRule) => boolean | string | Promise<boolean | string>;
 export type FieldRuleFormatter = (value: any, rule: FieldRule) => string;
 export type FieldRule = {
     pattern?: RegExp;

@@ -33,9 +33,9 @@ export function runSyncRule(value: unknown, rule: FieldRule) {
   return true;
 }
 
-export function runRuleValidator(value: unknown, rule: FieldRule) {
+export function runRuleValidator(value: unknown, name: string, rule: FieldRule) {
   return new Promise((resolve) => {
-    const returnVal = rule.validator!(value, rule);
+    const returnVal = rule.validator!(value, name, rule);
 
     if (isPromise(returnVal)) {
       returnVal.then(resolve);

@@ -1,7 +1,11 @@
 export declare const CheckButton: import("../utils").WithInstall<import("vue").DefineComponent<{
     options: {
-        type: import("vue").PropType<string[]>;
+        type: any;
         default: never[];
+    };
+    label: {
+        type: StringConstructor;
+        default: string;
     };
     modelValue: {
         type: import("vue").PropType<(string | number)[]>;
@@ -19,8 +23,12 @@ export declare const CheckButton: import("../utils").WithInstall<import("vue").D
     beforeChange: null;
 }, () => JSX.Element, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "change")[], "update:modelValue" | "change", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     options: {
-        type: import("vue").PropType<string[]>;
+        type: any;
         default: never[];
+    };
+    label: {
+        type: StringConstructor;
+        default: string;
     };
     modelValue: {
         type: import("vue").PropType<(string | number)[]>;
@@ -40,12 +48,13 @@ export declare const CheckButton: import("../utils").WithInstall<import("vue").D
     onChange?: ((...args: any[]) => any) | undefined;
     "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
 }, {
+    label: string;
     round: boolean;
     disabled: boolean;
     modelValue: (string | number)[];
     row: number;
     single: boolean;
-    options: string[];
+    options: any;
     horizon: boolean;
     needIndex: boolean;
 }>>;

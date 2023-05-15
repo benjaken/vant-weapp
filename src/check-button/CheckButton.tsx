@@ -1,7 +1,6 @@
 import {
   ref,
   defineComponent,
-  type PropType,
   type CSSProperties,
   type ExtractPropTypes,
 } from 'vue';
@@ -17,7 +16,7 @@ import { useCustomFieldValue } from '@vant/use';
 
 const [name, bem] = createNamespace('check-button');
 
-type CheckButtonValue = string | number;
+type CheckButtonValue = string | number | string[] | number[];
 
 export const checkButtonProps = {
   options: {
@@ -29,8 +28,8 @@ export const checkButtonProps = {
     default: 'text'
   },
   modelValue: {
-    type: Array as PropType<CheckButtonValue[]>,
-    default: [],
+    type: [String, Number, Array] as any,
+    default: ''
   },
   round: Boolean,
   disabled: Boolean,
@@ -41,7 +40,11 @@ export const checkButtonProps = {
     default: 2,
   },
   needIndex: Boolean,
-  beforeChange: null
+  beforeChange: null,
+  disabledItems: {
+    type: Array,
+    default: () => [],
+  }
 };
 
 export type CheckButtonProps = ExtractPropTypes<typeof checkButtonProps>;
@@ -67,7 +70,7 @@ export default defineComponent({
     };
 
 
-    const updateValue = (value: CheckButtonValue[], end?: boolean) => {
+    const updateValue = (value: CheckButtonValue | CheckButtonValue[], end?: boolean) => {
       if (!isSameValue(value, props.modelValue)) {
         emit('update:modelValue', value);
       }
@@ -78,19 +81,20 @@ export default defineComponent({
     };
 
     const selectItem = (value: CheckButtonValue) => () => {
-      const { modelValue, disabled, single } = props;
-      if (!disabled) {
-        const newValue = single ? [value] : modelValue.includes(value) ? modelValue.filter((item) => item !== value) : [...modelValue, value];
+      const { modelValue, disabled, disabledItems, single } = props;
+      if (!disabled && !disabledItems?.includes(value)) {
+        const newValue = single ? value : modelValue.includes(value) ? modelValue.filter((item: CheckButtonValue) => item !== value) : [...modelValue, value];
         updateValue(newValue, true);
       }
     };
 
     const renderButtons = () => {
-      const { label, options, needIndex, round, modelValue } = props;
+      const { single, label, options, needIndex, round, modelValue, disabledItems = [] } = props;
       return options.map((item: { [x: string]: any; value: CheckButtonValue; }, index: number) => (
           <div
             class={bem('item', {
-              active: modelValue.includes((needIndex ? index : item.value)),
+              active: single ? modelValue === (needIndex ? index : item.value) : modelValue.includes((needIndex ? index : item.value)),
+              disabled: disabledItems.includes(item.value),
               round,
             })}
             style={itemStyle(index)}

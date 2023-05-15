@@ -31,7 +31,7 @@ const value2 = ref(["apple", "pear"]);
 const value3 = ref(["apple", "pear"]);
 const value4 = ref(["apple", "pear"]);
 const value5 = ref(["apple", "pear"]);
-const value6 = ref(["apple"]);
+const value6 = ref("apple");
 const value7 = ref([0, 1]);
 const options = ref([
   {
@@ -76,12 +76,20 @@ const options = ref([
   },
 ]);
 
-const onChange = (value: string) => showToast(t("text") + value);
+const onChange = (value: string) =>
+  showToast({
+    message: t("text") + (Array.isArray(value) ? value.join(", ") : value)
+  });
 </script>
 
 <template>
   <demo-block card :title="t('title1')">
-    <van-check-button v-model="value1" :options="options" @change="onChange" />
+    <van-check-button
+      v-model="value1"
+      :options="options"
+      :disabled-items="['peach']"
+      @change="onChange"
+    />
   </demo-block>
 
   <demo-block card :title="t('title2')">

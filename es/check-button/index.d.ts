@@ -8,8 +8,8 @@ export declare const CheckButton: import("../utils").WithInstall<import("vue").D
         default: string;
     };
     modelValue: {
-        type: import("vue").PropType<(string | number)[]>;
-        default: never[];
+        type: any;
+        default: string;
     };
     round: BooleanConstructor;
     disabled: BooleanConstructor;
@@ -21,6 +21,10 @@ export declare const CheckButton: import("../utils").WithInstall<import("vue").D
     };
     needIndex: BooleanConstructor;
     beforeChange: null;
+    disabledItems: {
+        type: ArrayConstructor;
+        default: () => never[];
+    };
 }, () => JSX.Element, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "change")[], "update:modelValue" | "change", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     options: {
         type: any;
@@ -31,8 +35,8 @@ export declare const CheckButton: import("../utils").WithInstall<import("vue").D
         default: string;
     };
     modelValue: {
-        type: import("vue").PropType<(string | number)[]>;
-        default: never[];
+        type: any;
+        default: string;
     };
     round: BooleanConstructor;
     disabled: BooleanConstructor;
@@ -44,6 +48,10 @@ export declare const CheckButton: import("../utils").WithInstall<import("vue").D
     };
     needIndex: BooleanConstructor;
     beforeChange: null;
+    disabledItems: {
+        type: ArrayConstructor;
+        default: () => never[];
+    };
 }>> & {
     onChange?: ((...args: any[]) => any) | undefined;
     "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
@@ -51,12 +59,13 @@ export declare const CheckButton: import("../utils").WithInstall<import("vue").D
     label: string;
     round: boolean;
     disabled: boolean;
-    modelValue: (string | number)[];
+    modelValue: any;
     row: number;
     single: boolean;
     options: any;
     horizon: boolean;
     needIndex: boolean;
+    disabledItems: unknown[];
 }>>;
 export default CheckButton;
 export { checkButtonProps } from './CheckButton';

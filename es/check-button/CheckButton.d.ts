@@ -1,5 +1,4 @@
-import { type PropType, type ExtractPropTypes } from 'vue';
-type CheckButtonValue = string | number;
+import { type ExtractPropTypes } from 'vue';
 export declare const checkButtonProps: {
     options: {
         type: any;
@@ -10,8 +9,8 @@ export declare const checkButtonProps: {
         default: string;
     };
     modelValue: {
-        type: PropType<CheckButtonValue[]>;
-        default: never[];
+        type: any;
+        default: string;
     };
     round: BooleanConstructor;
     disabled: BooleanConstructor;
@@ -23,6 +22,10 @@ export declare const checkButtonProps: {
     };
     needIndex: BooleanConstructor;
     beforeChange: null;
+    disabledItems: {
+        type: ArrayConstructor;
+        default: () => never[];
+    };
 };
 export type CheckButtonProps = ExtractPropTypes<typeof checkButtonProps>;
 declare const _default: import("vue").DefineComponent<{
@@ -35,8 +38,8 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
     modelValue: {
-        type: PropType<CheckButtonValue[]>;
-        default: never[];
+        type: any;
+        default: string;
     };
     round: BooleanConstructor;
     disabled: BooleanConstructor;
@@ -48,6 +51,10 @@ declare const _default: import("vue").DefineComponent<{
     };
     needIndex: BooleanConstructor;
     beforeChange: null;
+    disabledItems: {
+        type: ArrayConstructor;
+        default: () => never[];
+    };
 }, () => JSX.Element, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "change")[], "update:modelValue" | "change", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<ExtractPropTypes<{
     options: {
         type: any;
@@ -58,8 +65,8 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
     modelValue: {
-        type: PropType<CheckButtonValue[]>;
-        default: never[];
+        type: any;
+        default: string;
     };
     round: BooleanConstructor;
     disabled: BooleanConstructor;
@@ -71,6 +78,10 @@ declare const _default: import("vue").DefineComponent<{
     };
     needIndex: BooleanConstructor;
     beforeChange: null;
+    disabledItems: {
+        type: ArrayConstructor;
+        default: () => never[];
+    };
 }>> & {
     onChange?: ((...args: any[]) => any) | undefined;
     "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
@@ -78,11 +89,12 @@ declare const _default: import("vue").DefineComponent<{
     label: string;
     round: boolean;
     disabled: boolean;
-    modelValue: CheckButtonValue[];
+    modelValue: any;
     row: number;
     single: boolean;
     options: any;
     horizon: boolean;
     needIndex: boolean;
+    disabledItems: unknown[];
 }>;
 export default _default;

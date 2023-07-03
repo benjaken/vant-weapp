@@ -31,6 +31,10 @@ VantComponent({
             type: Number,
             value: 100,
         },
+        quality: {
+            type: Number,
+            value: 1,
+        }
     },
     data: {
         showImg: false,
@@ -143,7 +147,7 @@ VantComponent({
             });
         },
         getImageInfo() {
-            const { qualityWidth, innerAspectRadio, filePath, cropperW, cropperH, cutL, cutR, cutT, cutB, } = this.data;
+            const { quality, qualityWidth, innerAspectRadio, filePath, cropperW, cropperH, cutL, cutR, cutT, cutB, } = this.data;
             wx.showLoading({
                 title: '图片处理中...',
             });
@@ -165,7 +169,8 @@ VantComponent({
                         height: canvasH,
                         destWidth: canvasW,
                         destHeight: canvasH,
-                        quality: 0.9,
+                        quality,
+                        fileType: 'jpg',
                         canvasId: 'wxCropperCanvas',
                     }, this);
                     const img = {

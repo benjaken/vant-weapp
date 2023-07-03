@@ -22,6 +22,10 @@ VantComponent({
       type: Number,
       value: 100,
     },
+    quality: {
+      type: Number,
+      value: 1,
+    }
   },
   data: {
     showImg: false,
@@ -135,6 +139,7 @@ VantComponent({
     },
     getImageInfo() {
       const {
+        quality,
         qualityWidth,
         innerAspectRadio,
         filePath,
@@ -167,7 +172,8 @@ VantComponent({
               height: canvasH,
               destWidth: canvasW,
               destHeight: canvasH,
-              quality: 0.9,
+              quality,
+              fileType: 'jpg',
               canvasId: 'wxCropperCanvas',
             },
             this

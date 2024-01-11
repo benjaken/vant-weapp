@@ -1,12 +1,3 @@
-/*
- * @Author: chenzh chenzh@szfdc.net.cn
- * @Date: 2022-06-09 11:43:07
- * @LastEditors: chenzh chenzh@szfdc.net.cn
- * @LastEditTime: 2022-12-10 11:46:29
- * @Description: 
- * 
- * Copyright (c) 2022 by 深圳市优房网络有限公司 All Rights Reserved. 
- */
 /* eslint-disable */
 var startX = 0;
 function start(event, ins) {
@@ -17,9 +8,12 @@ function start(event, ins) {
   ins.callMethod('onDragStart', {
     isDrag: true,
   });
-  ins.selectComponent('.van-slide-captcha__origin').setStyle({
-    left: left - target + 'px',
-  });
+  var target = ins.selectComponent('.van-slide-captcha__origin');
+  if (target) {
+    target.setStyle({
+      left: left - target + 'px',
+    });
+  }
 }
 function move(event, ins) {
   var touch = event.touches[0] || event.changedTouches[0];
@@ -29,9 +23,12 @@ function move(event, ins) {
   var left = event.currentTarget.dataset.left;
   var max = event.currentTarget.dataset.max;
   if (width > 0) {
-    ins.selectComponent('.van-slide-captcha__origin').setStyle({
-      left: (left - target + (width >= max ? max : width)) + 'px',
-    });
+    var target = ins.selectComponent('.van-slide-captcha__origin');
+    if (target) {
+      target.setStyle({
+        left: left - target + (width >= max ? max : width) + 'px',
+      });
+    }
   }
 }
 function end(event, ins) {
@@ -39,7 +36,7 @@ function end(event, ins) {
   var touch = event.touches[0] || event.changedTouches[0];
   if (touch.pageX - startX > 0) {
     ins.callMethod('onDragEnd', {
-      x: (touch.pageX - startX) >= max ? max : touch.pageX - startX,
+      x: touch.pageX - startX >= max ? max : touch.pageX - startX,
       isDrag: false,
     });
   }

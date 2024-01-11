@@ -10,12 +10,15 @@ function move(event, ins) {
   var width = pageX - startX;
   var max = event.currentTarget.dataset.max;
   if (width > 0) {
-    if (ins.selectComponent('.van-slide-verify__background').hasClass('van-slide-verify__background--zero')) {
-      ins.selectComponent('.van-slide-verify__background').removeClass('van-slide-verify__background--zero')
+    var target = ins.selectComponent('.van-slide-verify__background');
+    if (target) {
+      if (target.hasClass('van-slide-verify__background--zero')) {
+        target.removeClass('van-slide-verify__background--zero');
+      }
+      target.setStyle({
+        width: (width >= max ? max : width + 2) + 'px',
+      });
     }
-    ins.selectComponent('.van-slide-verify__background').setStyle({
-      width: (width >= max ? max : width + 2) + 'px',
-    });
   }
 }
 function end(event, ins) {

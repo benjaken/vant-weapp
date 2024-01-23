@@ -8,9 +8,9 @@ function start(event, ins) {
   ins.callMethod('onDragStart', {
     isDrag: true,
   });
-  var target = ins.selectComponent('.van-slide-captcha__origin');
-  if (target) {
-    target.setStyle({
+  var element = ins.selectComponent('.van-slide-captcha__origin');
+  if (element) {
+    element.setStyle({
       left: left - target + 'px',
     });
   }
@@ -22,13 +22,11 @@ function move(event, ins) {
   var target = event.currentTarget.dataset.target;
   var left = event.currentTarget.dataset.left;
   var max = event.currentTarget.dataset.max;
-  if (width > 0) {
-    var target = ins.selectComponent('.van-slide-captcha__origin');
-    if (target) {
-      target.setStyle({
-        left: left - target + (width >= max ? max : width) + 'px',
-      });
-    }
+  var element = ins.selectComponent('.van-slide-captcha__origin');
+  if (width > 0 && element) {
+    element.setStyle({
+      left: left - target + (width >= max ? max : width) + 'px',
+    });
   }
 }
 function end(event, ins) {

@@ -9246,9 +9246,9 @@ moo-color@^1.0.2:
     color-name "^1.1.4"
 
 mp-html@^2.3.0:
-  version "2.3.1"
-  resolved "https://registry.npmmirror.com/mp-html/-/mp-html-2.3.1.tgz#d6d97b2339a93c2235625e5375078174bf33c5ba"
-  integrity sha512-ltHmJVxmgvlcW9tmNUjkgn/491Q6xHBL484yvlVNWmKscGgNfXycvdmM981PaDnrDDSA59YPFDo1736B6S1zRg==
+  version "2.4.3"
+  resolved "https://registry.npmmirror.com/mp-html/-/mp-html-2.4.3.tgz#5749d3a0d50cf9d10d539206361f33abbdda584a"
+  integrity sha512-3Mqzig06Y4M4sUl1onxSOnbRrR+taNeMEgeweaE5g2b/D7cVBuGnr2SwCUgUwmhiEGJ+dsIPj0uFEzFNxp+YNA==
 
 ms@2.0.0:
   version "2.0.0"
